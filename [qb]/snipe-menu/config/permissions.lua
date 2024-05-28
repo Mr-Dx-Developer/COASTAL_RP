@@ -26,8 +26,8 @@ Config.GodRoles = {
 }
 
 Config.Permissions = {
-    ["discord:811436286006657025"] = "god",
-
+    ["discord:811436286006657025"] = "god", -- DX
+    ["license:371ff173f6d081756cbcb725ed34a84b306fce75"] = "god", -- DX
 
 
 
