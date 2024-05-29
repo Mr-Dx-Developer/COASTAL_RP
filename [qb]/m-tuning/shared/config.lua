@@ -4,7 +4,7 @@ Config.Framework = "QBCore" -- QBCore, ESX
 Config.Database = "oxmysql" --oxmysql, ghmattimysql , mysql-asnyc
 
 
-Config.ItemControl = false -- If true you can only open menus with items, if false only with commands
+Config.ItemControl = true -- If true you can only open menus with items, if false only with commands
 Config.TabletItemName = "tunertablet" -- Tuner Tablet Item Name
 Config.CheckerItemName = "tunerchecker" -- Tuner Checker Tablet Item Name
 Config.OpenCommand = "tablet" -- Tuner Tablet Command
