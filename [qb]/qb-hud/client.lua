@@ -31,9 +31,9 @@ local radioActive = false
 DisplayRadar(false)
 
 local function CinematicShow(bool)
-    SetRadarBigmapEnabled(true, false)
+    SetBigmapActive(true, false)
     Wait(0)
-    SetRadarBigmapEnabled(false, false)
+    SetBigmapActive(false, false)
     if bool then
         for i = CinematicHeight, 0, -1.0 do
             Wait(10)
@@ -152,19 +152,6 @@ local function restartHud()
     SendNUIMessage({ action = 'hudtick', show = true })
     Wait(2600)
     QBCore.Functions.Notify(Lang:t('notify.hud_start'), 'success')
-end
-
-
--- Refresh Hud
-function refreshHud()
-    if refreshHudCalled then
-        return
-    else
-        Wait(50)
-        SendNUIMessage({ action = 'hudtick', show = false })
-        SendNUIMessage({ action = 'hudtick', show = true })
-        refreshHudCalled = true
-    end
 end
 
 RegisterNUICallback('restartHud', function(_, cb)
@@ -403,10 +390,10 @@ RegisterNetEvent('hud:client:LoadMap', function()
         -- 0.315 = map shorten
         SetMinimapComponentPosition('minimap_blur', 'L', 'B', -0.01 + minimapOffset, 0.025, 0.262, 0.300)
         SetBlipAlpha(GetNorthRadarBlip(), 0)
-        SetRadarBigmapEnabled(true, false)
+        SetBigmapActive(true, false)
         SetMinimapClipType(0)
         Wait(50)
-        SetRadarBigmapEnabled(false, false)
+        SetBigmapActive(false, false)
         if Menu.isToggleMapBordersChecked then
             showCircleB = false
             showSquareB = true
@@ -441,9 +428,9 @@ RegisterNetEvent('hud:client:LoadMap', function()
         SetMinimapComponentPosition('minimap_blur', 'L', 'B', -0.00 + minimapOffset, 0.015, 0.252, 0.338)
         SetBlipAlpha(GetNorthRadarBlip(), 0)
         SetMinimapClipType(1)
-        SetRadarBigmapEnabled(true, false)
+        SetBigmapActive(true, false)
         Wait(50)
-        SetRadarBigmapEnabled(false, false)
+        SetBigmapActive(false, false)
         if Menu.isToggleMapBordersChecked then
             showSquareB = false
             showCircleB = true
@@ -588,7 +575,7 @@ RegisterNetEvent('seatbelt:client:ToggleCruise', function() -- Triggered in smal
     cruiseOn = not cruiseOn
 end)
 
-RegisterNetEvent('hud:client:UpdateNitrous', function(_, nitroLevel, bool)
+RegisterNetEvent('hud:client:UpdateNitrous', function(nitroLevel, bool)
     nos = nitroLevel
     nitroActive = bool
 end)
@@ -716,9 +703,9 @@ CreateThread(function()
             playerDead = IsEntityDead(player) or PlayerData.metadata['inlaststand'] or PlayerData.metadata['isdead'] or false
             parachute = GetPedParachuteState(player)
             -- Stamina
-            --if not IsEntityInWater(player) then
-                --oxygen = 100 - GetPlayerSprintStaminaRemaining(playerId)
-            --end
+            if not IsEntityInWater(player) then
+                oxygen = 100 - GetPlayerSprintStaminaRemaining(playerId)
+            end
             -- Oxygen
             if IsEntityInWater(player) then
                 oxygen = GetPlayerUnderwaterTimeRemaining(playerId) * 10
@@ -730,11 +717,7 @@ CreateThread(function()
                 voice = LocalPlayer.state['proximity'].distance
             end
             if IsPauseMenuActive() then
-                refreshHudCalled = false
                 show = false
-            else
-                refreshHud()
-                refreshHudCalled = true
             end
             local vehicle = GetVehiclePedIsIn(player)
             if not (IsPedInAnyVehicle(player) and not IsThisModelABicycle(vehicle)) then
@@ -1023,18 +1006,10 @@ CreateThread(function()
     end
 end)
 
--- Please don't remove me i wanna be here
-RegisterCommand('cuzwhynot', function()
-    print('Kane Github : rohKane')
-    print('Kane Discord : roh_kane')
-    print('Kane Github : rohKane')
-    print('Kane Discord : roh_kane')
-end, false)
-
 -- Minimap update
 CreateThread(function()
     while true do
-        SetRadarBigmapEnabled(false, false)
+        SetBigmapActive(false, false)
         SetRadarZoom(1000)
         Wait(500)
     end
@@ -1126,6 +1101,7 @@ CreateThread(function()
         else
             Wait(0)
         end
+        local show = true
         local player = PlayerPedId()
         local camRot = GetGameplayCamRot(0)
         if Menu.isCompassFollowChecked then
@@ -1135,25 +1111,14 @@ CreateThread(function()
         end
         if heading == '360' then heading = '0' end
         if heading ~= lastHeading then
-            local show = IsPedInAnyVehicle(player)
-            local crossroads = getCrossroads(player)
-            SendNUIMessage({
-                action = 'update',
-                value = heading
-            })
-            if not Menu.isOutCompassChecked then
+            if IsPedInAnyVehicle(player) then
+                local crossroads = getCrossroads(player)
+                SendNUIMessage({
+                    action = 'update',
+                    value = heading
+                })
                 updateBaseplateHud({
                     show,
-                    show and crossroads[1] or "",
-                    show and crossroads[2] or "",
-                    Menu.isCompassShowChecked,
-                    Menu.isShowStreetsChecked,
-                    Menu.isPointerShowChecked,
-                    Menu.isDegreesShowChecked,
-                })
-            else
-                updateBaseplateHud({
-                    true,
                     crossroads[1],
                     crossroads[2],
                     Menu.isCompassShowChecked,
@@ -1161,34 +1126,25 @@ CreateThread(function()
                     Menu.isPointerShowChecked,
                     Menu.isDegreesShowChecked,
                 })
+            else
+                if Menu.isOutCompassChecked then
+                    SendNUIMessage({
+                        action = 'update',
+                        value = heading
+                    })
+                    SendNUIMessage({
+                        action = 'baseplate',
+                        show = true,
+                        showCompass = true,
+                    })
+                else
+                    SendNUIMessage({
+                        action = 'baseplate',
+                        show = false,
+                    })
+                end
             end
         end
         lastHeading = heading
-    end
-end)
-
-
-
-
-
-
-Citizen.CreateThread(function()
-    while true do
-        local player = GetPlayerPed(-1)
-        local vehicle = GetVehiclePedIsIn(player, false)
-
-        if IsPedInAnyVehicle(player, false) then
-        --print("is a car beu")
-            local rpmlol = GetVehicleCurrentRpm(vehicle)
-            local selectedgear = getSelectedGear()
-            local gearlol = getinfo(selectedgear)
-            --print("RPM: " .. rpm)  -- Debugging line
-
-            SendNUIMessage({
-                rpm = rpmlol,
-                gear = gearlol
-            })
-        end
-        Citizen.Wait(100)
     end
 end)

@@ -68,5 +68,3 @@ end)
 QBCore.Functions.CreateCallback('hud:server:getMenu', function(_, cb)
     cb(Config.Menu)
 end)
-
-
