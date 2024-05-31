@@ -382,4 +382,538 @@ QBShared.Items = {
     newscam                      = { name = 'newscam', label = 'News Camera', weight = 100, type = 'item', image = 'newscam.png', unique = true, useable = true, shouldClose = true, description = 'A camera for the news' },
     newsmic                      = { name = 'newsmic', label = 'News Microphone', weight = 100, type = 'item', image = 'newsmic.png', unique = true, useable = true, shouldClose = true, description = 'A microphone for the news' },
     newsbmic                     = { name = 'newsbmic', label = 'Boom Microphone', weight = 100, type = 'item', image = 'newsbmic.png', unique = true, useable = true, shouldClose = true, description = 'A Useable BoomMic' },
+
+
+    
+
+['strippedbass'] = {
+    ['name'] = 'strippedbass', 			 	  	  	
+    ['label'] = 'strippedbass', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'strippedbass.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+
+['silverymonnow'] = {
+    ['name'] = 'silverymonnow', 			 	  	  	
+    ['label'] = 'silverymonnow', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'silverymonnow.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['goldentrout'] = {
+    ['name'] = 'goldentrout', 			 	  	  	
+    ['label'] = 'goldentrout', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'goldentrout.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['bluegill'] = {
+    ['name'] = 'bluegill', 			 	  	  	
+    ['label'] = 'bluegill', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'bluegill.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['tench'] = {
+    ['name'] = 'tench', 			 	  	  	
+    ['label'] = 'tench', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'tench.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['whitefish'] = {
+    ['name'] = 'whitefish', 			 	  	  	
+    ['label'] = 'whitefish', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'whitefish.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['crappie'] = {
+    ['name'] = 'crappie', 			 	  	  	
+    ['label'] = 'crappie', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'crappie.png', 				
+    ['unique'] = false, 	
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['cruciancarp'] = {
+    ['name'] = 'cruciancarp', 			 	  	  	
+    ['label'] = 'cruciancarp', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'cruciancarp.png', 				
+    ['unique'] = false, 	
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['bluebackherring'] = {
+    ['name'] = 'bluebackherring', 			 	  	  	
+    ['label'] = 'bluebackherring', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'bluebackherring.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['bulltrout'] = {
+    ['name'] = 'bulltrout', 			 	  	  	
+    ['label'] = 'bulltrout', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'bulltrout.png', 				
+    ['unique'] = false, 			
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['laketrout'] = {
+    ['name'] = 'laketrout', 			 	  	  	
+    ['label'] = 'laketrout', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'laketrout.png', 				
+    ['unique'] = false, 			
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['perch'] = {
+    ['name'] = 'perch', 			 	  	  	
+    ['label'] = 'perch', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'perch.png', 				
+    ['unique'] = false, 			
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['chub'] = {
+    ['name'] = 'chub', 			 	  	  	
+    ['label'] = 'chub', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'chub.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['colorodopikeminnow'] = {
+    ['name'] = 'colorodopikeminnow', 			 	  	  	
+    ['label'] = 'colorodopikeminnow', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'colorodopikeminnow.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['drumfish'] = {
+    ['name'] = 'drumfish', 			 	  	  	
+    ['label'] = 'drumfish', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'drumfish.png', 				
+    ['unique'] = false, 	
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['wallaye'] = {
+    ['name'] = 'wallaye', 			 	  	  	
+    ['label'] = 'wallaye', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'wallaye.png', 				
+    ['unique'] = false, 			
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['americanshad'] = {
+    ['name'] = 'americanshad', 			 	  	  	
+    ['label'] = 'americanshad', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'americanshad.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['palidsturgeon'] = {
+    ['name'] = 'palidsturgeon', 			 	  	  	
+    ['label'] = 'palidsturgeon', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'palidsturgeon.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['pike'] = {
+    ['name'] = 'pike', 			 	  	  	
+    ['label'] = 'pike', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'pike.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['blackcrappie'] = {
+    ['name'] = 'blackcrappie', 			 	  	  	
+    ['label'] = 'blackcrappie', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'blackcrappie.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['bream'] = {
+    ['name'] = 'bream', 			 	  	  	
+    ['label'] = 'bream', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'bream.png', 				
+    ['unique'] = false, 			
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['brooktrout'] = {
+    ['name'] = 'brooktrout', 			 	  	  	
+    ['label'] = 'brooktrout', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'brooktrout.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['shortnosesucker'] = {
+    ['name'] = 'shortnosesucker', 			 	  	  	
+    ['label'] = 'shortnosesucker', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'shortnosesucker.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['smallmouthbass'] = {
+    ['name'] = 'smallmouthbass', 			 	  	  	
+    ['label'] = 'smallmouthbass', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'smallmouthbass.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['arowana'] = {
+    ['name'] = 'arowana', 			 	  	  	
+    ['label'] = 'arowana', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'arowana.png', 				
+    ['unique'] = false, 			
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['sweetfish'] = {
+    ['name'] = 'sweetfish', 			 	  	  	
+    ['label'] = 'sweetfish', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'sweetfish.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['whitebass'] = {
+    ['name'] = 'whitebass', 			 	  	  	
+    ['label'] = 'whitebass', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'whitebass.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['alabamasturgeon'] = {
+    ['name'] = 'alabamasturgeon', 			 	  	  	
+    ['label'] = 'alabamasturgeon', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'alabamasturgeon.png', 				
+    ['unique'] = false, 			
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['lakesturgeon'] = {
+    ['name'] = 'lakesturgeon', 			 	  	  	
+    ['label'] = 'lakesturgeon', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'lakesturgeon.png', 				
+    ['unique'] = false, 	
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['koicarpblack'] = {
+    ['name'] = 'koicarpblack', 			 	  	  	
+    ['label'] = 'koicarpblack', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'koicarpblack.png', 				
+    ['unique'] = false, 			
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['lahontancutthroattrout'] = {
+    ['name'] = 'lahontancutthroattrout', 			 	  	  	
+    ['label'] = 'lahontancutthroattrout', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'lahontancutthroattrout.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['spoonlurebait'] = {
+    ['name'] = 'spoonlurebait', 			 	  	  	
+    ['label'] = 'spoonlurebait', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'spoonlurebait.png', 				
+    ['unique'] = false, 			
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['threesidedbait'] = {
+    ['name'] = 'threesidedbait', 			 	  	  	
+    ['label'] = 'threesidedbait', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'threesidedbait.png', 				
+    ['unique'] = false, 			
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['tailfishbait'] = {
+    ['name'] = 'tailfishbait', 			 	  	  	
+    ['label'] = 'tailfishbait', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'tailfishbait.png', 				
+    ['unique'] = false, 	
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['doublehookbait'] = {
+    ['name'] = 'doublehookbait', 			 	  	  	
+    ['label'] = 'doublehookbait', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'doublehookbait.png', 				
+    ['unique'] = false, 	
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['triplehooksbait'] = {
+    ['name'] = 'triplehooksbait', 			 	  	  	
+    ['label'] = 'triplehooksbait', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'triplehooksbait.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['woodenrod'] = {
+    ['name'] = 'woodenrod', 			 	  	  	
+    ['label'] = 'woodenrod', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'woodenrod.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['slimmaterialrod'] = {
+    ['name'] = 'slimmaterialrod', 			 	  	  	
+    ['label'] = 'slimmaterialrod', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'slimmaterialrod.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['danishrod'] = {
+    ['name'] = 'danishrod', 			 	  	  	
+    ['label'] = 'danishrod', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'danishrod.png', 				
+    ['unique'] = false, 			
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['koidrod'] = {
+    ['name'] = 'koidrod', 			 	  	  	
+    ['label'] = 'koidrod', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'koidrod.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+['finewood'] = {
+    ['name'] = 'finewood', 			 	  	  	
+    ['label'] = 'finewood', 					
+    ['weight'] = 0, 		
+    ['type'] = 'item', 		
+    ['image'] = 'finewood.png', 				
+    ['unique'] = false, 		
+    ['useable'] = true, 	
+    ['shouldClose'] = false,   
+    ['combinable'] = nil,   
+    ['description'] = 'Description'
+},
+
+
+
+
+-- Add to qb-core/shared/items.lua
+['crutch'] 		 			 = {['name'] = 'crutch', 					['label'] = 'Crutch', 				['weight'] = 650, 		['type'] = 'item', 		['image'] = 'crutch.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A device used to assist with walking.'},
+['wheelchair'] 		 			 = {['name'] = 'wheelchair', 					['label'] = 'Wheelchair', 				['weight'] = 850, 		['type'] = 'item', 		['image'] = 'wheelchair.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A device used to assist with mobility.'},
+
+
+['medikit'] 			 		 = {['name'] = 'medikit', 						['label'] = 'Medikit', 				['weight'] = 2500, 		['type'] = 'item', 		['image'] = 'medikit.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = true,   ['description'] = 'You can use this medikit to treat your patients'},
+['medbag'] 			 		 = {['name'] = 'medbag', 						['label'] = 'Medical Bag', 				['weight'] = 2500, 		['type'] = 'item', 		['image'] = 'medbag.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A bag of medic tools'},
+['tweezers'] 			 		 = {['name'] = 'tweezers', 						['label'] = 'Tweezers', 				['weight'] = 50, 		['type'] = 'item', 		['image'] = 'tweezers.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'For picking out bullets'},
+['suturekit'] 			 		 = {['name'] = 'suturekit', 						['label'] = 'Suture Kit', 				['weight'] = 60, 		['type'] = 'item', 		['image'] = 'suturekit.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'For stitching your patients'},
+['icepack'] 			 		 = {['name'] = 'icepack', 						['label'] = 'Ice Pack', 				['weight'] = 110, 		['type'] = 'item', 		['image'] = 'icepack.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'To help reduce swelling'},
+['burncream'] 			 		 = {['name'] = 'burncream', 						['label'] = 'Burn Cream', 				['weight'] = 125, 		['type'] = 'item', 		['image'] = 'burncream.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'To help with burns'},
+['defib'] 			 		 = {['name'] = 'defib', 						['label'] = 'Defibrillator', 				['weight'] = 1120, 		['type'] = 'item', 		['image'] = 'defib.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Used to revive patients'},
+['sedative'] 			 		 = {['name'] = 'sedative', 						['label'] = 'Sedative', 				['weight'] = 20, 		['type'] = 'item', 		['image'] = 'sedative.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'If needed, this will sedate patient'},
+['morphine30'] 			 		 = {['name'] = 'morphine30', 						['label'] = 'Morphine 30MG', 				['weight'] = 2, 		['type'] = 'item', 		['image'] = 'morphine30.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = true,   ['description'] = 'A controlled substance to control pain'},
+['morphine15'] 			 		 = {['name'] = 'morphine15', 						['label'] = 'Morphine 15MG', 				['weight'] = 2, 		['type'] = 'item', 		['image'] = 'morphine15.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = true,   ['description'] = 'A controlled substance to control pain'},
+['perc30'] 			 		 = {['name'] = 'perc30', 						['label'] = 'Percocet 30MG', 				['weight'] = 2, 		['type'] = 'item', 		['image'] = 'perc30.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = true,   ['description'] = 'A controlled substance to control pain'},
+['perc10'] 			 		 = {['name'] = 'perc10', 						['label'] = 'Percocet 10MG', 				['weight'] = 2, 		['type'] = 'item', 		['image'] = 'perc10.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = true,   ['description'] = 'A controlled substance to control pain'},
+['perc5'] 			 		 = {['name'] = 'perc5', 						['label'] = 'Percocet 5MG', 				['weight'] = 2, 		['type'] = 'item', 		['image'] = 'perc5.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = true,   ['description'] = 'A controlled substance to control pain'},
+['vic10'] 			 		 = {['name'] = 'vic10', 						['label'] = 'Vicodin 10MG', 				['weight'] = 2, 		['type'] = 'item', 		['image'] = 'vic10.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = true,   ['description'] = 'A controlled substance to control pain'},
+['vic5'] 			 		 = {['name'] = 'vic5', 						['label'] = 'Vicodin 5MG', 				['weight'] = 2, 		['type'] = 'item', 		['image'] = 'vic5.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = true,   ['description'] = 'A controlled substance to control pain'},
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

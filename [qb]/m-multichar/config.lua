@@ -16,9 +16,9 @@ Config.DefaultLogo = "https://www.gitbook.com/cdn-cgi/image/width=40,dpr=2,heigh
 Config.Slots = {
     [1] = {tebex = false, id = 1},
     [2] = {tebex = false, id = 2},
-    [3] = {tebex = false, id = 3},
+    [3] = {tebex = true, id = 3},
     [4] = {tebex = true, id = 4},
-    [5] = {tebex = true, id = 5},
+   -- [5] = {tebex = true, id = 5},
     -- [6] = {tebex = false, id = 6},
     -- [7] = {tebex = true, id = 7},
     -- [8] = {tebex = true, id = 8},
