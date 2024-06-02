@@ -1858,7 +1858,7 @@ AddEventHandler('wasabi_ambulance:billPatient', function()
                         gender = Strings.mrs
                     end
                     local charinfo = wsb.playerData.charinfo
-                    TriggerServerEvent('qb-phone:server:sendNewMail', {
+                    TriggerServerEvent('lb-phone:server:sendNewMail', {
                         sender = wsb.playerData.job.label,
                         subject = Strings.debt_collection,
                         message = (Strings.db_email):format(gender, charinfo.lastname, amount),

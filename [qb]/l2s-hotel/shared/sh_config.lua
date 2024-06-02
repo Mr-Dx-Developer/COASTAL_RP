@@ -21,22 +21,22 @@ Shared.Events = {
     inventory1 = 'inventory:server:OpenInventory', -- your inventory event  (client event)
     inventory2 = 'inventory:client:SetCurrentStash', -- your inventory event  (client event)
     inventory3 = 'inventory:client:ItemBox', -- your inventory event (client event)
-    phone = 'qb-phone:server:sendNewMailToOffline', -- your phone event (server event) file open source if you want make it export server/mail.lua
+    phone = 'lb-phone:server:sendNewMail', -- your phone event (server event) file open source if you want make it export server/mail.lua
     outfits = "qb-clothing:server:openOutfitMenu", -- your outfits event (server event)
     doorlock = "qb-doorlock:server:ToggleHotel" -- if you uses your v4 files dont touch
 }
 
 Shared.Exports = {
-    core = 'l2s-core',
-    input = 'l2s-input',
+    core = 'qb-core',
+    input = 'qb-input',
     password = 'l2s-password',
-    target = 'l2s-target',
+    target = 'qb-target',
 }
 
 Shared.BossMenu = {
     enable = false, -- to add money in boss menu job name
-    export = 'l2s-management', -- AddMoney() server side export
-    JobName = 'hotel', -- job name like : realestate, hotel, etc...
+    export = 'qb-management', -- AddMoney() server side export
+    JobName = 'realestate', -- job name like : realestate, hotel, etc...
 }
 Shared.StashData = 'stashitems'
 
