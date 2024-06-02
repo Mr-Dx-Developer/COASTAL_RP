@@ -384,6 +384,7 @@ QBShared.Items = {
     newsbmic                     = { name = 'newsbmic', label = 'Boom Microphone', weight = 100, type = 'item', image = 'newsbmic.png', unique = true, useable = true, shouldClose = true, description = 'A Useable BoomMic' },
 
 
+    ["hotel_card"] = {["name"] = "hotel_card",["label"] = "Room Access",["weight"] = 5000,["type"] = "item",["image"] = "hotel_card.png",["unique"] = true,["useable"] = true,["shouldClose"] = true,["combinable"] = nil,["description"] = "Hotel Room Access"},
 
 
 
