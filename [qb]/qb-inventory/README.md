@@ -1,55 +1,24 @@
 # qb-inventory
+FiveM Inventory System Redesigned to Look Like and Feel like NoPixel 4.0
 
-## Dependencies
-- [qb-core](https://github.com/qbcore-framework/qb-core)
-- [qb-logs](https://github.com/qbcore-framework/qb-logs) - For logging transfer and other history
+I removed the item images for my own sanity while uploading the changes. So please use your own item images
 
-## Features
-- Stashes (Personal and/or Shared)
-- Vehicle Trunk & Glovebox
-- Weapon Attachments
-- Shops
-- Item Drops
+# Preview
+![image2](https://github.com/Reload-X/qb-inventory/assets/167034229/00122ffc-1f34-4d49-9c81-ddf07dc31449)
+![image](https://github.com/Reload-X/qb-inventory/assets/167034229/d22ea538-de70-4651-bb8a-eae963062032)
 
-## Documentation
-https://docs.qbcore.org/qbcore-documentation/qbcore-resources/qb-inventory
 
-## Installation
-### Manual
-- Download the script and put it in the `[qb]` directory.
-- Import `qb-inventory.sql` in your database
-- Add the following code to your server.cfg/resouces.cfg
 
-# Migrating from old qb-inventory
+# Credit where Credit is Due
 
-## Database
-### Upload the new `inventory.sql` file to create the new `inventories` table
-### Use the provided `migrate.sql` file to migrate all of your saved inventory data from stashes, trunks, etc
-### Once complete, you can delete `gloveboxitems` `stashitems` and `trunkitems` tables from your database
-```sql
-CREATE TABLE IF NOT EXISTS `inventories` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `identifier` VARCHAR(50) NOT NULL,
-  `items` LONGTEXT DEFAULT ('[]'),
-  PRIMARY KEY (`identifier`),
-  KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
-```
+# Thanks to loljoshie for originally creating the lj-inventory we've all come to love.
+# Thanks to ok1ez and the project sloth dev team for continuing lj-inventory's existence with keeping it up to date and maintaining it as ps-inventory.
+# Thanks to the Project Sloth Community. Without the support on the first version this release wouldn't be possible.
 
-# License
 
-    QBCore Framework
-    Copyright (C) 2021 Joshua Eger
+# Dependencies 
+# BC Wounding 
+# https://brocode.tebex.io/package/6121826 (FREE)
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+# 0r Apartment is needed if you want the personal information apartment to work!
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>

@@ -1,0 +1,1706 @@
+* {
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-family: Inter-Light;
+}
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  overflow: hidden;
+  display: none;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.create-fight-page{
+  display: none;
+}
+
+.user-info-page{
+  display: none;
+}
+
+.bet-page{
+  display: none;
+}
+
+.ready-page{
+  display: none;
+}
+
+/* font  */
+
+@font-face {
+  font-family: Microgramma D Extended;
+  src: url("../fonts/3.otf") format("truetype");
+}
+
+@font-face {
+  font-family: Microgramma Becker Med Extd;
+  src: url("../fonts/2.ttf");
+}
+
+@font-face {
+  font-family: Akira Expanded;
+  src: url("../fonts/1.otf");
+}
+
+
+.box{
+  width: 30rem;
+  height: 30rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: rgb(59, 57, 57,0.8);
+  z-index: 2;
+  display: block;
+}
+
+.element{
+  width: 30rem;
+  height: 1.5rem;
+  position: relative;
+  margin-top: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.element .name{
+  position: absolute;
+  color:black;
+  font-size: 1.5rem;
+}
+
+.element:hover{
+  transform: scale(1.01);
+}
+
+.requestPage{
+  width: 30rem;
+  height: 10rem;
+  left: 50%;
+  display: none;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: rgb(59, 57, 57,0.8);
+  z-index: 2;
+}
+
+.betPage{
+  width: 30rem;
+  height: 10rem;
+  left: 50%;
+  display: none;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: rgb(59, 57, 57,0.8);
+  z-index: 2;
+}
+
+.select{
+  background-color: gray;
+  margin-top: 1rem;
+  width: 3rem;
+  padding: 0.2rem;
+}
+
+
+
+
+.fight-bg img{
+  position: absolute;
+  z-index: 5;
+  left: 17rem;
+  top: 10rem;
+}
+
+.colored img{
+  position: absolute;
+  top: 13.5rem;
+  width: 1920px;
+  height: 1080px;
+  z-index: 2;
+}
+
+.black{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 38rem;
+  z-index: 1;
+}
+
+.fight-bg-svg-1{
+  position: absolute;
+  z-index: 4;
+  left: 15rem;
+  top: 8.5rem;
+}
+
+.fight-bg-svg-2{
+  position: absolute;
+  z-index: 5;
+  left: 65rem;
+  top: 8.5rem;
+}
+
+.fight-bg-svg-3{
+  position: absolute;
+  z-index: 2;
+  left: 80rem;
+  top: 7.5rem;
+}
+
+.fight-bg-svg-4{
+  position: absolute;
+  z-index: 3;
+  left: 12rem;
+  top: 15.6rem;
+}
+
+.fight-bg-svg-5{
+  position: absolute;
+  z-index: 5;
+  left: 92.5rem;
+  top: 23.5rem;
+}
+
+.fighters-svg{
+  position: absolute;
+  z-index: 3;
+  left: 17rem;
+  top: 42rem;
+}
+
+.fighters-box{
+  width: 440px;
+  height: 218px;
+  border: 1px solid #0D0D0D;
+  background: rgba(0, 0, 0, 0.69);
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 3;
+  top: 42rem;
+  left: 17rem;
+}
+
+.create-box{
+  width: 440px;
+  height: 218px;
+  border: 1px solid #0D0D0D;
+  background: rgba(0, 0, 0, 0.69);
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 3;
+  top: 42rem;
+  left: 45.3rem;
+}
+
+.settings-box{
+  width: 440px;
+  height: 218px;
+  border: 1px solid #0D0D0D;
+  background: rgba(0, 0, 0, 0.69);
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 3;
+  top: 42rem;
+  left: 73.6rem;
+}
+
+.nearby-append{
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 3;
+  width: 440px;
+  height: 178px;
+  top: 2rem;
+  overflow: hidden scroll;
+}
+
+.fighters-item{
+  fill: rgba(255, 255, 255, 0.05);
+  stroke-width: 1px;
+  stroke: rgba(255, 255, 255, 0.13);
+  width: 200px;
+  height: 76px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+  float: left;
+  margin: 0 1px 1px 0;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-top: 2px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+  border-left: 3px solid rgba(255, 255, 255, 0.05);
+  border-right: 3px solid rgba(255, 255, 255, 0.05);
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  /* top: 2rem; */
+}
+
+.fighters-box svg{
+  width: 6px;
+  height: 6px;
+  left: 1rem;
+  top: 1.2rem;
+  position: absolute; 
+}
+
+.create-box svg{
+  width: 6px;
+  height: 6px;
+  left: 1rem;
+  top: 1.2rem;
+  position: absolute; 
+}
+
+.settings-box svg{
+  width: 6px;
+  height: 6px;
+  left: 1rem;
+  top: 1.2rem;
+  position: absolute; 
+}
+
+.fighters-box .listbg{
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+}
+
+.fighters-box .text{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 9.371px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 1.7rem;
+  top: 1.02rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+.create-box .text{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 9.371px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  left: 1.8rem;
+  letter-spacing: 0.05rem;
+  top: 1.02rem;
+  position: absolute;
+}
+
+.settings-box .text{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 9.371px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  left: 1.8rem;
+  letter-spacing: 0.05rem;
+  top: 1.02rem;
+  position: absolute;
+}
+
+
+.fighters-item .profile{
+  position: absolute;
+  left: 0.5rem;
+  top: 0.3rem;
+}
+
+.fighters-item .name{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 8px;
+  font-style: normal;
+  letter-spacing: 0.05rem;
+  font-weight: lighter;
+  line-height: normal;
+  position: absolute;
+  left: 4.5rem;
+  text-transform: uppercase;
+  top: 0.5rem;
+}
+
+.progress-bg{
+  width: 114px;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.32);
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 3;
+  top: 1.5rem;
+  left: 4.5rem;
+}
+
+.progress{
+  width: 34px;
+  height: 3px;
+  background: #BF3D61;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 3;
+  top: 1.5rem;
+  left: 4.5rem;
+}
+
+.glov-1{
+  position: absolute;
+  z-index: 3;
+  left: 4.5rem;
+  top: 2.5rem;
+}
+
+.glov-2{
+  position: absolute;
+  z-index: 3;
+  left: 6.4rem;
+  top: 2.5rem;
+}
+
+.glov-3{
+  position: absolute;
+  z-index: 3;
+  left: 8.3rem;
+  top: 2.5rem;
+}
+
+.glov-4{
+  position: absolute;
+  z-index: 3;
+  left: 10.2rem;
+  top: 2.5rem;
+  width: 20px;
+  height: 20px;
+}
+
+.hr{
+  position: absolute;
+  width: 341px;
+  height: 2px;
+  top: 1.2rem;
+  left: 5.4rem;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.05) 71.67%, rgba(255, 255, 255, 0.00) 100%);
+}
+
+.create-box .roundcounter-box{
+  width: 119px;
+  height: 38px;
+  background: rgb(51, 51, 51,0.8);
+  border-left: 6px solid #737373;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 4;
+  top: 2.5rem;
+  left: 1rem;
+}
+
+.create-box .roundcounter-number{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  z-index: 4;
+  top: 2.5rem;
+  left: 4.3rem;
+}
+
+.create-box .round-box{
+  width: 273px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.14);
+  border-right: 6px solid #737373;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 4;
+  top: 2.5rem;
+  left: 9.3rem;
+}
+
+.create-box .round-text{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 11.829px;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  line-height: normal;
+  position: absolute;
+  z-index: 4;
+  top: 3.1rem;
+  left: 10rem;
+}
+
+.create-box .left{
+  fill: #FFF;
+  width: 18px;
+  height: 12px;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 4;
+  top: 3.2rem;
+  left: 1.5rem;
+}
+
+.create-box .right{
+  fill: #FFF;
+  width: 18px;
+  height: 12px;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 4;
+  top: 3.2rem;
+  left: 7.5rem;
+  transform: rotate(-180deg);
+}
+
+.create-box .timecounter-box{
+  width: 173px;
+  height: 38px;
+  background: rgb(51, 51, 51,0.8);
+  border-left: 6px solid #737373;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 4;
+  top: 5.5rem;
+  left: 1rem;
+}
+
+.create-box .timecounter-number{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  z-index: 4;
+  top: 5.5rem;
+  left: 3.6rem;
+}
+
+.create-box .time-box{
+  width: 219px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.14);
+  border-right: 6px solid #737373;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 4;
+  top: 5.5rem;
+  left: 12.7rem;
+}
+
+.create-box .time-text{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 11.829px;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  line-height: normal;
+  position: absolute;
+  z-index: 4;
+  top: 6.1rem;
+  left: 13.3rem;
+}
+
+.create-box .create-button{
+  position: absolute;
+  padding: 0.4rem 5.7rem;
+  left: 1rem;
+  top: 10.5rem;
+  border-left: 6px solid #18ECB1;
+  border-right: 6px solid #18ECB1;
+  background: rgba(24, 236, 177, 0.22);
+  flex-shrink: 0;
+  color: #18ECB1;
+  font-family: Akira Expanded;
+  font-size: 20.7px;
+  font-style: normal;
+  font-weight: lighter;
+  letter-spacing: 0.02rem;
+  line-height: normal;
+  transition-duration: 0.5s;
+}
+
+.create-box .create-button:hover{
+  background: rgba(24, 236, 177, 0.42);
+  cursor: pointer;
+}
+
+.create-box .create-hr{
+  width: 410px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+  position: absolute;
+  top: 9.1rem;
+  left: 1rem;
+}
+
+.settings-box .info-box{
+  width: 407px;
+  height: 83px;
+  background: rgba(255, 255, 255, 0.14);
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 4;
+  top: 2.5rem;
+  left: 1rem;
+  border-left: 6px solid #737373;
+  border-right: 6px solid #737373;
+}
+
+.settings-box .info-text{
+  color: rgba(255, 255, 255, 0.34);
+  font-family: Microgramma D Extended;
+  font-size: 9.371px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 1rem;
+  letter-spacing: 0.02rem;
+  margin-top: -0.2rem;
+}
+
+.settings-box .glov-select-box{
+  width: 241px;
+  height: 61px;
+  background: rgba(0, 0, 0, 0.42);
+  border-left: 6px solid #000000;
+  border-right: 6px solid #000000;
+  flex-shrink: 0;
+  position: absolute;
+  left: 1rem;
+  top: 9rem;
+}
+
+.settings-box .glov-select-box .glov-item{
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.24);
+  flex-shrink: 0;
+  position:relative;
+  left: 0.1rem;
+  top: 0.3rem;
+  float: left;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-left: 0.4rem;
+}
+
+.glov-item img{
+  width: 28px;
+  height: 28px;  
+  position: absolute;
+  z-index: 4;
+  width: 28px;
+  height: 28px;
+  left: 0.8rem;
+  top: 0.6rem;
+}
+
+.alt-text{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 10.496px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  position: absolute;
+  left: 18.5rem;
+  top: 9.5rem;
+  width: 9rem;
+}
+
+
+.user-info-page .redbg{
+  position: absolute;
+  z-index: 2;
+  left: 5rem;
+  top: 3rem;
+}
+
+.user-info-page .greenbg{
+  position: absolute;
+  z-index: 2;
+  left: 88rem;
+  top: 3rem;
+}
+
+.user-info-page .user-1{
+  position: absolute;
+  z-index: 2;
+  left: 5.5rem;
+  top: 3rem;
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 21.661px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.user-info-page .user-2{
+  position: absolute;
+  z-index: 2;
+  left: 101rem;
+  top: 3rem;
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 21.661px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.user-info-page .health{
+  position: absolute;
+  z-index: 2;
+  top: 8%;
+  bottom: 91%;
+  left: 4%;
+  right: 73%;
+  background: linear-gradient(90deg, rgba(105, 237, 255, 0.61) 0%, rgba(105, 237, 255, 0.61) 100%);
+  flex-shrink: 0;
+  transition-duration: 0.2s;
+}
+
+.user-info-page .health-2{
+  position: absolute;
+  z-index: 2;
+  top: 8%;
+  bottom: 91%;
+  left: 74%;
+  right: 3%;
+  background: linear-gradient(90deg, rgba(105, 237, 255, 0.61) 0%, rgba(105, 237, 255, 0.61) 100%);
+  flex-shrink: 0;
+  transition-duration: 0.2s;
+}
+
+.user-info-page .counterimg{
+  position: absolute;
+  z-index: 2;
+  left: 33rem;
+  top: 55rem;
+}
+
+.user-info-page .counter-user-1-name{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 16.378px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 35rem;
+  top: 58.5rem;
+  z-index: 5;
+}
+
+.user-info-page .counter-user-2-name{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 16.378px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 74rem;
+  top: 58.5rem;
+  z-index: 5;
+}
+
+.user-info-page .counter-counter{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 23.55px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  left: 58.6rem;
+  top: 55rem;
+  width: 150px;
+  z-index: 5;
+  position: absolute;
+}
+
+.user-info-page .timer{
+  color: #000;
+  font-family: Microgramma D Extended;
+  font-size: 18.662px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  left: 61.9rem;
+  top: 58.5rem;
+  z-index: 5;
+  position: absolute;
+}
+
+.user-info-page .round-counter{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 18.662px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  left: 66.9rem;
+  top: 58.5rem;
+  z-index: 5;
+  position: absolute;
+}
+
+.user-info-page .user-info-box{
+  width: 410px;
+  height: 218px;
+  position: absolute;
+  z-index: 4;
+  top: 3rem;
+  left: 1rem;
+}
+
+.green-color{
+  width: 40rem;
+  height: 40rem;
+  border-radius: 2651px;
+  background: #1BE8AF;
+  filter: blur(222px);
+  position: absolute;
+  left: 105rem;
+  top: 95rem;
+  z-index: 2;
+}
+
+.white-color{
+  width: 40rem;
+  height: 40rem;
+  border-radius: 2651px;
+  background: #FFF;
+  filter: blur(622px);
+  position: absolute;
+  left: 100rem;
+  top: 75rem;
+  z-index: 2;
+}
+
+.bet-page .bet-bg{
+  position: absolute;
+  z-index: 5;
+  left: 1rem;
+  top: 1rem;
+}
+
+.bet-main-box{
+  width: 340px;
+  height: 368px;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 3;
+  top: 40rem;
+  left: 100rem;
+}
+
+.ready-main-box{
+  width: 340px;
+  height: 368px;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 3;
+  top: 45rem;
+  left: 100rem;
+}
+
+.bet-page .bet-box{
+  width: 250px;
+  height: 117px;
+  background: rgba(0, 0, 0, 0.44);
+  flex-shrink: 0;
+  position: absolute;
+  left: 1.5rem;
+  top: 9rem;
+  z-index: 5;
+  overflow: hidden scroll;
+}
+
+::-webkit-scrollbar{
+  width: 0px;
+  background: transparent;
+}
+
+.bet-page .bet-box .bet-user{
+  width: 239px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
+  position: relative;
+  margin-left: 0.4rem;
+  margin-top: 0.35rem;
+}
+
+.bet-page .bet-box .user-img{
+  position: absolute;
+  z-index: 4;
+  left: 0.4rem;
+  top: 0.2rem;
+  background-color: #232323;
+  width: 23.89px;
+  height: 23.89px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.bet-page .bet-box .bet-color{
+  position: absolute;
+  z-index: 4;
+  left: 13.6rem;
+  top: 0.6rem;
+  background-color: #CB3761;
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.bet-page .bet-box .bet-name{
+  color: rgba(255, 255, 255, 0.28);
+  font-family: Microgramma D Extended;
+  font-size: 7.855px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 2.3rem;
+  top: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+.bet-page .bet-box .bet-price{
+  color: rgba(255, 255, 255, 0.76);
+  font-family: Microgramma D Extended;
+  font-size: 7.855px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 2.3rem;
+  top: 1rem;
+}
+
+.bet-page .bet-input{
+  color: #FFF;
+  font-family: Akira Expanded;
+  font-size: 12.075px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  position: absolute;
+  top: 17.45rem;
+  left: 3.2rem;
+  z-index: 5;
+  outline: none;
+  border: none;
+  background: transparent;
+  z-index: 15;
+  width: 50px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.bet-page .bet-button{
+  width: 254px;
+  height: 41px;
+  background: rgba(24, 236, 177, 0.22);
+  flex-shrink: 0;
+  position: absolute;
+  top: 21rem;
+  left: 1rem;
+  border-left: 6px solid #18ECB1;
+  border-right: 6px solid #18ECB1;
+  z-index: 5;
+  transition-duration: 0.5s;
+}
+
+.bet-page .bet-button .text{
+  color: #18ECB1;
+  font-family: Akira Expanded;
+  font-size: 20.7px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  position: absolute;
+  left: 1.2rem;
+  top: 0.6rem;
+  z-index: 155;
+}
+
+.bet-page .bet-button svg{
+  position: absolute;
+  z-index: 4;
+  left: 13.5rem;
+  top: 0.6rem;
+}
+
+.bet-page .bet-button:hover{
+  background: rgba(24, 236, 177, 0.42);
+  cursor: pointer;
+}
+
+.bet-page .bet-pink-box{
+  flex-shrink: 0;
+  position: absolute;
+  left: 1.5rem;
+  top: 17rem;
+  z-index: 5;
+  overflow: hidden scroll;
+}
+
+.bet-page .bet-pink-arti{
+  stroke-width: 2px;
+  stroke: #CA315C;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  position: absolute;
+  left: 3.9rem;
+  top: 18.8rem;
+  z-index: 5;
+}
+
+.bet-page .bet-green-box{
+  flex-shrink: 0;
+  position: absolute;
+  left: 11.7rem;
+  top: 17rem;
+  z-index: 5;
+  overflow: hidden scroll;
+}
+
+.bet-page .user-pink-bg{
+  width: 86px;
+  height: 86px;
+  background: #1D1D1D;
+  flex-shrink: 0;
+  position: absolute;
+  left: 2rem;
+  top: 1.8rem;
+  z-index: 5;
+}
+
+.pinkimg{
+  width: 86px;
+  height: 86px;
+}
+
+.greenimg{
+  width: 86px;
+  height: 86px;
+}
+
+.bet-page .vs{
+  color: #CA315C;
+  font-family: Microgramma D Extended;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 8.5rem;
+  top: 3.5rem;
+  z-index: 5;
+}
+
+
+.bet-page .level-progress-bg{
+  width: 86px;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.37);
+  flex-shrink: 0;
+  position: absolute;
+  left: 2rem;
+  top: 7.5rem;
+  z-index: 5;
+}
+
+.bet-page .level-progress{
+  width: 14px;
+  height: 3px;
+  background: #18ECB1;
+  flex-shrink: 0;
+  position: absolute;
+  left: 2rem;
+  top: 7.5rem;
+  z-index: 5;
+}
+
+.bet-page .user-name{
+  color: rgba(255, 255, 255, 0.28);
+  font-family: Microgramma D Extended;
+  font-size: 7.427px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 2rem;
+  letter-spacing: 0.02rem;
+  top: 8rem;
+  z-index: 5;
+  text-transform: uppercase;
+}
+
+
+.ready-page .b{
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.ready-page .readybg{
+  position: absolute;
+  z-index: 4;
+  left: 1rem;
+  top: 1rem;
+}
+
+.ready-page .glove-box{
+  width: 265px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.84);
+  flex-shrink: 0;
+  backdrop-filter: blur(13px);
+  position: absolute;
+  left: 1rem;
+  top: 8.9rem;
+  z-index: 5;
+}
+
+.ready-page .glove-box .item{
+  position: relative;
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-left: 0.5rem;
+  left: 0.5rem;
+}
+
+.ready-page .glove-box .item svg{
+  position: absolute;
+  z-index: 4;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+
+.ready-page .user-pink-bg{
+  width: 86px;
+  height: 86px;
+  background: #1D1D1D;
+  flex-shrink: 0;
+  position: absolute;
+  left: 2rem;
+  top: 1.5rem;
+  z-index: 5;
+}
+
+.ready-page .vs{
+  color: #CA315C;
+  font-family: Microgramma D Extended;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 8.2rem;
+  top: 3.5rem;
+  z-index: 5;
+}
+
+.ready-page .level-progress-bg{
+  width: 86px;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.37);
+  flex-shrink: 0;
+  position: absolute;
+  left: 2rem;
+  top: 7.2rem;
+  z-index: 5;
+}
+
+.ready-page .level-progress{
+  width: 14px;
+  height: 3px;
+  background: #18ECB1;
+  flex-shrink: 0;
+  position: absolute;
+  left: 2rem;
+  top: 7.2rem;
+  z-index: 5;
+}
+
+.ready-page .user-name{
+  color: rgba(255, 255, 255, 0.28);
+  font-family: Microgramma D Extended;
+  font-size: 7.427px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 2rem;
+  letter-spacing: 0.02rem;
+  top: 7.7rem;
+  z-index: 5;
+  text-transform: uppercase;
+}
+
+.ready-page .round-info{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 2.2rem;
+  top: 11.8rem;
+  z-index: 5;
+}
+
+.ready-page .ready-button{
+  width: 254px;
+  height: 41px;
+  background: rgba(24, 236, 177, 0.22);
+  flex-shrink: 0;
+  position: absolute;
+  left: 1rem;
+  top: 15rem;
+  border-left: 6px solid #18ECB1;
+  border-right: 6px solid #18ECB1;
+  z-index: 5;
+  transition-duration: 0.5s;
+}
+
+.ready-page .ready-button .text{
+  color: #18ECB1;
+  font-family: Akira Expanded;
+  font-size: 20.7px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  position: absolute;
+  left: 1.2rem;
+  top: 0.6rem;
+  z-index: 155;
+}
+
+.ready-page .ready-button svg{
+  position: absolute;
+  z-index: 4;
+  left: 13.5rem;
+  top: 0.6rem;
+}
+
+.ready-button:hover{
+  background: rgba(24, 236, 177, 0.42);
+  cursor: pointer;
+}
+
+
+.ready-page .reject-button{
+  width: 254px;
+  height: 41px;
+  background: rgba(175, 4, 4, 0.22);
+  flex-shrink: 0;
+  position: absolute;
+  left: 1rem;
+  top: 19rem;
+  border-left: 6px solid #b41515;
+  border-right: 6px solid #b41515;
+  z-index: 5;
+  transition-duration: 0.5s;
+}
+
+.ready-page .reject-button .text{
+  color: #b41515;
+  font-family: Akira Expanded;
+  font-size: 20.7px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  position: absolute;
+  left: 1.2rem;
+  top: 0.6rem;
+  z-index: 155;
+}
+
+.ready-page .reject-button svg{
+  position: absolute;
+  z-index: 4;
+  left: 13.5rem;
+  top: 0.6rem;
+}
+
+.reject-button:hover{
+  background: rgba(216, 25, 25, 0.42);
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 1681px) {
+  .fight-bg img {
+    left: 12rem;
+    top: 10rem;
+  }
+  .fight-bg-svg-5{
+    left: 86.5rem;
+  }
+  .fight-bg-svg-1 {
+    left: 10rem;
+  }
+  .fight-bg-svg-4{
+    left: 5rem;
+  }
+  .fighters-box {
+    left: 12rem;
+  }
+  .create-box {
+    left: 40.3rem;
+  }
+  .settings-box {
+    left: 68.6rem;
+  }
+  .colored img {
+    top: 14.3rem;
+  }
+  .user-info-page .greenbg {
+    left: 72rem;
+  }
+  .user-info-page .user-2{
+    left: 85rem;
+  }
+  .user-info-page .health-2 {
+    left: 75rem;
+  }
+  .user-info-page .user-info-box{
+    left: -4rem;
+  }
+  .bet-main-box {
+    top: 38rem;
+    left: 86rem;
+  }
+  .ready-main-box{
+    top: 40rem;
+    left: 86rem;
+  } 
+}
+
+@media screen and (max-width: 1601px) {
+  .user-info-page .user-info-box {
+    top: 2rem !important;
+  }
+  .fight-bg img {
+    left: 8rem !important;
+  }
+  .fight-bg-svg-3{
+    left: 77rem !important;
+  }
+  .fight-bg-svg-5{
+    left: 83rem !important;
+  }
+  .fight-bg-svg-2 {
+    left: 62rem !important;
+  }
+  .fighters-box {
+    left: 8rem !important;
+  }
+  .create-box {
+    left: 36.3rem !important;
+  }
+  .settings-box {
+    left: 64.6rem !important;
+  }
+  .user-info-page .greenbg {
+    left: 70rem !important;
+  }
+  .user-info-page .user-2 {
+    left: 83rem !important;
+  }
+  .user-info-page .health-2 {
+    left: 73rem !important;
+  }
+  .bet-main-box {
+    left: 81rem !important;
+  } 
+  .ready-main-box {
+    left: 81rem !important;
+  }
+}
+
+@media screen and (max-height: 900px) {
+  .ready-main-box{
+    left: 71rem;
+  }
+  .bet-main-box {
+    left: 71rem;
+  }
+  .user-info-page .user-info-box{
+    left: -12rem;
+    top: -7rem !important;
+  }
+  .user-info-page .greenbg {
+    left: 58rem;
+  }
+  .user-info-page .user-2 {
+    left: 69rem;
+  }
+  .user-info-page .health-2 {
+    left: 61rem;
+  }
+  .fight-bg img {
+    left: 3rem;
+  }
+  .fight-bg-svg-3{
+    left: 71rem;
+  }
+  .fight-bg-svg-5{
+    left: 77rem;
+  }
+  .fight-bg-svg-2{
+    left: 56rem;
+  }
+  .fighters-box {
+    left: 3rem;
+  }
+  .create-box {
+    left: 31.3rem;
+  }
+  .settings-box {
+    left: 59.6rem;
+  }
+}
+
+@media screen and (max-height: 900px) {
+  .ready-main-box{
+    top: 33rem;
+  }
+  .bet-main-box{
+    top: 32rem;
+  }
+  .user-info-page .user-info-box {
+    top: -6rem;
+  }
+}
+
+@media screen and (max-width: 1441px){
+  .user-info-page .user-info-box {
+    left:-12rem;
+  }
+  .user-info-page .user-2 {
+    left: 72rem !important;
+  }
+  .user-info-page .health-2 {
+    left: 62rem  !important;
+  }
+  .user-info-page .greenbg {
+    left: 59rem  !important;
+  }
+  .bet-main-box {
+    left: 72rem !important;
+  }
+  .ready-main-box {
+    left: 72rem !important;
+  }
+  .fight-bg img {
+    left: 3rem !important;
+  }
+  .fighters-box {
+    left: 3rem !important;
+  }
+  .create-box {
+    left: 31.3rem !important;
+  }
+  .settings-box {
+    left: 59.6rem !important;
+  }
+}
+
+.tv-dui-page{
+  display: none;
+}
+
+
+.tv-dui-page .redbg{
+  position: absolute;
+  left: 31rem;
+  top: 5rem;
+  width: 22rem;
+}
+
+.tv-dui-page .greenbg{
+  position: absolute;
+  width: 22rem;
+  top: 5rem;
+}
+
+.tv-dui-page .user-1{
+  position: absolute;
+  z-index: 2;
+  left: 5.5rem;
+  top: 3rem;
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 21.661px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.tv-dui-page .user-2{
+  position: absolute;
+  z-index: 2;
+  left: 35rem;
+  top: 3rem;
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 21.661px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.tv-dui-page .counterimg{
+  position: absolute;
+  top: 20rem;
+}
+
+.tv-dui-page .counter-counter{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 23.55px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  left: 26rem;
+  top: 20rem;
+  width: 150px;
+  z-index: 5;
+  position: absolute;
+}
+
+.tv-dui-page .alt-text{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 10.496px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  position: absolute;
+  left: 18.5rem;
+  top: 23rem;
+  width: 9rem;
+}
+
+.tv-dui-page .counter-user-1-name{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 16.378px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 4rem;
+  top: 24rem;
+  z-index: 5;
+}
+
+.tv-dui-page .counter-user-2-name{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 16.378px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 39rem;
+  top: 24rem;
+  z-index: 5;
+}
+
+.tv-dui-page .timer{
+  color: #000;
+  font-family: Microgramma D Extended;
+  font-size: 18.662px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  left: 29.1rem;
+  top: 23.5rem;
+  z-index: 5;
+  position: absolute;
+}
+
+.tv-dui-page .boxbg{
+  position: absolute;
+  width: 853px;
+  height: 480px;
+  opacity: 1;
+}
+
+.tv-dui-page .round-counter{
+  color: #FFF;
+  font-family: Microgramma D Extended;
+  font-size: 18.662px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  left: 33.7rem;
+  top: 23.5rem;
+  z-index: 5;
+  position: absolute;
+}
+
+.tv-dui-page .health{
+  position: absolute;
+  z-index: 2;
+  top: 25.8%;
+  bottom: 72.4%;
+  left: 1%;
+  right:67%;
+  background: linear-gradient(90deg, rgba(105, 237, 255, 0.61) 0%, rgba(105, 237, 255, 0.61) 100%);
+  flex-shrink: 0;
+  transition-duration: 0.2s;
+}
+
+.tv-dui-page .health-2{
+  position: absolute;
+  z-index: 2;
+  top: 25.8%;
+  bottom: 72.4%;
+  left: 47%;
+  right: 21%;
+  /* width: 410px; */
+  /* height: 9px; */
+  background: linear-gradient(90deg, rgba(105, 237, 255, 0.61) 0%, rgba(105, 237, 255, 0.61) 100%);
+  flex-shrink: 0;
+  transition-duration: 0.2s;
+}
+.tv-dui-page .health-test{
+  position: absolute;
+  z-index: 2;
+  top: 25.8%;
+  bottom: 72.4%;
+  left: 1%;
+  right:75%;
+  display: none;
+  background: linear-gradient(90deg, rgba(105, 237, 255, 0.61) 0%, rgba(105, 237, 255, 0.61) 100%);
+  flex-shrink: 0;
+  transition-duration: 0.2s;
+}
+
+.tv-dui-page .health-2-test{
+  position: absolute;
+  z-index: 2;
+  top: 25.8%;
+  bottom: 72.4%;
+  display: none;
+  left: 35%;
+  right:1%;
+  /* width: 410px; */
+  /* height: 9px; */
+  background: linear-gradient(90deg, rgba(105, 237, 255, 0.61) 0%, rgba(105, 237, 255, 0.61) 100%);
+  flex-shrink: 0;
+  transition-duration: 0.2s;
+}
+
+
+#countdown {
+  font-size: 15rem;
+  color: rgb(0, 153, 255); /* Change to bright blue color */
+  text-shadow: 0 0 30px rgb(0, 153, 255); /* Change to bright blue color */
+  position: absolute;
+  font-family: 'Microgramma D Extended';
+  margin-left: 16.5rem;
+  margin-top: 4rem;
+  animation: countdownAnimation 7s linear infinite;
+}
+
+#startText {
+  margin-left: 9rem;
+  margin-top: 8rem;
+  font-size: 8rem;
+  color: rgb(0, 153, 255); /* Change to bright blue color */
+  text-shadow: 0 0 30px rgb(0, 153, 255); /* Change to bright blue color */
+  position: absolute;
+  font-family: 'Microgramma D Extended';
+  opacity: 0;
+  display: none;
+  animation: fadeInStartText 3s ease-in-out 1s forwards;
+}
+@keyframes countdownAnimation {
+  0%, 20%, 40%, 60%, 80% {
+    transform: translateY(0);
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateY(-20px);
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInStartText {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fight-start-page{
+  display: none;
+}
+
+.starter{
+  display: none;
+}
+
+::selection {
+  background-color: transparent;
+}

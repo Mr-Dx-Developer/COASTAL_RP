@@ -7,7 +7,7 @@ end)
 QBCore.Commands.Add('id', 'Check Your ID #', {}, false, function(source)
     TriggerClientEvent('QBCore:Notify', source, 'ID: ' .. source)
 end)
-
+--[[ 
 QBCore.Functions.CreateUseableItem('harness', function(source, item)
     TriggerClientEvent('seatbelt:client:UseHarness', source, item)
 end)
@@ -39,7 +39,7 @@ RegisterNetEvent('seatbelt:DoHarnessDamage', function(hp, data)
         Player.Functions.SetInventory(Player.PlayerData.items)
     end
 end)
-
+ ]]
 RegisterNetEvent('qb-carwash:server:washCar', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)

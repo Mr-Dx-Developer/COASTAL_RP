@@ -39,6 +39,38 @@ Config.WeapDraw = {
 }
 
 Config.DurabilityMultiplier = {
+    -- Kyros Weapon Pack V4
+    weapon_ddm4v7 	             = 0.15,
+    weapon_glock19x 	         = 0.15,
+    weapon_glock19 	             = 0.15,
+    weapon_glock40 		         = 0.15,
+    weapon_glock40s 	         = 0.15,
+    weapon_ddm4v5 	             = 0.15,
+    weapon_mpx 	                 = 0.15,
+    weapon_pd509 		         = 0.15,
+    weapon_aps 	                 = 0.15,
+    weapon_ppk 	                 = 0.15,
+    weapon_pitviper 	         = 0.15,
+    weapon_barp                  = 0.15,
+    weapon_rdp 	                 = 0.15,
+    weapon_lok                   = 0.15,
+    weapon_plr                   = 0.15,
+	weapon_xds9 	             = 0.15,
+	weapon_pps 	                 = 0.15,
+    weapon_xdme 	   	         = 0.15,
+    weapon_sp                    = 0.15,
+    weapon_glock17s 	         = 0.15,
+    weapon_glock18c  	         = 0.15,
+    weapon_glock19s          	 = 0.15,
+    weapon_arpistol 	         = 0.15,
+    weapon_glock26s   	         = 0.15,
+    weapon_grenades 	         = 0.20,
+    weapon_m32s  	             = 0.15,
+    weapon_microdraco 	         = 0.15,
+    weapon_ruger57  	         = 0.15,
+    weapon_mk18 	 	         = 0.15,
+	weapon_680 	 	             = 0.15,
+	weapon_ziptie   	         = 0.15,
     -- Melee
     -- weapon_unarmed 				 = 0.15,
     weapon_dagger                = 0.15,
@@ -223,6 +255,30 @@ WeaponAttachments = {
         weapon_marksmanrifle = `COMPONENT_MARKSMANRIFLE_CLIP_02`,
         weapon_marksmanrifle_mk2 = `COMPONENT_MARKSMANRIFLE_MK2_CLIP_02`,
         weapon_heavysniper_mk2 = `COMPONENT_HEAVYSNIPER_MK2_CLIP_02`,
+        weapon_p226 = `COMPONENT_P226_CLIP_02`, -- v1
+        weapon_mac = `COMPONENT_MAC_CLIP_02`, -- v1
+        weapon_g18c = `COMPONENT_G18C_CLIP_02`, -- v1
+        weapon_g17 = `COMPONENT_G17_CLIP_02`, -- v1
+        weapon_gardone = `COMPONENT_GARDONE_CLIP_02`, -- v1
+        weapon_tec9 = `COMPONENT_TEC9_CLIP_02`, -- v1
+        weapon_ddm4v7 = `COMPONENT_DDM4V7_CLIP_02`, -- v3
+		weapon_g2c = `COMPONENT_G2C_CLIP_02`, -- v3
+        weapon_tglock = `COMPONENT_TGLOCK_CLIP_02`, -- v3
+        weapon_tuzi = `COMPONENT_TUZI_CLIP_02`, -- v3
+        weapon_scar = `COMPONENT_SCARV3_CLIP_02`, -- v3
+        weapon_auga1 = `COMPONENT_AUGA1_CLIP_02`, -- v3
+        weapon_glock19 = `COMPONENT_GLOCK19_CLIP_02`, -- v4
+        weapon_glock40 = `COMPONENT_GLOCK40_CLIP_02`, -- v4
+        weapon_glock19x = `COMPONENT_GLOCK19X_CLIP_02`, -- v4
+        weapon_glock40s = `COMPONENT_GLOCK40S_CLIP_02`, -- v4
+        weapon_aps = `COMPONENT_APS_CLIP_02`, -- v4
+        weapon_barp = `COMPONENT_BARP_CLIP_02`, -- v4
+        weapon_plr = `COMPONENT_PLR_CLIP_02`, -- v4
+        weapon_xds9 = `COMPONENT_XDS9_CLIP_02`, -- v4
+        weapon_glock17s = `COMPONENT_GLOCK17_CLIP_02`, -- v4
+        weapon_glock18c = `COMPONENT_GLOCK18C_CLIP_02`, -- v4
+        weapon_arpistol = `COMPONENT_ARPISTOL_BOXMAG`, -- v4
+        weapon_ziptie = `COMPONENT_ZIPTIE_BOXMAG`, -- v4
     },
     drum_attachment = {
         weapon_smg = `COMPONENT_SMG_CLIP_03`,
@@ -268,6 +324,14 @@ WeaponAttachments = {
         weapon_marksmanrifle = `COMPONENT_AT_AR_FLSH`,
         weapon_marksmanrifle_mk2 = `COMPONENT_AT_AR_FLSH`,
         weapon_grenadelauncher = `COMPONENT_AT_AR_FLSH`,
+        weapon_g18c = `COMPONENT_AT_G18C_FLSH`, -- v1
+        weapon_nsr = `COMPONENT_AT_AR_NSR_FLSH`, -- v1
+        weapon_ddm4v7 = `COMPONENT_AT_PI_G2C_FLSH`, -- v3
+        weapon_pmr = `COMPONENT_AT_PI_PMR_FLSH`, -- v3
+        weapon_g19x = `COMPONENT_AT_PI_G19X_FLSH`, -- v3
+        weapon_g26 = `COMPONENT_AT_PI_G26_FLSH`, -- v3
+        weapon_barp = `COMPONENT_AT_AR_BARPFLSH`, -- v4
+        weapon_ruger57 = `COMPONENT_AT_PI_RUGER57FLSH`, -- v4
     },
     suppressor_attachment = {
         weapon_pistol = `COMPONENT_AT_PI_SUPP_02`,
@@ -305,6 +369,10 @@ WeaponAttachments = {
         weapon_marksmanrifle = `COMPONENT_AT_AR_SUPP`,
         weapon_marksmanrifle_mk2 = `COMPONENT_AT_AR_SUPP`,
         weapon_heavysniper_mk2 = `COMPONENT_AT_SR_SUPP_03`,
+        weapon_nsr = `COMPONENT_AT_AR_NSR_SUPP`, -- v1
+        weapon_p416 = `COMPONENT_AT_AR_P416_SUPP`, -- v3
+        weapon_p90 = `COMPONENT_AT_SR_P90_SUPP`, -- v3
+        weapon_ziptie = `COMPONENT_AT_AR_ZIPTIE_SUPP`, -- v4
     },
     smallscope_attachment = {
         weapon_pistol_mk2 = `COMPONENT_AT_PI_RAIL`,
@@ -336,11 +404,16 @@ WeaponAttachments = {
         weapon_specialcarbine = `COMPONENT_AT_SCOPE_MEDIUM`,
         weapon_combatmg = `COMPONENT_AT_SCOPE_MEDIUM`,
         weapon_marksmanrifle_mk2 = `COMPONENT_AT_SCOPE_MEDIUM_MK2`,
+        weapon_arpistol = `COMPONENT_AT_ARPISTOLSCOPE_MEDIUM`, -- v4
     },
     largescope_attachment = {
         weapon_sniperrifle = `COMPONENT_AT_SCOPE_LARGE`,
         weapon_marksmanrifle = `COMPONENT_AT_SCOPE_LARGE_FIXED_ZOOM`,
         weapon_heavysniper_mk2 = `COMPONENT_AT_SCOPE_LARGE_MK2`,
+        weapon_barrett = `COMPONENT_AT_BARRETT50_SCOPE_MAX`, -- v1
+        weapon_awp = `COMPONENT_AT_AWP_SCOPE_LARGE`, -- v3
+        weapon_m200 = `COMPONENT_AT_M200_SCOPE_LARGE`, -- v3
+        weapon_as50 = `COMPONENT_AT_AS50_SCOPE_LARGE`, -- v3
     },
     holoscope_attachment = {
         weapon_heavyrevolver_mk2 = `COMPONENT_AT_SIGHTS`,
@@ -464,6 +537,8 @@ WeaponAttachments = {
         weapon_marksmanrifle = `COMPONENT_AT_AR_AFGRIP`,
         weapon_marksmanrifle_mk2 = `COMPONENT_AT_AR_AFGRIP_02`,
         weapon_grenadelauncher = `COMPONENT_AT_AR_AFGRIP`,
+        weapon_lok = `COMPONENT_AT_AR_LOKAFGRIP`, -- v4
+        weapon_plr = `COMPONENT_AT_AR_PLRAFGRIP`, -- v4
     },
     comp_attachment = {
         weapon_pistol_mk2 = `COMPONENT_AT_PI_COMP`,
@@ -637,6 +712,18 @@ WeaponAttachments = {
         weapon_combatmg_mk2 = `COMPONENT_COMBATMG_MK2_CAMO_IND_01`,
         weapon_marksmanrifle_mk2 = `COMPONENT_MARKSMANRIFLE_MK2_CAMO_IND_01`,
         weapon_heavysniper_mk2 = `COMPONENT_HEAVYSNIPER_MK2_CAMO_IND_01`,
+    },
+    at_clip_drum_pistol = {
+        weapon_glock19 = `COMPONENT_GLOCK19_CLIP_03`, -- v4
+        weapon_glock40 = `COMPONENT_GLOCK40_CLIP_03`, -- v4
+        weapon_glock19x = `COMPONENT_GLOCK19X_CLIP_03`, -- v4
+        weapon_glock40s = `COMPONENT_GLOCK40S_CLIP_03`, -- v4
+
+    },
+    at_clip_100_pistol = { 
+        weapon_glock40 = `COMPONENT_GLOCK40_CLIP_04`, -- v4
+        weapon_glock19x = `COMPONENT_GLOCK19X_CLIP_04`, -- v4
+        weapon_glock40s = `COMPONENT_GLOCK40S_CLIP_04`, -- v4   
     },
 }
 
