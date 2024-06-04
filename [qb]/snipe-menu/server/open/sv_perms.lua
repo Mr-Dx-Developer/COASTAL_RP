@@ -1,6 +1,6 @@
 
-local bottoken = "" -- Add your bot token here
-local serverid = "" -- Add your discord server id here
+local bottoken = "MTI0NzQ1ODg3NzE5MzE5MTQ0Ng.GIC1yE.jyudoOj0ML_UiaRekhgppo1zk9AoXtHJeMT5tA" -- Add your bot token here
+local serverid = "835233053823205427" -- Add your discord server id here
 
 function GetUserRoles(discordid)
     local data = nil

@@ -1,6 +1,6 @@
-bot_Token = ""
+bot_Token = "MTI0NzQ1ODg3NzE5MzE5MTQ0Ng.GIC1yE.jyudoOj0ML_UiaRekhgppo1zk9AoXtHJeMT5tA"
 bot_logo = "https://cdn.discordapp.com/attachments/1025789416456867961/1106324039808594011/512x512_Logo.png"
-bot_name = "Codem Store"
+bot_name = "BRPD"
 
 local discord_webhook = {
     ['bill'] = "",
