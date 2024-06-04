@@ -308,6 +308,15 @@ QBShared.Items = {
     empty_weed_bag               = { name = 'empty_weed_bag', label = 'Empty Weed Bag', weight = 0, type = 'item', image = 'weed_baggy_empty.png', unique = false, useable = true, shouldClose = true, description = 'A small empty bag' },
     weed_nutrition               = { name = 'weed_nutrition', label = 'Plant Fertilizer', weight = 2000, type = 'item', image = 'weed_nutrition.png', unique = false, useable = true, shouldClose = true, description = 'Plant nutrition' },
 
+
+    
+    ['weed_white-widow']      = { ['name'] = 'weed_white-widow', ['label'] = 'White Widow 2g', ['weight'] = 200, ['type'] = 'item', ['image'] = 'weed_baggy.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed bag with 2g White Widow' },
+    ['weed_purple-haze']      = { ['name'] = 'weed_purple-haze', ['label'] = 'Purple Haze 2g', ['weight'] = 200, ['type'] = 'item', ['image'] = 'weed_baggy.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed bag with 2g Purple Haze' },
+    ['weed_og-kush']          = { ['name'] = 'weed_og-kush', ['label'] = 'OGKush 2g', ['weight'] = 200, ['type'] = 'item', ['image'] = 'weed_baggy.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed bag with 2g OG Kush' },
+    ['weed_white-widow_seed'] = { ['name'] = 'weed_white-widow_seed', ['label'] = 'White Widow Seed', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_seed.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed seed of White Widow' },
+    ['weed_purple-haze_seed'] = { ['name'] = 'weed_purple-haze_seed', ['label'] = 'Purple Haze Seed', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_seed.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A weed seed of Purple Haze' },
+    ['weed_og-kush_seed']     = { ['name'] = 'weed_og-kush_seed', ['label'] = 'OGKush Seed', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_seed.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A weed seed of OG Kush' },
+
     -- Material
     plastic                      = { name = 'plastic', label = 'Plastic', weight = 100, type = 'item', image = 'plastic.png', unique = false, useable = false, shouldClose = false, description = 'RECYCLE! - Greta Thunberg 2019' },
     metalscrap                   = { name = 'metalscrap', label = 'Metal Scrap', weight = 100, type = 'item', image = 'metalscrap.png', unique = false, useable = false, shouldClose = false, description = 'You can probably make something nice out of this' },
@@ -784,23 +793,6 @@ chop_contract                        = {name = "chop_contract",                 
 
     ["hotel_card"] = {["name"] = "hotel_card",["label"] = "Room Access",["weight"] = 5000,["type"] = "item",["image"] = "hotel_card.png",["unique"] = true,["useable"] = true,["shouldClose"] = true,["combinable"] = nil,["description"] = "Hotel Room Access"},
 
-    ['weed_white-widow']      = { ['name'] = 'weed_white-widow', ['label'] = 'White Widow 2g', ['weight'] = 200, ['type'] = 'item', ['image'] = 'weed_baggy.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed bag with 2g White Widow' },
-    ['weed_skunk']            = { ['name'] = 'weed_skunk', ['label'] = 'Skunk 2g', ['weight'] = 200, ['type'] = 'item', ['image'] = 'weed_baggy.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed bag with 2g Skunk' },
-    ['weed_purple-haze']      = { ['name'] = 'weed_purple-haze', ['label'] = 'Purple Haze 2g', ['weight'] = 200, ['type'] = 'item', ['image'] = 'weed_baggy.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed bag with 2g Purple Haze' },
-    ['weed_og-kush']          = { ['name'] = 'weed_og-kush', ['label'] = 'OGKush 2g', ['weight'] = 200, ['type'] = 'item', ['image'] = 'weed_baggy.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed bag with 2g OG Kush' },
-    ['weed_amnesia']          = { ['name'] = 'weed_amnesia', ['label'] = 'Amnesia 2g', ['weight'] = 200, ['type'] = 'item', ['image'] = 'weed_baggy.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed bag with 2g Amnesia' },
-    ['weed_ak47']             = { ['name'] = 'weed_ak47', ['label'] = 'AK47 2g', ['weight'] = 200, ['type'] = 'item', ['image'] = 'weed_baggy.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed bag with 2g AK47' },
-    ['weed_white-widow_seed'] = { ['name'] = 'weed_white-widow_seed', ['label'] = 'White Widow Seed', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_seed.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed seed of White Widow' },
-    ['weed_skunk_seed']       = { ['name'] = 'weed_skunk_seed', ['label'] = 'Skunk Seed', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_seed.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A weed seed of Skunk' },
-    ['weed_purple-haze_seed'] = { ['name'] = 'weed_purple-haze_seed', ['label'] = 'Purple Haze Seed', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_seed.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A weed seed of Purple Haze' },
-    ['weed_og-kush_seed']     = { ['name'] = 'weed_og-kush_seed', ['label'] = 'OGKush Seed', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_seed.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A weed seed of OG Kush' },
-    ['weed_amnesia_seed']     = { ['name'] = 'weed_amnesia_seed', ['label'] = 'Amnesia Seed', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_seed.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A weed seed of Amnesia' },
-    ['weed_ak47_seed']        = { ['name'] = 'weed_ak47_seed', ['label'] = 'AK47 Seed', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_seed.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A weed seed of AK47' },
-    ['empty_weed_bag']        = { ['name'] = 'empty_weed_bag', ['label'] = 'Empty Weed Bag', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_baggy_empty.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A small empty bag' },
-    ['weed_nutrition']        = { ['name'] = 'weed_nutrition', ['label'] = 'Plant Fertilizer', ['weight'] = 2000, ['type'] = 'item', ['image'] = 'weed_nutrition.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'Plant nutrition' },
-    ['lockpick']              = { ['name'] = 'lockpick', ['label'] = 'Lockpick', ['weight'] = 100, ['type'] = 'item', ['image'] = 'lockpick.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'No description' },
-    ['police_stormram']       = { ['name'] = 'police_stormram', ['label'] = 'Police Storm Ram', ['weight'] = 2000, ['type'] = 'item', ['image'] = 'police_stormram.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'No description' },
-    
 
 ['strippedbass'] = {
     ['name'] = 'strippedbass', 			 	  	  	
