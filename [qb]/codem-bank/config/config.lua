@@ -118,7 +118,8 @@ end)
 -- ██║░░░░░██║░░██║██╔══██║██║╚████║░╚═══██╗██╔══╝░░░░░██║░░░░░░██║░░░██║██║╚████║██║░░╚██╗░╚═══██╗
 -- ███████╗╚█████╔╝██║░░██║██║░╚███║██████╔╝███████╗░░░██║░░░░░░██║░░░██║██║░╚███║╚██████╔╝██████╔╝
 -- ╚══════╝░╚════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░╚══════╝░░░╚═╝░░░░░░╚═╝░░░╚═╝╚═╝░░╚══╝░╚═════╝░╚═════╝░
-Config.LoanUtilization = true -- true or false |Do true if your players will use the credit system. or false if you want to use the loan system.
+Config.LoanUtilization = false -- true or false |Do true if your players will use the credit system. or false if you want to use the loan system.
+Config.LoadDataWaitTime = 86400 -- 1 day
 Config.LoanData = {
     {
         label = "Fleeca Entry",
@@ -310,7 +311,7 @@ Config.SavingData = {
 -- ██╔══██╗██║░░░██║░░░██║░░██╗██║░░██║██║██║╚████║  ░╚═══██╗░░╚██╔╝░░░╚═══██╗░░░██║░░░██╔══╝░░██║╚██╔╝██║
 -- ██████╦╝██║░░░██║░░░╚█████╔╝╚█████╔╝██║██║░╚███║  ██████╔╝░░░██║░░░██████╔╝░░░██║░░░███████╗██║░╚═╝░██║
 -- ╚═════╝░╚═╝░░░╚═╝░░░░╚════╝░░╚════╝░╚═╝╚═╝░░╚══╝  ╚═════╝░░░░╚═╝░░░╚═════╝░░░░╚═╝░░░╚══════╝╚═╝░░░░░╚═╝
-Config.BitcoinSystem = true
+Config.BitcoinSystem = false
 Config.BitcoinData = {
     {
         label = "Bitcoin",

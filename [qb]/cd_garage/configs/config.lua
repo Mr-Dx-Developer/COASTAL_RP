@@ -17,7 +17,7 @@ function L(cd) if Locales[Config.Language][cd] then return Locales[Config.Langua
 Config.Framework = 'auto_detect' --[ 'auto_detect' / 'other' ]   If you select 'auto_detect', only ESX and QBCore frameworks will be detected. Use 'other' for custom frameworks.
 Config.Database = 'auto_detect' --[ 'auto_detect' ]   If you select 'auto_detect', only MySQL, GHMattimysql, and Oxmysql SQL database resources will be detected.
 Config.AutoInsertSQL = true --Would you like the script to insert the necessary SQL tables into your database automatically? If you have already done this, please set it to false.
-Config.Notification = 'auto_detect' --[ 'auto_detect' / 'other' ]   If you select 'auto_detect', only ESX, QBCore, okokNotify, ps-ui and ox_lib notifications will be detected. Use 'other' for custom notification resources.
+Config.Notification = 'QBCore' --[ 'auto_detect' / 'other' ]   If you select 'auto_detect', only ESX, QBCore, okokNotify, ps-ui and ox_lib notifications will be detected. Use 'other' for custom notification resources.
 Config.Language = 'EN' --[ 'EN' / 'CZ' / 'DE' / 'DK' / 'ES' / 'FI' / 'FR' / 'NO' / 'NL' / 'PT' / 'SE' / 'SK' ]   You can add your own locales to locales.lua, but be sure to update the Config.Language to match it.
 
 Config.FrameworkTriggers = {
@@ -406,13 +406,13 @@ Config.InsideGarage = {
     ENABLE = false, --Do you want to allow players to use the inside garage?
     only_showcars_inthisgarage = false, --Do you want the inside garage to only show the vehicles which are currently stored at that garage (eg., garage A).  (this works for inside garage only, even with this enabled all the cars will show in the outside UI).
     shell_z_axis = 30, --This is how low under the ground the garage shell will spawn, you could use math.random(10,50) to make it random each time so players dont see each other in their garage.
-    shell_time_script = 'qbcore', --Choose which time script you are using so we can set the time when you enter the shell. [ 'easytime' / 'vsync' / 'qbcore' / 'other' ].
+    shell_time_script = 'easytime', --Choose which time script you are using so we can set the time when you enter the shell. [ 'easytime' / 'vsync' / 'qbcore' / 'other' ].
     engines_on = false, --Do you want the vehicles engine will be turned on when you enter the inside garage?
     lights_on = false, --Do you want the vehicles headlights will be turned on when you enter the inside garage?
     use_spotlight = true, --Do you want the spotlight to shine on the closest vehicle?
     
     Insidegarage_Blacklist = { --Vehicles inside this table will not be spawned inside the garage, this is used for large vehicles that will not fit.
-        [`flatb`] = true,
+        [`flatbed`] = true,
         --[`add_more_here`] = true,
     },
 

@@ -56,9 +56,9 @@ server_exports {
 }
 
 dependencies {
-    '/server:4960', -- ⚠️PLEASE READ⚠️; Requires at least server build 4960.
-    'cd_drawtextui', --⚠️PLEASE READ⚠️; Remove this line if you don't use 'cd_drawtextui' and you have already edited the code accordingly.⚠️
-    'cd_garageshell'
+    '/server:4960' -- ⚠️PLEASE READ⚠️; Requires at least server build 4960.
+   -- 'cd_drawtextui', --⚠️PLEASE READ⚠️; Remove this line if you don't use 'cd_drawtextui' and you have already edited the code accordingly.⚠️
+   -- 'cd_garageshell'
 }
 
 provide 'qb-garage'

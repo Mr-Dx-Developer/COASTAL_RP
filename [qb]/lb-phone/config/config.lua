@@ -155,7 +155,7 @@ Config.CustomApps = {} -- https://docs.lbphone.com/phone/custom-apps
 
 Config.Valet = {}
 Config.Valet.Enabled = true -- allow players to get their vehicles from the phone
-Config.Valet.Price = 100 -- price to get your vehicle
+Config.Valet.Price = 1000 -- price to get your vehicle
 Config.Valet.Model = `S_M_Y_XMech_01`
 Config.Valet.Drive = true -- should a ped bring the car, or should it just spawn in front of the player?
 Config.Valet.DisableDamages = false -- disable vehicle damages (engine & body health) on esx
@@ -299,11 +299,11 @@ Config.PhoneNumber = {}
 Config.PhoneNumber.Format = "({3}) {3}-{4}" -- Don't touch unless you know what you're doing. IMPORTANT: The sum of the numbers needs to be equal to the phone number length + prefix length
 Config.PhoneNumber.Length = 7 -- This is the length of the phone number WITHOUT the prefix.
 Config.PhoneNumber.Prefixes = { -- These are the first numbers of the phone number, usually the area code. They all need to be the same length
-    "205",
-    "907",
-    "480",
-    "520",
-    "602"
+    "017",
+    "019",
+    "018",
+    "016",
+    "015"
 }
 
 Config.Battery = {} -- WITH THESE SETTINGS, A FULL CHARGE WILL LAST AROUND 2 HOURS.
@@ -323,11 +323,11 @@ Config.TransferLimits.Weekly = false -- The maximum amount of money that can be 
 Config.EnableMessagePay = true -- Allow players to pay other players via messages?
 Config.EnableVoiceMessages = true -- Allow players to send voice messages?
 
-Config.CityName = "Los Santos" -- The name that's being used in the weather app etc.
+Config.CityName = "BRPS" -- The name that's being used in the weather app etc.
 Config.RealTime = true -- if true, the time will use real life time depending on where the user lives, if false, the time will be the ingame time.
 Config.CustomTime = false -- NOTE: disable Config.RealTime if using this. you can set this to a function that returns custom time, as a table: { hour = 0-24, minute = 0-60 }
 
-Config.EmailDomain = "lbphone.com"
+Config.EmailDomain = "brps.bd.com"
 Config.AutoCreateEmail = false -- should the phone automatically create an email for the player when they set up the phone?
 Config.DeleteMail = true -- allow players to delete mails in the mail app?
 
@@ -413,7 +413,7 @@ Config.BirdyTrending = {}
 Config.BirdyTrending.Enabled = true -- show trending hashtags?
 Config.BirdyTrending.Reset = 7 * 24 -- How often should trending hashtags be reset on birdy? (in hours)
 
-Config.BirdyNotifications = false -- should everyone get a notification when someone posts?
+Config.BirdyNotifications = true -- should everyone get a notification when someone posts?
 
 Config.PromoteBirdy = {}
 Config.PromoteBirdy.Enabled = true -- should you be able to promote post?
@@ -485,11 +485,11 @@ Config.TikTok.TTS = {
 -- }
 
 Config.Crypto = {}
-Config.Crypto.Enabled = true
+Config.Crypto.Enabled = false
 Config.Crypto.Coins = {"bitcoin","ethereum","tether","binancecoin","usd-coin","ripple","binance-usd","cardano","dogecoin","solana","shiba-inu","polkadot","litecoin","bitcoin-cash"}
 Config.Crypto.Currency = "usd" -- currency to use for crypto prices. https://api.coingecko.com/api/v3/simple/supported_vs_currencies
 Config.Crypto.Refresh = 5 * 60 * 1000 -- how often should the crypto prices be refreshed (client cache)? (Default 5 minutes)
-Config.Crypto.QBit = true -- support QBit? (requires qb-crypto & qb-core)
+Config.Crypto.QBit = false -- support QBit? (requires qb-crypto & qb-core)
 
 Config.KeyBinds = {
     -- Find keybinds here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
