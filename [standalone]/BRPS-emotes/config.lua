@@ -15,20 +15,20 @@ Config = {
     AllowedInCars = true,
     -- You can disable the menu here / change the keybind. It is currently set to F3
     MenuKeybindEnabled = true,
-    MenuKeybind = 'F5', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    MenuKeybind = 'F3', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can disable the Favorite emote keybinding here.
-    FavKeybindEnabled = true,
+    FavKeybindEnabled = false,
     FavKeybind = 'CAPITAL', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can change the header image for the menu here
     -- Use a 512 x 128 image!
     -- Note this might cause an issue of the image getting stuck on peoples screens
     CustomMenuEnabled = true,
-    MenuImage = "https://i.imgur.com/tKUPkaE.png", ----REPLACE THIS LINK  ----[Custom banner imgur URLs go here ]---
+    MenuImage = "https://i.ibb.co/W2fY1Cr/BRPS-1.gif", ----REPLACE THIS LINK  ----[Custom banner imgur URLs go here ]---
     -- You can change the menu image by pasting a link above. It must be the same width and length
     -- You can change the name of the menu here.
     MenuTitle = "",
     -- You can change the menu position here
-    MenuPosition = "left", -- (left, right)
+    MenuPosition = "right", -- (left, right)
     -- You can enable or disable the Ragdoll keybinding here.
     RagdollEnabled = false,
     RagdollKeybind = 'U', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
@@ -37,7 +37,7 @@ Config = {
     -- You can disable the Facial Expressions menu here.
     ExpressionsEnabled = true,
     -- You can disable the Walking Styles menu here.
-    WalkingStylesEnabled = true,
+    WalkingStylesEnabled = false,
     -- You can disable the Adult Emotes here.
     AdultEmotesDisabled = false,
     -- You can disable the Shared Emotes here.
@@ -50,7 +50,7 @@ Config = {
     -- Used for few framework dependent things. Accepted values: "qb-core", false
     Framework = false,
     -- Used to enable or disable the search feature in the menu.
-    Search = true,
+    Search = false,
     -- You can disable the Animal Emotes here.
     AnimalEmotesEnabled = false,
 }
@@ -89,9 +89,9 @@ Config.Languages = {
         ['moods'] = "Moods",
         ['infoupdate'] = "Credits & Suggestions 🙏🏻",
         ['infoupdateav'] = "Information (Update available)",
-        ['infoupdateavtext'] = "An update is available, get the latest version from ~r~https://github.com/TayMcKenzieNZ/dpemotes~w~",
+        ['infoupdateavtext'] = "An update is available, get the latest version from ~r~https://github.com/TayMcKenzieNZ/Mr-Dx-Developer~w~",
         ['suggestions'] = "Suggestions?",
-        ['suggestionsinfo'] = "~p~ Shop~s~ discord join now https://discord.gg/HqWARfaueE ! ✉️",
+        ['suggestionsinfo'] = "~p~ Shop~s~ discord join now https://discord.gg/RgbBztr5XJ ! ✉️",
         ['notvaliddance'] = "is not a valid dance.",
         ['notvalidemote'] = "is not a valid emote.",
         ['nocancel'] = "No emote to cancel.",
