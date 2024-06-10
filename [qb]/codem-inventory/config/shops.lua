@@ -21,9 +21,9 @@ Config.Shops = {
         },
         job = {
             ["police"] = {
-                [1] = false,
+                [1] = true,
                 [2] = true,
-                [3] = false
+                [3] = true
             }
         },
         items = {
@@ -37,8 +37,9 @@ Config.Shops = {
             ["8"] = { name = "bandage", price = 10, },
             ["9"] = { name = "pistol_ammo", price = 10, },
             ["10"] = { name = "smg_ammo", price = 10, },
+            ["11"] = { name = "bobby_pin", price = 1, },
         },
-        coords = vector3(458.02, -979.17, 30.69)
+        coords = vector3(482.33, -995.26, 30.69)
     },
     ["market"] = {
         label = "Market",
