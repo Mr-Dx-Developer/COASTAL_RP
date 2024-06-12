@@ -230,6 +230,38 @@ local function Progress(action, finish)
 end
 exports('Progress', Progress)
 
+RegisterCommand('c', function()
+
+    exports['progressbar']:Progress({
+        name = "random_task",
+        duration = 5000,
+        label = "LIMPIANDO GRAFFITI",
+        useWhileDead = false,
+        canCancel = true,
+        controlDisables = {
+            disableMovement = false,
+            disableCarMovement = false,
+            disableMouse = false,
+            disableCombat = true,
+        },
+        animation = {
+            animDict = "mp_suicide",
+            anim = "pill",
+            flags = 49,
+        },
+        prop = {},
+        propTwo = {}
+     }, function(cancelled)
+        if not cancelled then
+            -- finished
+        else
+            -- cancelled
+        end
+     end)
+
+
+end)
+
 local function ProgressWithStartEvent(action, start, finish)
     StartProgress(action, start, nil, finish)
 end
