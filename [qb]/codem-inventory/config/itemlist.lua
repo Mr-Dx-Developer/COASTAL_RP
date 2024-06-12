@@ -442,8 +442,7 @@ Config.Itemlist = {
 	['vic10'] 			 		 = {['name'] = 'vic10', 						['label'] = 'Vicodin 10MG', 				['weight'] = 2, 		['type'] = 'item', 		['image'] = 'vic10.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = true,   ['description'] = 'A controlled substance to control pain'},
 	['vic5'] 			 		 = {['name'] = 'vic5', 						['label'] = 'Vicodin 5MG', 				['weight'] = 2, 		['type'] = 'item', 		['image'] = 'vic5.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = true,   ['description'] = 'A controlled substance to control pain'},
 
-
-
+    vehiclekey                   = { name = 'vehiclekey', label = 'Vehicle key', weight = 10, type = 'item', image = 'vehiclekeys.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = "This is a car key, take good care of it, if you lose it you probably won't be able to use your car" },
 
 
 
