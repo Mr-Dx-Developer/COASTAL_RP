@@ -5,7 +5,7 @@ if GetResourceState('es_extended') ~= "missing" then
         local xPlayer = ESX.GetPlayerFromId(source)
         if xPlayer.getInventoryItem(Config.ItemSelfTreatment).count >= 1 then
             xPlayer.removeInventoryItem(Config.ItemSelfTreatment, 1)
-            TriggerClientEvent("nchub-realisticdisease:stopBlooding", source)
+            TriggerClientEvent("dx-realisticdisease:stopBlooding", source)
         end
     end)
 else
@@ -15,7 +15,7 @@ else
         local xPlayer = QBCore.Functions.GetPlayer(source)
         if xPlayer.Functions.GetItemByName(Config.ItemSelfTreatment) ~= nil and xPlayer.Functions.GetItemByName(Config.ItemSelfTreatment).amount >= 1 then
             xPlayer.Functions.RemoveItem(Config.ItemSelfTreatment, 1)
-            TriggerClientEvent("nchub-realisticdisease:stopBlooding", source)
+            TriggerClientEvent("dx-realisticdisease:stopBlooding", source)
         end
     end)
 end
@@ -23,8 +23,8 @@ end
 
 Players = {}
  
-RegisterNetEvent("nchub-realisticdisease:hitPlayer")
-AddEventHandler("nchub-realisticdisease:hitPlayer", function(t_pid, bone, damage)
+RegisterNetEvent("dx-realisticdisease:hitPlayer")
+AddEventHandler("dx-realisticdisease:hitPlayer", function(t_pid, bone, damage)
     local source = source
     local damage = damage
     local takeDmg = false
@@ -85,10 +85,10 @@ AddEventHandler("nchub-realisticdisease:hitPlayer", function(t_pid, bone, damage
 
     table.shift(Players[t_pid].injures)
  
-    TriggerClientEvent("nchub-realisticdisease:hitRecieve", t_pid, bone, Players[t_pid])
+    TriggerClientEvent("dx-realisticdisease:hitRecieve", t_pid, bone, Players[t_pid])
  
     if Config.DebugMode == true then 
-        TriggerClientEvent("nchub-realisticdisease:hitRecieve", source, bone, Players[t_pid])
+        TriggerClientEvent("dx-realisticdisease:hitRecieve", source, bone, Players[t_pid])
     end
 end)
  
@@ -98,34 +98,34 @@ AddEventHandler('playerDropped', function(reason)
     -- table.shift(Players)
 end)
 
-RegisterNetEvent("nchub-realisticdisease:removeAllInjures")
-AddEventHandler("nchub-realisticdisease:removeAllInjures", function()
+RegisterNetEvent("dx-realisticdisease:removeAllInjures")
+AddEventHandler("dx-realisticdisease:removeAllInjures", function()
     local source = source
     Players[source] = nil
     -- table.shift(Players)
 end)
 
-RegisterNetEvent("nchub-realisticdisease:qbrev")
-AddEventHandler("nchub-realisticdisease:qbrev", function(pid)
+RegisterNetEvent("dx-realisticdisease:qbrev")
+AddEventHandler("dx-realisticdisease:qbrev", function(pid)
     TriggerClientEvent('hospital:client:Revive', pid)
 end)
 
-RegisterNetEvent("nchub-realisticdisease:brutalrev")
-AddEventHandler("nchub-realisticdisease:brutalrev", function(pid)
+RegisterNetEvent("dx-realisticdisease:brutalrev")
+AddEventHandler("dx-realisticdisease:brutalrev", function(pid)
     TriggerClientEvent('brutal_ambulancejob:revive', pid)
 end)
 
 
-RegisterNetEvent('nchub-realisticdisease:stopBlooding', function(pid)
+RegisterNetEvent('dx-realisticdisease:stopBlooding', function(pid)
     Players[pid].bleeding = false
-    TriggerClientEvent('nchub-realisticdisease:stopBlooding', pid)
+    TriggerClientEvent('dx-realisticdisease:stopBlooding', pid)
 end)
 
-RegisterNetEvent("nchub-realisticdisease:checkTreatment")
-AddEventHandler("nchub-realisticdisease:checkTreatment", function(data)
+RegisterNetEvent("dx-realisticdisease:checkTreatment")
+AddEventHandler("dx-realisticdisease:checkTreatment", function(data)
     local source = source
     if data.cacheid == nil then 
-        print("nchub-realisticdisease:checkTreatment - cacheid is nil")
+        print("dx-realisticdisease:checkTreatment - cacheid is nil")
         return 
     end
     pid = data.cacheid
@@ -141,14 +141,14 @@ AddEventHandler("nchub-realisticdisease:checkTreatment", function(data)
                 end
                 -- table.shift(Players)
                 xPlayer.removeInventoryItem(data.item, 1)
-                TriggerClientEvent("nchub-realisticdisease:docStatus", source, "success")  
+                TriggerClientEvent("dx-realisticdisease:docStatus", source, "success")  
             else 
-                TriggerClientEvent("nchub-realisticdisease:docStatus", source, "wrong") 
+                TriggerClientEvent("dx-realisticdisease:docStatus", source, "wrong") 
             end
         else
-            TriggerClientEvent("nchub-realisticdisease:docStatus", source, "no_item") 
+            TriggerClientEvent("dx-realisticdisease:docStatus", source, "no_item") 
         end
-        TriggerClientEvent("nchub-realisticdisease:updateInjures", source, Players[pid])    
+        TriggerClientEvent("dx-realisticdisease:updateInjures", source, Players[pid])    
     else
         local xPlayer = QBCore.Functions.GetPlayer(source)
         if xPlayer.Functions.GetItemByName(data.item) ~= nil and xPlayer.Functions.GetItemByName(data.item).amount >= 1 then
@@ -162,14 +162,14 @@ AddEventHandler("nchub-realisticdisease:checkTreatment", function(data)
                 end
                 -- table.shift(Players)
                 xPlayer.Functions.RemoveItem(data.item, 1)
-                TriggerClientEvent("nchub-realisticdisease:docStatus", source, "success")  
+                TriggerClientEvent("dx-realisticdisease:docStatus", source, "success")  
             else 
-                TriggerClientEvent("nchub-realisticdisease:docStatus", source, "wrong") 
+                TriggerClientEvent("dx-realisticdisease:docStatus", source, "wrong") 
             end
         else
-            TriggerClientEvent("nchub-realisticdisease:docStatus", source, "no_item") 
+            TriggerClientEvent("dx-realisticdisease:docStatus", source, "no_item") 
         end
-        TriggerClientEvent("nchub-realisticdisease:updateInjures", source, Players[pid])   
+        TriggerClientEvent("dx-realisticdisease:updateInjures", source, Players[pid])   
     end
  
 end)
@@ -189,10 +189,10 @@ CheckTreatReqItems = function(item, area)
     return x
 end
 
-RegisterNetEvent("nchub-realisticdisease:fastTreatPlayer")
-AddEventHandler("nchub-realisticdisease:fastTreatPlayer", function(pid)
+RegisterNetEvent("dx-realisticdisease:fastTreatPlayer")
+AddEventHandler("dx-realisticdisease:fastTreatPlayer", function(pid)
     Players[pid].injures = {}
-    TriggerClientEvent("nchub-realisticdisease:updateInjures", pid, Players[pid])
+    TriggerClientEvent("dx-realisticdisease:updateInjures", pid, Players[pid])
 end)
  
  
@@ -226,7 +226,7 @@ function table.shift(t)
 end
  
 if Config.Framework == "ESX" then
-    ESX.RegisterServerCallback("nchub-realisticdisease:getPlayerInfo", function(source, cb, data)
+    ESX.RegisterServerCallback("dx-realisticdisease:getPlayerInfo", function(source, cb, data)
         local pid = data
         local xPlayer = ESX.GetPlayerFromId(pid)
 
@@ -256,7 +256,7 @@ if Config.Framework == "ESX" then
         })
     end)
 else
-    QBCore.Functions.CreateCallback('nchub-realisticdisease:getplayerinfo', function(source, cb, data)
+    QBCore.Functions.CreateCallback('dx-realisticdisease:getplayerinfo', function(source, cb, data)
         local pid = data
         local xPlayer = QBCore.Functions.GetPlayer(pid)
        
@@ -286,7 +286,7 @@ else
 end
  
 if Config.Framework == "ESX" then
-    ESX.RegisterServerCallback("nchub-realisticdisease:checkItems", function(source, cb, data)
+    ESX.RegisterServerCallback("dx-realisticdisease:checkItems", function(source, cb, data)
         local xPlayer = ESX.GetPlayerFromId(source)
         local itemlist = {}
         for k,v in pairs(Config.items) do
@@ -300,7 +300,7 @@ if Config.Framework == "ESX" then
         return cb(itemlist)
     end)
 else 
-    QBCore.Functions.CreateCallback('nchub-realisticdisease:checkItems', function(source, cb, data)
+    QBCore.Functions.CreateCallback('dx-realisticdisease:checkItems', function(source, cb, data)
         local xPlayer = QBCore.Functions.GetPlayer(source)
         local itemlist = {}
         for k,v in pairs(Config.items) do

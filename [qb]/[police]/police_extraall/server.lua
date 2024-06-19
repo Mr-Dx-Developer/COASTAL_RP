@@ -2,7 +2,7 @@ Citizen.CreateThread(function()
     local consolemessage =
     [[
 
-        ⚠️🚨 | NCHub Extras  | 🚨⚠️
+        ⚠️🚨 |  Extras  | 🚨⚠️
                   
     ]]
     print(consolemessage)

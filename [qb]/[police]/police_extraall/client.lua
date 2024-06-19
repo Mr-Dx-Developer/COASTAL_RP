@@ -1,10 +1,10 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-local prefix = "^NCHub ^3"
+
 local consolemessage =
     [[
 
-    ⚠️🚨 | NCHub Extras  | 🚨⚠️
+    ⚠️🚨 | Extras  | 🚨⚠️
           
     ]]
 

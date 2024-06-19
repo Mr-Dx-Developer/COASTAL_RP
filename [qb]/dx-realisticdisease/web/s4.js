@@ -206,7 +206,7 @@ $(window).ready(function() {
  
 
             $(".ic-liste").html("");
-            $.post("https://nchub-realisticdisease/checkItems", {},  function (data) {
+            $.post("https://dx-realisticdisease/checkItems", {},  function (data) {
 
                     $.each(data, function (i, v) { 
                         $(".ic-liste").append(`
@@ -341,7 +341,7 @@ function secondsToMinutesSeconds(seconds) {
 
 
 $(document).on("click", ".com-ic-listx button" , function() {
-    $.post("https://nchub-realisticdisease/rev",  JSON.stringify(cacheid));
+    $.post("https://dx-realisticdisease/rev",  JSON.stringify(cacheid));
     Close();
 });  
 
@@ -470,7 +470,7 @@ function handle() {
 
             w = w.toLowerCase();
             
-            $.post("https://nchub-realisticdisease/checkTreatment", JSON.stringify({ bone: bone, area: w, item: item, cacheid: cacheid }),  function (data) {
+            $.post("https://dx-realisticdisease/checkTreatment", JSON.stringify({ bone: bone, area: w, item: item, cacheid: cacheid }),  function (data) {
  
             });
 
@@ -481,7 +481,7 @@ function handle() {
             $(".treatment-ui-s").hide();
             $(".bone-list").hide();
     
-            $.post("https://nchub-realisticdisease/close");
+            $.post("https://dx-realisticdisease/close");
             clearInterval(interval);
             interval = null;
         }
@@ -524,7 +524,7 @@ function handle() {
 
             w = w.toLowerCase();
             
-            $.post("https://nchub-realisticdisease/checkTreatment", JSON.stringify({ bone: bone, area: w, item: item, cacheid: cacheid }),  function (data) {
+            $.post("https://dx-realisticdisease/checkTreatment", JSON.stringify({ bone: bone, area: w, item: item, cacheid: cacheid }),  function (data) {
    
 
             });
@@ -542,7 +542,7 @@ function handle() {
             // }, 1000); 
             $(".bone-list").hide();
     
-            $.post("https://nchub-realisticdisease/close");
+            $.post("https://dx-realisticdisease/close");
             clearInterval(interval);
             interval = null;
         }
@@ -573,7 +573,7 @@ $(document).on('keydown', function() {
     $(".treatment-ui-s").hide();
     $(".bone-list").hide();
     
-    $.post("https://nchub-realisticdisease/close");
+    $.post("https://dx-realisticdisease/close");
     clearInterval(interval);
     interval = null;
   }

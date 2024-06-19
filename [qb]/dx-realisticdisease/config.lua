@@ -4,7 +4,7 @@ Config.DebugMode = false -- if true will enable debug mode
 
 Config.RemoveInjuresWhenRevive = false -- if true when player revive will remove all injures else doctor will need to heal player
 
-Config.UseTarget = true -- if true will use target else will use closest player
+Config.UseTarget = false -- if true will use target else will use closest player
 
 Config.OnlyWithAim = true -- if true player will need to aim to damage player else will damage player without aim
 
@@ -140,7 +140,7 @@ Revive = function(playerId)
             break
         end
         if resource_name == "qb-ambulancejob" and GetResourceState(resource_name) == "started" then
-            TriggerServerEvent("nchub-realisticdisease:qbrev", playerId) 
+            TriggerServerEvent("dx-realisticdisease:qbrev", playerId) 
             TriggerServerEvent('hospital:server:RevivePlayer', playerId) 
             n = true
             break
@@ -161,7 +161,7 @@ Revive = function(playerId)
             break
         end
         if resource_name == "brutal_ambulancejob" and GetResourceState(resource_name) == "started" then
-            TriggerServerEvent("nchub-realisticdisease:brutalrev", playerId) 
+            TriggerServerEvent("dx-realisticdisease:brutalrev", playerId) 
             n = true
             break
         end
@@ -172,7 +172,7 @@ Revive = function(playerId)
     end
 
     Config.Functions.PlayAnim(Config.Anims["revive"].lib, Config.Anims["revive"].anim)
-    TriggerServerEvent('nchub-realisticdisease:stopBlooding', playerId)
+    TriggerServerEvent('dx-realisticdisease:stopBlooding', playerId)
 end
 
 Config.Lang = "en"

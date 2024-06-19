@@ -24,7 +24,7 @@ Citizen.CreateThread(function()
     
     while true do
         local state = GlobalState[resource]
-        local active = (state and (CONFIG.Option.Display.Online.Enable and string.format('#NCHub | (%s/%s %s)', formatInt(state.players), formatInt(state.maxclients), CONFIG.Translate.General.Player, state.details) or string.format('%s %s | %s', formatInt(state.maxclients), CONFIG.Translate.General.Slot, state.details)) or CONFIG.Translate.General.Loading)
+        local active = (state and (CONFIG.Option.Display.Online.Enable and string.format('| (%s/%s %s)', formatInt(state.players), formatInt(state.maxclients), CONFIG.Translate.General.Player, state.details) or string.format('%s %s | %s', formatInt(state.maxclients), CONFIG.Translate.General.Slot, state.details)) or CONFIG.Translate.General.Loading)
         local detail = string.format('%s%s%s\n%s', id, name, activity, active)
         
         SetRichPresence(detail)

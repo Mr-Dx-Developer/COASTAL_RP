@@ -136,7 +136,7 @@ Audit = function()
     t_pid = GetPlayerServerId(t_ped)
 
     if Config.Framework == "ESX" then 
-        ESX.TriggerServerCallback("nchub-realisticdisease:getPlayerInfo", function(x)
+        ESX.TriggerServerCallback("dx-realisticdisease:getPlayerInfo", function(x)
             local cachecfg = copyTable(Config)
             cachecfg.Functions = nil
             cachecfg.GetAlternativeBone = nil
@@ -159,7 +159,7 @@ Audit = function()
             SendNUIMessage({  action = "checked", data = x, injuresOld = injuresOld,  config = Config.BoneLabelText })    
         end, t_pid)
     else 
-        QBCore.Functions.TriggerCallback("nchub-realisticdisease:getplayerinfo", function(x)
+        QBCore.Functions.TriggerCallback("dx-realisticdisease:getplayerinfo", function(x)
             local cachecfg = copyTable(Config)
             cachecfg.Functions = nil
             cachecfg.GetAlternativeBone = nil
@@ -267,8 +267,8 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent("nchub-realisticdisease:docStatus")
-AddEventHandler("nchub-realisticdisease:docStatus", function(status)
+RegisterNetEvent("dx-realisticdisease:docStatus")
+AddEventHandler("dx-realisticdisease:docStatus", function(status)
     x = {
         ["success"] = function()
             Notify('success', Config.Langs[Config.Lang]["succeed_treat"])
@@ -312,7 +312,7 @@ RegisterNUICallback("rev", function(data, cb)
 end)
 
 RegisterNUICallback("checkTreatment", function(data, cb)
-    TriggerServerEvent("nchub-realisticdisease:checkTreatment", data)
+    TriggerServerEvent("dx-realisticdisease:checkTreatment", data)
     SetNuiFocus(0, 0)
     if cam ~= nil then 
         RenderScriptCams(false, false, 0, true, true, true)
@@ -323,11 +323,11 @@ end)
 
 RegisterNUICallback("checkItems", function(data, cb)
     if Config.Framework == "ESX" then
-        ESX.TriggerServerCallback("nchub-realisticdisease:checkItems", function(x)
+        ESX.TriggerServerCallback("dx-realisticdisease:checkItems", function(x)
             return cb(x)
         end)
     else 
-        QBCore.Functions.TriggerCallback("nchub-realisticdisease:checkItems", function(x)
+        QBCore.Functions.TriggerCallback("dx-realisticdisease:checkItems", function(x)
             return cb(x)
         end)
     end
@@ -352,15 +352,15 @@ else
 end
 
 
-RegisterNetEvent("nchub-realisticdisease:updateInjures")
-AddEventHandler("nchub-realisticdisease:updateInjures", function(injures, t_pid)
+RegisterNetEvent("dx-realisticdisease:updateInjures")
+AddEventHandler("dx-realisticdisease:updateInjures", function(injures, t_pid)
     if injures ~= nil then 
         CurrentInjure = injures
     end
 end)
 
-RegisterNetEvent("nchub-realisticdisease:hitRecieve")
-AddEventHandler("nchub-realisticdisease:hitRecieve", function(bone, injures)
+RegisterNetEvent("dx-realisticdisease:hitRecieve")
+AddEventHandler("dx-realisticdisease:hitRecieve", function(bone, injures)
     CurrentInjure = injures
  
     local cachet = {}
@@ -378,8 +378,8 @@ AddEventHandler("nchub-realisticdisease:hitRecieve", function(bone, injures)
 
 end)
 
-RegisterNetEvent("nchub-realisticdisease:hitRecieveVuran")
-AddEventHandler("nchub-realisticdisease:hitRecieveVuran", function(bone, injures)
+RegisterNetEvent("dx-realisticdisease:hitRecieveVuran")
+AddEventHandler("dx-realisticdisease:hitRecieveVuran", function(bone, injures)
     local cachet = {}
 
     for k,v in pairs(CurrentInjure.injures) do
@@ -389,8 +389,8 @@ AddEventHandler("nchub-realisticdisease:hitRecieveVuran", function(bone, injures
     SendNUIMessage({ action = "damageTaken", CurrentInjure = cachet, config = Config.BoneLabelText })
 end)
 
-RegisterNetEvent("nchub-realisticdisease:stopBlooding")
-AddEventHandler("nchub-realisticdisease:stopBlooding", function()
+RegisterNetEvent("dx-realisticdisease:stopBlooding")
+AddEventHandler("dx-realisticdisease:stopBlooding", function()
     bleeding = false
     Notify('success', Config.Langs[Config.Lang]["start_bleeding"])
     -- Citizen.SetTimeout((Config.StopBleedingTime * 60 * 1000), function()
@@ -462,7 +462,7 @@ Citizen.CreateThread(function()
                             -- print(hittedbone)
 
                             damage.bone = hittedbone.bid
-                            TriggerServerEvent('nchub-realisticdisease:hitPlayer', t_pid, hittedbone.bone, damage)
+                            TriggerServerEvent('dx-realisticdisease:hitPlayer', t_pid, hittedbone.bone, damage)
                             -- DrawText3D(coords.x, coords.y, coords.z, hittedbone)
                         end
                         -- DrawLine(position.x, position.y , position.z, coords.x, coords.y, coords.z, 255, 0, 0, 255)
@@ -580,7 +580,7 @@ end
 AddEventHandler('playerSpawned', function(spawn)
     if Config.RemoveInjuresWhenRevive == true then 
         CurrentInjure = {}
-        TriggerServerEvent('nchub-realisticdisease:removeAllInjures')
+        TriggerServerEvent('dx-realisticdisease:removeAllInjures')
     end
 end)
 
@@ -613,13 +613,13 @@ function Lerp(startValue, endValue, progress)
     return startValue + (endValue - startValue) * progress
 end
 
-RegisterNetEvent("nchub-realisticdisease:dmg")
-AddEventHandler("nchub-realisticdisease:dmg", function(victim, damage, victim_ped, LastDamagedBone)
+RegisterNetEvent("dx-realisticdisease:dmg")
+AddEventHandler("dx-realisticdisease:dmg", function(victim, damage, victim_ped, LastDamagedBone)
     if Config.ExperimentalFeatures == false then return end
     local alt = Config.GetAlternativeBone(LastDamagedBone)
     if alt ~= false and damage then 
         damage.bone = alt
-        TriggerServerEvent('nchub-realisticdisease:hitPlayer', victim, GetPedBoneIndex(victim_ped, alt), damage)
+        TriggerServerEvent('dx-realisticdisease:hitPlayer', victim, GetPedBoneIndex(victim_ped, alt), damage)
     end
 end)
 
@@ -666,7 +666,7 @@ AddEventHandler('gameEventTriggered', function(event, data)
 
             local FoundLastDamagedBone, LastDamagedBone = GetPedLastDamageBone(victim)
  
-            TriggerEvent("nchub-realisticdisease:dmg", victimid, damage, victim, LastDamagedBone)
+            TriggerEvent("dx-realisticdisease:dmg", victimid, damage, victim, LastDamagedBone)
         end
     end
 end)
@@ -713,7 +713,7 @@ end)
 
 --         if damage.name == "nd" then return end
 
---         TriggerEvent("nchub-realisticdisease:dmg", victim, attacker, attacker_ped, playerId, damage, LastDamagedBone)
+--         TriggerEvent("dx-realisticdisease:dmg", victim, attacker, attacker_ped, playerId, damage, LastDamagedBone)
 --     end
 -- end)
 
