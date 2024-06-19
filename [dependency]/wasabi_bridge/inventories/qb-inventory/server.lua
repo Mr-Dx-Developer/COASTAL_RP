@@ -11,6 +11,43 @@ if qsFound == 'started' or qsFound == 'starting' then return end
 WSB.inventory = {}
 WSB.inventorySystem = 'qb-inventory'
 
+OldInventory = GetResourceMetadata(WSB.inventorySystem, 'version', 0)
+OldInventory = OldInventory:gsub('%.', '')
+OldInventory = tonumber(OldInventory)
+if not OldInventory or OldInventory >= 200 then OldInventory = false end
+
+if not OldInventory then
+    local registeredShops = {}
+    RegisterNetEvent('wasabi_bridge:registerShop', function(data)
+        local src = source
+        if registeredShops[data.identifier] then
+            exports['qb-inventory']:OpenShop(src, data.identifier)
+            return
+        end
+
+        exports['qb-inventory']:CreateShop({
+            name = data.identifier,
+            label = data.name,
+            slots = #data.inventory,
+            items = data.inventory -- { name = 'sandwich', price = 5 }
+        })
+        registeredShops[data.identifier] = data
+        exports['qb-inventory']:OpenShop(src, data.identifier)
+    end)
+
+    RegisterNetEvent('wasabi_bridge:openStash', function(data)
+        local src = source
+        exports['qb-inventory']:OpenInventory(src, data.name,
+            { label = data.name, slots = data.slots, maxweight = data.maxWeight })
+    end)
+
+    RegisterNetEvent('wasabi_bridge:openPlayerInventory', function(targetId)
+        local src = source
+        exports['qb-inventory']:OpenInventoryById(src, targetId)
+    end)
+end
+
+
 function WSB.inventory.getItemSlot(source, itemName)
     return GetItemSlot(source, itemName) or false
 end
