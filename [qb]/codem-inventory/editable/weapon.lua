@@ -165,6 +165,16 @@ RegisterNetEvent('codem-inventory:RemoveWeaponsAttachments', function(weaponData
     local weaponHash = GetHashKey(weaponData.name)
     if HasPedGotWeapon(ped, weaponHash, false) then
         RemoveWeaponComponentFromPed(ped, weaponHash, attachmentData)
+        if ClientWeaponData.name == weaponData.name then
+            if ClientWeaponData.info.attachments then
+                for i = 1, #ClientWeaponData.info.attachments do
+                    if ClientWeaponData.info.attachments[i].component == attachmentData then
+                        table.remove(ClientWeaponData.info.attachments, i)
+                        break
+                    end
+                end
+            end
+        end
     else
         print('The ped does not have the weapon.')
     end

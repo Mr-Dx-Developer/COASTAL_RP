@@ -75,8 +75,8 @@ RegisterServerEvent('weapons:server:RemoveAttachment', function(AttachmentData)
     end
     local HasAttach, key = HasAttachment(AttachmentComponent, currentItem.info.attachments)
     if HasAttach then
-        TriggerClientEvent('codem-inventory:RemoveWeaponsAttachments', src, currentItem, AttachmentComponent)
         table.remove(currentItem.info.attachments, key)
+        TriggerClientEvent('codem-inventory:RemoveWeaponsAttachments', src, currentItem, AttachmentComponent)
         SetItemBySlot(src, AttachmentData.item.slot, currentItem)
         AddItem(src, AttachmentData.attachment.itemname, 1)
     end
@@ -202,9 +202,13 @@ function EquipWeaponAttachment(src, item, ClientWeaponData)
     if not weaponSlot then return end
     weaponSlot.info.attachments = weaponSlot.info.attachments or {}
     local hasAttach, attachIndex = HasAttachment(attachmentComponent, weaponSlot.info.attachments)
+    print(hasAttach, attachIndex)
     if hasAttach then
         RemoveWeaponComponentFromPed(ped, selectedWeaponHash, attachmentComponent)
+        -- AddItem(src, weaponSlot.info.attachments[attachIndex].itemname, 1, nil, nil)
+        -- RemoveItem(src, item.name, 1)
         table.remove(weaponSlot.info.attachments, attachIndex)
+        --AddItem(src, item.name, 1, nil, nil)
         TriggerClientEvent('codem-inventory:refreshweaponattachment', src, weaponSlot)
     else
         weaponSlot.info.attachments[#weaponSlot.info.attachments + 1] = {
@@ -223,6 +227,7 @@ end
 
 function HasAttachment(component, attachments)
     for k, v in pairs(attachments) do
+        print(json.encode(v.component), json.encode(component))
         if v.component == component then
             return true, k
         end

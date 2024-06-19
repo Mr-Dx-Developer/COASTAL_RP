@@ -149,6 +149,18 @@ Locales['en'] = {
         ['ITEMINFO'] = "Item Info",
         ['TINT'] = "Tint",
         ['CLOTHES'] = "CLOTHES",
+        ['CRAFTINFORMATION'] = "Craft Information",
+        ['CRAFTTEXT'] =
+        "To craft an item select a blueprint of the item first than you will see the needed parts for that print on the right side.",
+        ['CRAFTTABLE'] = "CRAFT TABLE",
+        ['CRAFTITEM'] = "Craft Item",
+        ['CLOSECRAFTING'] = "Close Crafting",
+        ['ITEMREADY'] = "Item Ready",
+        ['BLUEPRINTS'] = "BLUEPRINTS",
+        ['CRAFTINGSTARTED'] = " Crafting Started.",
+        ['YOUDONTHAVEITEMS'] = "You dont have enough items",
+        ['CRAFTFINISHED'] = "Crafting is finished",
+        ['CRAFTBUTTON'] = "Craft"
 
 
     }

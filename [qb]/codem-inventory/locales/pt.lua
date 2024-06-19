@@ -143,8 +143,19 @@ Locales['pt'] = {
         ['NOTFOUNDPLATE'] = "Matricula não encontrada.",
         ['ITEMINFO'] = "Informações do Item",
         ['TINT'] = "Tonalidade",
-        ['CLOTHES'] = "ROUPAS"
-
+        ['CLOTHES'] = "ROUPAS",
+        ['CRAFTINFORMATION'] = "Informação de fabricação",
+        ['CRAFTTEXT'] =
+        "Para fabricar um item, primeiro selecione um plano do item, depois você verá as peças necessárias para esse plano no lado direito.",
+        ['CRAFTTABLE'] = "MESA DE FABRICAÇÃO",
+        ['CRAFTITEM'] = "Fabricar Item",
+        ['CLOSECRAFTING'] = "Fechar Fabricação",
+        ['ITEMREADY'] = "Item Pronto",
+        ['BLUEPRINTS'] = "PLANOS",
+        ['CRAFTINGSTARTED'] = "Fabricação Iniciada.",
+        ['YOUDONTHAVEITEMS'] = "Você não tem itens suficientes",
+        ['CRAFTFINISHED'] = "Fabricação concluída",
+        ['CRAFTBUTTON'] = "Fabricar"
 
     }
 }

@@ -139,6 +139,18 @@ Locales['tr'] = {
         ['NOTFOUNDPLATE'] = "Plaka bulunamadı.",
         ['ITEMINFO'] = "Eşya Bilgisi",
         ['TINT'] = "Renk Tonu",
-        ['CLOTHES'] = "KIYAFETLER"
+        ['CLOTHES'] = "KIYAFETLER",
+        ['CRAFTINFORMATION'] = "Üretim Bilgisi",
+        ['CRAFTTEXT'] =
+        "Bir öğe üretmek için önce öğenin bir taslağını seçin, ardından sağ tarafta bu taslak için gereken parçaları göreceksiniz.",
+        ['CRAFTTABLE'] = "ÜRETİM MASASI",
+        ['CRAFTITEM'] = "Öğe Üret",
+        ['CLOSECRAFTING'] = "Üretimi Kapat",
+        ['ITEMREADY'] = "Öğe Hazır",
+        ['BLUEPRINTS'] = "TASLAKLAR",
+        ['CRAFTINGSTARTED'] = "Üretim Başladı.",
+        ['YOUDONTHAVEITEMS'] = "Yeterli eşyanız yok",
+        ['CRAFTFINISHED'] = "Üretim tamamlandı",
+        ['CRAFTBUTTON'] = "Üret"
     }
 }

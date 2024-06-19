@@ -158,29 +158,79 @@ const app = Vue.createApp({
         ClothingInventory: [],
         showProp: false,
         groundslot: 0,
+        showInfoValue: false,
         craftingPage: false,
-        craftingSwiperValue: false,
-        showInfoValue: false
+        craftingItems: [
+
+        ],
+        craftingItem: false,
+        countdown: 0,
+        startCraft: false,
+        progressWidth: 0,
+        waitingCraftItem: false,
+        allowedCraft: false
     }),
     methods: {
-        CrafSwiper() {
-            this.craftingSwiperValue = new Swiper("#craftswiper", {
-                slidesPerView: 3,
-                allowTouchMove: true,
-
-                grid: {
-                    rows: 2,
-                },
-                loop: false,
-                spaceBetween: 30,
-                navigation: {
-                    nextEl: ".left-transaction-button",
-                    prevEl: ".right-transaction-button",
-                },
-            });
+        OpenCraftPage() {
+            this.craftingPage = true
+            this.craftingItem = false
         },
+        closeCrafting() {
+            this.craftingPage = false
+            this.craftingItem = false
+        },
+        GetInventoryCraftCount(reuiredItem) {
+            let myInventory = Object.values(this.PlayerInventory);
+            const item = myInventory.find(item => item.name === reuiredItem);
+            return item ? item.amount : 0;
+        },
+        finishCraftItem() {
+            if (this.countdown > 0) {
+                this.notification('Crafting is not finished yet')
+                return
+            }
+            this.countdown = 0;
+            this.startCraft = false;
+            postNUI('FinishCraftItem', this.waitingCraftItem)
+            this.waitingCraftItem = false;
+        },
+        async craftItem() {
+            let result = await postNUI('CraftItem', this.craftingItem)
+            if (result) {
+                this.countdown = 0;
+                this.waitingCraftItem = this.craftingItem;
+                this.startCountdown(this.craftingItem.time);
+                this.startCraft = true;
+                this.notification(this.locales['CRAFTINGSTARTED'])
+            } else {
+                this.notification(this.locales['YOUDONTHAVEITEMS'])
+            }
+        },
+        startCountdown(time) {
+            this.countdown = time;
+            this.updateCountdown();
+        },
+        updateCountdown() {
+            if (this.countdown > 0) {
+                setTimeout(() => {
+                    this.countdown--;
+                    this.progressWidth = ((this.craftingItem.time - this.countdown) / this.craftingItem.time) * 100;
+                    this.updateCountdown();
+                }, 1000);
+            } else {
+                postNUI('craftnotification', this.locales['CRAFTFINISHED'])
+            }
 
 
+        },
+        formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        },
+        selectedCraftingItem(value) {
+            this.craftingItem = value
+        },
         sortItem() {
             postNUI('SortItem')
         },
@@ -227,30 +277,30 @@ const app = Vue.createApp({
 
             } else {
                 postNUI('EnablePedScreen')
-                if (!this.craftingPage) {
-                    setTimeout(() => {
-                        this.setupHudProgressbar('health', '#FF4848', '#ff48482d')
-                        this.setupHudProgressbar('armor', '#4870FF', '#4870FF2d')
-                        this.setupHudProgressbar('hunger', '#FFA048', '#FFA0482d')
-                        this.setupHudProgressbar('thirst', '#48FFF4', '#48FFF42d')
-                        this.setupHudProgressbar('stamina', '#C4FF48', '#C4FF482d')
 
-                        if (!this.cashitem) {
-                            this.setupHudProgressbar('cash', '#C4FF48', '#C4FF482d')
-                            this.progressBar.cash.animate(1.0)
-                        }
-                        this.setupHudProgressbar('bank', '#ffffff', '#ffffff37')
-                        this.setupHudProgressbar('weight', '#FF8934', '#FF89342d')
+                setTimeout(() => {
+                    this.setupHudProgressbar('health', '#FF4848', '#ff48482d')
+                    this.setupHudProgressbar('armor', '#4870FF', '#4870FF2d')
+                    this.setupHudProgressbar('hunger', '#FFA048', '#FFA0482d')
+                    this.setupHudProgressbar('thirst', '#48FFF4', '#48FFF42d')
+                    this.setupHudProgressbar('stamina', '#C4FF48', '#C4FF482d')
 
-                        this.progressBar.bank.animate(1.0)
-                        this.progressBar.health ? this.animate(this.status.health / 100) : this.progressBar.health.animate(0);
-                        this.progressBar.armor.animate(this.status.armor / 100);
-                        this.status.hunger ? this.progressBar.hunger.animate(this.status.hunger / 100) : this.progressBar.hunger.animate(0);
-                        this.status.thirst ? this.progressBar.thirst.animate(this.status.thirst / 100) : this.progressBar.thirst.animate(0);
-                        this.progressBar.stamina.animate(this.status.stamina / 100);
-                        this.progressBar.weight.animate(this.PlayerInventoryWeight / this.maxWeight);
-                    }, 1000)
-                }
+                    if (!this.cashitem) {
+                        this.setupHudProgressbar('cash', '#C4FF48', '#C4FF482d')
+                        this.progressBar.cash.animate(1.0)
+                    }
+                    this.setupHudProgressbar('bank', '#ffffff', '#ffffff37')
+                    this.setupHudProgressbar('weight', '#FF8934', '#FF89342d')
+
+                    this.progressBar.bank.animate(1.0)
+                    this.progressBar.health ? this.animate(this.status.health / 100) : this.progressBar.health.animate(0);
+                    this.progressBar.armor.animate(this.status.armor / 100);
+                    this.status.hunger ? this.progressBar.hunger.animate(this.status.hunger / 100) : this.progressBar.hunger.animate(0);
+                    this.status.thirst ? this.progressBar.thirst.animate(this.status.thirst / 100) : this.progressBar.thirst.animate(0);
+                    this.progressBar.stamina.animate(this.status.stamina / 100);
+                    this.progressBar.weight.animate(this.PlayerInventoryWeight / this.maxWeight);
+                }, 1000)
+
 
 
             }
@@ -1251,6 +1301,8 @@ const app = Vue.createApp({
                     this.playerInfo.jobgrade = event.data.payload.gradename;
                     break;
                 case "CONFIG_SETTINGS":
+                    this.craftingItems = event.data.payload.configcraftitem;
+                    this.allowedCraft = event.data.payload.configcraft;
                     this.maxWeight = event.data.payload.playerweight / 1000;
                     this.maxSlot = event.data.payload.maxslot;
                     this.configClothing = event.data.payload.configclothing;
@@ -1325,12 +1377,14 @@ const app = Vue.createApp({
                     this.show = false;
                     this.rightInventoryData = false;
                     this.rightinventory = 'ground'
+                    this.craftingPage = false;
 
                     break;
                 case "CHECK_NUI":
                     postNUI('LoadedNUI')
                     break;
                 case "LOAD_INVENTORY":
+                    this.craftingPage = false;
                     this.contextMenuValue = 'main'
                     this.searchInventoryItem = ''
                     this.filterCategoryName = 'all'
@@ -1343,10 +1397,10 @@ const app = Vue.createApp({
                         return total + (item.weight * item.amount);
                     }, 0) / 1000;
                     if (this.layout == 1) {
-                        if (!this.craftingPage) {
-                            this.progressBar.weight.animate(this.PlayerInventoryWeight / this.maxWeight);
 
-                        }
+                        this.progressBar.weight.animate(this.PlayerInventoryWeight / this.maxWeight);
+
+
                     } else {
                         this.layout2weight()
                     }
@@ -1365,9 +1419,9 @@ const app = Vue.createApp({
                     }, 0) / 1000;
 
                     if (this.layout == 1) {
-                        if (!this.craftingPage) {
-                            this.progressBar.weight.animate(this.PlayerInventoryWeight / this.maxWeight);
-                        }
+
+                        this.progressBar.weight.animate(this.PlayerInventoryWeight / this.maxWeight);
+
                     } else {
                         this.layout2weight()
                     }
@@ -1695,22 +1749,22 @@ const app = Vue.createApp({
     mounted() {
 
         if (this.layout == 1) {
-            if (!this.craftingPage) {
-                this.setupHudProgressbar('health', '#FF4848', '#ff48482d')
-                this.setupHudProgressbar('armor', '#4870FF', '#4870FF2d')
-                this.setupHudProgressbar('hunger', '#FFA048', '#FFA0482d')
-                this.setupHudProgressbar('thirst', '#48FFF4', '#48FFF42d')
-                this.setupHudProgressbar('stamina', '#C4FF48', '#C4FF482d')
 
-                if (!this.cashitem) {
-                    this.setupHudProgressbar('cash', '#C4FF48', '#C4FF482d')
-                    this.progressBar.cash.animate(1.0)
-                }
-                this.setupHudProgressbar('bank', '#ffffff', '#ffffff37')
-                this.setupHudProgressbar('weight', '#FF8934', '#FF89342d')
+            this.setupHudProgressbar('health', '#FF4848', '#ff48482d')
+            this.setupHudProgressbar('armor', '#4870FF', '#4870FF2d')
+            this.setupHudProgressbar('hunger', '#FFA048', '#FFA0482d')
+            this.setupHudProgressbar('thirst', '#48FFF4', '#48FFF42d')
+            this.setupHudProgressbar('stamina', '#C4FF48', '#C4FF482d')
 
-                this.progressBar.bank.animate(1.0)
+            if (!this.cashitem) {
+                this.setupHudProgressbar('cash', '#C4FF48', '#C4FF482d')
+                this.progressBar.cash.animate(1.0)
             }
+            this.setupHudProgressbar('bank', '#ffffff', '#ffffff37')
+            this.setupHudProgressbar('weight', '#FF8934', '#FF89342d')
+
+            this.progressBar.bank.animate(1.0)
+
 
         };
 
@@ -1722,41 +1776,41 @@ const app = Vue.createApp({
         setTimeout(() => {
             this.inventoryDrag()
             this.mainInventoryDrop()
-            // this.CrafSwiper()
+
         }, 50)
 
     },
     watch: {
         'status.health'(val) {
-            if (!this.craftingPage) {
-                val ? val.toFixed(1) : 0
-                this.progressBar.health.animate(val / 100);  // Number from 0.0 to 1.0
-            }
+
+            val ? val.toFixed(1) : 0
+            this.progressBar.health.animate(val / 100);  // Number from 0.0 to 1.0
+
 
         },
         'status.armor'(val) {
-            if (!this.craftingPage) {
-                val ? val.toFixed(1) : 0
-                this.progressBar.armor.animate(val / 100);  // Number from 0.0 to 1.0
-            }
+
+            val ? val.toFixed(1) : 0
+            this.progressBar.armor.animate(val / 100);  // Number from 0.0 to 1.0
+
         },
         'status.hunger'(val) {
-            if (!this.craftingPage) {
-                val ? val.toFixed(1) : 0
-                this.progressBar.hunger.animate(val / 100);  // Number from 0.0 to 1.0
-            }
+
+            val ? val.toFixed(1) : 0
+            this.progressBar.hunger.animate(val / 100);  // Number from 0.0 to 1.0
+
         },
         'status.thirst'(val) {
-            if (!this.craftingPage) {
-                val ? val.toFixed(1) : 0
-                this.progressBar.thirst.animate(val / 100);  // Number from 0.0 to 1.0      
-            }
+
+            val ? val.toFixed(1) : 0
+            this.progressBar.thirst.animate(val / 100);  // Number from 0.0 to 1.0      
+
         },
         'status.stamina'(val) {
-            if (!this.craftingPage) {
-                val ? val.toFixed(1) : 0
-                this.progressBar.stamina.animate(val / 100);  // Number from 0.0 to 1.0
-            }
+
+            val ? val.toFixed(1) : 0
+            this.progressBar.stamina.animate(val / 100);  // Number from 0.0 to 1.0
+
         },
 
     },

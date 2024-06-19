@@ -8,20 +8,21 @@ Config.ServerLogo                     =
 "https://cdn.discordapp.com/attachments/1025789416456867961/1106324039808594011/512x512_Logo.png?ex=6605d98d&is=65f3648d&hm=4c50c51ca9daaa45ef0bd4e7e4db0a76877a42a8f35e572830fa6e3b1bd8c5ca&"
 
 Config.MaxWeight                      = 100000 -- Max weight that player can carry 100 kg
-Config.MaxSlots                       = 35     -- Max slots that player can carry
+Config.MaxSlots                       = 45     -- Max slots that player can carry
 Config.GroundSlots                    = 50     -- Max slots ground
-Config.ItemClothingSystem             = true   -- If you want to use clothing system, set this to true or false
+Config.ItemClothingSystem             = false   -- If you want to use clothing system, set this to true or false
 Config.CashItem                       = false  -- If you want to use cash item, set this to true or false
 Config.DurabilitySystem               = true   -- If you want to use durability system, set this to true or false
 Config.UseDiscordWebhooks             = true   -- If you want to use discord webhooks, set this to true or false
 Config.DebugPrint                     = false  -- If you want to see debug prints, set this to true or false
-Config.RealisticObjectDrop            = false  -- If you want to use realistic object drop, set this to true or false
+Config.RealisticObjectDrop            = true  -- If you want to use realistic object drop, set this to true or false
 Config.ThrowablesSystem               = true   -- If you want to use throwables system, set this to true or false
 Config.SlingWeapon                    = true   -- If you want to use sling weapon system, set this to true or false
 Config.DiePlayerRemoveHandsWeaponItem = false  -- If you want to remove weapon item when player die, set this to true or false
 Config.MaxBackPackItem                = 1
 Config.Cheaterlogs                    = true
 Config.VersionChecker                 = true
+Config.CraftSystem                    = false
 
 Config.KeyBinds                       = {
     Inventory = 'TAB',

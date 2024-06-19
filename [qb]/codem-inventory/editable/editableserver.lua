@@ -64,8 +64,87 @@ Citizen.CreateThread(function()
         local items = LoadInventory(source)
         cb(items)
     end)
+
+    RegisterCallback('codem-inventory:CraftItem', function(source, cb, craftitem)
+        local src = source
+        local identifier = Identifier[src]
+        if not identifier then
+            TriggerClientEvent('codem-inventory:client:notification', src,
+                Locales[Config.Language].notification['IDENTIFIERNOTFOUND'])
+            return
+        end
+
+        local playerInventory = PlayerServerInventory[identifier] and PlayerServerInventory[identifier].inventory
+        if not playerInventory then
+            TriggerClientEvent('codem-inventory:client:notification', src,
+                Locales[Config.Language].notification['PLAYERINVENTORYNOTFOUND'])
+            debugprint('DİKKAT ENVANTER BULUNAMADI 1791 SATIR')
+            return
+        end
+
+        local hasAllItems = true
+        for _, requiredItem in pairs(craftitem.requiredItems) do
+            local found = false
+            for _, inventoryItem in pairs(playerInventory) do
+                if inventoryItem.name == requiredItem.name and inventoryItem.amount >= requiredItem.amount then
+                    found = true
+                    break
+                end
+            end
+            if not found then
+                hasAllItems = false
+                break
+            end
+        end
+        if hasAllItems then
+            for _, requiredItem in pairs(craftitem.requiredItems) do
+                for _, inventoryItem in pairs(playerInventory) do
+                    if inventoryItem.name == requiredItem.name then
+                        inventoryItem.amount = tonumber(inventoryItem.amount) - tonumber(requiredItem.amount)
+                        if tonumber(inventoryItem.amount) <= 0 then
+                            playerInventory[inventoryItem] = nil
+                        end
+                        TriggerClientEvent('codem-inventory:client:removeitemtoclientInventory', src, inventoryItem.slot,
+                            requiredItem.amount)
+                        break
+                    end
+                end
+            end
+            cb(true)
+            SetInventory(src)
+        else
+            cb(false)
+        end
+    end)
 end)
 
+RegisterServerEvent('codem-inventory:server:FinishCraftItem', function(data)
+    local src = source
+    if cooldown[tonumber(src)] then
+        return
+    else
+        cooldown[tonumber(src)] = true
+        SetTimeout(1000, function()
+            cooldown[tonumber(src)] = nil
+        end)
+    end
+    local identifier = Identifier[src]
+    if not identifier then
+        TriggerClientEvent('codem-inventory:client:notification', src,
+            Locales[Config.Language].notification['IDENTIFIERNOTFOUND'])
+        return
+    end
+
+    local playerInventory = PlayerServerInventory[identifier] and PlayerServerInventory[identifier].inventory
+    if not playerInventory then
+        TriggerClientEvent('codem-inventory:client:notification', src,
+            Locales[Config.Language].notification['PLAYERINVENTORYNOTFOUND'])
+        debugprint('DİKKAT ENVANTER BULUNAMADI 1791 SATIR')
+        return
+    end
+
+    AddItem(src, data.name, data.finishAmount, data.info)
+end)
 
 
 

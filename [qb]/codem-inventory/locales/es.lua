@@ -145,7 +145,19 @@ Locales['es'] = {
         ['NOTFOUNDPLATE'] = "Placa no encontrada.",
         ['ITEMINFO'] = "Información del elemento",
         ['TINT'] = "Tinte",
-        ['CLOTHES'] = "ROPA"
+        ['CLOTHES'] = "ROPA",
+        ['CRAFTINFORMATION'] = "Información de fabricación",
+        ['CRAFTTEXT'] =
+        "Para fabricar un elemento, primero seleccione un plano del elemento, luego verá las partes necesarias para ese plano en el lado derecho.",
+        ['CRAFTTABLE'] = "MESA DE FABRICACIÓN",
+        ['CRAFTITEM'] = "Fabricar elemento",
+        ['CLOSECRAFTING'] = "Cerrar fabricación",
+        ['ITEMREADY'] = "Elemento listo",
+        ['BLUEPRINTS'] = "PLANOS",
+        ['CRAFTINGSTARTED'] = "Fabricación iniciada.",
+        ['YOUDONTHAVEITEMS'] = "No tienes suficientes elementos",
+        ['CRAFTFINISHED'] = "La fabricación ha terminado",
+        ['CRAFTBUTTON'] = "Fabricar"
 
     }
 }
