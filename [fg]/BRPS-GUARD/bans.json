@@ -1,1 +1,19 @@
-{}
+{
+    "1": {
+        "steam": "steam:11000013c7fca4d",
+        "reason": "Explosive Ammo",
+        "name": "EMON",
+        "tokens": [
+            "2:fe51796eee563110cbd4a7d313f9500bd6dbf11fea4939aa739fb713f415394c",
+            "4:c3f9ec0831b79a0fbbc9566bd4258bd165bc11bf0bef822d56d16dec05f7c5cb",
+            "4:ff4a404713b47ca16e566ad4668cd0240794d6e07d334a5c605bcfbd1965b76a",
+            "4:a7c2fede3526e7dc76a2d1e4b0fe621406fcfc5b3ecd9fa7be0d70c7519bc067"
+        ],
+        "xbl": "Invalid",
+        "discord": "546004950505750537",
+        "manual": false,
+        "live": "Invalid",
+        "license": "license:7b2a79acc2c7488f307593aa04779909e444231b",
+        "ip": "103.85.242.205"
+    }
+}

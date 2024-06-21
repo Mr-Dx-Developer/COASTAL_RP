@@ -74,21 +74,7 @@ local function saveSettings()
     SetResourceKvp('hudSettings', json.encode(Menu))
 end
 
-local function hasHarness(items)
-    local ped = PlayerPedId()
-    if not IsPedInAnyVehicle(ped, false) then return end
-
-    local _harness = false
-    if items then
-        for _, v in pairs(items) do
-            if v.name == 'harness' then
-                _harness = true
-            end
-        end
-    end
-
-    harness = _harness
-end
+local function hasHarness(items) harness = exports["jim-mechanic"]:HasHarness() end
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     Wait(2000)
