@@ -489,7 +489,7 @@ Config.InsideGarage = {
 
 
 Config.JobVehicles = {
-    ENABLE = true, --Do you want players with defined jobs (below) to be able to use the garage ui to spawn job vehicles? (if disabled none of the options below will be used).
+    ENABLE = false, --Do you want players with defined jobs (below) to be able to use the garage ui to spawn job vehicles? (if disabled none of the options below will be used).
     choose_liverys = false, --Do you want players to be able to change liverys when they spawn a vehicle at a job garage?
     share_job_keys = false, --Do you want job vehicle keys to be automatically shared with other players with the same job? (requires you to be using the built in cd_garage keys feature).
 
