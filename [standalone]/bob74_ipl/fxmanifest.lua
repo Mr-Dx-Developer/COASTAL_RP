@@ -7,7 +7,7 @@ game 'gta5'
 
 author 'Bob_74'
 description 'Load and customize your map'
-version '2.0.15'
+version '2.2.1'
 
 lua54 "yes"
 
@@ -21,6 +21,7 @@ client_scripts {
     , "gtav/base.lua"   -- Base IPLs to fix holes
     , "gtav/ammunations.lua"
     , "gtav/bahama.lua"
+    , "gtav/cargoship.lua"
     , "gtav/floyd.lua"
     , "gtav/franklin.lua"
     , "gtav/franklin_aunt.lua"
@@ -127,4 +128,23 @@ client_scripts {
     , "gta_mpsum2/simeonfix.lua"
     , "gta_mpsum2/vehicle_warehouse.lua"
     , "gta_mpsum2/warehouse.lua"
+
+    -- DLC Los Santos Drug Wars (Requires forced build 2802 or higher)
+    , "dlc_drugwars/base.lua"
+    , "dlc_drugwars/freakshop.lua"
+    , "dlc_drugwars/garage.lua"
+    , "dlc_drugwars/lab.lua"
+    , "dlc_drugwars/traincrash.lua"
+
+    -- DLC San Andreas Mercenaries (Requires forced build 2944 or higher)
+    , "dlc_mercenaries/club.lua"
+    , "dlc_mercenaries/lab.lua"
+    , "dlc_mercenaries/fixes.lua"
+
+    -- DLC The Chop Shop (Requires forced build 3095 or higher)
+    , "dlc_chopshop/base.lua"
+    , "dlc_chopshop/cargoship.lua"
+    , "dlc_chopshop/cartel_garage.lua"
+    , "dlc_chopshop/lifeguard.lua"
+    , "dlc_chopshop/salvage.lua"
 }
