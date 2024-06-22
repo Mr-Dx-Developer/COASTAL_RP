@@ -91,7 +91,16 @@ Config.Shops = {
             ["police"] = {
                 [1] = true,
                 [2] = true,
-                [3] = true
+                [3] = true,
+                [4] = true,
+                [5] = true,
+                [6] = true,
+                [7] = true,
+                [8] = true,
+                [9] = true,
+                [10] = true,
+                [11] = true,
+                [12] = true
             }
         },
         items = {
@@ -107,7 +116,7 @@ Config.Shops = {
             ["10"] = { name = "smg_ammo", price = 10, },
             ["11"] = { name = "bobby_pin", price = 1, },
         },
-        coords = vector3(482.33, -995.26, 30.69)
+        coords = vector3(458.489, -997.101, 35.062)
     },
     ["market"] = {
         label = "Market",

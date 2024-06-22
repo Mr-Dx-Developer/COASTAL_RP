@@ -27,7 +27,7 @@ Config.CraftSystem                    = false
 Config.KeyBinds                       = {
     Inventory = 'TAB',
     HotBar = 'Z',
-    ThrowWeapon = 'E'
+    ThrowWeapon = 'Y'
 }
 
 
@@ -118,18 +118,27 @@ Config.Stashs = {
             ["police"] = {
                 [1] = true,
                 [2] = true,
-                [3] = true
+                [3] = true,
+                [4] = true,
+                [5] = true,
+                [6] = true,
+                [7] = true,
+                [8] = true,
+                [9] = true,
+                [10] = true,
+                [11] = true,
+                [12] = true
             }
         },
-        coords = vector3(461.87, -982.59, 30.69)
+        coords = vector3(453.577, -994.397, 35.062)
     },
-    ["personelstash"] = {
+   --[[  ["personelstash"] = {
         label = "Personel",
         maxweight = 35000,
         slot = 40,
         job = 'all',
         coords = vector3(457.07, -988.58, 30.69)
-    },
+    }, ]]
 }
 
 Config.AddonVehicleTrunkOrGlovebox = {
