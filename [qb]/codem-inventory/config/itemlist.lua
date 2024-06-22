@@ -26,7 +26,7 @@ Config.Itemlist = {
 
 
 
-    mechanic_tools              = { name = "mechanic_tools", label = "Mechanic tools", weight = 0, type = "item", image = "mechanic_tools.png", unique = true, useable = true, shouldClose = true, description = "Needed for vehicle repairs"},
+mechanic_tools              = { name = "mechanic_tools", label = "Mechanic tools", weight = 0, type = "item", image = "mechanic_tools.png", unique = true, useable = true, shouldClose = true, description = "Needed for vehicle repairs"},
 toolbox                     = { name = "toolbox", label = "Toolbox", weight = 0, type = "item", image = "toolbox.png", unique = true, useable = true, shouldClose = true, description = "Needed for Performance part removal"},
 ducttape                    = { name = "ducttape", label = "Duct Tape", weight = 0, type = "item", image = "bodyrepair.png", unique = true, useable = true, shouldClose = true, description = "Good for quick fixes"},
 mechboard                   = { name = "mechboard", label = "Mechanic Sheet", weight = 0, type = "item", image = "mechboard.png", unique = true, useable = true, shouldClose = true, description = ""},

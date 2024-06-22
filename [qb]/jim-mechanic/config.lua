@@ -3,9 +3,9 @@ Config = {
 	System = {
 		Debug = false, -- Set to true to show green debug boxes to help track any issues
 
-		Menu = "ox",  				-- "qb", "ox", "gta"
+		Menu = "qb",  				-- "qb", "ox", "gta"
 		Notify = "qb",				-- "qb", "ox", "gta", "esx"
-		ProgressBar = "qb", 		-- "qb", "ox", "gta", "esx"
+		ProgressBar = "ox", 		-- "qb", "ox", "gta", "esx"
 
 		distkph = true, 			-- Set to false to read distance travelled in Miles.
 
@@ -13,7 +13,7 @@ Config = {
 	},
 
 	General = {
-		JimShops = false,			-- Enable to open shops in jim-shops menu's
+		JimShops = true,			-- Enable to open shops in jim-shops menu's
 		showClockInTill = true,		-- Enable to show toggle duty options at payment tills
 		showBossMenuTill = true,	-- Enable to show bossmenu options at payment tills
 	},
@@ -24,7 +24,7 @@ Config = {
 		JobLocationRequired = true, -- Are the mecahanics locked to specific locations?
 		LocationBlips = true, 		-- Enable to grab the blip locations from locations.lua
 		CosmeticsJob = false, 		-- Do vehicle cosmetics require a mechanic job role?
-		JobRoles = { "mechanic", }, -- These are the job roles who can use items if RequiresJob is enabled.
+		JobRoles = { "mechanic", "ricocustom", "bigvroycustoms", "bandoscustom", "vroyluxury", "slatlanta", "famgooncustoms", "eastcustom", "vroyhouse" }, -- These are the job roles who can use items if RequiresJob is enabled.
 									-- Add your extra job roles here or just leave as "mechanic"
 									-- Example-- --JobRoles = { "mechanic", "tuner" }
 	},
@@ -61,20 +61,20 @@ Config = {
 
 	Harness = {
 		JobOnly = false,			-- Only allow job roles to add a Harness to vehicle
-		HarnessControl = false,		-- Enable harness AND seatbelt features of the script, requires edits to smallresources and hud scripts
+		HarnessControl = true,		-- Enable harness AND seatbelt features of the script, requires edits to smallresources and hud scripts
 		seatbeltEasyLeave = false,	-- if true players can exit vehicled before removing seatbelt
 		harnessEasyLeave = false,	-- if true players can exit vehicled before removing harness
 
 		progOn = true,				-- if true add a progressBar to buckle harness
 		progOff = true,				-- if true add a progressBar to unbuckle harness
 
-		seatbeltNotify = true,		-- if true, show a notification when seatbelt is put on or off
+		seatbeltNotify = false,		-- if true, show a notification when seatbelt is put on or off
 
 		timeOn = 3000,				-- Time for the progress bar to put on harness
 		timeOff = 2000,				-- Time for the progress bar to take off harness
 
 		minimumSpeed = 700,			-- Minimum speed for crash logic to be triggered
-		minimumSeatBeltSpeed = 410, -- Minimuim speed for ejecting with a seatbelt attached
+		minimumSeatBeltSpeed = 1100, -- Minimuim speed for ejecting with a seatbelt attached
 		minimumDamage = 15.0, 		-- Minimum body damage for ejecting a player (default 15 = .15%)
 
 		crashKill = false,			-- Set to true if you want ejecting when crashing to kill/injure
@@ -194,15 +194,15 @@ Config = {
 	Odometer = {
 		ShowOdo = true, 					-- Wether the distance is showed in car by default
 
-		ShowToAll = false,					-- Show Odometer to passengers aswell as driver
+		ShowToAll = true,					-- Show Odometer to passengers aswell as driver
 		ShowPassengersAllIcons = false, 	-- Enabling this will only show passengers the buckle/harness icon
-		OdoAlwaysShowIcons = true, 			-- Enable this to show the icons even when not damaged
+		OdoAlwaysShowIcons = false, 			-- Enable this to show the icons even when not damaged
 		OdoShowLimit = 70,					-- If OdoAlwaysShowIcons, the damage icons only will be shown if below this percent
 
 		SeatbeltHideWhenBuckled = false, 	-- Hide seatlbelt icon when buckled
 		HarnessHideWhenBuckled = false, 	-- Hide Harness icon when buckled
 
-		showSpeedometer = true,
+		showSpeedometer = false,
 
 		OdoIconsToShow = {
 			["engine"] = true,
@@ -344,10 +344,18 @@ Config = {
 			["police"] = 0, -- Job and Job Grade
 			["ambulance"] = 0,
 			["mechanic"] = 0,
+			["ricocustom"] = 0,
+			["bigvroycustoms"] =0,
+			["bandoscustom"] =0,
+			["vroyluxury"] =0,
+			["slatlanta"] =0,
+			["famgooncustoms"] =0,
+			["eastcustom"] =0,
+			["vroyhouse"] =0,
 		},
 		LockEmergency = false,  -- Enable this to lock make only "Emergency" (Class 18) vehicles to be used with the bench
 		Locations = {
-			{ coords = vec4(451.05, -973.19, 25.7, 180.0), prop = true, }, -- MRPD UNDERGROUND PARKING
+			{ coords = vec4(424.823, -980.197, 25.141, 282.37), prop = false, }, -- MRPD UNDERGROUND PARKING
 			{ coords = vec4(342.51, -570.98, 28.8, 70.0), prop = true, }, -- PILL BOX GARAGE
 			{ coords = vec4(-1163.01, -2009.41, 13.18, 117.71), prop = true },
 		},

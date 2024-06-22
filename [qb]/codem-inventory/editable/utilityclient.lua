@@ -143,7 +143,17 @@ function DrawText3Ds(x, y, z, text)
     ClearDrawOrigin()
 end
 
+local isPedScreenActive = false
 function CreatePedScreen()
+    if isPedScreenActive then
+        return
+    end
+    isPedScreenActive = true
+    if PlayerPedPreview then
+        DeleteEntity(PlayerPedPreview)
+        PlayerPedPreview = nil
+    end
+
     Wait(150)
     CreateThread(function()
         vehicle, distance = GetClosestVehicle()
@@ -159,22 +169,25 @@ function CreatePedScreen()
         ReplaceHudColourWithRgba(117, 0, 0, 0, 0)
         Citizen.Wait(100)
         SetMouseCursorVisibleInMenus(false)
-        local ped = PlayerPedId()
-        local coords = GetEntityCoords()
-        clonedPed = ClonePed(ped, false, false, true)
-        FreezeEntityPosition(clonedPed, true)
-        -- SetEntityCoords(PlayerPedId(), coords.x, coords.y, coords.z)
-        SetPauseMenuPedSleepState(true)
-        FinalizeHeadBlend(clonedPed)
-        FreezeEntityPosition(clonedPed, true)
-        SetEntityVisible(clonedPed, false, 0)
-        NetworkSetEntityInvisibleToNetwork(clonedPed, false)
+        if PlayerPedPreview == nil then
+            local ped = PlayerPedId()
+            local coords = GetEntityCoords()
+            PlayerPedPreview = ClonePed(ped, false, false, true)
+            FreezeEntityPosition(PlayerPedPreview, true)
+            SetEntityCoords(PlayerPedPreview, coords.x, coords.y, coords.z - 10.0)
+            SetPauseMenuPedSleepState(true)
+            FinalizeHeadBlend(PlayerPedPreview)
+            FreezeEntityPosition(PlayerPedPreview, true)
+            SetEntityVisible(PlayerPedPreview, false, 0)
+            NetworkSetEntityInvisibleToNetwork(PlayerPedPreview, false)
 
-        GivePedToPauseMenu(clonedPed, 2)
-        SetPauseMenuPedLighting(true)
+            GivePedToPauseMenu(PlayerPedPreview, 2)
+            SetPauseMenuPedLighting(true)
+        end
         Citizen.CreateThread(function()
             SetMouseCursorVisibleInMenus(false)
         end)
+        isPedScreenActive = false
     end)
 end
 
@@ -182,6 +195,7 @@ function Remove2d()
     DeleteEntity(PlayerPedPreview)
     SetFrontendActive(false)
     ReplaceHudColourWithRgba(117, 45, 44, 44, 200)
+    PlayerPedPreview = nil
 end
 
 function RefreshPedScreen()
@@ -191,6 +205,11 @@ function RefreshPedScreen()
         if OpenInventory then
             CreatePedScreen()
         end
+    else
+        DeleteEntity(PlayerPedPreview)
+        SetFrontendActive(false)
+        ReplaceHudColourWithRgba(117, 45, 44, 44, 200)
+        PlayerPedPreview = nil
     end
 end
 
