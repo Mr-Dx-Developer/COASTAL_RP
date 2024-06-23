@@ -1,8 +1,9 @@
 Config.ReloadTime = math.random(4000, 6000)
 
 Config.RepairWeapon = {
-    { coords = vector3(17.09, -1102.8, 29.8),  heading = 153.82, pedHash = 0xF0EC56E2, ped = true },
-    { coords = vector3(13.29, -1104.39, 29.8), heading = 240.66, pedHash = 0xF0EC56E2, ped = true }
+--    { coords = vector3(17.09, -1102.8, 29.8),  heading = 153.82, pedHash = 0xF0EC56E2, ped = true },
+--    { coords = vector3(13.29, -1104.39, 29.8), heading = 240.66, pedHash = 0xF0EC56E2, ped = true },
+    { coords = vector3(0.0, 0.0, 0.0), heading = 0.0, pedHash = 0xF0EC56E2, ped = false }
 }
 
 
