@@ -3,8 +3,8 @@ local QBCore = exports['qb-core']:GetCoreObject()
 RegisterNetEvent('qb-vineyard:server:getGrapes', function()
     local Player = QBCore.Functions.GetPlayer(source)
     local amount = math.random(Config.GrapeAmount.min, Config.GrapeAmount.max)
-    exports['codem-inventory']:AddItem(source, 'grape', amount, false, false, 'qb-vineyard:server:getGrapes')
-    TriggerClientEvent('codem-inventory:client:ItemBox', source, QBCore.Shared.Items['grape'], 'add')
+    exports['qs-inventory']:AddItem(source, 'grape', amount, false, false, 'qb-vineyard:server:getGrapes')
+    TriggerClientEvent('qs-inventory:client:ItemBox', source, QBCore.Shared.Items['grape'], 'add')
 end)
 
 QBCore.Functions.CreateCallback('qb-vineyard:server:loadIngredients', function(source, cb)
@@ -14,8 +14,8 @@ QBCore.Functions.CreateCallback('qb-vineyard:server:loadIngredients', function(s
     if Player.PlayerData.items ~= nil then
         if grape ~= nil then
             if grape.amount >= 23 then
-                exports['codem-inventory']:RemoveItem(src, 'grapejuice', 23, false, 'qb-vineyard:server:loadIngredients')
-                TriggerClientEvent('codem-inventory:client:ItemBox', source, QBCore.Shared.Items['grapejuice'], 'remove')
+                exports['qs-inventory']:RemoveItem(src, 'grapejuice', 23, false, 'qb-vineyard:server:loadIngredients')
+                TriggerClientEvent('qs-inventory:client:ItemBox', source, QBCore.Shared.Items['grapejuice'], 'remove')
                 cb(true)
             else
                 TriggerClientEvent('QBCore:Notify', source, Lang:t('error.invalid_items'), 'error')
@@ -38,8 +38,8 @@ QBCore.Functions.CreateCallback('qb-vineyard:server:grapeJuice', function(source
     if Player.PlayerData.items ~= nil then
         if grape ~= nil then
             if grape.amount >= 16 then
-                exports['codem-inventory']:RemoveItem(src, 'grape', 16, false, 'qb-vineyard:server:grapeJuice')
-                TriggerClientEvent('codem-inventory:client:ItemBox', source, QBCore.Shared.Items['grape'], 'remove')
+                exports['qs-inventory']:RemoveItem(src, 'grape', 16, false, 'qb-vineyard:server:grapeJuice')
+                TriggerClientEvent('qs-inventory:client:ItemBox', source, QBCore.Shared.Items['grape'], 'remove')
                 cb(true)
             else
                 TriggerClientEvent('QBCore:Notify', source, Lang:t('error.invalid_items'), 'error')
@@ -58,13 +58,13 @@ end)
 RegisterNetEvent('qb-vineyard:server:receiveWine', function()
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local amount = math.random(Config.WineAmount.min, Config.WineAmount.max)
-    exports['codem-inventory']:AddItem(source, 'wine', amount, false, false, 'qb-vineyard:server:receiveWine')
-    TriggerClientEvent('codem-inventory:client:ItemBox', source, QBCore.Shared.Items['wine'], 'add')
+    exports['qs-inventory']:AddItem(source, 'wine', amount, false, false, 'qb-vineyard:server:receiveWine')
+    TriggerClientEvent('qs-inventory:client:ItemBox', source, QBCore.Shared.Items['wine'], 'add')
 end)
 
 RegisterNetEvent('qb-vineyard:server:receiveGrapeJuice', function()
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local amount = math.random(Config.GrapeJuiceAmount.min, Config.GrapeJuiceAmount.max)
-    exports['codem-inventory']:AddItem(source, 'grapejuice', amount, false, false, 'qb-vineyard:server:receiveGrapeJuice')
-    TriggerClientEvent('codem-inventory:client:ItemBox', source, QBCore.Shared.Items['grapejuice'], 'add')
+    exports['qs-inventory']:AddItem(source, 'grapejuice', amount, false, false, 'qb-vineyard:server:receiveGrapeJuice')
+    TriggerClientEvent('qs-inventory:client:ItemBox', source, QBCore.Shared.Items['grapejuice'], 'add')
 end)

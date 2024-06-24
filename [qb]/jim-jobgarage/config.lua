@@ -29,7 +29,7 @@ Config = {
 
 	Fuel = "LegacyFuel", -- Set this to your fuel script folder
 
-	CarDespawn = true, -- Sends the vehicle to hell (removal animation)
+	CarDespawn = false, -- Sends the vehicle to hell (removal animation)
 
 	DistCheck = false, -- Require the vehicle to be near by to remove it
 
@@ -42,7 +42,7 @@ Config = {
 				list = {
 					["npolvic"] = {
 						CustomName = "npolvic",
-						livery = 2,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -53,7 +53,7 @@ Config = {
 					},
 					["npolstang"] = {
 						CustomName = "npolstang",
-						livery = 2,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -64,7 +64,7 @@ Config = {
 					},
 					["npolexp"] = {
 						CustomName = "npolexp",
-						livery = 3,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -75,7 +75,8 @@ Config = {
 					},
 					["npolmm"] = {
 						CustomName = "npolmm",
-						livery = 0,
+						colors = { 255, 255 },
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -86,7 +87,8 @@ Config = {
 					},
 					["npolretinue"] = {
 						CustomName = "npolretinue",
-						livery = 0,
+						colors = { 255, 255 },
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -97,7 +99,8 @@ Config = {
 					},
 					["npolcoach"] = {
 						CustomName = "npolcoach",
-						livery = 0,
+						colors = { 255, 255 },
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -109,7 +112,9 @@ Config = {
 					 
 					["npolchar"] = {
 						CustomName = "npolchar",
-						livery = 0,
+						colors = { 255, 255 },
+						livery = 1,
+						--bulletproof = true,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -120,7 +125,7 @@ Config = {
 					},
 					["npolchal"] = {
 						CustomName = "npolchal",
-						livery = 0,
+						livery = 3,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -131,7 +136,7 @@ Config = {
 					},
 					["npolblazer"] = {
 						CustomName = "npolblazer",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -142,7 +147,7 @@ Config = {
 					},
 					["npolvette"] = {
 						CustomName = "npolvette",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -153,7 +158,7 @@ Config = {
 					},
 					["bcat"] = {
 						CustomName = "bcat",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -164,7 +169,7 @@ Config = {
 					},
 					["ucwashington"] = {
 						CustomName = "ucwashington",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -175,7 +180,7 @@ Config = {
 					},
 					["ucbanshee"] = {
 						CustomName = "ucbanshee",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -186,7 +191,7 @@ Config = {
 					},
 					["ucrancher"] = {
 						CustomName = "ucrancher",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -197,7 +202,7 @@ Config = {
 					},
 					["ucprimo"] = {
 						CustomName = "ucprimo",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -208,7 +213,7 @@ Config = {
 					},
 					["uccoquette"] = {
 						CustomName = "uccoquette",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -219,7 +224,7 @@ Config = {
 					},
 					["ucbuffalo"] = {
 						CustomName = "ucbuffalo",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -230,7 +235,7 @@ Config = {
 					},
 					["ucballer"] = {
 						CustomName = "ucballer",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -241,7 +246,7 @@ Config = {
 					},
 					["uccomet"] = {
 						CustomName = "uccomet",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -252,18 +257,7 @@ Config = {
 					},
 					["polfegway"] = {
 						CustomName = "polfegway",
-						livery = 0,
-						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
-						performance = "max",
-						trunkItems = {
-							
-							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
-							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
-					},
-					["polas350"] = {
-						CustomName = "polas350",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -283,9 +277,20 @@ Config = {
 				list = {  -- The list of cars that will spawn
 					["polmav"] = {
 						CustomName = "Polmav Super",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
+					},
+					["polas350"] = {
+						CustomName = "polas350",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						trunkItems = {
+							
+							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
+							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
+						},
 					}
 				},
 			},    
@@ -314,7 +319,7 @@ Config = {
 					
 					["polchiron"] = {
 						CustomName = "polchiron",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -344,7 +349,7 @@ Config = {
 				list = {
 					["flatbed"] = {
 						CustomName = "Flatbed",
-						livery = 0,
+						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {

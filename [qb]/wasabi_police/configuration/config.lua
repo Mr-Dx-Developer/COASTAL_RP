@@ -84,7 +84,7 @@ Config.handcuff = {                             -- Config in regards to cuffing
         difficulty = { 'easy', 'easy', 'easy' } -- Options: 'easy' / 'medium' / 'hard' (Can be stringed along as they are in config)
     },
     cuffItem = {                                -- Have handcuffs as usable item? (ITEM NAME MUST BE IN ITEMS / YOU MUST ADD YOURSELF)
-        enabled = false,                        -- Enable a handcuff usable item?? Must be in items table/database with name defined below
+        enabled = true,                        -- Enable a handcuff usable item?? Must be in items table/database with name defined below
         required = true,                        -- Requires handcuff item to be in inventory when any handcuff function is used
         item = 'handcuffs'                      -- Item name (DONT FORGET to make sure its in your items)
     },
@@ -202,7 +202,7 @@ Config.Locations = {
         },
 
         armoury = {
-            enabled = false,                                                                 -- Set to false if you don't want to use
+            enabled = true,                                                                 -- Set to false if you don't want to use
             coords = vec3(458.489, -997.101, 35.062 - 0.9),                                    -- Coords of armoury
             heading = 273.36,                                                                -- Heading of armoury NPC
             ped = 's_f_y_cop_01',
@@ -231,6 +231,19 @@ Config.Locations = {
                     --                    ['armour'] = { label = 'Bulletproof Vest', multiple = false, price = 100 }, -- Example
                 },
                 [3] = { -- This would be grade 3
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 100 }, -- Example
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 300 }, -- Example
+                    ['radio'] = { label = 'Radio', multiple = false, price = 500 }, -- Example
+
+                    ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
+                    ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
+                    ['smg_ammo'] = { label = 'SMG ammo', multiple = true, price = 5 },
+                    ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
+                    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
+                    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+                    ['emp_ammo'] = { label = 'EMP Ammo', multiple = true, price = 5 },
+
+
                     ['WEAPON_COMBATPISTOL'] = { label = 'Combat Pistol', multiple = false, price = 150 },
                     ['WEAPON_NIGHTSTICK'] = { label = 'Night Stick', multiple = false, price = 50 },
                     ['WEAPON_ASSAULTRIFLE'] = { label = 'Assault Rifle', multiple = false, price = 1100 },
@@ -368,7 +381,7 @@ Config.Locations = {
         -- Personal Locker. Supports inventories: ox_inventory, qb-inventory, and qs-inventory
         --        Custom inventories can easily be added in wasabi_bridge/inventories/
         personalLocker = {
-            enabled = false,                       -- Enable personal locker for this station?
+            enabled = true,                       -- Enable personal locker for this station?
             jobLock = 'police',                    -- Job lock?
             coords = vec3(453.577, -994.397, 35.062), -- Area to prompt personal locker
             range = 2.0,                           -- Range it will prompt from coords above

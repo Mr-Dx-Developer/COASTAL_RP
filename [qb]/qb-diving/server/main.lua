@@ -55,9 +55,9 @@ RegisterNetEvent('qb-diving:server:SellCoral', function()
             local item = Player.Functions.GetItemByName(v.item)
             local price = item.amount * v.price
             local reward = getItemPrice(item.amount, price)
-            exports['codem-inventory']:RemoveItem(src, item.name, item.amount, false, 'qb-diving:server:SellCoral')
+            exports['qs-inventory']:RemoveItem(src, item.name, item.amount, false, 'qb-diving:server:SellCoral')
             Player.Functions.AddMoney('cash', reward, 'qb-diving:server:SellCoral')
-            TriggerClientEvent('codem-inventory:client:ItemBox', src, QBCore.Shared.Items[item.name], 'remove')
+            TriggerClientEvent('qs-inventory:client:ItemBox', src, QBCore.Shared.Items[item.name], 'remove')
         end
     else
         TriggerClientEvent('QBCore:Notify', src, Lang:t('error.no_coral'), 'error')
@@ -73,13 +73,13 @@ RegisterNetEvent('qb-diving:server:TakeCoral', function(area, coral, bool)
     local ItemData = QBCore.Shared.Items[Config.CoralTypes[coralType].item]
     if amount > 1 then
         for _ = 1, amount, 1 do
-            exports['codem-inventory']:AddItem(src, ItemData['name'], 1, false, false, 'qb-diving:server:TakeCoral')
-            TriggerClientEvent('codem-inventory:client:ItemBox', src, ItemData, 'add')
+            exports['qs-inventory']:AddItem(src, ItemData['name'], 1, false, false, 'qb-diving:server:TakeCoral')
+            TriggerClientEvent('qs-inventory:client:ItemBox', src, ItemData, 'add')
             Wait(250)
         end
     else
-        exports['codem-inventory']:AddItem(src, ItemData['name'], amount, false, false, 'qb-diving:server:TakeCoral')
-        TriggerClientEvent('codem-inventory:client:ItemBox', src, ItemData, 'add')
+        exports['qs-inventory']:AddItem(src, ItemData['name'], amount, false, false, 'qb-diving:server:TakeCoral')
+        TriggerClientEvent('qs-inventory:client:ItemBox', src, ItemData, 'add')
     end
     if (Config.CoralLocations[area].TotalCoral - 1) == 0 then
         for _, v in pairs(Config.CoralLocations[currentDivingArea].coords.Coral) do
@@ -103,8 +103,8 @@ end)
 RegisterNetEvent('qb-diving:server:removeItemAfterFill', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    exports['codem-inventory']:RemoveItem(src, 'diving_fill', 1, false, 'qb-diving:server:removeItemAfterFill')
-    TriggerClientEvent('codem-inventory:client:ItemBox', src, QBCore.Shared.Items['diving_fill'], 'remove')
+    exports['qs-inventory']:RemoveItem(src, 'diving_fill', 1, false, 'qb-diving:server:removeItemAfterFill')
+    TriggerClientEvent('qs-inventory:client:ItemBox', src, QBCore.Shared.Items['diving_fill'], 'remove')
 end)
 
 -- Callbacks

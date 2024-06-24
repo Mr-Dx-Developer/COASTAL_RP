@@ -30,7 +30,7 @@ RegisterNetEvent('qb-drugs:server:giveStealItems', function(drugType, amount)
     if not Player or StolenDrugs == {} then return end
     for k, v in pairs(StolenDrugs) do
         if drugType == v.item and amount == v.amount then
-            exports['codem-inventory']:AddItem(src, drugType, amount, false, false, 'qb-drugs:server:giveStealItems')
+            exports['qs-inventory']:AddItem(src, drugType, amount, false, false, 'qb-drugs:server:giveStealItems')
             table.remove(StolenDrugs, k)
         end
     end
@@ -45,9 +45,9 @@ RegisterNetEvent('qb-drugs:server:sellCornerDrugs', function(drugType, amount, p
     local hasItem = Player.Functions.GetItemByName(item)
     if hasItem.amount >= amount then
         TriggerClientEvent('QBCore:Notify', src, Lang:t('success.offer_accepted'), 'success')
-        exports['codem-inventory']:RemoveItem(src, item, amount, false, 'qb-drugs:server:sellCornerDrugs')
+        exports['qs-inventory']:RemoveItem(src, item, amount, false, 'qb-drugs:server:sellCornerDrugs')
         Player.Functions.AddMoney('cash', price, 'qb-drugs:server:sellCornerDrugs')
-        TriggerClientEvent('codem-inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'remove')
+        TriggerClientEvent('qs-inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'remove')
         TriggerClientEvent('qb-drugs:client:refreshAvailableDrugs', src, getAvailableDrugs(src))
     else
         TriggerClientEvent('qb-drugs:client:cornerselling', src)
@@ -60,8 +60,8 @@ RegisterNetEvent('qb-drugs:server:robCornerDrugs', function(drugType, amount)
     local availableDrugs = getAvailableDrugs(src)
     if not availableDrugs or not Player then return end
     local item = availableDrugs[drugType].item
-    exports['codem-inventory']:RemoveItem(src, item, amount, false, 'qb-drugs:server:robCornerDrugs')
+    exports['qs-inventory']:RemoveItem(src, item, amount, false, 'qb-drugs:server:robCornerDrugs')
     table.insert(StolenDrugs, { item = item, amount = amount })
-    TriggerClientEvent('codem-inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'remove')
+    TriggerClientEvent('qs-inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'remove')
     TriggerClientEvent('qb-drugs:client:refreshAvailableDrugs', src, getAvailableDrugs(src))
 end)

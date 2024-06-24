@@ -63,8 +63,8 @@ QBCore.Functions.CreateCallback('qb-garbagejob:server:NextStop', function(source
     local newBagAmount = 0
 
     if (math.random(100) >= Config.CryptoStickChance) and Config.GiveCryptoStick then
-        exports['codem-inventory']:AddItem(source, 'cryptostick', 1, false, false, 'qb-garbagejob:server:NextStop')
-        TriggerClientEvent('codem-inventory:client:ItemBox', source, QBCore.Shared.Items['cryptostick'], 'add')
+        exports['qs-inventory']:AddItem(source, 'cryptostick', 1, false, false, 'qb-garbagejob:server:NextStop')
+        TriggerClientEvent('qs-inventory:client:ItemBox', source, QBCore.Shared.Items['cryptostick'], 'add')
         TriggerClientEvent('QBCore:Notify', source, Lang:t('info.found_crypto'))
     end
 

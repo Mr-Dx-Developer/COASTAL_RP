@@ -34,7 +34,7 @@ local function giveStarterItems()
             info.birthdate = Player.PlayerData.charinfo.birthdate
             info.type = 'Class C Driver License'
         end
-        exports['codem-inventory']:AddItem(source, v.item, 1, false, info, 'qb-cityhall:giveStarterItems')
+        exports['qs-inventory']:AddItem(source, v.item, 1, false, info, 'qb-cityhall:giveStarterItems')
     end
 end
 
@@ -72,8 +72,8 @@ RegisterNetEvent('qb-cityhall:server:requestId', function(item, hall)
     else
         return false -- DropPlayer(src, 'Attempted exploit abuse')
     end
-    if not exports['codem-inventory']:AddItem(source, item, 1, false, info, 'qb-cityhall:server:requestId') then return end
-    TriggerClientEvent('codem-inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'add')
+    if not exports['qs-inventory']:AddItem(source, item, 1, false, info, 'qb-cityhall:server:requestId') then return end
+    TriggerClientEvent('qs-inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'add')
 end)
 
 RegisterNetEvent('qb-cityhall:server:sendDriverTest', function(instructors)
@@ -92,7 +92,7 @@ RegisterNetEvent('qb-cityhall:server:sendDriverTest', function(instructors)
                 message = 'Hello,<br><br>We have just received a message that someone wants to take driving lessons.<br>If you are willing to teach, please contact them:<br>Name: <strong>' .. Player.PlayerData.charinfo.firstname .. ' ' .. Player.PlayerData.charinfo.lastname .. '<br />Phone Number: <strong>' .. Player.PlayerData.charinfo.phone .. '</strong><br><br>Kind regards,<br>Township Los Santos',
                 button = {}
             }
-            exports['qb-phone']:sendNewMailToOffline(citizenid, mailData)
+            exports['lb-phone']:sendNewMailToOffline(citizenid, mailData)
         end
     end
     TriggerClientEvent('QBCore:Notify', src, 'An email has been sent to driving schools, and you will be contacted automatically', 'success', 5000)

@@ -67,10 +67,10 @@ Prison = {
     --    LJ_INVENTORY = 'lj-inventory',
     --    AJ_INVENTORY = 'aj-inventory',
     --    PS_INVENTORY = 'ps-inventory',
-    --    QS_INVENTORY = 'qs-inventory',
+        QS_INVENTORY = 'qs-inventory',
     --    CHEEZA_INVENTORY = 'inventory',
     --    ESX_INVENTORY = 'es_extended',
-        CODEM_INVENTORY = 'codem-inventory',
+    --    CODEM_INVENTORY = 'codem-inventory',
     --    ORIGEN_INVENTORY = 'origen_inventory',
     },
 

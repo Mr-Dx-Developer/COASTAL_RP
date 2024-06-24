@@ -1,6 +1,6 @@
 Config = {
     EnableSkillCheck = true,
-    ImageBasePath = "nui://codem-inventory/html/images/",
+    ImageBasePath = "nui://qs-inventory/html/images/",
     item_bench = {
         object = `prop_tool_bench02`,
         xpType = 'craftingrep',
