@@ -63,7 +63,7 @@ Config = {
 						},
 					},
 					["npolexp"] = {
-						CustomName = "npolexp",
+						CustomName = "police explorer",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -74,7 +74,7 @@ Config = {
 						},
 					},
 					["npolmm"] = {
-						CustomName = "npolmm",
+						CustomName = "police bike",
 						colors = { 255, 255 },
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -86,7 +86,7 @@ Config = {
 						},
 					},
 					["npolretinue"] = {
-						CustomName = "npolretinue",
+						CustomName = "police old car",
 						colors = { 255, 255 },
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -97,21 +97,10 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["npolcoach"] = {
-						CustomName = "npolcoach",
-						colors = { 255, 255 },
-						livery = 1,
-						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
-						performance = "max",
-						trunkItems = {
-							
-							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
-							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
-					},
+					
 					 
 					["npolchar"] = {
-						CustomName = "npolchar",
+						CustomName = "Police Charger",
 						colors = { 255, 255 },
 						livery = 1,
 						--bulletproof = true,
@@ -124,7 +113,7 @@ Config = {
 						},
 					},
 					["npolchal"] = {
-						CustomName = "npolchal",
+						CustomName = "Police Chalenger",
 						livery = 3,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -135,7 +124,7 @@ Config = {
 						},
 					},
 					["npolblazer"] = {
-						CustomName = "npolblazer",
+						CustomName = "4 wheel bike",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -146,7 +135,7 @@ Config = {
 						},
 					},
 					["npolvette"] = {
-						CustomName = "npolvette",
+						CustomName = "police vette",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -157,7 +146,7 @@ Config = {
 						},
 					},
 					["bcat"] = {
-						CustomName = "bcat",
+						CustomName = "swat van",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -189,28 +178,7 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["ucrancher"] = {
-						CustomName = "ucrancher",
-						livery = 1,
-						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
-						performance = "max",
-						trunkItems = {
-							
-							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
-							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
-					},
-					["ucprimo"] = {
-						CustomName = "ucprimo",
-						livery = 1,
-						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
-						performance = "max",
-						trunkItems = {
-							
-							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
-							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
-					},
+					
 					["uccoquette"] = {
 						CustomName = "uccoquette",
 						livery = 1,
@@ -254,18 +222,8 @@ Config = {
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
-					},
-					["polfegway"] = {
-						CustomName = "polfegway",
-						livery = 1,
-						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
-						performance = "max",
-						trunkItems = {
-							
-							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
-							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
 					}
+					
 				},
 			},
 		},
