@@ -6,7 +6,7 @@
 ]]
 
 Config.LimitAmmo = false                    -- If you enable this feature, it will only allow one full magazine per weapon
-Config.ReloadTime = math.random(4000, 6000) -- Reload progressbar
+Config.ReloadTime = math.random(1, 1) -- Reload progressbar
 
 Config.RemoveTintAfterRemoving = false      -- Remove tint once you remove them from the gun?
 
