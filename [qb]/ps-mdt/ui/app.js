@@ -3968,11 +3968,11 @@ $(document).ready(() => {
   function JobColors(sentJob) {
     if (sentJob) {
       if (PoliceJobs[sentJob] !== undefined)  {
-        if (sentJob == "police") {
+        if (sentJob == "sasp") {
             applyCustomTheme(customThemes.lspd)
           } else if (sentJob == "bcso"){
             applyCustomTheme(customThemes.bcso)
-          } else if (sentJob == "sasp") {
+          } else if (sentJob == "police") {
             applyCustomTheme(customThemes.sasp)
           } else if (sentJob == "sast") {
             applyCustomTheme(customThemes.sast)
