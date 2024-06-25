@@ -33,7 +33,7 @@ Config.ResetArmor = 'resetarmor' -- Command to remove your vest.
     Check vest?
 ]]
 
-Config.VestTexture = true -- Use Vest texture?
+Config.VestTexture = false -- Use Vest texture?
 Config.CheckVest = { -- Check if the person has a vest, if they have a vest but do not have it equipped, they put it on automatically
     check = false, -- True = Yes || False = No
     time = 30000 -- If check = true How often do you check? in milliseconds, If check = false ignore this
