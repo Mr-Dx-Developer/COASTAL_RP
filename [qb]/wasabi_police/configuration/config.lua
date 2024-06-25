@@ -27,7 +27,7 @@ Config.Jail = {
 -- NOTE: If using qb-prison, you must make one small change to qb-prison.
 -- SEE https://docs.wasabiscripts.com/scripts/wasabi_police/customizations#qb-prison-integration
 
-Config.searchPlayers = false     -- Allow police jobs to search players for items (Must have inventory in bridge or one already supported in cl_customize.lua - or add your own!)
+Config.searchPlayers = true     -- Allow police jobs to search players for items (Must have inventory in bridge or one already supported in cl_customize.lua - or add your own!)
 Config.weaponsAsItems = true     -- (If you're unsure leave as true!)This is typically for older ESX and inventories that still use weapons as weapons and not items
 
 Config.spikeStripsEnabled = true -- Enable functionality of spike strips (Disable if you use difference script for spike strips)
@@ -102,12 +102,12 @@ Config.policeJobs = { -- Police jobs
 }
 
 Config.GPSBlips = {  -- Warning: May experience high usage when at high player count. Possibly turn up refreshrate as remedy!
-    enabled = false, -- Enabled?
-    refreshrate = 5, -- In Seconds Note: it could impact the server performance
+    enabled = true, -- Enabled?
+    refreshrate = 3, -- In Seconds Note: it could impact the server performance
     item = false,    -- Item required? Note: You have to use it then
     blip = {
         sprite = 1,
-        color = 1,
+        color = 29,
         scale = 1.0,
         short = false,
     }
@@ -203,37 +203,228 @@ Config.Locations = {
 
         armoury = {
             enabled = true,                                                                 -- Set to false if you don't want to use
-            coords = vec3(458.489, -997.101, 35.062 - 0.9),                                    -- Coords of armoury
-            heading = 273.36,                                                                -- Heading of armoury NPC
+            coords = vec3(456.688, -1000.295, 35.062 - 0.9),                                    -- Coords of armoury
+            heading = 7.33,                                                                -- Heading of armoury NPC
             ped = 's_f_y_cop_01',
             label = '[E] - Access Armoury',                                                 -- String of text ui
             jobLock = 'police',                                                             -- Allow only one of Config.policeJob listings / Set to false if allow all Config.policeJobs
             weapons = {
-                [0] = {                                                                     -- Grade number will be the name of each table(this would be grade 0)
-                    ['WEAPON_PISTOL'] = { label = 'Pistol', multiple = false, price = 75 }, -- Set price to false if undesired
-                    ['WEAPON_NIGHTSTICK'] = { label = 'Night Stick', multiple = false, price = 50 },
-                    --                    ['ammo-9'] = { label = '9mm Ammo', multiple = true, price = 10 }, -- Set multiple to true if you want ability to purchase more than one at a time
-                    --                    ['armour'] = { label = 'Bulletproof Vest', multiple = false, price = 100 }, -- Example
+                [0] = {              ---  Trainee                                                           
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
+                    ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
+                    ['empty_evidence_bag'] = { label = 'Empty Evidence Bag', multiple = true, price = 1 },
+                    ['police_stormram'] = { label = 'Stormram', multiple = true, price = 10 },
+                    ['weapon_flashlight'] = { label = 'Flashlight', multiple = false, price = 10 },
+                    ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
+                    ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
+
+                --[[     ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
+                    ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
+                    ['weapon_glock19x'] = { label = 'PD G19X XL', multiple = false, price = 350 },
+                    ['weapon_pitviper'] = { label = 'PD JW4 PIT VIPER', multiple = false, price = 350 },
+                    ['weapon_combatshotgun'] = { label = 'PD Combat Shotgun', multiple = false, price = 350 },
+                    ['weapon_pumpshotgun_mk2'] = { label = 'PD Pump Shotgun MK2', multiple = false, price = 350 },
+                    ['weapon_m32s'] = { label = 'PD M32 SMOKE GL', multiple = false, price = 350 },
+                    ['weapon_lok'] = { label = 'PD M-LOK AR 15', multiple = false, price = 350 },
+                    ['weapon_smg'] = { label = 'PD SMG', multiple = false, price = 350 },
+                    ['weapon_glock18c'] = { label = 'PD GLOCK 18C', multiple = false, price = 350 },
+                    ['weapon_carbinerifle_mk2'] = { label = 'PD Carbine Rifle Mk II', multiple = false, price = 350 },
+
+
+                    ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
+                    ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
+                    ['smg_ammo'] = { label = 'SMG ammo', multiple = true, price = 5 },
+                    ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
+                    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
+                    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 }, ]]
+                   
 
                 },
-                [1] = { -- This would be grade 1
-                    ['WEAPON_COMBATPISTOL'] = { label = 'Combat Pistol', multiple = false, price = 150 },
-                    ['WEAPON_NIGHTSTICK'] = { label = 'Night Stick', multiple = false, price = 50 },
-                    --                    ['ammo-9'] = { label = '9mm Ammo', multiple = true, price = 10 }, -- Example
-                    --                    ['armour'] = { label = 'Bulletproof Vest', multiple = false, price = 100 }, -- Example
+                [1] = {    ---  Trooper
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
+                    ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
+                    ['empty_evidence_bag'] = { label = 'Empty Evidence Bag', multiple = true, price = 1 },
+                    ['police_stormram'] = { label = 'Stormram', multiple = true, price = 10 },
+                    ['weapon_flashlight'] = { label = 'Flashlight', multiple = false, price = 10 },
+                    ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
+                    ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
+
+
+                --    ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
+                --    ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
+                --    ['weapon_glock19x'] = { label = 'PD G19X XL', multiple = false, price = 350 },
+                --    ['weapon_pitviper'] = { label = 'PD JW4 PIT VIPER', multiple = false, price = 350 },
+                --    ['weapon_combatshotgun'] = { label = 'PD Combat Shotgun', multiple = false, price = 350 },
+                --    ['weapon_pumpshotgun_mk2'] = { label = 'PD Pump Shotgun MK2', multiple = false, price = 350 },
+                --    ['weapon_m32s'] = { label = 'PD M32 SMOKE GL', multiple = false, price = 350 },
+                --    ['weapon_lok'] = { label = 'PD M-LOK AR 15', multiple = false, price = 350 },
+                --    ['weapon_smg'] = { label = 'PD SMG', multiple = false, price = 350 },
+                    ['weapon_glock18c'] = { label = 'PD GLOCK 18C', multiple = false, price = 350 },
+                --    ['weapon_carbinerifle_mk2'] = { label = 'PD Carbine Rifle Mk II', multiple = false, price = 350 },
+
+
+                    ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
+                --    ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
+                --    ['smg_ammo'] = { label = 'SMG ammo', multiple = true, price = 5 },
+                --    ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
+                --    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
+                --    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+                    
                 },
-                [2] = { -- This would be grade 2
-                    ['WEAPON_COMBATPISTOL'] = { label = 'Combat Pistol', multiple = false, price = 150 },
-                    ['WEAPON_NIGHTSTICK'] = { label = 'Night Stick', multiple = false, price = 50 },
-                    ['WEAPON_ASSAULTRIFLE'] = { label = 'Assault Rifle', multiple = false, price = 1100 },
-                    --                    ['ammo-9'] = { label = '9mm Ammo', multiple = true, price = 10 }, -- Example
-                    --                    ['ammo-rifle'] = { label = '5.56 Ammo', multiple = true, price = 20 }, -- Example
-                    --                    ['armour'] = { label = 'Bulletproof Vest', multiple = false, price = 100 }, -- Example
+                [2] = { ----  Trooper First Class
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
+                    ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
+                    ['empty_evidence_bag'] = { label = 'Empty Evidence Bag', multiple = true, price = 1 },
+                    ['police_stormram'] = { label = 'Stormram', multiple = true, price = 10 },
+                    ['weapon_flashlight'] = { label = 'Flashlight', multiple = false, price = 10 },
+                    ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
+                    ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
+
+                    
+                --    ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
+                --    ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
+                --    ['weapon_glock19x'] = { label = 'PD G19X XL', multiple = false, price = 350 },
+                --    ['weapon_pitviper'] = { label = 'PD JW4 PIT VIPER', multiple = false, price = 350 },
+                --    ['weapon_combatshotgun'] = { label = 'PD Combat Shotgun', multiple = false, price = 350 },
+                --    ['weapon_pumpshotgun_mk2'] = { label = 'PD Pump Shotgun MK2', multiple = false, price = 350 },
+                --    ['weapon_m32s'] = { label = 'PD M32 SMOKE GL', multiple = false, price = 350 },
+                --    ['weapon_lok'] = { label = 'PD M-LOK AR 15', multiple = false, price = 350 },
+                    ['weapon_smg'] = { label = 'PD SMG', multiple = false, price = 350 },
+                    ['weapon_glock18c'] = { label = 'PD GLOCK 18C', multiple = false, price = 350 },
+                --    ['weapon_carbinerifle_mk2'] = { label = 'PD Carbine Rifle Mk II', multiple = false, price = 350 },
+
+
+                    ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
+                --    ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
+                    ['smg_ammo'] = { label = 'SMG ammo', multiple = true, price = 5 },
+                --    ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
+                --    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
+                --    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+
+
                 },
-                [3] = { -- This would be grade 3
-                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 100 }, -- Example
-                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 300 }, -- Example
-                    ['radio'] = { label = 'Radio', multiple = false, price = 500 }, -- Example
+                [3] = {    ----  Sergeant
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
+                    ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
+                    ['empty_evidence_bag'] = { label = 'Empty Evidence Bag', multiple = true, price = 1 },
+                    ['police_stormram'] = { label = 'Stormram', multiple = true, price = 10 },
+                    ['weapon_flashlight'] = { label = 'Flashlight', multiple = false, price = 10 },
+                    ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
+                    ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
+
+
+                --    ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
+                --    ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
+                --    ['weapon_glock19x'] = { label = 'PD G19X XL', multiple = false, price = 350 },
+                --    ['weapon_pitviper'] = { label = 'PD JW4 PIT VIPER', multiple = false, price = 350 },
+                    ['weapon_combatshotgun'] = { label = 'PD Combat Shotgun', multiple = false, price = 350 },
+                --    ['weapon_pumpshotgun_mk2'] = { label = 'PD Pump Shotgun MK2', multiple = false, price = 350 },
+                --    ['weapon_m32s'] = { label = 'PD M32 SMOKE GL', multiple = false, price = 350 },
+                --    ['weapon_lok'] = { label = 'PD M-LOK AR 15', multiple = false, price = 350 },
+                    ['weapon_smg'] = { label = 'PD SMG', multiple = false, price = 350 },
+                    ['weapon_glock18c'] = { label = 'PD GLOCK 18C', multiple = false, price = 350 },
+                --    ['weapon_carbinerifle_mk2'] = { label = 'PD Carbine Rifle Mk II', multiple = false, price = 350 },
+
+
+                    ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
+                --    ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
+                    ['smg_ammo'] = { label = 'SMG ammo', multiple = true, price = 5 },
+                    ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
+                --    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
+                --    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+
+
+                },
+                [4] = {       ------   Master Sergeant                                                
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
+                    ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
+                    ['empty_evidence_bag'] = { label = 'Empty Evidence Bag', multiple = true, price = 1 },
+                    ['police_stormram'] = { label = 'Stormram', multiple = true, price = 10 },
+                    ['weapon_flashlight'] = { label = 'Flashlight', multiple = false, price = 10 },
+                    ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
+                    ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
+
+
+                --    ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
+                    ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
+                --    ['weapon_glock19x'] = { label = 'PD G19X XL', multiple = false, price = 350 },
+                --    ['weapon_pitviper'] = { label = 'PD JW4 PIT VIPER', multiple = false, price = 350 },
+                    ['weapon_combatshotgun'] = { label = 'PD Combat Shotgun', multiple = false, price = 350 },
+                --    ['weapon_pumpshotgun_mk2'] = { label = 'PD Pump Shotgun MK2', multiple = false, price = 350 },
+                --    ['weapon_m32s'] = { label = 'PD M32 SMOKE GL', multiple = false, price = 350 },
+                --    ['weapon_lok'] = { label = 'PD M-LOK AR 15', multiple = false, price = 350 },
+                    ['weapon_smg'] = { label = 'PD SMG', multiple = false, price = 350 },
+                    ['weapon_glock18c'] = { label = 'PD GLOCK 18C', multiple = false, price = 350 },
+                --    ['weapon_carbinerifle_mk2'] = { label = 'PD Carbine Rifle Mk II', multiple = false, price = 350 },
+
+
+                    ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
+                --    ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
+                    ['smg_ammo'] = { label = 'SMG ammo', multiple = true, price = 5 },
+                    ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
+                --    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
+                --    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+
+                   
+
+                },
+                [5] = {           ----   Lieutenant                                                                 
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
+                    ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
+                    ['empty_evidence_bag'] = { label = 'Empty Evidence Bag', multiple = true, price = 1 },
+                    ['police_stormram'] = { label = 'Stormram', multiple = true, price = 10 },
+                    ['weapon_flashlight'] = { label = 'Flashlight', multiple = false, price = 10 },
+                    ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
+                    ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
+
+
+                --    ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
+                    ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
+                --    ['weapon_glock19x'] = { label = 'PD G19X XL', multiple = false, price = 350 },
+                    ['weapon_pitviper'] = { label = 'PD JW4 PIT VIPER', multiple = false, price = 350 },
+                    ['weapon_combatshotgun'] = { label = 'PD Combat Shotgun', multiple = false, price = 350 },
+                    ['weapon_pumpshotgun_mk2'] = { label = 'PD Pump Shotgun MK2', multiple = false, price = 350 },
+                --    ['weapon_m32s'] = { label = 'PD M32 SMOKE GL', multiple = false, price = 350 },
+                    ['weapon_lok'] = { label = 'PD M-LOK AR 15', multiple = false, price = 350 },
+                    ['weapon_smg'] = { label = 'PD SMG', multiple = false, price = 350 },
+                    ['weapon_glock18c'] = { label = 'PD GLOCK 18C', multiple = false, price = 350 },
+                --    ['weapon_carbinerifle_mk2'] = { label = 'PD Carbine Rifle Mk II', multiple = false, price = 350 },
+
 
                     ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
                     ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
@@ -241,16 +432,202 @@ Config.Locations = {
                     ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
                     ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
                     ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
-                    ['emp_ammo'] = { label = 'EMP Ammo', multiple = true, price = 5 },
 
 
-                    ['WEAPON_COMBATPISTOL'] = { label = 'Combat Pistol', multiple = false, price = 150 },
-                    ['WEAPON_NIGHTSTICK'] = { label = 'Night Stick', multiple = false, price = 50 },
-                    ['WEAPON_ASSAULTRIFLE'] = { label = 'Assault Rifle', multiple = false, price = 1100 },
-                    --    ['ammo-9'] = { label = '9mm Ammo', multiple = true, price = 10 }, -- Example
-                    --    ['ammo-rifle'] = { label = '5.56 Ammo', multiple = true, price = 20 }, -- Example
-                    --    ['armour'] = { label = 'Bulletproof Vest', multiple = false, price = 100 }, -- Example
+                   
+
                 },
+                [6] = {           ---- Captain                                                                   
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
+                    ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
+                    ['empty_evidence_bag'] = { label = 'Empty Evidence Bag', multiple = true, price = 1 },
+                    ['police_stormram'] = { label = 'Stormram', multiple = true, price = 10 },
+                    ['weapon_flashlight'] = { label = 'Flashlight', multiple = false, price = 10 },
+                    ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
+                    ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
+
+                --    ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
+                    ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
+                --    ['weapon_glock19x'] = { label = 'PD G19X XL', multiple = false, price = 350 },
+                    ['weapon_pitviper'] = { label = 'PD JW4 PIT VIPER', multiple = false, price = 350 },
+                    ['weapon_combatshotgun'] = { label = 'PD Combat Shotgun', multiple = false, price = 350 },
+                    ['weapon_pumpshotgun_mk2'] = { label = 'PD Pump Shotgun MK2', multiple = false, price = 350 },
+                    ['weapon_m32s'] = { label = 'PD M32 SMOKE GL', multiple = false, price = 350 },
+                    ['weapon_lok'] = { label = 'PD M-LOK AR 15', multiple = false, price = 350 },
+                    ['weapon_smg'] = { label = 'PD SMG', multiple = false, price = 350 },
+                    ['weapon_glock18c'] = { label = 'PD GLOCK 18C', multiple = false, price = 350 },
+                --    ['weapon_carbinerifle_mk2'] = { label = 'PD Carbine Rifle Mk II', multiple = false, price = 350 },
+
+
+                    ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
+                    ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
+                    ['smg_ammo'] = { label = 'SMG ammo', multiple = true, price = 5 },
+                    ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
+                    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
+                    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+
+
+                   
+
+                },
+                [7] = {     ---  Commander                                                                 
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
+                    ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
+                    ['empty_evidence_bag'] = { label = 'Empty Evidence Bag', multiple = true, price = 1 },
+                    ['police_stormram'] = { label = 'Stormram', multiple = true, price = 10 },
+                    ['weapon_flashlight'] = { label = 'Flashlight', multiple = false, price = 10 },
+                    ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
+                    ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
+
+
+                --    ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
+                    ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
+                --    ['weapon_glock19x'] = { label = 'PD G19X XL', multiple = false, price = 350 },
+                    ['weapon_pitviper'] = { label = 'PD JW4 PIT VIPER', multiple = false, price = 350 },
+                    ['weapon_combatshotgun'] = { label = 'PD Combat Shotgun', multiple = false, price = 350 },
+                    ['weapon_pumpshotgun_mk2'] = { label = 'PD Pump Shotgun MK2', multiple = false, price = 350 },
+                    ['weapon_m32s'] = { label = 'PD M32 SMOKE GL', multiple = false, price = 350 },
+                    ['weapon_lok'] = { label = 'PD M-LOK AR 15', multiple = false, price = 350 },
+                    ['weapon_smg'] = { label = 'PD SMG', multiple = false, price = 350 },
+                    ['weapon_glock18c'] = { label = 'PD GLOCK 18C', multiple = false, price = 350 },
+                    ['weapon_carbinerifle_mk2'] = { label = 'PD Carbine Rifle Mk II', multiple = false, price = 350 },
+
+
+                    ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
+                    ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
+                    ['smg_ammo'] = { label = 'SMG ammo', multiple = true, price = 5 },
+                    ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
+                    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
+                    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+
+                   
+
+                },
+                
+                [8] = {         --- Colonel                                                                
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
+                    ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
+                    ['empty_evidence_bag'] = { label = 'Empty Evidence Bag', multiple = true, price = 1 },
+                    ['police_stormram'] = { label = 'Stormram', multiple = true, price = 10 },
+                    ['weapon_flashlight'] = { label = 'Flashlight', multiple = false, price = 10 },
+                    ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
+                    ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
+
+                    ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
+                    ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
+                --    ['weapon_glock19x'] = { label = 'PD G19X XL', multiple = false, price = 350 },
+                    ['weapon_pitviper'] = { label = 'PD JW4 PIT VIPER', multiple = false, price = 350 },
+                    ['weapon_combatshotgun'] = { label = 'PD Combat Shotgun', multiple = false, price = 350 },
+                    ['weapon_pumpshotgun_mk2'] = { label = 'PD Pump Shotgun MK2', multiple = false, price = 350 },
+                    ['weapon_m32s'] = { label = 'PD M32 SMOKE GL', multiple = false, price = 350 },
+                    ['weapon_lok'] = { label = 'PD M-LOK AR 15', multiple = false, price = 350 },
+                    ['weapon_smg'] = { label = 'PD SMG', multiple = false, price = 350 },
+                    ['weapon_glock18c'] = { label = 'PD GLOCK 18C', multiple = false, price = 350 },
+                    ['weapon_carbinerifle_mk2'] = { label = 'PD Carbine Rifle Mk II', multiple = false, price = 350 },
+
+
+                    ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
+                    ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
+                    ['smg_ammo'] = { label = 'SMG ammo', multiple = true, price = 5 },
+                    ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
+                    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
+                    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+
+                   
+
+                },
+                [9] = {          --- Assistant Chief                                                               
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
+                    ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
+                    ['empty_evidence_bag'] = { label = 'Empty Evidence Bag', multiple = true, price = 1 },
+                    ['police_stormram'] = { label = 'Stormram', multiple = true, price = 10 },
+                    ['weapon_flashlight'] = { label = 'Flashlight', multiple = false, price = 10 },
+                    ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
+                    ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
+
+                    ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
+                    ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
+                    ['weapon_glock19x'] = { label = 'PD G19X XL', multiple = false, price = 350 },
+                    ['weapon_pitviper'] = { label = 'PD JW4 PIT VIPER', multiple = false, price = 350 },
+                    ['weapon_combatshotgun'] = { label = 'PD Combat Shotgun', multiple = false, price = 350 },
+                    ['weapon_pumpshotgun_mk2'] = { label = 'PD Pump Shotgun MK2', multiple = false, price = 350 },
+                    ['weapon_m32s'] = { label = 'PD M32 SMOKE GL', multiple = false, price = 350 },
+                    ['weapon_lok'] = { label = 'PD M-LOK AR 15', multiple = false, price = 350 },
+                    ['weapon_smg'] = { label = 'PD SMG', multiple = false, price = 350 },
+                    ['weapon_glock18c'] = { label = 'PD GLOCK 18C', multiple = false, price = 350 },
+                    ['weapon_carbinerifle_mk2'] = { label = 'PD Carbine Rifle Mk II', multiple = false, price = 350 },
+
+
+                    ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
+                    ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
+                    ['smg_ammo'] = { label = 'SMG ammo', multiple = true, price = 5 },
+                    ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
+                    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
+                    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+
+                   
+
+                },
+                [10] = {       ---- Chief                                                                 
+                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
+                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
+                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+
+
+                    ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
+                    ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
+                    ['empty_evidence_bag'] = { label = 'Empty Evidence Bag', multiple = true, price = 1 },
+                    ['police_stormram'] = { label = 'Stormram', multiple = true, price = 10 },
+                    ['weapon_flashlight'] = { label = 'Flashlight', multiple = false, price = 10 },
+                    ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
+                    ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
+
+
+
+                    ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
+                    ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
+                    ['weapon_glock19x'] = { label = 'PD G19X XL', multiple = false, price = 350 },
+                    ['weapon_pitviper'] = { label = 'PD JW4 PIT VIPER', multiple = false, price = 350 },
+                    ['weapon_combatshotgun'] = { label = 'PD Combat Shotgun', multiple = false, price = 350 },
+                    ['weapon_pumpshotgun_mk2'] = { label = 'PD Pump Shotgun MK2', multiple = false, price = 350 },
+                    ['weapon_m32s'] = { label = 'PD M32 SMOKE GL', multiple = false, price = 350 },
+                    ['weapon_lok'] = { label = 'PD M-LOK AR 15', multiple = false, price = 350 },
+                    ['weapon_smg'] = { label = 'PD SMG', multiple = false, price = 350 },
+                    ['weapon_glock18c'] = { label = 'PD GLOCK 18C', multiple = false, price = 350 },
+                    ['weapon_carbinerifle_mk2'] = { label = 'PD Carbine Rifle Mk II', multiple = false, price = 350 },
+
+
+                    ['pistol_ammo'] = { label = 'Pistol ammo', multiple = true, price = 5 },
+                    ['rifle_ammo'] = { label = 'Rifle ammo', multiple = true, price = 5 },
+                    ['smg_ammo'] = { label = 'SMG ammo', multiple = true, price = 5 },
+                    ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
+                    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
+                    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+                 
+                   
+
+                },
+
             }
         },
 
@@ -383,13 +760,13 @@ Config.Locations = {
         personalLocker = {
             enabled = true,                       -- Enable personal locker for this station?
             jobLock = 'police',                    -- Job lock?
-            coords = vec3(453.577, -994.397, 35.062), -- Area to prompt personal locker
+            coords = vec3(467.481, -990.263, 35.062), -- Area to prompt personal locker
             range = 2.0,                           -- Range it will prompt from coords above
             label = '[E] - Access Personal Locker',
             target = {
                 enabled = false, -- If enabled, the location above will be obsolete
                 label = 'Access Personal Locker',
-                coords = vec3(453.577, -994.397, 35.062),
+                coords = vec3(467.481, -990.263, 35.062),
                 heading = 89.8,
                 width = 2.0,
                 length = 1.0,
@@ -401,14 +778,14 @@ Config.Locations = {
         evidenceLocker = {
             enabled = true,                      -- Enable evidence locker for this station?
             jobLock = 'police',                   -- Job lock?
-            coords = vec3(467.481, -990.263, 35.062), -- Area to prompt personal locker
+            coords = vec3(465.022, -1001.598, 30.463), -- Area to prompt personal locker
             range = 2.0,                          -- Range it will prompt from coords above
             label = '[E] - Access Evidence Locker',
             target = {
                 enabled = false, -- If enabled, the location above will be obsolete
                 label = 'Access Evidence Locker',
-                coords = vec3(467.481, -990.263, 35.062),
-                heading = 89.29,
+                coords = vec3(465.022, -1001.598, 30.463),
+                heading = 267.0,
                 width = 2.0,
                 length = 1.0,
                 minZ = 26.02 - 0.9,
