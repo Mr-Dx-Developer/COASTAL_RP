@@ -130,6 +130,7 @@ local function StartProgress(action, onStart, onTick, onFinish)
     local isPlayerDead = IsEntityDead(playerPed)
     if (not isPlayerDead or action.useWhileDead) and not isDoingAction then
         isDoingAction = true
+        LocalPlayer.state:set('inv_busy', true, true)
         Action = action
         SendNUIMessage({
             action = 'progress',
@@ -229,38 +230,6 @@ local function Progress(action, finish)
     StartProgress(action, nil, nil, finish)
 end
 exports('Progress', Progress)
-
-RegisterCommand('c', function()
-
-    exports['progressbar']:Progress({
-        name = "random_task",
-        duration = 5000,
-        label = "LIMPIANDO GRAFFITI",
-        useWhileDead = false,
-        canCancel = true,
-        controlDisables = {
-            disableMovement = false,
-            disableCarMovement = false,
-            disableMouse = false,
-            disableCombat = true,
-        },
-        animation = {
-            animDict = "mp_suicide",
-            anim = "pill",
-            flags = 49,
-        },
-        prop = {},
-        propTwo = {}
-     }, function(cancelled)
-        if not cancelled then
-            -- finished
-        else
-            -- cancelled
-        end
-     end)
-
-
-end)
 
 local function ProgressWithStartEvent(action, start, finish)
     StartProgress(action, start, nil, finish)
