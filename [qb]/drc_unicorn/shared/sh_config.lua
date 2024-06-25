@@ -7,7 +7,7 @@ Config.Debug = false -- Debug
 Config.NewESX = true
 Config.Framework = "auto-detect" -- Framework | types: auto-detect, qbcore, ESX, standalone
 Config.Target = "auto-detect" -- Target | types: auto-detect, qb-target, qtarget, ox_target
-Config.BossMenu = "auto-detect" -- BossMenu | types: auto-detect, esx_society, qb-management
+Config.BossMenu = "qb-management" -- BossMenu | types: auto-detect, esx_society, qb-management
 Config.NotificationType = "ox_lib" -- Notifications | types: ESX, ox_lib, qbcore
 Config.Progress = "ox_lib" -- ProgressBar | types: progressBars, ox_lib, qbcore
 Config.Clothing = "auto-detect" -- Skin / Clothing | types: auto-detect, esx_skin, qb-clothing, fivem-appearance, ox_appearance, illenium-appearance
@@ -24,7 +24,7 @@ Config.NeedCleanHands = true -- Required to clean hands to make drinks etc.
 Config.PoliceJobs = { 'police', 'sheriff' } -- For Alert
 Config.Dispatch = { enabled = true, script = "linden_outlawalert" } -- cd_dispatch, linden_outlawalert, ps-disptach
 
-Config.Inventory = "ox" -- ox, quasar, chezza, qb
+Config.Inventory = "quasar" -- ox, quasar, chezza, qb
 
 Config.Logs = { enabled = true, type = "webhook" } -- use webhook or ox_lib (datadog) Can be changed in server > sv_utils.lua
 Config.DropPlayer = true -- Drop (Kick) Player if tries to cheat!
