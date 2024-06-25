@@ -141,8 +141,8 @@ Config.AmbulanceOffsets = {
 }
 
 Config.GPSBlips = {  -- Warning: May experience high usage when at high player count. Possibly turn up refreshrate as remedy!
-    enabled = false, -- Enabled?
-    refreshrate = 5, -- In Seconds Note: it could impact the server performance
+    enabled = true, -- Enabled?
+    refreshrate = 3, -- In Seconds Note: it could impact the server performance
     item = false,    -- Item required? Note: You have to use it then
     blip = {
         sprite = 1,
@@ -168,7 +168,7 @@ Config.DeathAnimation = {
 
 -- Knockout Feature (If you want players to be knocked out)
 Config.KnockoutFeature = {
-    enabled = false,           -- Enable knockout features? (player's can knock eachother out using fist fighting)
+    enabled = TRUE,           -- Enable knockout features? (player's can knock eachother out using fist fighting)
     healthForKnockout = 150,   -- At what HP will player knockout from fist fighting
     fistDamageModifier = 0.25, -- How much damage will fist cause? (1.0 is default, 0.5 is half as strong, etc)
     duration = 7 * seconds     -- Time to be knocked out when occurs?
@@ -284,7 +284,7 @@ Config.ChargeForRevive = {
 }
 
 Config.removeItemsOnDeath = false   -- Must have Config.Inventory set properly
-Config.Inventory = 'other'                                --Options include: 'ox' - (ox_inventory) / 'qb' - (QBCore qb-inventory) 'mf' - (mf-inventory) / 'qs' (qs-inventory) / 'esx' (default esx) / 'other' (whatever else can customize in client/cl_customize.lua)
+Config.Inventory = 'qb'                                --Options include: 'ox' - (ox_inventory) / 'qb' - (QBCore qb-inventory) 'mf' - (mf-inventory) / 'qs' (qs-inventory) / 'esx' (default esx) / 'other' (whatever else can customize in client/cl_customize.lua)
 Config.keepItemsOnDeath = {
     enabled = false,
     items = {
