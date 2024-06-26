@@ -1,6 +1,20 @@
 Config.Theme = {
-    currentTheme = "project-sloth",
+    currentTheme = "juliroo",
     themes = {
+        {
+            id = "juliroo",
+            borderRadius = ".2vw",
+            fontColor = "0, 0, 0",
+            fontColorHover = "0, 0, 0",
+            fontColorSelected = "0, 0, 0",
+            fontFamily = "Inter",
+            primaryBackground = "250, 250, 250",
+            primaryBackgroundSelected = "250, 250, 250",
+            secondaryBackground = "250, 250, 250",
+            scaleOnHover = false,
+            sectionFontWeight = "normal",
+            smoothBackgroundTransition = false
+        },
         {
             id = "default",
             borderRadius = "4px",

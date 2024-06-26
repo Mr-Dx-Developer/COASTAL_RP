@@ -33,7 +33,7 @@ Config = {
     RagdollEnabled = false,
     RagdollKeybind = 'U', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can enable or disable Ragdoll as Toggle here. Only works if RagdollEnabled is set to true.
-    RagdollAsToggle = true,
+    RagdollAsToggle = false,
     -- You can disable the Facial Expressions menu here.
     ExpressionsEnabled = true,
     -- You can disable the Walking Styles menu here.

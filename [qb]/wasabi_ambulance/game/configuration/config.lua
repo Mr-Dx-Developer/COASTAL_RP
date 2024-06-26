@@ -410,8 +410,8 @@ Config.StandaloneCheckIns = {
 Config.Locations = {
     Pillbox = {
         RespawnPoint = { -- When player dies and bleeds out; they will revive at nearest hospital; Define the coords of this hospital here.
-            coords = vec3(-458.7, -1024.3, 34.6),
-            heading = 167.92,
+            coords = vec3(323.546, -1412.037, 32.148),
+            heading = 49.83,
             -- Even if you have useCheckInInstead to true, you must still define these coords for finding closest hospital
             -- If you want to use check-in instead of respawning at this location(Otherwise will just spawn at the coords above)
             useCheckInInstead = true
@@ -419,7 +419,7 @@ Config.Locations = {
 
         Blip = {
             Enabled = true,
-            Coords = vec3(-482.57, -1031.48, 24.29),
+            Coords = vec3(352.852, -1406.228, 32.423),
             Sprite = 61,
             Color = 2,
             Scale = 1.0,
@@ -428,7 +428,7 @@ Config.Locations = {
 
         clockInAndOut = {
             enabled = true,                       -- Enable clocking in and out at a set location? (If using ESX you must have a off duty job for Config.ambulanceJob with same grades - example in main _install_first directory)
-            coords = vec3(-473.04, -1041.85, 24.29), -- Location of where to go on and off duty(If not using target)
+            coords = vec3(351.706, -1428.717, 32.429), -- Location of where to go on and off duty(If not using target)
             label = '[E] - Go On/Off Duty',        -- Text to display(If not using target)
             distance = 3.0,                        -- Distance to display text UI(If not using target)
             target = {
@@ -447,7 +447,7 @@ Config.Locations = {
         PersonalLocker = {
             enabled = true,                        -- Enable personal locker(stash) 
             jobLock = 'ambulance',                   -- Job lock?
-            coords = vec(-470.19, -1042.95, 24.29),   -- Location of where to access personal locker (If target is disabled)
+            coords = vec(386.777, -1403.681, 32.936),   -- Location of where to access personal locker (If target is disabled)
             label = '[E] - Access Personal Locker', -- Text to display(If not using target)
             maxWeight = 5000,                      -- Total Weight of the personalLocker
             slots = 30,                             -- Number of slots available in the Personal Locker
@@ -485,9 +485,9 @@ Config.Locations = {
         CheckIn = {                                      -- Hospital check-in
             Enabled = true,                              -- Enable ped and check-in area?
             Ped = 's_m_m_scientist_01',                  -- Check in ped
-            Coords = vec3(-487.56, -988.33, 24.29 - 0.9), -- Coords of ped
+            Coords = vec3(349.596, -1403.534, 32.423 - 0.9), -- Coords of ped
             Distance = 4.85,                             -- Distance to show textUI (If target is not enabled below)
-            Heading = 339.94,                             -- Heading of ped
+            Heading = 46.93,                             -- Heading of ped
             Cost = 500,                                 -- Cost of using hospital check-in. Set to false for free
             Duration = 15 * seconds,                     -- Time it takes to spend in hospital bed
             MaxOnDuty = 3,                               -- If this amount or less you can use, otherwise it will tell you that EMS is avaliable(Set to false to always enable check-in)
@@ -507,7 +507,7 @@ Config.Locations = {
                 maxZ = 43.98 + 0.9
             },
             DisableHospitalBeds = false,                                                       -- Disable hospital beds for check-in at this location?(Player will spend Duration checking in before respawning in RespawnNoBedLocation when set to true)
-            RespawnNoBedLocation = { coords = vec3(-458.63, -1030.0, 34.6), heading = 357.24 }, -- Coords and heading of where to spawn player if DisableHospitalBeds is set to true or beds are full
+            RespawnNoBedLocation = { coords = vec3(334.998, -1406.921, 32.129), heading = 146.08 }, -- Coords and heading of where to spawn player if DisableHospitalBeds is set to true or beds are full
             HospitalBeds = {
                 --              { coords = vec3(332.62, -587.17, 42.84+0.3), heading = 160.0 },
                --[[  { coords = vec3(317.67, -585.37, 42.84 + 0.3), heading = 160.0 },
@@ -522,10 +522,10 @@ Config.Locations = {
                 { coords = vec3(354.44, -600.19, 42.85 + 0.3), heading = 250.0 },
                 { coords = vec3(324.26, -582.8, 42.84 + 0.3),  heading = 340.0 }, ]]
 
-                { coords = vec3(-454.93, -1024.26, 34.6 + 0.1), heading = 177.24 },
-                { coords = vec3(-451.16, -1024.23, 34.6 + 0.1), heading = 179.12 },
-                { coords = vec3(-451.24, -1030.06, 34.6 + 0.1), heading = 1.14 },
-                { coords = vec3(-455.01, -1030.06, 34.6 + 0.1), heading = 356.88 },
+                { coords = vec3(333.254, -1405.361, 32.129 + 0.1), heading = 140.67 },
+                { coords = vec3(331.192, -1403.719, 32.129 + 0.1), heading = 145.56 },
+                { coords = vec3(326.468, -1408.238, 32.129 + 0.1), heading = 49.99 },
+                { coords = vec3(325.239, -1410.14, 32.129 + 0.1), heading = 52.9 },
                 
                 
                 -- Stock qb-ambulance hospital bed coords:
@@ -630,8 +630,8 @@ Config.Locations = {
         MedicalSupplies = {                                                     -- EMS Shop for supplies
             Enabled = true,                                                     -- If set to false, rest of this table do not matter
             Ped = 's_m_m_doctor_01',                                            -- Ped to target
-            Coords = vec3(-487.34, -1010.64, 24.29),                       -- Coords of ped/target
-            Heading = 170.96,                                                   -- Heading of ped
+            Coords = vec3(389.686, -1405.07, 32.936),                       -- Coords of ped/target
+            Heading = 147.83,                                                   -- Heading of ped
             Supplies = {                                                        -- Supplies
                 { item = 'medbag',     label = 'Medical Bag',   price = 1000 }, -- Pretty self explanatory, price may be set to 'false' to make free
                 { item = 'medikit',    label = 'First-Aid Kit', price = 250 },

@@ -3,11 +3,11 @@
 ---------------------------------------------------------------
 
 if Config.QBtarget then
-    exports[Config.Target]:AddBoxZone("mrpdscreen", vector3(439.44, -985.89, 34.97), 2.6, 0.4,{
+    exports[Config.Target]:AddBoxZone("mrpdscreen", vector3(437.552, -997.73, 31.307), 2.6, 0.4,{
         name="mrpdscreen",
-        heading=0,
-        minZ=35.22,
-        maxZ=36.62,
+        heading=43.43,
+        minZ=30.97,
+        maxZ=32.77,
         debugPoly=false
         },{
             options = {

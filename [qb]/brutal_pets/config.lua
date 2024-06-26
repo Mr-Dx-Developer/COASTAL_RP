@@ -23,7 +23,7 @@ Config = {
     DeletePetAfterDie = false, -- if this is true, when the player's pet dies, it is deleted from the database and cannot be revived.
     IdentifierType = 'steam',  -- steam / license / discord / core (default core's identifier) | What you can copy in the admin menu!
     
-    UsePermission = true,
+    UsePermission = false,
     Permission = {
         'discord:811436286006657025',
         'discord:692782027866636308',
@@ -37,7 +37,7 @@ Config = {
     Shop = {
         -- Settings for this PAID MLO: https://unclejust.tebex.io/package/5074561
         Model = 'a_f_m_soucent_02',
-        Coords = vector4(405.8130, 321.5718, 103.1259, 249.7600),
+        Coords = vector4(563.729, 2752.991, 42.877, 182.545),
         PetPosition = { ['left/right'] = -9.5,  ['forward/backward'] = 1.4,  ['up/down'] = -0.98, ['heading'] = 270 },
         Blip = {use = true, label = 'Pet Shop', size = 0.7, sprite = 442, color = 48},
 

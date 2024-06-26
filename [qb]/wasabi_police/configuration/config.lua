@@ -168,7 +168,9 @@ Config.Locations = {
         clockInAndOut = {
             enabled = true,                        -- Enable clocking in and out at a set location? (If using ESX you must have a off duty job for each e.x. offpolice for police offsheriff for sheriff AND have grades for each pd grade - QBCORE REQUIRES NOTHING)
             jobLock = 'police',                    -- This must be set to which job will be utilizing (ESX MUST HAVE OFF DUTY JOB / GRADES FOR THIS - ex. offpolice or offsheriff)
-            coords = vec3(442.517, -986.257, 30.724), -- Location of where to go on and off duty(If not using target)
+            coords = vec3(451.427, -983.36, 30.689), -- Location of where to go on and off duty(If not using target)
+            heading = 84.34,                                                                -- Heading of armoury NPC
+            ped = 's_f_y_cop_01',
             label = '[E] - Go On/Off Duty',        -- Text to display(If not using target)
             distance = 3.0,                        -- Distance to display text UI(If not using target)
             target = {
@@ -186,7 +188,7 @@ Config.Locations = {
         bossMenu = {
             enabled = true,                        -- Enable boss menu?
             jobLock = 'police',                    -- Lock to specific police job? Set to false if not desired
-            coords = vec3(440.535, -975.958, 35.062), -- Location of boss menu (If not using target)
+            coords = vec3(438.565, -974.995, 30.689), -- Location of boss menu (If not using target)
             label = '[E] - Access Boss Menu',      -- Text UI label string (If not using target)
             distance = 3.0,                        -- Distance to allow access/prompt with text UI (If not using target)
             target = {
@@ -203,8 +205,8 @@ Config.Locations = {
 
         armoury = {
             enabled = true,                                                                 -- Set to false if you don't want to use
-            coords = vec3(456.688, -1000.295, 35.062 - 0.9),                                    -- Coords of armoury
-            heading = 7.33,                                                                -- Heading of armoury NPC
+            coords = vec3(460.69, -1001.875, 30.718 - 0.9),                                    -- Coords of armoury
+            heading = 271.24,                                                                -- Heading of armoury NPC
             ped = 's_f_y_cop_01',
             label = '[E] - Access Armoury',                                                 -- String of text ui
             jobLock = 'police',                                                             -- Allow only one of Config.policeJob listings / Set to false if allow all Config.policeJobs
@@ -213,7 +215,7 @@ Config.Locations = {
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
-
+                    ['specialbadge'] = { label = 'Police Badge', multiple = false, price = 50 },
 
                     ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
                     ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
@@ -249,7 +251,7 @@ Config.Locations = {
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
-
+                    ['specialbadge'] = { label = 'Police Badge', multiple = false, price = 50 },
 
                     ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
                     ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
@@ -285,7 +287,7 @@ Config.Locations = {
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
-
+                    ['specialbadge'] = { label = 'Police Badge', multiple = false, price = 50 },
 
                     ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
                     ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
@@ -322,7 +324,7 @@ Config.Locations = {
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
-
+                    ['specialbadge'] = { label = 'Police Badge', multiple = false, price = 50 },
 
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
@@ -357,6 +359,7 @@ Config.Locations = {
                     ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
                 --    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
                 --    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+                
 
 
                 },
@@ -364,7 +367,7 @@ Config.Locations = {
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
-
+                    ['specialbadge'] = { label = 'Police Badge', multiple = false, price = 50 },
 
                     ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
                     ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
@@ -395,6 +398,22 @@ Config.Locations = {
                 --    ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
                 --    ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
 
+
+                    ['pistol_defaultclip'] = { label = 'Pistol Clip', multiple = false, price = 20 },
+                    ['pistol_extendedclip'] = { label = 'Pistol EXT Clip', multiple = false, price = 20 },
+                    ['at_clip_drum_pistol'] = { label = '50 Round Drum', multiple = false, price = 20 },
+                    ['at_clip_100_pistol'] = { label = '100 Round Mag', multiple = false, price = 20 },
+                    ['pistol_suppressor'] = { label = 'Pistol Suppressor', multiple = false, price = 20 },
+
+                    ['rifle_flashlight'] = { label = 'Rifle Flashlight', multiple = false, price = 20 },
+                    ['rifle_suppressor'] = { label = 'Rifle Suppressor', multiple = false, price = 20 },
+                    ['rifle_grip'] = { label = 'Rifle Grip', multiple = false, price = 20 },
+
+                    ['smg_extendedclip'] = { label = 'SMG EXT Clip', multiple = false, price = 20 },
+                    ['smg_drum'] = { label = 'SMG Drum', multiple = false, price = 20 },
+                    ['smg_scope'] = { label = 'SMG Scope', multiple = false, price = 20 },
+                    ['smg_luxuryfinish'] = { label = 'SMG Finish', multiple = false, price = 20 },
+
                    
 
                 },
@@ -402,7 +421,7 @@ Config.Locations = {
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
-
+                    ['specialbadge'] = { label = 'Police Badge', multiple = false, price = 50 },
 
                     ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
                     ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
@@ -433,6 +452,21 @@ Config.Locations = {
                     ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
                     ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
 
+                    ['pistol_defaultclip'] = { label = 'Pistol Clip', multiple = false, price = 20 },
+                    ['pistol_extendedclip'] = { label = 'Pistol EXT Clip', multiple = false, price = 20 },
+                    ['at_clip_drum_pistol'] = { label = '50 Round Drum', multiple = false, price = 20 },
+                    ['at_clip_100_pistol'] = { label = '100 Round Mag', multiple = false, price = 20 },
+                    ['pistol_suppressor'] = { label = 'Pistol Suppressor', multiple = false, price = 20 },
+
+                    ['rifle_flashlight'] = { label = 'Rifle Flashlight', multiple = false, price = 20 },
+                    ['rifle_suppressor'] = { label = 'Rifle Suppressor', multiple = false, price = 20 },
+                    ['rifle_grip'] = { label = 'Rifle Grip', multiple = false, price = 20 },
+
+                    ['smg_extendedclip'] = { label = 'SMG EXT Clip', multiple = false, price = 20 },
+                    ['smg_drum'] = { label = 'SMG Drum', multiple = false, price = 20 },
+                    ['smg_scope'] = { label = 'SMG Scope', multiple = false, price = 20 },
+                    ['smg_luxuryfinish'] = { label = 'SMG Finish', multiple = false, price = 20 },
+
 
                    
 
@@ -441,7 +475,7 @@ Config.Locations = {
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
-
+                    ['specialbadge'] = { label = 'Police Badge', multiple = false, price = 50 },
 
                     ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
                     ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
@@ -471,6 +505,21 @@ Config.Locations = {
                     ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
                     ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
 
+                    ['pistol_defaultclip'] = { label = 'Pistol Clip', multiple = false, price = 20 },
+                    ['pistol_extendedclip'] = { label = 'Pistol EXT Clip', multiple = false, price = 20 },
+                    ['at_clip_drum_pistol'] = { label = '50 Round Drum', multiple = false, price = 20 },
+                    ['at_clip_100_pistol'] = { label = '100 Round Mag', multiple = false, price = 20 },
+                    ['pistol_suppressor'] = { label = 'Pistol Suppressor', multiple = false, price = 20 },
+
+                    ['rifle_flashlight'] = { label = 'Rifle Flashlight', multiple = false, price = 20 },
+                    ['rifle_suppressor'] = { label = 'Rifle Suppressor', multiple = false, price = 20 },
+                    ['rifle_grip'] = { label = 'Rifle Grip', multiple = false, price = 20 },
+
+                    ['smg_extendedclip'] = { label = 'SMG EXT Clip', multiple = false, price = 20 },
+                    ['smg_drum'] = { label = 'SMG Drum', multiple = false, price = 20 },
+                    ['smg_scope'] = { label = 'SMG Scope', multiple = false, price = 20 },
+                    ['smg_luxuryfinish'] = { label = 'SMG Finish', multiple = false, price = 20 },
+
 
                    
 
@@ -479,7 +528,7 @@ Config.Locations = {
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
-
+                    ['specialbadge'] = { label = 'Police Badge', multiple = false, price = 50 },
 
                     ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
                     ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
@@ -510,6 +559,21 @@ Config.Locations = {
                     ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
                     ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
 
+                    ['pistol_defaultclip'] = { label = 'Pistol Clip', multiple = false, price = 20 },
+                    ['pistol_extendedclip'] = { label = 'Pistol EXT Clip', multiple = false, price = 20 },
+                    ['at_clip_drum_pistol'] = { label = '50 Round Drum', multiple = false, price = 20 },
+                    ['at_clip_100_pistol'] = { label = '100 Round Mag', multiple = false, price = 20 },
+                    ['pistol_suppressor'] = { label = 'Pistol Suppressor', multiple = false, price = 20 },
+
+                    ['rifle_flashlight'] = { label = 'Rifle Flashlight', multiple = false, price = 20 },
+                    ['rifle_suppressor'] = { label = 'Rifle Suppressor', multiple = false, price = 20 },
+                    ['rifle_grip'] = { label = 'Rifle Grip', multiple = false, price = 20 },
+
+                    ['smg_extendedclip'] = { label = 'SMG EXT Clip', multiple = false, price = 20 },
+                    ['smg_drum'] = { label = 'SMG Drum', multiple = false, price = 20 },
+                    ['smg_scope'] = { label = 'SMG Scope', multiple = false, price = 20 },
+                    ['smg_luxuryfinish'] = { label = 'SMG Finish', multiple = false, price = 20 },
+
                    
 
                 },
@@ -518,7 +582,7 @@ Config.Locations = {
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
-
+                    ['specialbadge'] = { label = 'Police Badge', multiple = false, price = 50 },
 
                     ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
                     ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
@@ -548,6 +612,21 @@ Config.Locations = {
                     ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
                     ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
 
+                    ['pistol_defaultclip'] = { label = 'Pistol Clip', multiple = false, price = 20 },
+                    ['pistol_extendedclip'] = { label = 'Pistol EXT Clip', multiple = false, price = 20 },
+                    ['at_clip_drum_pistol'] = { label = '50 Round Drum', multiple = false, price = 20 },
+                    ['at_clip_100_pistol'] = { label = '100 Round Mag', multiple = false, price = 20 },
+                    ['pistol_suppressor'] = { label = 'Pistol Suppressor', multiple = false, price = 20 },
+
+                    ['rifle_flashlight'] = { label = 'Rifle Flashlight', multiple = false, price = 20 },
+                    ['rifle_suppressor'] = { label = 'Rifle Suppressor', multiple = false, price = 20 },
+                    ['rifle_grip'] = { label = 'Rifle Grip', multiple = false, price = 20 },
+
+                    ['smg_extendedclip'] = { label = 'SMG EXT Clip', multiple = false, price = 20 },
+                    ['smg_drum'] = { label = 'SMG Drum', multiple = false, price = 20 },
+                    ['smg_scope'] = { label = 'SMG Scope', multiple = false, price = 20 },
+                    ['smg_luxuryfinish'] = { label = 'SMG Finish', multiple = false, price = 20 },
+
                    
 
                 },
@@ -555,7 +634,7 @@ Config.Locations = {
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
-
+                    ['specialbadge'] = { label = 'Police Badge', multiple = false, price = 50 },
 
                     ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
                     ['advancedrepairkit'] = { label = 'Advanced Repairkit', multiple = true, price = 25 },
@@ -584,6 +663,22 @@ Config.Locations = {
                     ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
                     ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
                     ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
+
+
+                    ['pistol_defaultclip'] = { label = 'Pistol Clip', multiple = false, price = 20 },
+                    ['pistol_extendedclip'] = { label = 'Pistol EXT Clip', multiple = false, price = 20 },
+                    ['at_clip_drum_pistol'] = { label = '50 Round Drum', multiple = false, price = 20 },
+                    ['at_clip_100_pistol'] = { label = '100 Round Mag', multiple = false, price = 20 },
+                    ['pistol_suppressor'] = { label = 'Pistol Suppressor', multiple = false, price = 20 },
+
+                    ['rifle_flashlight'] = { label = 'Rifle Flashlight', multiple = false, price = 20 },
+                    ['rifle_suppressor'] = { label = 'Rifle Suppressor', multiple = false, price = 20 },
+                    ['rifle_grip'] = { label = 'Rifle Grip', multiple = false, price = 20 },
+
+                    ['smg_extendedclip'] = { label = 'SMG EXT Clip', multiple = false, price = 20 },
+                    ['smg_drum'] = { label = 'SMG Drum', multiple = false, price = 20 },
+                    ['smg_scope'] = { label = 'SMG Scope', multiple = false, price = 20 },
+                    ['smg_luxuryfinish'] = { label = 'SMG Finish', multiple = false, price = 20 },
 
                    
 
@@ -592,6 +687,10 @@ Config.Locations = {
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
+                    ['specialbadge'] = { label = 'Police Badge', multiple = false, price = 50 },
+                    ['vehicle_gps'] = { label = 'Police Badge', multiple = false, price = 50 },
+                    ['vehicle_tablet'] = { label = 'Police Badge', multiple = false, price = 50 },
+
 
 
                     ['ifaks'] = { label = 'iFaks', multiple = true, price = 5 },
@@ -602,7 +701,7 @@ Config.Locations = {
                     ['weapon_nightstick'] = { label = 'Night Stick', multiple = false, price = 50 },
                     ['weapon_stungun'] = { label = 'Taser', multiple = false, price = 50 },
 
-
+                    
 
                     ['weapon_pd509'] = { label = 'PD 509', multiple = false, price = 350 },
                     ['weapon_glock40s'] = { label = 'PD GLOCK 40 SWITCH', multiple = false, price = 350 },
@@ -623,8 +722,26 @@ Config.Locations = {
                     ['shotgun_ammo'] = { label = 'Shotgun ammo', multiple = true, price = 5 },
                     ['mg_ammo'] = { label = 'MG ammo', multiple = true, price = 5 },
                     ['snp_ammo'] = { label = 'Sniper ammo', multiple = true, price = 5 },
-                 
-                   
+
+                    ['pistol_defaultclip'] = { label = 'Pistol Clip', multiple = false, price = 20 },
+                    ['pistol_extendedclip'] = { label = 'Pistol EXT Clip', multiple = false, price = 20 },
+                    ['at_clip_drum_pistol'] = { label = '50 Round Drum', multiple = false, price = 20 },
+                    ['at_clip_100_pistol'] = { label = '100 Round Mag', multiple = false, price = 20 },
+                    ['pistol_suppressor'] = { label = 'Pistol Suppressor', multiple = false, price = 20 },
+
+                    ['rifle_flashlight'] = { label = 'Rifle Flashlight', multiple = false, price = 20 },
+                    ['rifle_suppressor'] = { label = 'Rifle Suppressor', multiple = false, price = 20 },
+                    ['rifle_grip'] = { label = 'Rifle Grip', multiple = false, price = 20 },
+
+                    ['smg_extendedclip'] = { label = 'SMG EXT Clip', multiple = false, price = 20 },
+                    ['smg_drum'] = { label = 'SMG Drum', multiple = false, price = 20 },
+                    ['smg_scope'] = { label = 'SMG Scope', multiple = false, price = 20 },
+                    ['smg_luxuryfinish'] = { label = 'SMG Finish', multiple = false, price = 20 },
+
+
+
+
+
 
                 },
 
@@ -760,7 +877,7 @@ Config.Locations = {
         personalLocker = {
             enabled = true,                       -- Enable personal locker for this station?
             jobLock = 'police',                    -- Job lock?
-            coords = vec3(467.481, -990.263, 35.062), -- Area to prompt personal locker
+            coords = vec3(465.692, -998.335, 30.689), -- Area to prompt personal locker
             range = 2.0,                           -- Range it will prompt from coords above
             label = '[E] - Access Personal Locker',
             target = {
@@ -778,7 +895,7 @@ Config.Locations = {
         evidenceLocker = {
             enabled = true,                      -- Enable evidence locker for this station?
             jobLock = 'police',                   -- Job lock?
-            coords = vec3(465.022, -1001.598, 30.463), -- Area to prompt personal locker
+            coords = vec3(477.776, -987.979, 30.689), -- Area to prompt personal locker
             range = 2.0,                          -- Range it will prompt from coords above
             label = '[E] - Access Evidence Locker',
             target = {

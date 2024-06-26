@@ -16,9 +16,9 @@ Config.Framework = 'qb' -- 'esx' or 'qb'
 ]]
 
 Config.Progressbar = { -- Progressbar Timer.
-    UseArmor = 5000,
-    UseHeavyArmor = 5000,
-    ResetArmor = 2500
+    UseArmor = 2500,
+    UseHeavyArmor = 2500,
+    ResetArmor = 1500
 }
 
 Config.SetPedArmour = { -- SetPedArmour Quantity.
