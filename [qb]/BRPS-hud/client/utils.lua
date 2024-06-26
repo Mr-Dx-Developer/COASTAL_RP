@@ -31,8 +31,8 @@ end
 exports("SeatbeltState", function(...)
     Koci.Client.HUD:ToggleSeatBelt(...)
 end)
-
+--[[ 
 RegisterNetEvent("seatbelt:client:ToggleSeatbelt", function() -- Triggered in smallresources
     ExeuteCommand('toggleseatbelt')
     Koci.Client.HUD:ToggleSeatBelt()
-end)
+end) ]]
