@@ -62,7 +62,7 @@ Config.Settings                  = {
         active = true,
     },
     Seatbelt = {
-        active = true,
+        active = false,
         key = "B",
     },
     CruiseControl = {

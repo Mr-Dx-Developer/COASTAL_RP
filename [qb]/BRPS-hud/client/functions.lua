@@ -163,11 +163,11 @@ function Koci.Client.HUD:GetFuelExport()
         elseif Config.FrameWork == "qb" then
             return Koci.Framework.Shared.Round(exports["LegacyFuel"]:GetFuel(self.data.vehicle.entity) or 0, 2)
         end
-    elseif GetResourceState("cdn-fuel") == "started" then
+    elseif GetResourceState("LegacyFuel") == "started" then
         if Config.FrameWork == "esx" then
-            return Koci.Framework.Math.Round(exports["cdn-fuel"]:GetFuel(self.data.vehicle.entity) or 0, 2)
+            return Koci.Framework.Math.Round(exports["LegacyFuel"]:GetFuel(self.data.vehicle.entity) or 0, 2)
         elseif Config.FrameWork == "qb" then
-            return Koci.Framework.Shared.Round(exports["cdn-fuel"]:GetFuel(self.data.vehicle.entity) or 0, 2)
+            return Koci.Framework.Shared.Round(exports["LegacyFuel"]:GetFuel(self.data.vehicle.entity) or 0, 2)
         end
     elseif GetResourceState("frkn-fuelstationv3") == "started" then
         if Config.FrameWork == "esx" then

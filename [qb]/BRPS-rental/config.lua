@@ -109,8 +109,8 @@ Config.Boat = {
 Config.Locations = {
     [1] = {
         ['label'] = 'Car Rental',
-        ['coords'] = vector4(-291.89, -985.96, 31.08, 340.31),
-        ['carspawn'] = vector4(-297.76, -989.99, 30.49, 339.02),
+        ['coords'] = vector4(-1045.214, -2725.71, 20.169, 341.577),
+        ['carspawn'] = vector4(-1045.487, -2721.528, 20.159, 243.091),
         ['categorie'] = Config.Rent,
         ['ped'] = 'a_m_m_hasjew_01',
         ['scenario'] = 'WORLD_HUMAN_STAND_MOBILE',
@@ -122,7 +122,7 @@ Config.Locations = {
         ['blipscale'] = 0.6,
         ['blipcolor'] = 38
     },
-    [2] = {
+   --[[  [2] = {
         ['label'] = 'Car Rental',
         ['coords'] = vector4(1852.37, 2582.12, 45.67, 270.72),
         ['carspawn'] = vector4(1855.2, 2578.72, 45.08, 271.21),
@@ -151,8 +151,8 @@ Config.Locations = {
         ['blipsprite'] = 38,
         ['blipscale'] = 0.6,
         ['blipcolor'] = 38
-    },
-    [4] = {
+    }, ]]
+    [2] = {
         ['label'] = 'Boat Rental',
         ['coords'] = vector4(-806.81, -1497.1, 1.6, 114.24),
         ['carspawn'] = vector4(-806.59, -1504.73, -0.09, 124.98),
@@ -169,4 +169,4 @@ Config.Locations = {
     },
 }
 
-Config.Fuel = 'cdn-fuel'
+Config.Fuel = 'LegacyFuel'

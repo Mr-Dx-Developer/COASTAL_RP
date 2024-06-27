@@ -324,6 +324,7 @@ QBShared.Items = {
 
     -- Tools
     lockpick                     = { name = 'lockpick', label = 'Lockpick', weight = 300, type = 'item', image = 'lockpick.png', unique = false, useable = true, shouldClose = true, description = 'Very useful if you lose your keys a lot.. or if you want to use it for something else...' },
+    bobby_pin                     = { name = 'bobby_pin', label = 'Pin', weight = 300, type = 'item', image = 'bobby_pin.png', unique = false, useable = true, shouldClose = true, description = '' },
     advancedlockpick             = { name = 'advancedlockpick', label = 'Advanced Lockpick', weight = 500, type = 'item', image = 'advancedlockpick.png', unique = false, useable = true, shouldClose = true, description = 'If you lose your keys a lot this is very useful... Also useful to open your beers' },
     electronickit                = { name = 'electronickit', label = 'Electronic Kit', weight = 100, type = 'item', image = 'electronickit.png', unique = false, useable = true, shouldClose = true, description = 'If you\'ve always wanted to build a robot you can maybe start here. Maybe you\'ll be the new Elon Musk?' },
     gatecrack                    = { name = 'gatecrack', label = 'Gatecrack', weight = 0, type = 'item', image = 'usb_device.png', unique = false, useable = false, shouldClose = true, description = 'Handy software to tear down some fences' },

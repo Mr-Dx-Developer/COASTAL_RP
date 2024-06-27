@@ -10,10 +10,5 @@ Config.Languages = { --You can copy one of these translations and create your ow
         ['LICENSES_MAN_LABEL'] = 'Man',
     },
 
-    ['es'] = {
-        ["LICENSES_SUCCESS"] = "Gracias por esperar, aqui tienes tu nuevo",
-        ["LICENSES_NO_MONEY"] = "No tienes dinero suficiente",
-        ['LICENSES_WOMEN_LABEL'] =  'Mujer',
-        ['LICENSES_MAN_LABEL'] = 'Hombre',
-    },
+    
 }

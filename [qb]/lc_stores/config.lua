@@ -22,8 +22,8 @@ Config.group_map_blips = true					-- true: will group all the blips into a singl
 -- You can add as many locations as you want, just use the location already created as an example
 Config.market_locations = {
 	["market_1"] = {															-- ID
-		['buy_price'] = 220000,													-- Price to buy this market
-		['sell_price'] = 110000,												-- Price to sell this market
+		['buy_price'] = 2200000,													-- Price to buy this market
+		['sell_price'] = 1100000,												-- Price to sell this market
 		['coord'] = {-709.57440185547,-905.78985595703,19.215585708618},		-- Coordinate to open the menu (vector3)
 		['garage_coord'] = {-707.13,-924.98,19.02,179.01},						-- Garage coordinates, where the trucks will spawn (vector4)
 		['truck_parking_location'] = {-707.95, -929.8, 19.01, 180.0},			-- Location that the trucks from Trucker Logistics script will park when delivering cargo for this store (vector3)
@@ -50,8 +50,8 @@ Config.market_locations = {
 		}
 	},
 	["market_2"] = {
-		['buy_price'] = 300000,
-		['sell_price'] = 150000,
+		['buy_price'] = 3000000,
+		['sell_price'] = 1500000,
 		['coord'] = {30.239591598511,-1339.2818603516,29.497043609619},
 		['garage_coord'] = {15.3,-1345.17,29.29,179.17},
 		['truck_parking_location'] = {24.0538,-1357.3694, 29.503,88.4017},
@@ -77,8 +77,8 @@ Config.market_locations = {
 		}
 	},
 	["market_3"] = {
-		['buy_price'] = 110000,
-		['sell_price'] = 55000,
+		['buy_price'] = 1100000,
+		['sell_price'] = 550000,
 		['coord'] = {2549.6564941406,386.92138671875,108.62294006348},
 		['garage_coord'] = {2588.82,413.31,108.46,178.94},
 		['truck_parking_location'] = {2564.896,366.3779, 108.7248,177.4842},
@@ -104,8 +104,8 @@ Config.market_locations = {
 		}
 	},
 	["market_4"] = {
-		['buy_price'] = 180000,
-		['sell_price'] = 90000,
+		['buy_price'] = 1800000,
+		['sell_price'] = 900000,
 		['coord'] = {1159.861328125,-315.43588256836,69.205146789551},
 		['garage_coord'] = {1155.32,-336.2,68.35,188.49},
 		['truck_parking_location'] = {1184.322,-314.0848, 69.4398,279.8044},
@@ -131,8 +131,8 @@ Config.market_locations = {
 		}
 	},
 	["market_5"] = {
-		['buy_price'] = 130000,
-		['sell_price'] = 65000,
+		['buy_price'] = 1300000,
+		['sell_price'] = 650000,
 		['coord'] = {-1827.9733886719,798.20367431641,138.17694091797},
 		['garage_coord'] = {-1821.48,777.52,137.43,216.69},
 		['truck_parking_location'] = {-1807.3877,789.4099, 138.4138,220.8947},
@@ -158,8 +158,8 @@ Config.market_locations = {
 		}
 	},
 	["market_6"] = {
-		['buy_price'] = 150000,
-		['sell_price'] = 75000,
+		['buy_price'] = 1500000,
+		['sell_price'] = 750000,
 		['coord'] = {380.2028503418,332.70526123047,103.56661224365},
 		['garage_coord'] = {366.43,332.03,103.51,165.15},
 		['truck_parking_location'] = {361.3589,319.2109, 103.9061,76.4428},
@@ -185,8 +185,8 @@ Config.market_locations = {
 		}
 	},
 	["market_7"] = {
-		['buy_price'] = 120000,
-		['sell_price'] = 60000,
+		['buy_price'] = 1200000,
+		['sell_price'] = 600000,
 		['coord'] = {-3249.6938476563,1006.4963378906,12.830717086792},
 		['garage_coord'] = {-3243.39,991.74,12.48,272.72},
 		['truck_parking_location'] = {-3234.5576,1009.0838, 12.4311,177.7641},
@@ -212,8 +212,8 @@ Config.market_locations = {
 		}
 	},
 	["market_8"] = {
-		['buy_price'] = 70000,
-		['sell_price'] = 35000,
+		['buy_price'] = 700000,
+		['sell_price'] = 350000,
 		['coord'] = {1736.3872070312,6419.7211914062,35.037223815918},
 		['garage_coord'] = {1718.27,6418.38,33.45,152.26},
 		['truck_parking_location'] = {1713.1648,6410.5093, 33.6366,155.0778},
@@ -239,8 +239,8 @@ Config.market_locations = {
 		}
 	},
 	["market_9"] = {
-		['buy_price'] = 130000,
-		['sell_price'] = 65000,
+		['buy_price'] = 1300000,
+		['sell_price'] = 650000,
 		['coord'] = {544.38342285156,2662.8591308594,42.15648651123},
 		['garage_coord'] = {533.9,2667.9,42.28,8.76},
 		['truck_parking_location'] = {533.3693,2669.5442, 42.5447,7.0399},
@@ -266,8 +266,8 @@ Config.market_locations = {
 		}
 	},
 	["market_10"] = {
-		['buy_price'] = 120000,
-		['sell_price'] = 60000,
+		['buy_price'] = 1200000,
+		['sell_price'] = 600000,
 		['coord'] = {1961.1793212891,3749.8298339844,32.343872070313},
 		['garage_coord'] = {1972.04,3746.88,32.32,209.52},
 		['truck_parking_location'] = {1696.6696,3742.3357, 34.1548,225.9438},
@@ -293,8 +293,8 @@ Config.market_locations = {
 		}
 	},
 	["market_11"] = {
-		['buy_price'] = 120000,
-		['sell_price'] = 60000,
+		['buy_price'] = 1200000,
+		['sell_price'] = 600000,
 		['coord'] = {2673.9375,3288.3955078125,55.241134643555},
 		['garage_coord'] = {2689.24,3272.53,55.25,328.87},
 		['truck_parking_location'] = {2651.1384,3263.427, 55.4719,151.0635},
@@ -320,8 +320,8 @@ Config.market_locations = {
 		}
 	},
 	["market_12"] = {
-		['buy_price'] = 70000,
-		['sell_price'] = 35000,
+		['buy_price'] = 700000,
+		['sell_price'] = 350000,
 		['coord'] = {1706.8068847656,4921.125,42.063636779785},
 		['garage_coord'] = {1689.02,4919.69,42.08,57.01},
 		['truck_parking_location'] = {1686.8475,4922.3828, 42.3414,55.4782},
@@ -347,8 +347,8 @@ Config.market_locations = {
 		}
 	},
 	["market_13"] = {
-		['buy_price'] = 240000,
-		['sell_price'] = 120000,
+		['buy_price'] = 2400000,
+		['sell_price'] = 1200000,
 		['coord'] = {-44.314395904541,-1749.6755371094,29.42099571228},
 		['garage_coord'] = {-63.1,-1742.7,29.31,57.2},
 		['truck_parking_location'] = {-20.8732,-1767.8015, 29.4571,231.7498},
@@ -374,8 +374,8 @@ Config.market_locations = {
 		}
 	},
 	["market_14"] = {
-		['buy_price'] = 120000,
-		['sell_price'] = 60000,
+		['buy_price'] = 1200000,
+		['sell_price'] = 600000,
 		['coord'] = {1395.455078125,3607.1713867188,34.98091506958},
 		['garage_coord'] = {1384.52,3593.7,34.9,210.34},
 		['truck_parking_location'] = {1381.198,3594.0959, 35.1478,200.0481},
@@ -401,8 +401,8 @@ Config.market_locations = {
 		}
 	},
 	["market_15"] = {
-		['buy_price'] = 110000,
-		['sell_price'] = 45000,
+		['buy_price'] = 1100000,
+		['sell_price'] = 450000,
 		['coord'] = {-3048.3173828125,587.68206787109,7.9091401100159},
 		['garage_coord'] = {-3045.94,598.67,7.49,287.24},
 		['truck_parking_location'] = {-3032.1746,594.4594, 7.9666,18.8748},
@@ -428,8 +428,8 @@ Config.market_locations = {
 		}
 	},
 	["market_16"] = {
-		['buy_price'] = 130000,
-		['sell_price'] = 65000,
+		['buy_price'] = 1300000,
+		['sell_price'] = 650000,
 		['coord'] = {1163.9194335938,2709.1730957031,38.15767288208},
 		['garage_coord'] = {1169.43,2694.08,37.84,85.41},
 		['truck_parking_location'] = {1181.8191,2695.3115, 38.2108,268.9558},
@@ -455,8 +455,8 @@ Config.market_locations = {
 		}
 	},
 	["market_17"] = {
-		['buy_price'] = 70000,
-		['sell_price'] = 35000,
+		['buy_price'] = 700000,
+		['sell_price'] = 350000,
 		['coord'] = {-669.7861328125,5833.7553710938,17.331426620483},
 		['garage_coord'] = {-665.9,5825.51,17.34,96.71},
 		['truck_parking_location'] = {-676.9509,5825.9419, 17.5887,68.3468},
@@ -482,8 +482,8 @@ Config.market_locations = {
 		}
 	},
 	["market_18"] = {
-		['buy_price'] = 70000,
-		['sell_price'] = 35000,
+		['buy_price'] = 700000,
+		['sell_price'] = 350000,
 		['coord'] = {169.27001953125,6644.1645507813,31.71063041687},
 		['garage_coord'] = {146.9,6634.98,31.61,175.81},
 		['truck_parking_location'] = {164.0575,6625.502, 32.0364,225.7734},
@@ -509,7 +509,7 @@ Config.market_locations = {
 		}
 	},
 	["ammunation_1"] = {
-		['buy_price'] = 2000000,
+		['buy_price'] = 4500000,
 		['sell_price'] = 500000,
 		['coord'] = {14.470663070679,-1106.0792236328,29.797006607056},
 		['garage_coord'] = {27.71,-1113.25,29.3,329.89},
@@ -521,6 +521,58 @@ Config.market_locations = {
 			{19.58, -1109.95, 29.8}
 		},
 		['deliveryman_coord'] = {18.89,-1116.02,29.79},
+		['type'] = 'ammunation',
+		['account'] = {
+			['item'] = {
+				[1] = {
+					['icon'] = 'img/credit_card.png',
+					['account'] = 'bank'
+				},
+				[2] = {
+					['icon'] = 'img/cash.png',
+					['account'] = 'cash'
+				}
+			},
+			['store'] = 'bank',
+		}
+	},
+	["ammunation_2"] = {
+		['buy_price'] = 5000000,
+		['sell_price'] = 10000000,
+		['coord'] = {248.69, -47.07, 69.94},
+		['garage_coord'] = {231.85, -37.11, 69.71, 67.24},
+		['truck_parking_location'] = {231.85, -37.11, 69.71},
+		['sell_blip_coords'] = {
+			{246.77, -50.39, 69.94}
+			
+		},
+		['deliveryman_coord'] = {242.26, -48.04, 69.9},
+		['type'] = 'ammunation',
+		['account'] = {
+			['item'] = {
+				[1] = {
+					['icon'] = 'img/credit_card.png',
+					['account'] = 'bank'
+				},
+				[2] = {
+					['icon'] = 'img/cash.png',
+					['account'] = 'cash'
+				}
+			},
+			['store'] = 'bank',
+		}
+	},
+	["ammunation_3"] = {
+		['buy_price'] = 50000000,
+		['sell_price'] = 10000000,
+		['coord'] = {-322.9, 6079.69, 31.45},
+		['garage_coord'] = {-320.07, 6071.35, 31.34, 231.77},
+		['truck_parking_location'] = {-315.97, 6075.34, 31.36},
+		['sell_blip_coords'] = {
+			{-326.09, 6079.87, 31.45}
+			
+		},
+		['deliveryman_coord'] = {-321.93, 6077.88, 31.25},
 		['type'] = 'ammunation',
 		['account'] = {
 			['item'] = {
@@ -651,7 +703,8 @@ Config.market_types = {
 		},
 		['max_purchasable_categories'] = 4,
 		['categories'] = {
-			"melee_weapons", "pistol_weapons", "rifle_weapons", "shotgun_weapons", "smg_weapons", "throwable_weapons", "ammo_weapons", "others_weapons"
+		--	"melee_weapons", "pistol_weapons", "rifle_weapons", "shotgun_weapons", "smg_weapons", "throwable_weapons", "ammo_weapons", "others_weapons"
+			"melee_weapons", "pistol_weapons", "throwable_weapons", "ammo_weapons", "others_weapons"
 		},
 		['default_categories'] = {
 			"melee_weapons", "pistol_weapons", "ammo_weapons", "others_weapons"
@@ -853,7 +906,7 @@ Config.market_categories = {
 				['amount_to_delivery'] = 2,
 				['img'] = 'phone.png',
 			},
-			['iphone'] = {
+			--[[ ['iphone'] = {
 				['name'] = "iPhone",
 				['price_to_customer'] = 1000,
 				['price_to_customer_min'] = 500,
@@ -863,8 +916,8 @@ Config.market_categories = {
 				['amount_to_owner'] = 2,
 				['amount_to_delivery'] = 2,
 				['img'] = 'iphone.png',
-			},
-			['samsungphone'] = {
+			}, ]]
+			--[[ ['samsungphone'] = {
 				['name'] = "Samsung S10",
 				['price_to_customer'] = 950,
 				['price_to_customer_min'] = 475,
@@ -874,7 +927,7 @@ Config.market_categories = {
 				['amount_to_owner'] = 2,
 				['amount_to_delivery'] = 2,
 				['img'] = 'samsungphone.png',
-			},
+			}, ]]
 			['radio'] = {
 				['name'] = "Radio",
 				['price_to_customer'] = 200,
@@ -886,7 +939,7 @@ Config.market_categories = {
 				['amount_to_delivery'] = 2,
 				['img'] = 'radio.png',
 			},
-			['laptop'] = {
+			--[[ ['laptop'] = {
 				['name'] = "Laptop",
 				['price_to_customer'] = 700,
 				['price_to_customer_min'] = 350,
@@ -907,7 +960,7 @@ Config.market_categories = {
 				['amount_to_owner'] = 2,
 				['amount_to_delivery'] = 2,
 				['img'] = 'tablet.png',
-			},
+			}, ]]
 		}
 	},
 
@@ -930,8 +983,8 @@ Config.market_categories = {
 				['amount_to_delivery'] = 2,
 				['img'] = 'repairkit.png',
 			},
-			['cleaningkit'] = {
-				['name'] = "Cleaning Kit",
+			['lockpick'] = {
+				['name'] = "Lockpick Kit",
 				['price_to_customer'] = 150,
 				['price_to_customer_min'] = 75,
 				['price_to_customer_max'] = 300,
@@ -939,7 +992,7 @@ Config.market_categories = {
 				['price_to_owner'] = 125,
 				['amount_to_owner'] = 2,
 				['amount_to_delivery'] = 2,
-				['img'] = 'cleaningkit.png',
+				['img'] = 'lockpick.png',
 			},
 			['screwdriverset'] = {
 				['name'] = "Toolkit",
@@ -1044,8 +1097,8 @@ Config.market_categories = {
 		['category_buy_price'] = 25000,
 		['category_sell_price'] = 12500,
 		['items'] = {
-			['weapon_pistol'] = {
-				['name'] = "Pistol",
+			['weapon_revolver'] = {
+				['name'] = "Revolver",
 				['price_to_customer'] = 2500,
 				['price_to_customer_min'] = 1250,
 				['price_to_customer_max'] = 5000,
@@ -1054,12 +1107,12 @@ Config.market_categories = {
 				['amount_to_owner'] = 1,
 				['amount_to_delivery'] = 1,
 				['is_weapon'] = true,
-				['requires_license'] = true,
+				['requires_license'] = false,
 				['max_amount_to_purchase'] = 1,
-				['img'] = 'weapon_pistol.png',
+				['img'] = 'weapon_revolver.png',
 			},
-			['weapon_snspistol'] = {
-				['name'] = "SNS Pistol",
+			['weapon_pistol50'] = {
+				['name'] = "Pistol .50",
 				['price_to_customer'] = 1500,
 				['price_to_customer_min'] = 750,
 				['price_to_customer_max'] = 3000,
@@ -1068,27 +1121,14 @@ Config.market_categories = {
 				['amount_to_owner'] = 1,
 				['amount_to_delivery'] = 1,
 				['is_weapon'] = true,
-				['requires_license'] = true,
+				['requires_license'] = false,
 				['max_amount_to_purchase'] = 1,
-				['img'] = 'weapon_snspistol.png',
+				['img'] = 'weapon_pistol50.png',
 			},
-			['weapon_vintagepistol'] = {
-				['name'] = "Vintage Pistol",
-				['price_to_customer'] = 4000,
-				['price_to_customer_min'] = 2000,
-				['price_to_customer_max'] = 8000,
-				['price_to_export'] = 3600,
-				['price_to_owner'] = 3000,
-				['amount_to_owner'] = 1,
-				['amount_to_delivery'] = 1,
-				['is_weapon'] = true,
-				['requires_license'] = true,
-				['max_amount_to_purchase'] = 1,
-				['img'] = 'weapon_vintagepistol.png',
-			},
+			
 		}
 	},
-
+--[[ 
 	['rifle_weapons'] = {
 		['page_name'] = "Rifle Weapons",
 		['page_desc'] = "Dominate the battlefield with our high-performance assault rifles, built to provide accuracy, range, and stopping power in any combat situation",
@@ -1191,7 +1231,7 @@ Config.market_categories = {
 			},
 		}
 	},
-
+ ]]
 	['throwable_weapons'] = {
 		['page_name'] = "Throwable Weapons",
 		['page_desc'] = "Expand your tactical options with our collection of throwable weapons, perfect for gaining an edge in any combat scenario",
@@ -1251,7 +1291,7 @@ Config.market_categories = {
 				['requires_license'] = true,
 				['img'] = 'pistol_ammo.png',
 			},
-			['rifle_ammo'] = {
+			--[[ ['rifle_ammo'] = {
 				['name'] = "Rifle Ammo",
 				['price_to_customer'] = 350,
 				['price_to_customer_min'] = 175,
@@ -1286,7 +1326,7 @@ Config.market_categories = {
 				['amount_to_delivery'] = 100,
 				['requires_license'] = true,
 				['img'] = 'shotgun_ammo.png',
-			},
+			}, ]]
 		}
 	},
 
@@ -1298,7 +1338,7 @@ Config.market_categories = {
 		['category_buy_price'] = 5000,
 		['category_sell_price'] = 2500,
 		['items'] = {
-			['weapon_flaregun'] = {
+			--[[ ['weapon_flaregun'] = {
 				['name'] = "Flare Gun",
 				['price_to_customer'] = 1000,
 				['price_to_customer_min'] = 500,
@@ -1311,7 +1351,7 @@ Config.market_categories = {
 				['requires_license'] = false,
 				['max_amount_to_purchase'] = 1,
 				['img'] = 'weapon_flaregun.png',
-			},
+			}, ]]
 			['parachute'] = {
 				['name'] = "Parachute",
 				['price_to_customer'] = 2500,

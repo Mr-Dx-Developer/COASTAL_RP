@@ -6,7 +6,7 @@ function Utils.Functions:CustomFuelExport(vehicle)
 
     -- TriggerServerEvent("BRPS-hud:Server:ErrorHandle", _t("hud.export.fuel_missing"))
 
-    local fuelLevel = exports['cdn-fuel']:GetFuel(vehicle)
+    local fuelLevel = exports['LegacyFuel']:GetFuel(vehicle)
     return fuelLevel
 end
 

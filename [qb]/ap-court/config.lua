@@ -2,7 +2,7 @@ Config = {
 	FrameworkExport = "qb-core", -- Set this too your core name, only change this if you have a custom version of QBCore. 
 	DiscordWebhook = true, -- Set this too true if you want the cases to be posted in your discord channel, make sure to edit webhook in your server folder.
 	CourtLocationName = "San Andres District Court", -- This is preset, Change name to suit your server.
-	Blip = {Active = true, Coords = vector3(-550.1532, -196.0362, 38.2270), Label = "Court", Sprite = 176, Display = 4, Scale = 0.60, Color = 0}, -- Blip settings for court.
+	Blip = {Active = true, Coords = vector3(328.476, -1633.527, 32.9), Label = "Court", Sprite = 176, Display = 4, Scale = 0.60, Color = 0}, -- Blip settings for court.
 	BarLicensePrice = 8000, -- Set this to the cost you would like to charge for the bar license exam.
 	NewIDCardCost = 5000, -- Set this to the cost you want players to pay if they require a new ID Card.
 	JoinJuryPayment = 1000, -- Set this to the amount you would like to give when a player signs up to the jury.
@@ -12,7 +12,7 @@ Config = {
 	Currency = '$', -- Set this to the currency your server uses.
 	CourtJob = 'judge', -- This is the default job that comes with QBCore, Change if needed.
 	lawyerID = 'lawyerpass', -- Set this to the item players need in order to show there ID Card.
-	Phone = {GKSPhone = false, QBPhone = true, QuasarPhone = false, QSPRO = false, HighPhone = false, RoadPhone = false, LBPhone = false, Custom = false}, -- Set to the phone you use to true, if you do not have one of these phones then set Custom to true and edit the function in webhooks.lua.
+	Phone = {GKSPhone = false, QBPhone = false, QuasarPhone = false, QSPRO = false, HighPhone = false, RoadPhone = false, LBPhone = true, Custom = false}, -- Set to the phone you use to true, if you do not have one of these phones then set Custom to true and edit the function in webhooks.lua.
 	Interactions = {qbTarget = true, qTarget = false, ox_target = false, drawText = false},
 	Context = {QB = true, OX = false}, -- Set this to to "QB", More added soon.
 	Dialog = {QB = true, OX = false}, -- Set this to to "QB", More added soon.

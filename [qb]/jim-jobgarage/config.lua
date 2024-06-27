@@ -200,7 +200,64 @@ Config = {
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
+					},
+					
+					["velar"] = {
+						CustomName = "PD Velar",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						trunkItems = {
+							
+							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
+							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
+						},
+					},
+					["fbi"] = {
+						CustomName = "PD CC",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						trunkItems = {
+							
+							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
+							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
+						},
+					},
+					["police3"] = {
+						CustomName = "PD 3",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						trunkItems = {
+							
+							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
+							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
+						},
+					},
+					["polalamop"] = {
+						CustomName = "PD Lambo",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						trunkItems = {
+							
+							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
+							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
+						},
+					},
+					["pbike"] = {
+						CustomName = "PD Cycle",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						trunkItems = {
+							
+							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
+							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
+						},
 					}
+
 					
 					
 				},
