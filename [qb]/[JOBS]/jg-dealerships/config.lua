@@ -35,7 +35,7 @@ Config.FinancePaymentFailedHoursUntilRepo = 1 -- in hours
 Config.MaxFinancedVehiclesPerPlayer = 5
 
 Config.TestDrivePlate = "TESTER"
-Config.TestDriveTimeSeconds = 120
+Config.TestDriveTimeSeconds = 60
 Config.TestDriveNotInBucket = false -- Set to true for everyone to see the test driven vehicle (player is instanced by default)
 
 Config.DisplayVehiclesPlate = "DEALER"
