@@ -1,3 +1,6 @@
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.js'
+shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
 fx_version 'cerulean'
 game 'common'
 use_experimental_fxv2_oal 'yes'

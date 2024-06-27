@@ -1,3 +1,5 @@
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
 fx_version 'cerulean'
 game 'gta5'
 use_experimental_fxv2_oal 'yes'
