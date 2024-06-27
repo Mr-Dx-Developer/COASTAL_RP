@@ -1,6 +1,0 @@
-Citizen.CreateThread(function()
-    RequestModel('ch_prop_arcade_claw_01a')
-    RequestModel('ch_prop_arcade_claw_01a_r2')
-    RequestModel('ch_prop_arcade_claw_01a_r1')
-    RequestModel('ch_prop_arcade_claw_01a_c_d')
-end)
