@@ -1,5 +1,3 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
-shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
 ----------------------- [ MenuV ] -----------------------
 -- GitHub: https://github.com/ThymonA/menuv/
 -- License: GNU General Public License v3.0

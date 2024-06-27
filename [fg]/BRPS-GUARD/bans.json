@@ -1,1 +1,27 @@
-{}
+{
+    "3": {
+        "steam": "steam:11000013e6548e5",
+        "license": "license:0f61e5eabe09bf57fcd6a71db883fdea5d0e7b43",
+        "live": "live:1055518593032740",
+        "name": "Nahid69",
+        "fg_ts": {
+            "t1": "978f87c431881f803b4cdd26581dc02e5b50c59ff9676199788e1053a3934373",
+            "t4": "13031224212054782982",
+            "t3": "v1O2KeHnD5PxBqjDxNLxYXp98jCWbD2L",
+            "t2": "0db25399:187d77e6:63340dd3:76dd3f89:4314f32e"
+        },
+        "ip": "103.187.94.201",
+        "manual": false,
+        "reason": "Blacklisted Entity detected, model: 868868440",
+        "xbl": "xbl:2535420922067046",
+        "tokens": [
+            "3:eea25ff64e5e64bbaddec45e24d0c64734bef1a9be424ded39feb84983926fc1",
+            "2:04e07400a5438fa93112404b7067f8d15863b530bd498e6d57c28a9f2f11b3b4",
+            "5:2e9000999a00cda49f77e59491e3b187c500c017cf1a1fa85a4fc078f648c08d",
+            "4:646cb8ad6bc6dbd8ffeb66222a8aaad2780241279c14dd471cc4d59292de534d",
+            "4:585a596a0b72c901257755049533e8b3c822c2ea80ada1afb884c1fa2a05c90e",
+            "4:cf8b468e7d352705a25efaada316ed1632c8f193951adaaeb9dc1cbff74af7f3"
+        ],
+        "discord": "597529037484589070"
+    }
+}

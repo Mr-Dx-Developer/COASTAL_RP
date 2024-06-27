@@ -1,5 +1,3 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
-shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
 -- FXVersion Version
 fx_version 'adamant'
 games { 'gta5' }
