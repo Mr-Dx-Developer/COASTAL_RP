@@ -10,7 +10,7 @@ Config.Debug = false -- If you want to see the debug messages in the console, yo
      This mode disables effects and synchronizes the time and weather with your server and does not allow you a custom weather and time
      and removes the realistic look with blur in the background
 --]]
-
+g
 Config.PerformanceMode = false --  true (optional)
 
 --[[
@@ -57,10 +57,10 @@ Config.ClothingExports = function(cacheped,skinData) -- If you don't have a cust
 end
 
 Config.StarterItems = {
-    ['phone'] = {
+    --[[ ['phone'] = {
         amount = 1,
         item = 'phone'
-    },
+    }, ]]
     ['id_card'] = {
         amount = 1,
         item = 'id_card',

@@ -1,6 +1,6 @@
-local CreateCourtWebhook = ""
-local AdjournCourtWebhook = ""
-local FinishProceedingsWebhook = ""
+local CreateCourtWebhook = "https://discord.com/api/webhooks/1255877803086315631/3nTP3XWP-2WHs1q6oDawqwdH6tr2-cPwmTjTZ_0e07gAePT958RcadpzMydOLNrWOWVU"
+local AdjournCourtWebhook = "https://discord.com/api/webhooks/1255877862729187398/nQhDZTOR7FjN3NQyldRlwD64Gm35i1CP8IwUffNtoa31e0kxkNo5GXfvdWomvN83ZfFN"
+local FinishProceedingsWebhook = "https://discord.com/api/webhooks/1255877919381913683/JaYRVu4kHCwZJ4IW0Qa1x2uvVgIjP8OFqLpSOKqjXpDZYAAF7aCIna2aP7ofRe2W40qE"
 
 webhookMsg = {
     ['CreateCourt'] = {

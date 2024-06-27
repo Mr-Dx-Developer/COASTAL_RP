@@ -43,6 +43,7 @@ Config = {
 					["mach1rb"] = {
 						CustomName = "PD Mustang",
 						livery = 1,
+						grade = 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -54,6 +55,7 @@ Config = {
 					["pd1"] = {
 						CustomName = "PD Crown Vic",
 						livery = 1,
+						grade = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -65,6 +67,7 @@ Config = {
 					["Char"] = {
 						CustomName = "PD Charger",
 						livery = 1,
+						grade = 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -77,6 +80,7 @@ Config = {
 						CustomName = "PD Demon",
 						colors = { 255, 255 },
 						livery = 1,
+                                                grade = 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -89,6 +93,7 @@ Config = {
 						CustomName = "PD ZR1",
 						colors = { 255, 255 },
 						livery = 1,
+                                                grade = 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -103,6 +108,7 @@ Config = {
 						CustomName = "PD Explorer",
 						colors = { 255, 255 },
 						livery = 1,
+                                                grade = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						--bulletproof = true,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -115,6 +121,7 @@ Config = {
 					["polbikeb2"] = {
 						CustomName = "PD Bike",
 						livery = 3,
+                                                grade = 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -126,6 +133,7 @@ Config = {
 					["r1custom"] = {
 						CustomName = "pd bike",
 						livery = 1,
+                                                grade = 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -134,7 +142,7 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["rmod69police"] = {
+					--[[ ["rmod69police"] = {
 						CustomName = "PD 69",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -144,10 +152,11 @@ Config = {
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
-					},
+					}, ]]
 					["socharger"] = {
 						CustomName = "PD Charger",
 						livery = 1,
+                                                grade = 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -156,7 +165,7 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["sodurango"] = {
+					--[[ ["sodurango"] = {
 						CustomName = "PD Durango",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -166,10 +175,11 @@ Config = {
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
-					},
+					}, ]]
 					["soexplorer"] = {
 						CustomName = "PD Explorer",
 						livery = 1,
+                                                grade = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -182,6 +192,7 @@ Config = {
 					["sotaurus"] = {
 						CustomName = "PD Taurus",
 						livery = 1,
+                                                grade = 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -193,6 +204,7 @@ Config = {
 					["sotruck"] = {
 						CustomName = "PD Truck",
 						livery = 1,
+                                                grade = 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -205,6 +217,7 @@ Config = {
 					["velar"] = {
 						CustomName = "PD Velar",
 						livery = 1,
+                                                grade = 8, 9, 10, 
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -216,6 +229,7 @@ Config = {
 					["fbi"] = {
 						CustomName = "PD CC",
 						livery = 1,
+                                                grade = 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -224,7 +238,7 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["police3"] = {
+					--[[ ["police3"] = {
 						CustomName = "PD 3",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -234,10 +248,11 @@ Config = {
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
-					},
+					}, ]]
 					["polalamop"] = {
 						CustomName = "PD Lambo",
 						livery = 1,
+                                                grade = 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -249,6 +264,7 @@ Config = {
 					["pbike"] = {
 						CustomName = "PD Cycle",
 						livery = 1,
+                        grade = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -272,12 +288,14 @@ Config = {
 					--[[ ["polmav"] = {
 						CustomName = "Polmav Super",
 						livery = 1,
+                                                grade = 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 					}, ]]
 					["as350"] = {
 						CustomName = "Heli",
 						livery = 1,
+                                                grade = 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {

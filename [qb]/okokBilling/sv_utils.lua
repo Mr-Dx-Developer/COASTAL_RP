@@ -1,6 +1,6 @@
 QBCore = exports["qb-core"]:GetCoreObject()
 
-Webhook = ''
+Webhook = 'https://discord.com/api/webhooks/1255888238330118256/0o04OREtLI4n8zehOLirr9dL96jjDc0YMtq38lc_gm5zWd84aaooc_pPyr2Bz0042dtT'
 
 QBCore.Functions.CreateCallback(Config.EventPrefix..":getPlayerGroup", function(source, cb)
     local isAdmin = false

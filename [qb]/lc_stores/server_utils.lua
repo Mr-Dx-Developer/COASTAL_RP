@@ -1,4 +1,4 @@
-WebhookURL = "WEBHOOK" -- Webhook to send logs to discord
+WebhookURL = "https://discord.com/api/webhooks/1255888122965790740/VtqjK2uju35xGPe5VoA2KsLwbxkagdI_ws7MR1WZYhvnOL5Ax90Mph5jX_emJhJb6WLZ" -- Webhook to send logs to discord
 
 function beforeBuyMarket(source,market_id,price)
 	-- Here you can do any verification when a player is buying a market, like if player has the permission to that or anything else you want to check before buy the market. return true or false

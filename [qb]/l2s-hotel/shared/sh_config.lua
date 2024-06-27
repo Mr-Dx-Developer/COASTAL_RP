@@ -1,5 +1,5 @@
 Shared = Shared or {}
-Shared.Webhook = '' -- Discord Log Webhook
+Shared.Webhook = 'https://discord.com/api/webhooks/1255887988664172644/cf-qfdJlRSoEO3XEfiKpFXMI_xs7hzNUpg8KTNlV8YmeaBPsKL5YeE40GyTYozrN9h53' -- Discord Log Webhook
 Shared.NewCardPrice = 500 -- Take New Card (Price)
 Shared.SafetyChange = 1000 -- Change card serial number + new card (Price)
 Shared.MaxOwnedRooms = 3 -- The maximum number of rooms per person

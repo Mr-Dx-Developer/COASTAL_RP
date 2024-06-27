@@ -1,0 +1,195 @@
+html, body {
+	background: #111011;
+	color: white;
+	text-transform: uppercase;
+	background-size: cover;
+  
+	margin: 0; 
+	padding: 0; 
+	height: 100%;
+	width: 100%;
+  
+	position: absolute; 
+	overflow: hidden;
+}
+
+
+
+/* audio */
+#page {
+	align-items: center;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0) 10%, rgba(54, 54, 54, 1) 100%);
+	bottom: 0;
+	justify-content: right;
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+
+
+
+/* main Container */
+#container {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+/* Background */
+.background-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	perspective: 800px;
+}
+
+.background {
+	width: 85%;
+	height: 85%;
+
+	transform-style: preserve-3d;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+	box-shadow: inset 0 0 100px black;
+}
+
+.backgroundToLeftAnim {
+	animation: btoleft 11s infinite linear;
+}
+@keyframes btoleft{
+    /*from { transform: translateX(-3%) skew(1deg,1deg); }
+    to { transform: translateX(3%) skew(1deg,1deg); }*/
+	from { transform: translateX(-1%) perspective(800px) rotateX(-1deg) rotateY(-1deg) skew(1deg,1deg) }
+    to { transform: translateX(1%) perspective(800px) rotateX(1deg) rotateY(1deg) skew(1deg,1deg)}
+}
+
+.backgroundToRightAnim {
+	animation: btoright 11s infinite linear;
+}
+@keyframes btoright{
+    /*from { transform: translateX(3%) skew(-1deg,-1deg); }
+    to { transform: translateX(-3%) skew(-1deg,-1deg); }*/
+	
+	from { transform: translateX(1%) perspective(800px) rotateX(1deg) rotateY(1deg) skew(1deg,1deg)}
+    to { transform: translateX(-1%) perspective(800px) rotateX(-1deg) rotateY(-1deg) skew(1deg,1deg)}
+}
+
+
+
+/* Foreground */
+.foreground-container {
+	width: 40%;
+	height: 100%;
+	
+	position:absolute;
+	bottom: 0; 
+}
+
+.foreground {
+	position: absolute;
+	z-index: 5 !important;
+	
+	width: 100%;
+	height: 100%;
+
+	background-position: bottom;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.foregroundShader {
+	position: absolute;
+	
+	filter: brightness(0%);
+	opacity: 0.15;
+	
+	width: 100%;
+	height: 100%;
+	transform: translateX(20px) translateY(20px);
+
+	background-position: bottom;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.foregroundToLeftAnim {
+	right: 5%;
+	animation: ftoleft 10s infinite linear;
+}
+
+@keyframes ftoleft{
+    from { transform: translateX(5%) }
+    to { transform: translateX(-5%) }
+}
+
+.foregroundToRightAnim {
+	left: 5%; 
+	animation: ftoright 10s infinite linear;
+}
+
+@keyframes ftoright{
+    from { transform: translateX(-5%) }
+    to { transform: translateX(5%) }
+}
+
+
+
+/* Loading */
+.loadingAnimation {
+	width: 60px; 
+	height: 60px; 
+	
+	position: absolute;
+	bottom: 2rem; 
+	right: 2rem; 
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Logo */
+.logo-container {
+	width: 240px; 
+	height: 240px; 
+	position: absolute;
+	top: 16px;
+        right: 35px;
+        font-size: 25px;
+}
+
+.logo {
+	z-index: 5 !important;
+	
+	position: absolute; 
+	width: 100%;
+	height: 100%;
+	
+	background-image: url("assets/logo.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.logoShader {
+	position: absolute; 
+	width: 100%;
+	height: 100%;
+	
+	filter: brightness(0%);
+	opacity: 0.3;
+	
+	transform: translateX(5px) translateY(5px);
+	background-image: url("assets/logo.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}

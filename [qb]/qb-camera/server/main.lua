@@ -1,5 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-local webhook = "https://discord.com/api/webhooks/977955273526370395/LhY6LDyyhdr5VaIBRm6ANSG4PIaLsOCGxj8aImIwHXT1r40PQn2HQYAUZP9OUcjFT2ol"
+local webhook = "https://discord.com/api/webhooks/1255888355791601817/jYK4xCIQGUvr2jpyb59IkQAlgnBgMdOSR7_8MT1-DdqRY-wnCw-NBe20XEsq7PB9zdgy"
 
 
 RegisterNetEvent("qb-camera:server:getimage", function(url, name)

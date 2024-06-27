@@ -535,7 +535,7 @@ underglow                   = { name = 'underglow', label = 'Underglow LEDS', we
 
 ["specialbadge"]                 = {["name"] = "specialbadge",                  ["label"] = "Police Badge",             ["weight"] = 1000,      ["type"] = "item",      ["image"] = "specialbadge.png",         ["unique"] = false,     ["useable"] = true,     ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Special Badge of Law Enforcements"},
 
-
+['mdtcitation'] 				 = {['name'] = 'mdtcitation', 			  	  	['label'] = 'Citation', 			['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'citation.png', 			['unique'] = true, 		['useable'] = false, ['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Citation from a police officer!'},
 
 ['weed_white-widow']      = { ['name'] = 'weed_white-widow', ['label'] = 'White Widow 2g', ['weight'] = 200, ['type'] = 'item', ['image'] = 'weed_baggy.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed bag with 2g White Widow' },
 ['weed_skunk']            = { ['name'] = 'weed_skunk', ['label'] = 'Skunk 2g', ['weight'] = 200, ['type'] = 'item', ['image'] = 'weed_baggy.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = false, ['combinable'] = nil, ['description'] = 'A weed bag with 2g Skunk' },
