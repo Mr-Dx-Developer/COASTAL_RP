@@ -99,7 +99,7 @@ Config.ATMModels = {
 -- ██████╦╝██║███████╗███████╗██║██║░╚███║╚██████╔╝  ██████╔╝░░░██║░░░██████╔╝░░░██║░░░███████╗██║░╚═╝░██║
 -- ╚═════╝░╚═╝╚══════╝╚══════╝╚═╝╚═╝░░╚══╝░╚═════╝░  ╚═════╝░░░░╚═╝░░░╚═════╝░░░░╚═╝░░░╚══════╝╚═╝░░░░░╚═╝
 Config.BillingSystem = true            -- true or false | Do true if you want to use the billing system. or false if you don't want to use the billing system.
-Config.BillingScript = 'codem-billing' -- qbdefault - codem-billing - okok - esxdefault
+Config.BillingScript = 'okok' -- qbdefault - codem-billing - okok - esxdefault
 Config.BillingJob = {
     ['mechanic'] = 'Mechanic',
     ['police'] = 'LSPD',

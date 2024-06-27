@@ -6,7 +6,7 @@ local DynamicMenuItems = {}
 -- UTIL
 local function CloseMenuFull()
     exports['qb-menu']:closeMenu()
-    exports['qb-core']:HideText()
+    exports['l2s-interface']:Hide()
     shownBossMenu = false
 end
 
@@ -68,8 +68,7 @@ RegisterNetEvent('qb-bossmenu:client:OpenMenu', function()
             txt = Lang:t('body.storaged'),
             icon = 'fa-solid fa-box-open',
             params = {
-                isServer = true,
-                event = 'qb-bossmenu:server:stash',
+                event = 'qb-bossmenu:client:Stash',
             }
         },
         {
@@ -174,6 +173,14 @@ RegisterNetEvent('qb-bossmenu:client:ManageEmployee', function(data)
     exports['qb-menu']:openMenu(EmployeeMenu)
 end)
 
+RegisterNetEvent('qb-bossmenu:client:Stash', function()
+    TriggerServerEvent('inventory:server:OpenInventory', 'stash', 'boss_' .. PlayerJob.name, {
+        maxweight = 4000000,
+        slots = 25,
+    })
+    TriggerEvent('inventory:client:SetCurrentStash', 'boss_' .. PlayerJob.name)
+end)
+
 RegisterNetEvent('qb-bossmenu:client:Wardrobe', function()
     TriggerEvent('qb-clothing:client:openOutfitMenu')
 end)
@@ -215,13 +222,14 @@ end)
 -- MAIN THREAD
 CreateThread(function()
     if Config.UseTarget then
-        for job, zones in pairs(Config.BossMenus) do
-            for index, coords in ipairs(zones) do
-                local zoneName = job .. '_bossmenu_' .. index
-                exports['qb-target']:AddCircleZone(zoneName, coords, 0.5, {
-                    name = zoneName,
-                    debugPoly = false,
-                    useZ = true
+        for job, zones in pairs(Config.BossMenuZones) do
+            for index, data in ipairs(zones) do
+                exports['qb-target']:AddBoxZone(job .. '-BossMenu-' .. index, data.coords, data.length, data.width, {
+                    name = job .. '-BossMenu-' .. index,
+                    heading = data.heading,
+                    -- debugPoly = true,
+                    minZ = data.minZ,
+                    maxZ = data.maxZ,
                 }, {
                     options = {
                         {
@@ -252,11 +260,11 @@ CreateThread(function()
                                 if #(pos - coords) <= 1.5 then
                                     nearBossmenu = true
                                     if not shownBossMenu then
-                                        exports['qb-core']:DrawText(Lang:t('drawtext.label'), 'left')
+                                        exports['l2s-interface']:Show('Open Job Management', 'E')
                                         shownBossMenu = true
                                     end
                                     if IsControlJustReleased(0, 38) then
-                                        exports['qb-core']:HideText()
+                                        exports['l2s-interface']:Hide()
                                         TriggerEvent('qb-bossmenu:client:OpenMenu')
                                     end
                                 end
