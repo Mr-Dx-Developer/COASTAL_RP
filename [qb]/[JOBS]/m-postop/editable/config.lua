@@ -11,11 +11,11 @@ HSN.Config = {
     UserImageType = "steam", -- or steam // determines from which app the player image in the top navigation will be retrieved // do not forget set steam web api key to server.cfg for steam profile photo -- https://prnt.sc/QydYu7GoxR1X
     GameBuildNumber = GetGameBuildNumber(), -- do not touch
     MoneyType = "cash", -- bank // money type for check and set
-    Inventory = "custom", --// ox_inventory //esx_default // custom // qb-inventory
+    Inventory = "qs-inventory", --// ox_inventory //esx_default // custom // qb-inventory
     VehicleItem = "transportitem",
     UseJob = false, -- if you want to use job system set true
     JobName = "police", -- job name for access postop
-    DiscordBotToken = "", -- discord bot token for user image
+    DiscordBotToken = "MTI1NTc3NTM2ODM4MDU1MTIxOA.GxSISP.PaH6p50KiINnYdTE921AlBIeHTNBDtJcYvNG6o", -- discord bot token for user image
     FinishJobCommand = {enable = true, command = "FinishJob", DeleteVehicleAfterUsage = true},
     OXInventoryCashItem = "money",
     BadgePrice = 250,

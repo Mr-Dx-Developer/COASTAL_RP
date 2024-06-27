@@ -1,1 +1,1 @@
-Config.BotToken = ""
+Config.BotToken = "MTI1NTc3NTM2ODM4MDU1MTIxOA.GxSISP.PaH6p50KiINnYdTE921AlBIeHTNBDtJcYvNG6o"
