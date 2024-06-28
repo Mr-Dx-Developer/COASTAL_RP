@@ -1,5 +1,5 @@
 Config.Theme = {
-    currentTheme = "juliroo",
+    currentTheme = "qb-core",
     themes = {
         {
             id = "juliroo",
