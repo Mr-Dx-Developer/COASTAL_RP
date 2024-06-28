@@ -725,6 +725,9 @@ local Vehicles = {
     { model = 'formula2',      name = 'R88',                           brand = 'Ocelot',          price = 1000000,   category = 'openwheel',      type = 'automobile', shop = 'none' },
     { model = 'formula',       name = 'PR4',                           brand = 'Progen',          price = 1000000,   category = 'openwheel',      type = 'automobile', shop = 'none' },
 
+
+    { model = '22m5',       name = 'BMW M5',                           brand = 'BMW',          price = 56000,   category = 'custpm',      type = 'automobile', shop = 'luxury' },
+
 }
 
 for i = 1, #Vehicles do
