@@ -1,7 +1,0 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
-shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.js'
-shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
-fx_version 'bodacious'
-game 'gta5'
-server_script 'server.js'
-server_script 'server.lua'
