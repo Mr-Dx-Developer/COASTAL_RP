@@ -62,28 +62,29 @@ Config.Categories = {
   suvs = "SUVs",
   commercial = "Commercial",
   cycles = "Cycles",
+  custom = "Custom",
   industrial = "Industrial"
 }
 
 Config.DealershipLocations = {
   ["pdm"] = {
     type = "owned", -- or "owned", "self-service"
-    openShowroom = vector3(-37.347, -1087.906, 26.435),
-    openManagement = vector3(-31.866, -1117.405, 26.435),
-    purchaseSpawn = vector4(-13.68, -1092.31, 26.67, 159.82),
-    testDriveSpawn = vector4(-49.77, -1110.83, 26.44, 75.94),
+    openShowroom = vector3(113.871, -141.645, 54.863),
+    openManagement = vector3(114.508, -136.38, 54.856),
+    purchaseSpawn = vector4(144.03, -124.28, 54.827, 67.006),
+    testDriveSpawn = vector4(134.518, -120.155, 54.816, 75.025),
     camera = {
       name = "Car",
       coords = vector4(-146.6166, -596.6301, 166.0000, 120.0),
       positions = {5.0, 8.0, 12.0, 8.0}
     },
-    categories = {"sedans", "compacts", "motorcycles", "offroad", "coupes", "muscle", "suvs", "sportsclassics", "super", "sports"},
+    categories = {"sedans", "compacts", "motorcycles", "offroad", "coupes", "muscle", "suvs", "sportsclassics", "super", "sports", "custom"},
     enableTestDrive = true,
     hideBlip = false,
     blip = {
       id = 326,
       color = 2,
-      scale = 0.6
+      scale = 0.8
     },
     enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
     sellVehiclePercent = 0.6,  -- 60% of current sale price
@@ -116,7 +117,7 @@ Config.DealershipLocations = {
     sellVehiclePercent = 0.6,  -- 60% of current sale price
     enableTestDrive = true,
     enableFinance = true,
-    hideBlip = false,
+    hideBlip = true,
     blip = {
       id = 523,
       color = 2,
@@ -187,7 +188,7 @@ Config.DealershipLocations = {
     societyPurchaseJobWhitelist = {},
     societyPurchaseGangWhitelist = {},
   },
-  ["truck"] = {
+  --[[ ["truck"] = {
     type = "self-service", -- or "owned", "self-service"
     openShowroom = vector3(1214.37, -3204.53, 6.03),
     openManagement = vector3(1184.45, -3179.27, 7.1),
@@ -216,7 +217,7 @@ Config.DealershipLocations = {
     showroomGangWhitelist = {},
     societyPurchaseJobWhitelist = {},
     societyPurchaseGangWhitelist = {},
-  },
+  }, ]]
 }
 
 Config.ReturnToPreviousRoutingBucket = false
