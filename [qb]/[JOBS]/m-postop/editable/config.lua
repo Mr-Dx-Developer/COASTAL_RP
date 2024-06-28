@@ -8,14 +8,14 @@ HSN.Config = {
     VehicleRemoveKeySystem = "qb-vehiclekeys", -- cd_garage / qs-vehiclekeys / wasabi-carlock / qb-vehiclekeys
     EnableFuel = false,
     FuelSystem = 'LegacyFuel', -- LegacyFuel / ox-fuel / nd-fuel / frfuel / cdn-fuel / hyon_gas_station
-    UserImageType = "steam", -- or steam // determines from which app the player image in the top navigation will be retrieved // do not forget set steam web api key to server.cfg for steam profile photo -- https://prnt.sc/QydYu7GoxR1X
+    UserImageType = "discord", -- or steam // determines from which app the player image in the top navigation will be retrieved // do not forget set steam web api key to server.cfg for steam profile photo -- https://prnt.sc/QydYu7GoxR1X
     GameBuildNumber = GetGameBuildNumber(), -- do not touch
     MoneyType = "cash", -- bank // money type for check and set
-    Inventory = "qs-inventory", --// ox_inventory //esx_default // custom // qb-inventory
+    Inventory = "qb-inventory", --// ox_inventory //esx_default // custom // qb-inventory
     VehicleItem = "transportitem",
     UseJob = false, -- if you want to use job system set true
     JobName = "police", -- job name for access postop
-    DiscordBotToken = "MTI1NTc3NTM2ODM4MDU1MTIxOA.GxSISP.PaH6p50KiINnYdTE921AlBIeHTNBDtJcYvNG6o", -- discord bot token for user image
+    DiscordBotToken = "", -- discord bot token for user image
     FinishJobCommand = {enable = true, command = "FinishJob", DeleteVehicleAfterUsage = true},
     OXInventoryCashItem = "money",
     BadgePrice = 250,
@@ -255,7 +255,7 @@ HSN.Routes = {
     ["cargo"] = {
         ["airport"] = {
             totalDelivery = 200,
-            revenue = {min = 2000, max = 7500},
+            revenue = {min = 20000, max = 75000},
             requiredIndex = 2,
             label = "AIRPORT",
             locations = {
@@ -279,7 +279,7 @@ HSN.Routes = {
         },
         ["downtown"] = {
             totalDelivery = 3,
-            revenue = {min = 1000, max = 5000},
+            revenue = {min = 10000, max = 50000},
             requiredIndex = 1,
             label = "DOWNTOWN",
             locations = {
@@ -305,7 +305,7 @@ HSN.Routes = {
         },
         ["sandy"] = {
             totalDelivery = 300,
-            revenue = {min = 3000, max = 10000},
+            revenue = {min = 30000, max = 90000},
             requiredIndex = 3,
             label = "SANDY",
             locations = {
@@ -330,7 +330,7 @@ HSN.Routes = {
         },
         ["paleto"] = {
             totalDelivery = 400,
-            revenue = {min = 6000, max = 15000},
+            revenue = {min = 60000, max = 90000},
             requiredIndex = 4,
             label = "PALETO BAY",
             locations = {
@@ -356,7 +356,7 @@ HSN.Routes = {
         ["airport"] = {
             totalDelivery = 100,
             label = "LSIA HANGARS",
-            revenue = {price = 3000}, 
+            revenue = {price = 30000}, 
             location = {
                 vector4(-1267.37, -2683.48, 19.63, 338.4),
                 vector4(-1243.97, -2679.79, 15.19, 327.04),
@@ -378,7 +378,7 @@ HSN.Routes = {
         ["downtown"] = {
             totalDelivery = 150,
             label = "DOWNTOWN",
-            revenue = {price = 4500}, 
+            revenue = {price = 45000}, 
             location = {
                 vector4(196.17, -406.39, 45.32, 246.82),
                 vector4(66.53, -255.81, 52.35, 256.6),
@@ -403,7 +403,7 @@ HSN.Routes = {
         ["sandy"] = {
             totalDelivery = 300,
             label = "SANDY SHORES",
-            revenue = {price = 7500},
+            revenue = {price = 75000},
             location = {
                 vector4(2160.18, 4789.63, 41.96, 269.06),
                 vector4(1958.79, 4627.88, 41.07, 215.63),
