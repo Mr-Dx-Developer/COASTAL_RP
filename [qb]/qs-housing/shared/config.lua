@@ -214,7 +214,7 @@ Config.SocietyCommision = 0.3 -- Percentage of the commission for the company (%
 
 Config.CreatorJobs = {        -- Choose the jobs suitable for creating houses
 	'realestate',
-	'police',
+	--'police',
 	'realestatejob'
 }
 

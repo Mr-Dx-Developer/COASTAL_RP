@@ -22,7 +22,7 @@ Config.Progressbar = { -- Progressbar Timer.
 }
 
 Config.SetPedArmour = { -- SetPedArmour Quantity.
-    UseArmor = 50,
+    UseArmor = 75,
     UseHeavyArmor = 100,
     ResetArmor = 0
 }

@@ -54,7 +54,7 @@ Config.BlockedLabelChangeItems = {
 
 Config.UsableItemsFromHotbar = true -- Can the items be used with the hotbar? (1, 2, 3, 4, 5)
 Config.BlockedItemsHotbar = {       -- Items that you can not use from hotbar, only from the inventory
-    'lockpick',
+    'id_card',
     -- Add more elements here if necessary
 }
 

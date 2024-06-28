@@ -190,7 +190,7 @@ function IsPlayerDead()
     return check
 end
 
-function checkEntityDead(id, entity)
+--[[ function checkEntityDead(id, entity)
     local isDead = false
     TriggerServerCallback(Config.InventoryPrefix .. ':server:checkDead', function(result)
         isDead = result
@@ -198,7 +198,17 @@ function checkEntityDead(id, entity)
     repeat Wait(250) until isDead ~= nil
     return isDead
 end
-
+ ]]
+ function checkEntityDead(id, entity)
+	local check = false
+	local cId = NetworkGetPlayerIndexFromPed(entity)
+	local sId = GetPlayerServerId(cId)
+	local state = Player(sId).state
+	if GetEntityHealth(entity) < 2 or state.dead or state.isDead or state.laststand then
+		check = true
+	end
+	return check
+end 
 function reputationCrafing(rep)
     --- @param rep Name of reputation
     return QBCore.Functions.GetPlayerData().metadata[rep]
