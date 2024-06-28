@@ -2,6 +2,9 @@
 -- If you have multiple custom list files they MUST be added between AnimationList.lua and Emote.lua in fxmanifest.lua!
 -- Don't change 'CustomDP' it is local to this file!
 
+-- Remove the } from the = {} then enter your own animation code
+-- Don't forget to close the tables. See https://docs.rpemotes.com/for-developers/important-note/custom-emotes-and-props
+
 local CustomDP = {}
 
 CustomDP.Expressions = {}

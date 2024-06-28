@@ -1,3 +1,8 @@
+
+
+
+
+
 if Config.SqlKeybinding then
     local emob1 = ""
     local emob2 = ""
@@ -17,7 +22,7 @@ if Config.SqlKeybinding then
     -- Commands / Events --------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------------------------
 
-    Citizen.CreateThread(function()
+    CreateThread(function()
         while true do
             if NetworkIsPlayerActive(PlayerId()) and not Initialized then
                 if not Initialized then
@@ -39,7 +44,7 @@ if Config.SqlKeybinding then
                     end
                 end
             end
-            Citizen.Wait(1)
+            Wait(1)
         end
     end)
 
@@ -103,26 +108,24 @@ if Config.SqlKeybinding then
     end
 
     function EmoteBindStart(source, args, raw)
-        if not PlayerData.metadata["isdead"] and not PlayerData.metadata["inlaststand"] and not PlayerData.metadata["ishandcuffed"] then
-            if #args > 0 then
-                local key = string.lower(args[1])
-                local emote = string.lower(args[2])
-                if (Config.KeybindKeys[key]) ~= nil then
-                    if RP.Emotes[emote] ~= nil
-                        or RP.Dances[emote] ~= nil
-                        or RP.PropEmotes[emote] ~= nil
-                        or RP.AnimalEmotes[emote] ~= nil
-                    then
-                        TriggerServerEvent("rp:ServerKeybindUpdate", key, emote)
-                    else
-                        EmoteChatMessage("'" .. emote .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
-                    end
+        if #args > 0 then
+            local key = string.lower(args[1])
+            local emote = string.lower(args[2])
+            if (Config.KeybindKeys[key]) ~= nil then
+                if RP.Emotes[emote] ~= nil
+                    or RP.Dances[emote] ~= nil
+                    or RP.PropEmotes[emote] ~= nil
+                    or RP.AnimalEmotes[emote] ~= nil
+                then
+                    TriggerServerEvent("rp:ServerKeybindUpdate", key, emote)
                 else
-                    EmoteChatMessage("'" .. key .. "' " .. Config.Languages[lang]['notvalidkey'])
+                    EmoteChatMessage("'" .. emote .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
                 end
             else
-                print("invalid")
+                EmoteChatMessage("'" .. key .. "' " .. Config.Languages[lang]['notvalidkey'])
             end
+        else
+            print("invalid")
         end
     end
 
