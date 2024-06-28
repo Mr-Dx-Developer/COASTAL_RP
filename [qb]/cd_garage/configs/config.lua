@@ -845,8 +845,8 @@ Config.ImpoundLocations = { --DO NOT CHANGE THE TABLE IDENTIFIERSs, for example 
 
     ['car_2'] = { 
         ImpoundID = 2,
-        coords = {x = 445.132, y = -995.386, z = 25.706},
-        spawnpoint = {x = 445.132, y = -995.386, z = 25.706, h = 264.592},
+        coords = {x = 1893.48, y = 3713.50, z = 32.77},
+        spawnpoint = {x = 1887.123, y = 3710.348, z = 31.92, h = 212.0},
         blip = {
             sprite = 357,
             scale = 0.1,
