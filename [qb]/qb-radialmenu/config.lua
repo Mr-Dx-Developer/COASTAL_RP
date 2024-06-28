@@ -39,7 +39,15 @@ Config.MenuItems = {
             type = 'client',
             event = 'qb-hotdogjob:client:ToggleSell',
             shouldClose = true
-        }, {
+        }, 
+        {
+            id = 'skills',
+        title = 'Check Skills',
+        icon = 'triangle-exclamation',
+        type = 'client',
+        event = 'mz-skills:client:CheckSkills',
+        shouldClose = true,
+        },{
             id = 'interactions',
             title = 'Interaction',
             icon = 'triangle-exclamation',
