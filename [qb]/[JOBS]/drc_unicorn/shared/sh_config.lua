@@ -47,22 +47,22 @@ Config.Hookers = {
         {
             name = "Cathrine",
             model = `s_f_y_hooker_01`,
-            price = 200,
+            price = 2000,
         },
         {
             name = "Tatiana",
             model = `s_f_y_hooker_02`,
-            price = 200,
+            price = 2000,
         },
         {
             name = "Bootylicious",
             model = `s_f_y_hooker_03`,
-            price = 200,
+            price = 2000,
         },
         {
             name = "Vannesa",
             model = `s_f_y_hooker_02`,
-            price = 200,
+            price = 2000,
         }
     },
     pickuplocation = {
