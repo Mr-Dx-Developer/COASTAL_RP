@@ -2,7 +2,7 @@ Config = {}
 
 Config.Framework = 'autodetect' -- esx, qbcore, standalone or autodetect
 
-Config.Command = 'vinewood' -- Command to open the menu
+Config.Command = 'osing' -- Command to open the menu
 
 Config.AuthorizedGroups = {
     group = { -- Only for esx and qbcore
