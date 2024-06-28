@@ -313,7 +313,7 @@ Config = {
 				spawn = vector4(351.58, -587.45, 74.16, 160.5),  -- Where the vehicle will spawn
 				out = vector4(337.3927, -586.7730, 74.1617, 250.08),  -- Where you select the vehicles from
 				list = {  -- The list of cars that will spawn
-					["ec145med"] = {
+					["aw139"] = {
 						CustomName = "EMS Heli",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8 },
@@ -329,15 +329,64 @@ Config = {
 				out = vector4(284.791, -1438.979, 29.967, 319.326),  -- Where you select the vehicles from
 				list = {
 					
-					["emsnspeedo"] = {
-						CustomName = "EMS Speedo",
+					["Ambulance_Dodge_RAM"] = {
+						CustomName = "EMS RAM",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						
 					},
-					["f450ambo"] = {
-						CustomName = "EMS F450",
+					["audirs6emsfire"] = {
+						CustomName = "EMS RS6",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						
+					},
+					["DC_RoyalCustom___RS7_EMS"] = {
+						CustomName = "EMS RS7",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						
+					},
+					["BMW-x5_medic"] = {
+						CustomName = "EMS X5",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						
+					},
+					["emsbmwm7"] = {
+						CustomName = "EMS M7",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						
+					},
+					["RoyalCustom_RSQ8_EMS"] = {
+						CustomName = "EMS RSQ8",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						
+					},
+					["RoyalDodgeRAMems"] = {
+						CustomName = "EMS Dodge RAM",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						
+					},
+					["RoyalG30Medic"] = {
+						CustomName = "EMS G30",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						
+					},
+					["RoyalYamahaEMS_white"] = {
+						CustomName = "EMS Bike",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -356,7 +405,7 @@ Config = {
 
 
 
-		{    zoneEnable = true, -- disable if you want to hide this temporarily
+		--[[ {    zoneEnable = true, -- disable if you want to hide this temporarily
 			job = "mechanic", -- set this to required job grade
 			garage = {
 				spawn = vector4(-362.97, -122.45, 38.7, 153.84),  -- Where the vehicle will spawn
@@ -375,6 +424,6 @@ Config = {
 					
 				},
 			},
-		},
+		}, ]]
 	},
 }
