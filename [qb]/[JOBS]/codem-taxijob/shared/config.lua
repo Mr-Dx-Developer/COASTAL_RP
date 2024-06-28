@@ -78,8 +78,8 @@ Config.VipMissions = {
         finishLocation = vector3(-1459.41, -969.68, 7.19),
         ped = `ig_kerrymcintosh_02`,
         ped_2 = `a_c_husky`,
-        minxp = 100,
-        maxxp = 150,
+        minxp = 1000,
+        maxxp = 1500,
       },
       {
         id = 2,
@@ -91,8 +91,8 @@ Config.VipMissions = {
         spawnLocation = vector4(1529.1, 2231.61, 75.73, 93.09),
         finishLocation = vector3(-319.52, 6071.05, 31.34),
         ped = `cs_nigel`,
-        minxp = 200,
-        maxxp = 250,
+        minxp = 2000,
+        maxxp = 2500,
       },
       {
         id = 3,
@@ -106,8 +106,8 @@ Config.VipMissions = {
         ped = `cs_milton`,
         ped_2 = `csb_reporter`,
         ped_3 = `csb_tomcasino`,
-        minxp = 250,
-        maxxp = 300,
+        minxp = 2500,
+        maxxp = 3000,
       },
       {
         id = 4,
@@ -133,8 +133,8 @@ Config.VipMissions = {
         spawnLocation = vector4(-1102.03, 365.39, 68.75, 309.74),
         finishLocation = vector3(3513.11, 3762.61, 29.93),
         ped = `u_m_m_bankman`,
-        minxp = 350,
-        maxxp = 400,
+        minxp = 3500,
+        maxxp = 4000,
       },
       {
         id = 6,
@@ -146,8 +146,8 @@ Config.VipMissions = {
         spawnLocation = vector4(-1284.26, 296.85, 64.94, 153.16),
         finishLocation = vector3(-1199.61, -1534.45, 4.41),
         ped = `a_f_m_beach_01`,
-        minxp = 400,
-        maxxp = 450,
+        minxp = 4000,
+        maxxp = 4500,
       },
 }
 
@@ -293,7 +293,7 @@ Config.NpcModels = {
     0xAD9EF1BB,
 }
 
-Config.FuelSystem = ""                      -- LegacyFuel / x-fuel
+Config.FuelSystem = "LegacyFuel"                      -- LegacyFuel / x-fuel
 
 Config.SetVehicleFuel = function(vehicle, fuel_level) -- you can change LegacyFuel export if you use another fuel system
     if Config.FuelSystem == 'LegacyFuel' then
