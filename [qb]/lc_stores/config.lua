@@ -657,7 +657,8 @@ Config.market_types = {
 	['ammunation'] = {
 		['stock_capacity'] = 50,
 		['max_employees'] = 5,
-		['required_job'] = {'police', 'example'},
+		--['required_job'] = {'police', 'example'},
+		['required_job'] = {},
 		['upgrades'] = {
 			['stock'] = {
 				['price'] = 16000,
@@ -774,6 +775,28 @@ Config.market_categories = {
 				['amount_to_delivery'] = 350,
 				['img'] = 'wine.png',
 			},
+			['vape'] = {
+				['name'] = "Vape",
+				['price_to_customer'] = 150,
+				['price_to_customer_min'] = 70,
+				['price_to_customer_max'] = 300,
+				['price_to_export'] = 140,
+				['price_to_owner'] = 100,
+				['amount_to_owner'] = 350,
+				['amount_to_delivery'] = 350,
+				['img'] = 'vape.png',
+			},
+			['vapejuice'] = {
+				['name'] = "Vape Juice",
+				['price_to_customer'] = 150,
+				['price_to_customer_min'] = 70,
+				['price_to_customer_max'] = 300,
+				['price_to_export'] = 140,
+				['price_to_owner'] = 100,
+				['amount_to_owner'] = 350,
+				['amount_to_delivery'] = 350,
+				['img'] = 'vapejuice.png',
+			},
 		}
 	},
 
@@ -785,7 +808,7 @@ Config.market_categories = {
 		['category_buy_price'] = 5000,
 		['category_sell_price'] = 2500,
 		['items'] = {
-			['grapejuice'] = {
+			--[[ ['grapejuice'] = {
 				['name'] = "Grape Juice",
 				['price_to_customer'] = 100,
 				['price_to_customer_min'] = 50,
@@ -795,7 +818,7 @@ Config.market_categories = {
 				['amount_to_owner'] = 350,
 				['amount_to_delivery'] = 350,
 				['img'] = 'grapejuice.png',
-			},
+			}, ]]
 			['water_bottle'] = {
 				['name'] = "Bottle of Water",
 				['price_to_customer'] = 40,
@@ -974,7 +997,7 @@ Config.market_categories = {
 		['items'] = {
 			['repairkit'] = {
 				['name'] = "Repairkit",
-				['price_to_customer'] = 350,
+				['price_to_customer'] = 250,
 				['price_to_customer_min'] = 125,
 				['price_to_customer_max'] = 500,
 				['price_to_export'] = 225,
@@ -983,16 +1006,16 @@ Config.market_categories = {
 				['amount_to_delivery'] = 20,
 				['img'] = 'repairkit.png',
 			},
-			['lockpick'] = {
-				['name'] = "Lockpick Kit",
-				['price_to_customer'] = 150,
+			['advancedlockpick'] = {
+				['name'] = "Advanced Lockpick",
+				['price_to_customer'] = 350,
 				['price_to_customer_min'] = 75,
 				['price_to_customer_max'] = 300,
 				['price_to_export'] = 135,
 				['price_to_owner'] = 125,
 				['amount_to_owner'] = 20,
 				['amount_to_delivery'] = 20,
-				['img'] = 'lockpick.png',
+				['img'] = 'advancedlockpick.png',
 			},
 			['screwdriverset'] = {
 				['name'] = "Toolkit",
@@ -1005,8 +1028,63 @@ Config.market_categories = {
 				['amount_to_delivery'] = 20,
 				['img'] = 'screwdriverset.png',
 			},
+			['fishingrod'] = {
+				['name'] = "Fishing Rod",
+				['price_to_customer'] = 350,
+				['price_to_customer_min'] = 75,
+				['price_to_customer_max'] = 300,
+				['price_to_export'] = 135,
+				['price_to_owner'] = 125,
+				['amount_to_owner'] = 20,
+				['amount_to_delivery'] = 20,
+				['img'] = 'fishingrod.png',
+			},
+			['fishbait'] = {
+				['name'] = "Fishing Bait",
+				['price_to_customer'] = 550,
+				['price_to_customer_min'] = 175,
+				['price_to_customer_max'] = 700,
+				['price_to_export'] = 315,
+				['price_to_owner'] = 300,
+				['amount_to_owner'] = 20,
+				['amount_to_delivery'] = 20,
+				['img'] = 'fishbait.png',
+			},
+			['emp_bucket'] = {
+				['name'] = "Bucket",
+				['price_to_customer'] = 50,
+				['price_to_customer_min'] = 50,
+				['price_to_customer_max'] = 100,
+				['price_to_export'] = 315,
+				['price_to_owner'] = 300,
+				['amount_to_owner'] = 20,
+				['amount_to_delivery'] = 20,
+				['img'] = 'emp_bucket.png',
+			},
+			['emp_flower_box'] = {
+				['name'] = "Empty Flower Box",
+				['price_to_customer'] = 350,
+				['price_to_customer_min'] = 75,
+				['price_to_customer_max'] = 300,
+				['price_to_export'] = 135,
+				['price_to_owner'] = 125,
+				['amount_to_owner'] = 20,
+				['amount_to_delivery'] = 20,
+				['img'] = 'emp_flower_box.png',
+			},
+			['flower_paper'] = {
+				['name'] = "Flower Paper",
+				['price_to_customer'] = 550,
+				['price_to_customer_min'] = 175,
+				['price_to_customer_max'] = 700,
+				['price_to_export'] = 315,
+				['price_to_owner'] = 300,
+				['amount_to_owner'] = 20,
+				['amount_to_delivery'] = 20,
+				['img'] = 'flower_paper.png',
+			},
 		}
-	},
+	},     
 
 	['melee_weapons'] = {
 		['page_name'] = "Melee Weapons",
@@ -1282,14 +1360,14 @@ Config.market_categories = {
 		['items'] = {
 			['pistol_ammo'] = {
 				['name'] = "Pistol Ammo",
-				['price_to_customer'] = 250,
+				['price_to_customer'] = 200,
 				['price_to_customer_min'] = 125,
 				['price_to_customer_max'] = 500,
 				['price_to_export'] = 200,
 				['price_to_owner'] = 150,
 				['amount_to_owner'] = 100,
 				['amount_to_delivery'] = 100,
-				['requires_license'] = true,
+				['requires_license'] = false,
 				['img'] = 'pistol_ammo.png',
 			},
 			--[[ ['rifle_ammo'] = {
