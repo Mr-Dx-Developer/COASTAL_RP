@@ -33,10 +33,10 @@ Config.trucker_locations = {
 			{1275.04,-3168.83,5.91,90.00},
 		},
 		['blips'] = {							-- Create the blips on map
-			['id'] = 478,						-- Blip ID [Set this value 0 to dont have blip]
+			['id'] = 477,						-- Blip ID [Set this value 0 to dont have blip]
 			['name'] = "Truck Logistics",		-- Blip Name
-			['color'] = 4,						-- Blip Color
-			['scale'] = 0.5,					-- Blip Scale
+			['color'] = 2,						-- Blip Color
+			['scale'] = 0.6,					-- Blip Scale
 		}
 	}
 }
@@ -48,11 +48,11 @@ Config.jobs = {
 	['generated_amount'] = 5,					-- Number of contracts created per interval ('cooldown'). Each interval will create a quick job contract and a freight job contract, so a value of 5 will generate 5 quick job and 5 freight job contracts
 	['max_active_contracts'] = 30,				-- Maximum of contracts that can be active per page, this means that when generating a contact that exceeds this number, the oldest contract will be deleted
 	['price_per_km_min'] = 1000,				-- Minimum price per kilometer of the contract
-	['price_per_km_max'] = 1600,				-- Maximum price per kilometer of the contract
+	['price_per_km_max'] = 5000,				-- Maximum price per kilometer of the contract
 	['freight_job_mutiplier'] = 1.2,			-- Multiplier applied when generating FREIGHT loads (this means that freight jobs will have a 20% higher rewards)
 	['probability_urgent_cargo'] = 10,			-- The urgent load is generated randomly, here you can configure the probability (%)
 	['available_trucks'] = {					-- List of rented trucks that are generated in contracts
-		"hauler","packer", "blacktop", "brickades", "vetirs"
+		"hauler","packer" --[[ "blacktop", "brickades", "vetirs" ]]
 	},
 	['must_bring_truck_back'] = true,			-- true: Payment will only be made when bringing the truck back to the garage (except with own truck) | false: Payment will be made upon delivery of the cargo
 	['available_loads'] = {
@@ -306,7 +306,7 @@ Config.loans = {
 	-- Define the available loan plans, you can create as many as you want
 	['plans'] = {
 		{
-			['loan_amount'] = 20000,		-- Total loan amount (20,000)
+			['loan_amount'] = 30000,		-- Total loan amount (20,000)
 			['interest_rate'] = 20,			-- Interest rate in percentage
 			['repayment_days'] = 15			-- Number of days to complete the loan payment
 		},
