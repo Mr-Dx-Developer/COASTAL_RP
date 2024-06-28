@@ -5,6 +5,24 @@ function _U(entry)
 	return Locales[Config.Locale][entry] 
 end
 
+local function IsPoliceJob(job)
+    for k, v in pairs(Config.PoliceJob) do
+        if job == v then
+            return true
+        end
+    end
+    return false
+end
+
+local function IsDispatchJob(job)
+    for k, v in pairs(Config.PoliceAndAmbulance) do
+        if job == v then
+            return true
+        end
+    end
+    return false
+end
+
 RegisterServerEvent("dispatch:server:notify", function(data)
 	local newId = #calls + 1
 	calls[newId] = data
@@ -37,15 +55,9 @@ AddEventHandler("dispatch:addUnit", function(callid, player, cb)
             end
         end
 
-        local Player = QBCore.Functions.GetPlayerByCitizenId(player.cid) 
-        if not Player then
-            cb(#calls[callid]['units'])
-            return
-        end
-
-        if Config.AuthorizedJobs.LEO.Check(Player.PlayerData) then
+        if IsPoliceJob(player.job.name) then
             calls[callid]['units'][#calls[callid]['units']+1] = { cid = player.cid, fullname = player.fullname, job = 'Police', callsign = player.callsign }
-        elseif Config.AuthorizedJobs.EMS.Check(Player.PlayerData) then
+        elseif player.job.name == 'ambulance' then
             calls[callid]['units'][#calls[callid]['units']+1] = { cid = player.cid, fullname = player.fullname, job = 'EMS', callsign = player.callsign }
         end
         cb(#calls[callid]['units'])
@@ -88,7 +100,9 @@ end)
 
 RegisterCommand('togglealerts', function(source, args, user)
 	local source = source
-	if IsDispatchJob then
+    local Player = QBCore.Functions.GetPlayer(source)
+	local job = Player.PlayerData.job
+	if IsPoliceJob(job.name) or job.name == 'ambulance' then
 		TriggerClientEvent('dispatch:manageNotifs', source, args[1])
 	end
 end)
@@ -112,7 +126,8 @@ end)
 QBCore.Commands.Add("cleardispatchblips", "Clear all dispatch blips", {}, false, function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    if Config.AuthorizedJobs.FirstResponder.Check(Player.PlayerData) then
+	local job = Player.PlayerData.job.name
+    if IsDispatchJob(job) then
         TriggerClientEvent('ps-dispatch:client:clearAllBlips', src)
     end
 end)

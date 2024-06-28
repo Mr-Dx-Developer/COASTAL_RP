@@ -1,9 +1,7 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
-shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
 fx_version 'cerulean'
 game 'gta5'
 
-version '1.4.3'
+version '0.0'
 description 'https://github.com/Project-Sloth/ps-dispatch'
 
 shared_scripts {
@@ -12,12 +10,8 @@ shared_scripts {
 }
 
 client_scripts{
-    '@PolyZone/client.lua',
-    '@PolyZone/CircleZone.lua',
-    '@PolyZone/BoxZone.lua',
     'client/cl_main.lua',
     'client/cl_events.lua',
-    'client/cl_eventhandlers.lua',
     'client/cl_extraalerts.lua',
     'client/cl_commands.lua',
     'client/cl_loops.lua',
@@ -25,7 +19,6 @@ client_scripts{
 server_script {
     'server/sv_dispatchcodes.lua',
     'server/sv_main.lua'
-   --- 'server/versioncheck.lua'
 }
 
 ui_page 'ui/index.html'
