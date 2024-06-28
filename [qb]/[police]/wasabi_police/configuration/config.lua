@@ -103,7 +103,7 @@ Config.policeJobs = { -- Police jobs
 
 Config.GPSBlips = {  -- Warning: May experience high usage when at high player count. Possibly turn up refreshrate as remedy!
     enabled = true, -- Enabled?
-    refreshrate = 3, -- In Seconds Note: it could impact the server performance
+    refreshrate = 1, -- In Seconds Note: it could impact the server performance
     item = false,    -- Item required? Note: You have to use it then
     blip = {
         sprite = 1,
