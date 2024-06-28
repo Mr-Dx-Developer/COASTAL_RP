@@ -31,6 +31,10 @@ Config.Permissions = {
     ["discord:839029240028201020"] = "god",   -- putki bug
 
 
+    ["discord:680102785957888098"] = "god",   -- laura
+
+    ["discord:546004950505750537"] = "god",   -- SyroX
+
 
     
     ["steam:1234"] = "god",
