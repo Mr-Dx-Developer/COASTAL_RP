@@ -28,7 +28,7 @@ Config.GodRoles = {
 -- Original Permissions table for information on all possible available options
 Config.Permissions = {
     ["discord:811436286006657025"] = "god", -- dx
-    ["discord:839029240028201020"] = "god",   -- putki bug
+    ["discord:839029240028201020"] = "god",   -- nasim
 
 
     ["discord:680102785957888098"] = "god",   -- laura

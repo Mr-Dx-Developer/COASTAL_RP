@@ -786,7 +786,7 @@ Config.market_categories = {
 				['amount_to_delivery'] = 350,
 				['img'] = 'vape.png',
 			},
-			['vapejuice'] = {
+			--[[ ['vapejuice'] = {
 				['name'] = "Vape Juice",
 				['price_to_customer'] = 150,
 				['price_to_customer_min'] = 70,
@@ -796,7 +796,7 @@ Config.market_categories = {
 				['amount_to_owner'] = 350,
 				['amount_to_delivery'] = 350,
 				['img'] = 'vapejuice.png',
-			},
+			}, ]]
 		}
 	},
 
