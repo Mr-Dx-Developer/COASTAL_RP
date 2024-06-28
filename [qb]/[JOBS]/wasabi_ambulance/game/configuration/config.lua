@@ -142,7 +142,7 @@ Config.AmbulanceOffsets = {
 
 Config.GPSBlips = {  -- Warning: May experience high usage when at high player count. Possibly turn up refreshrate as remedy!
     enabled = true, -- Enabled?
-    refreshrate = 3, -- In Seconds Note: it could impact the server performance
+    refreshrate = 1, -- In Seconds Note: it could impact the server performance
     item = false,    -- Item required? Note: You have to use it then
     blip = {
         sprite = 1,
@@ -277,14 +277,14 @@ Config.targetSystem = true          -- Target system for targetting players, med
 Config.RespawnTimer = 5 * minutes   -- Time before optional respawn
 Config.BleedoutTimer = 20 * minutes -- Time before it forces respawn
 Config.ChargeForRevive = {
-    enabled = false,                -- Charge players to revive after the timer expires when they hold E to revive?
+    enabled = true,                -- Charge players to revive after the timer expires when they hold E to revive?
     cost = 500,                     -- Cost to revive if enabled
     payAccount = 'bank',            -- Account to pay from
     allowNegativeBalance = false    -- QB ONLY: Allow negative balance if player does not have enough money?
 }
 
 Config.removeItemsOnDeath = false   -- Must have Config.Inventory set properly
-Config.Inventory = 'qb'                                --Options include: 'ox' - (ox_inventory) / 'qb' - (QBCore qb-inventory) 'mf' - (mf-inventory) / 'qs' (qs-inventory) / 'esx' (default esx) / 'other' (whatever else can customize in client/cl_customize.lua)
+Config.Inventory = 'qs'                                --Options include: 'ox' - (ox_inventory) / 'qb' - (QBCore qb-inventory) 'mf' - (mf-inventory) / 'qs' (qs-inventory) / 'esx' (default esx) / 'other' (whatever else can customize in client/cl_customize.lua)
 Config.keepItemsOnDeath = {
     enabled = false,
     items = {
@@ -337,12 +337,12 @@ Config.EMSItems = {
 Config.ReviveRewards = {
     enabled = true,           -- Enable cash rewards for reviving
     paymentAccount = 'money', -- If you have old ESX 1.1 you may need to switch to 'cash'
-    no_injury = 4000,         -- If above enabled, how much reward for fully treated patient with no injury in diagnosis
-    burned = 3000,            -- How much if player is burned and revived without being treated
-    beat = 2500,              -- So on, so forth
-    stabbed = 2000,
-    bleedout = 2000,          -- NEW
-    shot = 1500,
+    no_injury = 600,         -- If above enabled, how much reward for fully treated patient with no injury in diagnosis
+    burned = 300,            -- How much if player is burned and revived without being treated
+    beat = 250,              -- So on, so forth
+    stabbed = 500,
+    bleedout = 500,          -- NEW
+    shot = 150,
 }
 
 Config.ReviveHealth = { -- How much health to deduct for those revived without proper treatment
@@ -630,7 +630,7 @@ Config.Locations = {
         MedicalSupplies = {                                                     -- EMS Shop for supplies
             Enabled = true,                                                     -- If set to false, rest of this table do not matter
             Ped = 's_m_m_doctor_01',                                            -- Ped to target
-            Coords = vec3(389.686, -1405.07, 32.936),                       -- Coords of ped/target
+            Coords = vec3(389.686, -1405.07, 31.936),                       -- Coords of ped/target
             Heading = 147.83,                                                   -- Heading of ped
             Supplies = {                                                        -- Supplies
                 { item = 'medbag',     label = 'Medical Bag',   price = 1000 }, -- Pretty self explanatory, price may be set to 'false' to make free
