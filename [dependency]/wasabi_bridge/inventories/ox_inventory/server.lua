@@ -25,6 +25,13 @@ function WSB.inventory.setItemMetadata(source, slot, metadata)
     return exports.ox_inventory:SetMetadata(source, slot, metadata)
 end
 
+---Clears specified inventory
+---@param source number
+---@param keepItems string | table
+function WSB.inventory.clearInventory(source, identifier, keepItems)
+    exports.ox_inventory:ClearInventory(source, keepItems)
+end
+
 WSB.registerCallback('wasabi_bridge:registerStash', function(_source, cb, data)
     if registeredStashes[data.name] then
         cb(true)

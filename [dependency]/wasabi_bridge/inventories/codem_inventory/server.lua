@@ -25,3 +25,27 @@ function WSB.inventory.setItemMetadata(source, slot, metadata)
 
     exports['codem-inventory']:SetItemMetadata(source, slot, metadata)
 end
+
+local function isInList(item, list)
+    for _, value in ipairs(list) do
+        if value == item then
+            return true
+        end
+    end
+    return false
+end
+
+---Clears specified inventory
+---@param source number
+---@param keepItems string | table
+function WSB.inventory.clearInventory(source, identifier, keepItems)
+    local invData =  exports['codem-inventory']:GetInventory(identifier, source)
+    for item = 1, #invData do 
+        if invData[item].count > 0 then
+            if not isInList(invData[item].name, keepItems) then
+                exports['codem-inventory']:RemoveItem(source, invData[item].name, invData[item].count)
+            end
+        end
+    end
+    exports['codem-inventory']:SaveInventory(source, false)
+end

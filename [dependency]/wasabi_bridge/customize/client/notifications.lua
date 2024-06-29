@@ -2,7 +2,7 @@
 --------------- https://discord.gg/wasabiscripts  -------------
 ---------------------------------------------------------------
 
--- Customize these functions to update various things throughout Wasabi Scripts
+-- Customize this to customize notifications accross all Wasabi Scripts
 
 -- Notifications
 RegisterNetEvent('wasabi_bridge:notify', function(title, desc, style, icon, id)
@@ -39,57 +39,3 @@ RegisterNetEvent('wasabi_bridge:notify', function(title, desc, style, icon, id)
 
     -- Edit Code above to use your own notification system
 end)
-
--- Text UI
-local textUI = false
-
--- Show text UI
-function WSB.showTextUI(msg)
-    -- EDIT: Customize with your own text UI system
-    if GetResourceState('wasabi_textui') == 'started' then
-        exports.wasabi_textui:showTextUI(msg)
-        textUI = msg
-        return
-    end
-
-    if GetResourceState('ox_lib') == 'started' then
-        exports.ox_lib:showTextUI(msg)
-        textUI = msg
-        return
-    end
-end
-
--- Hide text UI
-function WSB.hideTextUI()
-    if GetResourceState('wasabi_textui') == 'started' then
-        exports.wasabi_textui:hideTextUI()
-        textUI = false
-        return
-    end
-
-    if GetResourceState('ox_lib') == 'started' then
-        exports.ox_lib:hideTextUI()
-        textUI = false
-        return
-    end
-
-    -- EDIT: Customize with your own text UI system
-end
-
--- Checking for text UI
-function WSB.isTextUIOpen()
-    return textUI and true or false, textUI or false
-end
-
--- Add car keys
-function WSB.giveCarKeys(plate, _model, _vehicle)
-    if WSB.framework == 'qb' then
-        TriggerEvent('vehiclekeys:client:SetOwner', plate)
-    else
-        exports.wasabi_carlock:GiveKey(plate) -- Leave like this if using wasabi_carlock
-    end
-end
-
-function WSB.removeCarKeys(plate, _model, _vehicle)
-    -- Put remove key logic here
-end

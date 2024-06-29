@@ -23,3 +23,11 @@ function WSB.inventory.setItemMetadata(source, slot, metadata)
 
     exports['qs-inventory']:SetItemMetadata(source, slot, metadata)
 end
+
+---Clears specified inventory
+---@param source number
+---@param keepItems string | table
+function WSB.inventory.clearInventory(source, identifier, keepItems)
+    exports['qs-inventory']:ClearInventory(source, keepItems)
+        TriggerClientEvent('wasabi_ambulance:weaponRemove', source)
+end

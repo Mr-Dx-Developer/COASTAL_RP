@@ -1,5 +1,3 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
-shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
 -----------------For support, scripts, and more----------------
 --------------- https://discord.gg/wasabiscripts  -------------
 ---------------------------------------------------------------
@@ -9,7 +7,10 @@ lua54 'yes'
 
 description 'A library of functions used to ease the bridge between Wasabi Scripts'
 author 'wasabirobby'
-version '1.2.3'
+version '1.3.0'
+
+ui_page 'ui/index.html'
+files { 'ui/*', 'ui/**/*' }
 
 shared_script 'config.lua'
 
@@ -17,7 +18,7 @@ client_scripts {
     'frameworks/**/client.lua',
     'targets/*.lua',
     'inventories/**/client.lua',
-    'customize/cl_customize.lua',
+    'customize/client/*.lua',
     'utils/client/*.lua'
 }
 
@@ -37,7 +38,7 @@ escrow_ignore {
     'frameworks/**/*.lua',
     'targets/*.lua',
     'inventories/**/*.lua',
-    'customize/*.lua'
+    'customize/client/*.lua'
 }
 
 dependency '/assetpacks'

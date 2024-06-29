@@ -30,3 +30,10 @@ function WSB.inventory.setItemMetadata(source, slot, metadata)
     player.Functions.SetPlayerData("items", player.PlayerData.items)
     return true
 end
+
+---Clears specified inventory
+---@param source number
+---@param keepItems string | table
+function WSB.inventory.clearInventory(source, identifier, keepItems)
+    exports['ps-inventory']:ClearInventory(source, keepItems)
+end
