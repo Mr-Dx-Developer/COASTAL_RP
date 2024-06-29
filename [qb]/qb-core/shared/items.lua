@@ -311,16 +311,16 @@ QBShared.Items = {
     weed_nutrition               = { name = 'weed_nutrition', label = 'Plant Fertilizer', weight = 2000, type = 'item', image = 'weed_nutrition.png', unique = false, useable = true, shouldClose = true, description = 'Plant nutrition' },
 
     -- Material
-    plastic                      = { name = 'plastic', label = 'Plastic', weight = 100, type = 'item', image = 'plastic.png', unique = false, useable = false, shouldClose = false, description = 'RECYCLE! - Greta Thunberg 2019' },
-    metalscrap                   = { name = 'metalscrap', label = 'Metal Scrap', weight = 100, type = 'item', image = 'metalscrap.png', unique = false, useable = false, shouldClose = false, description = 'You can probably make something nice out of this' },
-    copper                       = { name = 'copper', label = 'Copper', weight = 100, type = 'item', image = 'copper.png', unique = false, useable = false, shouldClose = false, description = 'Nice piece of metal that you can probably use for something' },
-    aluminum                     = { name = 'aluminum', label = 'Aluminium', weight = 100, type = 'item', image = 'aluminum.png', unique = false, useable = false, shouldClose = false, description = 'Nice piece of metal that you can probably use for something' },
-    aluminumoxide                = { name = 'aluminumoxide', label = 'Aluminium Powder', weight = 100, type = 'item', image = 'aluminumoxide.png', unique = false, useable = false, shouldClose = false, description = 'Some powder to mix with' },
-    iron                         = { name = 'iron', label = 'Iron', weight = 100, type = 'item', image = 'iron.png', unique = false, useable = false, shouldClose = false, description = 'Handy piece of metal that you can probably use for something' },
-    ironoxide                    = { name = 'ironoxide', label = 'Iron Powder', weight = 100, type = 'item', image = 'ironoxide.png', unique = false, useable = false, shouldClose = false, description = 'Some powder to mix with.' },
-    steel                        = { name = 'steel', label = 'Steel', weight = 100, type = 'item', image = 'steel.png', unique = false, useable = false, shouldClose = false, description = 'Nice piece of metal that you can probably use for something' },
-    rubber                       = { name = 'rubber', label = 'Rubber', weight = 100, type = 'item', image = 'rubber.png', unique = false, useable = false, shouldClose = false, description = 'Rubber, I believe you can make your own rubber ducky with it :D' },
-    glass                        = { name = 'glass', label = 'Glass', weight = 100, type = 'item', image = 'glass.png', unique = false, useable = false, shouldClose = false, description = 'It is very fragile, watch out' },
+    plastic                      = { name = 'plastic', label = 'Plastic', weight = 100, type = 'item', image = 'plastic.png', unique = false, useable = false, shouldClose = true, description = 'RECYCLE! - Greta Thunberg 2019' },
+    metalscrap                   = { name = 'metalscrap', label = 'Metal Scrap', weight = 100, type = 'item', image = 'metalscrap.png', unique = false, useable = false, shouldClose = true, description = 'You can probably make something nice out of this' },
+    copper                       = { name = 'copper', label = 'Copper', weight = 100, type = 'item', image = 'copper.png', unique = false, useable = false, shouldClose = true, description = 'Nice piece of metal that you can probably use for something' },
+    aluminum                     = { name = 'aluminum', label = 'Aluminium', weight = 100, type = 'item', image = 'aluminum.png', unique = false, useable = false, shouldClose = true, description = 'Nice piece of metal that you can probably use for something' },
+    aluminumoxide                = { name = 'aluminumoxide', label = 'Aluminium Powder', weight = 100, type = 'item', image = 'aluminumoxide.png', unique = false, useable = false, shouldClose = true, description = 'Some powder to mix with' },
+    iron                         = { name = 'iron', label = 'Iron', weight = 100, type = 'item', image = 'iron.png', unique = false, useable = false, shouldClose = true, description = 'Handy piece of metal that you can probably use for something' },
+    ironoxide                    = { name = 'ironoxide', label = 'Iron Powder', weight = 100, type = 'item', image = 'ironoxide.png', unique = false, useable = false, shouldClose = true, description = 'Some powder to mix with.' },
+    steel                        = { name = 'steel', label = 'Steel', weight = 100, type = 'item', image = 'steel.png', unique = false, useable = false, shouldClose = true, description = 'Nice piece of metal that you can probably use for something' },
+    rubber                       = { name = 'rubber', label = 'Rubber', weight = 100, type = 'item', image = 'rubber.png', unique = false, useable = false, shouldClose = true, description = 'Rubber, I believe you can make your own rubber ducky with it :D' },
+    glass                        = { name = 'glass', label = 'Glass', weight = 100, type = 'item', image = 'glass.png', unique = false, useable = false, shouldClose = true, description = 'It is very fragile, watch out' },
 
     -- Tools
     lockpick                     = { name = 'lockpick', label = 'Lockpick', weight = 300, type = 'item', image = 'lockpick.png', unique = false, useable = true, shouldClose = true, description = 'Very useful if you lose your keys a lot.. or if you want to use it for something else...' },
@@ -400,11 +400,15 @@ QBShared.Items = {
     firework3                    = { name = 'firework3', label = 'WipeOut', weight = 1000, type = 'item', image = 'firework3.png', unique = false, useable = true, shouldClose = true, description = 'Fireworks' },
     firework4                    = { name = 'firework4', label = 'Weeping Willow', weight = 1000, type = 'item', image = 'firework4.png', unique = false, useable = true, shouldClose = true, description = 'Fireworks' },
 
+    bank_card                    = { name = 'bank_card', label = 'Bank Card', weight = 0, type = 'item', image = 'bank_card.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Used to access ATM' },
+    cash                  = { name = 'cash', label = 'Cash', weight = 0, type = 'item', image = 'cash.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Cash' },
     -- Sea Tools
     dendrogyra_coral             = { name = 'dendrogyra_coral', label = 'Dendrogyra', weight = 1000, type = 'item', image = 'dendrogyra_coral.png', unique = false, useable = false, shouldClose = true, description = 'Its also known as pillar coral' },
     antipatharia_coral           = { name = 'antipatharia_coral', label = 'Antipatharia', weight = 1000, type = 'item', image = 'antipatharia_coral.png', unique = false, useable = false, shouldClose = true, description = 'Its also known as black corals or thorn corals' },
     diving_gear                  = { name = 'diving_gear', label = 'Diving Gear', weight = 30000, type = 'item', image = 'diving_gear.png', unique = true, useable = true, shouldClose = true, description = 'An oxygen tank and a rebreather' },
     diving_fill                  = { name = 'diving_fill', label = 'Diving Tube', weight = 3000, type = 'item', image = 'diving_tube.png', unique = true, useable = true, shouldClose = true, description = 'An oxygen tube and a rebreather' },
+
+
 
     -- Other Tools
     casinochips                  = { name = 'casinochips', label = 'Casino Chips', weight = 0, type = 'item', image = 'casinochips.png', unique = false, useable = false, shouldClose = false, description = 'Chips For Casino Gambling' },
@@ -536,6 +540,25 @@ underglow                   = { name = 'underglow', label = 'Underglow LEDS', we
 ["specialbadge"]                 = {["name"] = "specialbadge",                  ["label"] = "Police Badge",             ["weight"] = 1000,      ["type"] = "item",      ["image"] = "specialbadge.png",         ["unique"] = false,     ["useable"] = true,     ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "Special Badge of Law Enforcements"},
 
 
+['burger-bleeder'] 				 = {['name'] = 'burger-bleeder', 			 	['label'] = 'Bleeder', 					['weight'] = 250, 		['type'] = 'item', 		['image'] = 'bs_the-bleeder.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Sates Hunger.'},
+['burger-moneyshot'] 			 = {['name'] = 'burger-moneyshot', 			 	['label'] = 'Moneyshot', 				['weight'] = 300, 		['type'] = 'item', 		['image'] = 'bs_money-shot.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Sates Hunger.'},
+['burger-torpedo'] 				 = {['name'] = 'burger-torpedo', 			 	['label'] = 'Torpedo', 					['weight'] = 310, 		['type'] = 'item', 		['image'] = 'bs_torpedo.png', 				['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Sates Hunger.'},
+['burger-heartstopper'] 		 = {['name'] = 'burger-heartstopper', 			['label'] = 'Heartstopper', 			['weight'] = 2500, 		['type'] = 'item', 		['image'] = 'bs_the-heart-stopper.png', 	['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Sates Hunger.'},
+['burger-meatfree'] 		 	 = {['name'] = 'burger-meatfree', 				['label'] = 'MeatFree', 			['weight'] = 125, 		['type'] = 'item', 			['image'] = 'bs_meat-free.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Sates Hunger.'},
+['burger-fries'] 				 = {['name'] = 'burger-fries', 			 	  	['label'] = 'Fries', 				['weight'] = 125, 		['type'] = 'item', 			['image'] = 'bs_fries.png', 				['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Sates Hunger.'},
+['burger-softdrink'] 			 = {['name'] = 'burger-softdrink', 				['label'] = 'Soft Drink', 				['weight'] = 125, 		['type'] = 'item', 		['image'] = 'bs_softdrink.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'An Ice Cold Drink.'},
+['burger-mshake'] 			     = {['name'] = 'burger-mshake', 				['label'] = 'Milkshake', 				['weight'] = 125, 		['type'] = 'item', 		['image'] = 'bs_milkshake.png', 		['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Hand-scooped for you!'},
+['burger-bun'] 				 	 = {['name'] = 'burger-bun', 			 	  	['label'] = 'Bun', 			['weight'] = 125, 		['type'] = 'item', 					['image'] = 'bs_bun.png', 		    		['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'An Ingredient'},
+['burger-meat'] 				 = {['name'] = 'burger-meat', 			 	  	['label'] = 'Cooked Patty', 			['weight'] = 125, 		['type'] = 'item', 		['image'] = 'bs_patty.png', 		    	['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'An Ingredient'},
+['burger-lettuce'] 				 = {['name'] = 'burger-lettuce', 			 	['label'] = 'Lettuce', 				['weight'] = 125, 		['type'] = 'item', 			['image'] = 'bs_lettuce.png', 	    		['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'An Ingredient'},
+['burger-tomato'] 				 = {['name'] = 'burger-tomato', 			 	['label'] = 'Tomato', 				['weight'] = 125, 		['type'] = 'item', 			['image'] = 'bs_tomato.png', 	    		['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'An Ingredient'},
+['burger-raw'] 				 	 = {['name'] = 'burger-raw', 			 		['label'] = 'Raw Patty', 				['weight'] = 125, 		['type'] = 'item', 		['image'] = 'bs_patty_raw.png', 	        ['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'An Ingredient'},
+['burger-potato'] 				 = {['name'] = 'burger-potato', 			 	['label'] = 'Bag of Potatoes', 		['weight'] = 1500, 		['type'] = 'item', 			['image'] = 'bs_potato.png', 	    		['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'An Ingredient'},
+['burger-mshakeformula'] 		 = {['name'] = 'burger-mshakeformula', 			['label'] = 'Milkshake Formula', 		['weight'] = 125, 		['type'] = 'item', 		['image'] = 'bs_ingredients_icecream.png', ['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'An Ingredient'},
+['burger-sodasyrup'] 		 	 = {['name'] = 'burger-sodasyrup', 				['label'] = 'Soda Syrup', 		['weight'] = 125, 		['type'] = 'item', 				['image'] = 'bs_ingredients_hfcs.png', 	['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'An Ingredient'},
+
+
+ghostcam = { name = 'ghostcam', label = 'Ghost Camera', weight = 100, type = 'item', image = 'ghostcam.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'A camera for capturing spookies.' },
 --Dynyx-Gym
 ["gym_pass"]				 = {["name"] = "gym_pass", 					["label"] = "Gym Membership", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "gym_pass.png", 		["unique"] = true, 		["useable"] = false, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Lifetime Gym Membership"},
 
@@ -582,17 +605,17 @@ underglow                   = { name = 'underglow', label = 'Underglow LEDS', we
 ['weed_ak47_seed']        = { ['name'] = 'weed_ak47_seed', ['label'] = 'AK47 Seed', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_seed.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A weed seed of AK47' },
 ['empty_weed_bag']        = { ['name'] = 'empty_weed_bag', ['label'] = 'Empty Weed Bag', ['weight'] = 0, ['type'] = 'item', ['image'] = 'weed_baggy_empty.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'A small empty bag' },
 ['weed_nutrition']        = { ['name'] = 'weed_nutrition', ['label'] = 'Plant Fertilizer', ['weight'] = 2000, ['type'] = 'item', ['image'] = 'weed_nutrition.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'Plant nutrition' },
-['lockpick']              = { ['name'] = 'lockpick', ['label'] = 'Lockpick', ['weight'] = 100, ['type'] = 'item', ['image'] = 'lockpick.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'No description' },
+
 ['police_stormram']       = { ['name'] = 'police_stormram', ['label'] = 'Police Storm Ram', ['weight'] = 2000, ['type'] = 'item', ['image'] = 'police_stormram.png', ['unique'] = false, ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'No description' },
 
 -- Robberies Creator items
 ['hacking_computer'] 			 = {['name'] = 'hacking_computer', 				['label'] = 'Hacking computer',	['weight'] = 500, 		['type'] = 'item', 		['image'] = 'your_image.png', 		['unique'] = false,		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Computer to hack panels'},
 ['thermal_charge'] 			 = {['name'] = 'thermal_charge', 				['label'] = 'Thermal charge',	['weight'] = 500, 		['type'] = 'item', 		['image'] = 'your_image.png', 		['unique'] = false,		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Use to melt some doors'},
 ['gas_mask'] 			 = {['name'] = 'gas_mask', 				['label'] = 'Gas mask',	['weight'] = 500, 		['type'] = 'item', 		['image'] = 'your_image.png', 		['unique'] = false,		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Protects from lethal gas'},
-['drill'] 			 = {['name'] = 'drill', 				['label'] = 'Drill',	['weight'] = 500, 		['type'] = 'item', 		['image'] = 'your_image.png', 		['unique'] = false,		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Can be used to open trucks doors'},
+
 ['gold_ingot'] 			 = {['name'] = 'gold_ingot', 				['label'] = 'Gold ingot',	['weight'] = 500, 		['type'] = 'item', 		['image'] = 'your_image.png', 		['unique'] = false,		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Goooold'},
 ['diamonds_box'] 			 = {['name'] = 'diamonds_box', 				['label'] = 'Diamond box',	['weight'] = 500, 		['type'] = 'item', 		['image'] = 'your_image.png', 		['unique'] = false,		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Diamooonds'},
-['lockpick'] 			 = {['name'] = 'lockpick', 				['label'] = 'Lockpick',	['weight'] = 500, 		['type'] = 'item', 		['image'] = 'your_image.png', 		['unique'] = false,		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Used to lockpick doors'},
+
 ['painting'] 			 = {['name'] = 'painting', 				['label'] = 'Painting',	['weight'] = 500, 		['type'] = 'item', 		['image'] = 'your_image.png', 		['unique'] = false,		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Expensive painting'},
 
 ['polaroid_camera'] = {

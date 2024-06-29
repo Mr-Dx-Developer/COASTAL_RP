@@ -153,16 +153,29 @@ end
 -- NUI Calls
 
 function QBCore.Functions.Notify(text, texttype, length)
+
+
+    local convert = {
+        ["primary"] = 'info',
+        ["police"] = 'lspd',
+        ["ambulance"] = 'ems',
+    }
+    if not texttype then
+        texttype = 'info'
+    end
+
+    if convert[texttype] then
+        texttype = convert[texttype]
+    end
+
     if type(text) == "table" then
-    local ttext = text.text or 'Placeholder'
-    local caption = text.caption or 'Placeholder'
-    local ttype = texttype or 'primary'
-    local length = length or 5000
-    exports['ataNotification']:notification('far fa-keyboard text-'..ttype,"Notification","",ttext, length,'not1')
+        local ttext = text.text or 'Placeholder'
+        local caption = text.caption or 'Placeholder'
+        length = length or 5000
+        TriggerEvent('codem-notification:Create', ttext, texttype, caption, length)
     else
-    local ttype = texttype or 'primary'
-    local length = length or 5000
-    exports['ataNotification']:notification('far fa-keyboard text-'..ttype,"Notification","",text, length,'not1')
+        length = length or 5000
+         TriggerEvent('codem-notification:Create', text, texttype, nil, length)
     end
 end
 
