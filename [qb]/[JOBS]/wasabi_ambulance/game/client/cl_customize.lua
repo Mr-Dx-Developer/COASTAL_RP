@@ -296,7 +296,7 @@ function OpenJobMenu()
 			description = Strings.diagnose_patient_desc,
 			icon = 'stethoscope',
 			arrow = false,
-			event = 'wasabi_ambulance:diagnosePatient',
+			event = 'wasabi_ambulance:diagnosePlayer',
 			disabled = isPlayerDead() == true
 		},
 		{
@@ -403,14 +403,22 @@ function OpenJobMenu()
 			disabled = isPlayerDead() == true
 		}
 	end
+
 	if Config.MobileMenu.enabled then
-		OpenMobileMenu('ems_job_menu', Strings.JobMenuTitle, Options)
-	else
-		lib.registerContext({
+		wsb.showMenu({
 			id = 'ems_job_menu',
+			color = Config.UIColor,
 			title = Strings.JobMenuTitle,
+			position = Config.MobileMenu.position,
 			options = Options
 		})
-		lib.showContext('ems_job_menu')
+		return
 	end
+
+	wsb.showContextMenu({
+		id = 'ems_job_menu',
+		color = Config.UIColor,
+		title = Strings.JobMenuTitle,
+		options = Options
+	})
 end

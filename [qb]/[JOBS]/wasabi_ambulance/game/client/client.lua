@@ -50,7 +50,7 @@ CreateThread(function()
         wsb.target.player({
             options = {
                 {
-                    event = 'wasabi_ambulance:diagnosePatient',
+                    event = 'wasabi_ambulance:diagnosePlayer',
                     icon = 'fas fa-stethoscope',
                     label = Strings.diagnose_patient,
                     job = Config.ambulanceJob or JobArrayToTarget(),
@@ -945,14 +945,14 @@ CreateThread(function()
                         heading = v.clockInAndOut.target.heading,
                         minZ = v.clockInAndOut.target.minZ,
                         maxZ = v.clockInAndOut.target.maxZ,
-                        job = Config.ambulanceJobs or JobArrayToTarget(true),
+                        job = Config.ambulanceJob or JobArrayToTarget(true),
                         distance = 2.0,
                         options = {
                             {
                                 event = 'wasabi_ambulance:toggleDuty',
                                 icon = 'fa-solid fa-business-time',
                                 label = v.clockInAndOut.target.label,
-                                groups = Config.ambulanceJobs or JobArrayToTarget()
+                                groups = Config.ambulanceJob or JobArrayToTarget()
                             }
                         }
                     })
@@ -1843,7 +1843,7 @@ AddEventHandler('wasabi_ambulance:billPatient', function()
             if Config.billingSystem == 'okok' then
                 TriggerEvent('okokBilling:ToggleCreateInvoice')
             else
-                local input = lib.inputDialog(Strings.bill_patient, { Strings.amount })
+                local input = wsb.inputDialog(Strings.bill_patient, { Strings.amount }, Config.UIColor)
                 if not input then return end
                 local input1 = tonumber(input[1])
                 if type(input1) ~= 'number' then return end
@@ -1911,8 +1911,8 @@ AddEventHandler('wasabi_ambulance:setRoute', function(data)
     setRoute(data)
 end)
 
-AddEventHandler('wasabi_ambulance:diagnosePatient', function()
-    diagnosePatient()
+AddEventHandler('wasabi_ambulance:diagnosePlayer', function()
+    diagnosePlayer()
 end)
 RegisterNetEvent('wasabi_ambulance:reviveTarget')
 AddEventHandler('wasabi_ambulance:reviveTarget', function()
@@ -1949,7 +1949,7 @@ RegisterNetEvent('hospital:client:KillPlayer', function()
 end)
 
 RegisterNetEvent('hospital:client:CheckStatus', function()
-    TriggerEvent('wasabi_ambulance:diagnosePatient')
+    TriggerEvent('wasabi_ambulance:diagnosePlayer')
 end)
 
 RegisterNetEvent('hospital:client:RevivePlayer', function()

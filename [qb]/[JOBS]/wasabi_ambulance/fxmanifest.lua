@@ -11,7 +11,7 @@ lua54 'yes'
 
 description 'Wasabi ESX/QBCore Advanced Ambulance Job'
 author 'wasabirobby'
-version '1.11.0'
+version '1.11.1'
 
 ui_page 'nui/index.html'
 files { 'nui/*', 'nui/**/*' }

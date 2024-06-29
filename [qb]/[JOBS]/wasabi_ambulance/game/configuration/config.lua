@@ -30,12 +30,12 @@ Config.CheckForUpdates = true -- Check for updates? Who would not want to know u
 -- If you would like us to add a language, join our discord and create a ticket!
 -- All locale strings can be found in /game/configuration/locales/
 Config.Language = 'en'
-Config.UIColor = 'red' -- Can be 'red', 'blue', or a hex '#FF0000'
+Config.UIColor = '#e61f09' -- Can be 'red', 'blue', or a hex '#FF0000'
 -- Config.DeathScreenEffects = true -- OBSOLETE RIGHT NOW
 
 -- Which style do you want to use for death UI?(Current options: 1, 2, 3, 4, 5)
 -- Check docs for examples of all types! https://docs.wasabiscripts.com
-Config.DeathScreenType = 5
+Config.DeathScreenType = 3
 -- If you want to use the previous death screen(Draw text, not recommended) see docs
 
 Config.ShowEMSCountOnDeath = true -- Show active ambulance count in death UI? (Gives count in death screen of all jobs active from Config.ambulanceJobs)
@@ -43,8 +43,8 @@ Config.ShowEMSCountOnDeath = true -- Show active ambulance count in death UI? (G
 
 Config.OldQBManagement = true -- If you are using QBCore and want to use the old QB Management system
 
-Config.ambulanceJobs = { -- Jobs that are considered ambulance jobs (If unsure, likely leave the way it is)
-    'ambulance',         -- You must have a job with this name registered
+Config.ambulanceJobs = {       -- Jobs that are considered ambulance jobs (If unsure, likely leave the way it is)
+    'ambulance',               -- You must have a job with this name registered
     --'emt',             -- They will be treated just like EMS (Job menu, loctions access, etc)
     --'doctor',
     --'fire',
@@ -81,7 +81,7 @@ Config.MobileMenu = {                    -- Enabling this will use ox_lib menu r
     'bottom-right'                       -- Choose where menu is positioned. Options : 'top-left' or 'top-right' or 'bottom-left' or 'bottom-right'
 }
 Config.ProgressCircle = true             -- Set to false to use a progress bar, set to true for progress circle(For checking in, diagnosing, etc)
-Config.ProgressCircleLocation = 'middle' -- Where you want the progress circle located (if enabled)
+Config.ProgressCircleLocation = 'bottom' -- Where you want the progress circle located (if enabled)
 -- Choices: 'bottom' and 'middle'
 
 Config.policeCanTreat = {
@@ -112,8 +112,8 @@ Config.EnabledKeys = {
         249       -- N Key (default key to speak while dead)
     },
 
-    revive = {  -- while reviving
-        249  -- N Key (default key to speak while dead)
+    revive = { -- while reviving
+        249    -- N Key (default key to speak while dead)
     }
 }
 
@@ -142,7 +142,7 @@ Config.AmbulanceOffsets = {
 
 Config.GPSBlips = {  -- Warning: May experience high usage when at high player count. Possibly turn up refreshrate as remedy!
     enabled = true, -- Enabled?
-    refreshrate = 1, -- In Seconds Note: it could impact the server performance
+    refreshrate = 5, -- In Seconds Note: it could impact the server performance
     item = false,    -- Item required? Note: You have to use it then
     blip = {
         sprite = 1,
@@ -168,7 +168,7 @@ Config.DeathAnimation = {
 
 -- Knockout Feature (If you want players to be knocked out)
 Config.KnockoutFeature = {
-    enabled = TRUE,           -- Enable knockout features? (player's can knock eachother out using fist fighting)
+    enabled = true,           -- Enable knockout features? (player's can knock eachother out using fist fighting)
     healthForKnockout = 150,   -- At what HP will player knockout from fist fighting
     fistDamageModifier = 0.25, -- How much damage will fist cause? (1.0 is default, 0.5 is half as strong, etc)
     duration = 7 * seconds     -- Time to be knocked out when occurs?
@@ -204,7 +204,7 @@ Config.BypassInjuryWeapons = { -- Hashes placed in this table will bypass injury
 
 Config.InjuryNotification = true                 -- Enable injury notification?
 Config.InjuryNotificationFrequency = 1 * minutes -- How often to notify player of injury
-Config.BlackoutEffect = false        -- Enable blackout, Ragdoll caused by live injury
+Config.BlackoutEffect = false                    -- Enable blackout, Ragdoll caused by live injury
 
 Config.DisableNoJumpInjury = false               -- Disable when being injured that you cant job on occasion
 Config.EnablePainPills = true                    -- Enable pain pills? Used to aliviate injurys temporarily
@@ -255,6 +255,14 @@ Config.EnviPrescriptions = {
     minRank = 1      -- Minimum job level/grade to have this option available
 }
 
+Config.EnviMedic = {
+     ---------------------------------------------------
+    --       If you use Envi Medic:          --
+    -- https://envi-scripts.tebex.io/package/5969648 --
+    ---------------------------------------------------
+    enabled = false -- Enable to make Envi-Medic to work with wasabi_ambulance
+}
+
 Config.mInsurance = {
     -----------------------------------
     --   If you use m-Insurance:     --
@@ -283,8 +291,9 @@ Config.ChargeForRevive = {
     allowNegativeBalance = false    -- QB ONLY: Allow negative balance if player does not have enough money?
 }
 
-Config.removeItemsOnDeath = false   -- Must have Config.Inventory set properly
-Config.Inventory = 'qs'                                --Options include: 'ox' - (ox_inventory) / 'qb' - (QBCore qb-inventory) 'mf' - (mf-inventory) / 'qs' (qs-inventory) / 'esx' (default esx) / 'other' (whatever else can customize in client/cl_customize.lua)
+Config.removeItemsOnDeath = false   -- Must have supported inventory or add function to sv_customize.lua OR add inventory to wasabi_bridge.
+--Config.Inventory = 'ox'           -- NOW USES WSB.INVENTORY FUNCTION
+
 Config.keepItemsOnDeath = {
     enabled = false,
     items = {
@@ -292,10 +301,10 @@ Config.keepItemsOnDeath = {
         'phone'
     }
 }
-Config.AntiCombatLog = {            --  When enabled will kill player who logged out while dead
-    enabled = true,                 --  enabled?
+Config.AntiCombatLog = { --  When enabled will kill player who logged out while dead
+    enabled = true,      --  enabled?
     notification = {
-        enabled = true,             -- enabled notify of wrong-doings??
+        enabled = true,  -- enabled notify of wrong-doings??
         title = 'Logged While Dead',
         desc = 'You last left dead and now have returned dead'
     }
@@ -311,7 +320,7 @@ Config.Bandages = {
     enabled = true,       -- Useable bandages? (Leave false if ox_inventory because they're built in)
     item = 'bandage',      -- YOU MUST ADD THIS ITEM TO YOUR ITEMS, IT DOES NOT COME IN INSTALLATION(COMES WITH QBCORE BY DEFAULT AS ITEM)
     hpRegen = 30,          -- Percentage of health it replenishes (30% by default)
-    healBleed = false,     -- Heal bleed that is inflicted by injury system? (Requires injury system enabled)
+    healBleed = true,     -- Heal bleed that is inflicted by injury system? (Requires injury system enabled)
     duration = 7 * seconds -- Time to use
 }
 
@@ -336,12 +345,12 @@ Config.EMSItems = {
 
 Config.ReviveRewards = {
     enabled = true,           -- Enable cash rewards for reviving
-    paymentAccount = 'money', -- If you have old ESX 1.1 you may need to switch to 'cash'
+    paymentAccount = 'cash', -- If you have old ESX 1.1 you may need to switch to 'cash'
     no_injury = 600,         -- If above enabled, how much reward for fully treated patient with no injury in diagnosis
     burned = 300,            -- How much if player is burned and revived without being treated
     beat = 250,              -- So on, so forth
-    stabbed = 500,
-    bleedout = 500,          -- NEW
+    stabbed = 200,
+    bleedout = 200,          -- NEW
     shot = 150,
 }
 

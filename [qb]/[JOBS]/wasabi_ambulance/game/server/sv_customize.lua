@@ -14,6 +14,47 @@ function MuteDeadPlayer(src, isDead)
     MumbleSetPlayerMuted(src, bool)
 end
 
+-- Function to calculate the cost including insurance discount and charge the player
+function ChargePlayer(src, account, cost, PayHospital)
+    local newCost = cost
+    if Config.mInsurance and Config.mInsurance.enabled then
+        local column = wsb.framework == 'qb' and 'citizenid' or 'char_id'
+        local hasInsurance = MySQL.single.await(
+            'SELECT `' .. column .. '` FROM `m_insurance_health` WHERE `' .. column .. '` = ? LIMIT 1',
+            { wsb.getIdentifier(src) }
+        )
+        if hasInsurance then
+            newCost = newCost - Config.mInsurance.checkInDiscount
+        end
+    end
+
+    local funds = wsb.getPlayerAccountFunds(src, account)
+    if Config.ChargeForRevive and Config.ChargeForRevive.enabled and Config.ChargeForRevive.allowNegativeBalance and wsb.framework == 'qb' then
+        wsb.removeMoney(src, account, newCost)
+        if PayHospital then
+            local management = Config.OldQBManagement and 'qb-management' or 'qb-banking'
+            exports[management]:AddMoney(PayHospital, newCost)
+        end
+        return true --Force revive_patient
+    elseif funds < newCost then
+        TriggerClientEvent('wasabi_bridge:notify', src, Strings.not_enough_funds, Strings.not_enough_funds_desc, 'error')
+        return false -- insufficient funds
+    else
+        wsb.removeMoney(src, account, newCost)
+        if PayHospital then
+            if wsb.framework == 'qb' then
+                local management = Config.OldQBManagement and 'qb-management' or 'qb-banking'
+                exports[management]:AddMoney(PayHospital, newCost)
+            else --wsb.framework == 'esx'
+                TriggerEvent('esx_addonaccount:getSharedAccount', PayHospital, function(account)
+                    account.addMoney(newCost)
+                end)
+            end
+        end
+        return true
+    end
+end
+
 RegisterNetEvent('wasabi_ambulance:qbBill', function(target, amount, job)
     local src = source
     if not wsb.hasGroup(src, Config.ambulanceJobs or Config.ambulanceJob) then return end
@@ -75,58 +116,19 @@ if wsb.framework == 'esx' then
     end)
 end
 
-local function isInList(item, list)
-    for _, value in ipairs(list) do
-        if value == item then
-            return true
-        end
-    end
-    return false
-end
 
 RegisterNetEvent('wasabi_ambulance:removeItemsOnDeath', function()
-    local src = source
-    local player = wsb.getPlayer(src)
+    local identifier = wsb.getIdentifier(source)
     if not player then return end
-    if wsb.framework == 'qb' then
-        player.Functions.ClearInventory(Config.keepItemsOnDeath.enabled and Config.keepItemsOnDeath.items or nil)
-        MySQL.Async.execute('UPDATE players SET inventory = ? WHERE citizenid = ?',
-            { json.encode(Config.keepItemsOnDeath.enabled and Config.keepItemsOnDeath.items or {}), player.PlayerData.citizenid })
-        return
-    elseif wsb.framework == 'esx' then
-        if Config.keepItemsOnDeath and not Config.keepItemsOnDeath.enabled then 
-            player.setAccountMoney('money', 0)
-        end 
-        player.setAccountMoney('black_money', 0)
-    end
-
-    if Config.Inventory == 'qs' then
-        exports['qs-inventory']:ClearInventory(src, Config.keepItemsOnDeath.enabled and Config.keepItemsOnDeath.items or nil)
-        TriggerClientEvent('wasabi_ambulance:weaponRemove', src)
-    elseif Config.Inventory == 'ox' then
-        exports.ox_inventory:ClearInventory(src, Config.keepItemsOnDeath.enabled and Config.keepItemsOnDeath.items or nil)
-    elseif Config.Inventory == 'mf' then
-        exports['mf-inventory']:clearInventory(player.identifier)
-        exports['mf-inventory']:clearLoadout(player.identifier)
-        TriggerClientEvent('wasabi_ambulance:weaponRemove', src)
-    elseif Config.Inventory == 'esx' then
-        for i = 1, #player.inventory, 1 do
-            if player.inventory[i].count > 0 then
-                if not (Config.keepItemsOnDeath.enabled and isInList(player.inventory[i].name, Config.keepItemsOnDeath.items)) then
-                    player.removeInventoryItem(player.inventory[i].name, player.inventory[i].count)
-                end
-            end
+    if not wsb.inventorySystem then
+        if GetResourceState('mf-inventory') == 'started' then
+            exports['mf-inventory']:clearInventory(identifier)
+            exports['mf-inventory']:clearLoadout(identifier)        
+        else
+            print('NO INVENTORY FOUND CONFIG YOUR INV IN SV_CUSTOMIZE.LUA')      
         end
-
-        for k, data in pairs(player.getLoadout()) do
-            if player.hasWeapon(data.name) then
-                if not (Config.keepItemsOnDeath.enabled and isInList(data.name, Config.keepItemsOnDeath.items)) then
-                    player.removeWeapon(data.name)
-                end
-            end
-        end
-    else
-        print('CONFIGURE YOUR INVENTORY SYSTEM IN "@wasabi_ambulance/server/sv_customize.lua" line ~55')
+    else 
+        wsb.inventory.clearInventory(source, identifier, Config.keepItemsOnDeath.enabled and Config.keepItemsOnDeath.items or {})
     end
 end)
 

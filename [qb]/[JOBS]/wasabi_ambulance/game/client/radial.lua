@@ -41,7 +41,7 @@ lib.registerRadial({ -- EMS menu
 			label = 'Diagnose',
 			icon = 'stethoscope',
 			onSelect = function()
-				TriggerEvent('wasabi_ambulance:diagnosePatient')
+				TriggerEvent('wasabi_ambulance:diagnosePlayer')
 			end
 		},
 		{
