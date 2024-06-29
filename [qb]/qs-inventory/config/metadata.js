@@ -25,6 +25,20 @@ function FormatItemInfo(itemData) {
                 (itemData.info.nationality !== undefined ? itemData.info.nationality : 'No information') +
                 "</span></p>"
             );
+        } else if (itemData.info.type == "menu") {
+            $(".item-info-title").html('<p>'+itemData.label+'</p>')
+            let first = true
+            let descText = ""
+            for(var key in itemData.info.items){
+                if (first) {
+                    first = false
+                    descText = itemData.info.items[key].amount+"x "+itemData.info.items[key].label
+                } else {
+                    descText = descText + ", "+itemData.info.items[key].amount+"x "+itemData.info.items[key].label
+                }
+            };
+    
+            $(".item-info-description").html('<p> Package Included: '+ descText + '</p>');
         } else if (phoneMeta.includes(itemData.name) && itemData.info.phoneNumber) {
             $(".item-info-title").html("<p>" + `${itemData.info.label || label}` + "</p>");
             $(".item-info-description").html(
