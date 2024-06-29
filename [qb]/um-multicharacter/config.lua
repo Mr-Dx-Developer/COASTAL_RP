@@ -118,7 +118,7 @@ Config.UMSpawnLastLocation = false
  -- UM - Multi Character | Slots | Delete Button | PrivSlots
 -----------------------------------------------------------------------------------------------------------------
 
-Config.DeleteButton = false -- true or false everyone the ability to delete their own characters
+Config.DeleteButton = true -- true or false everyone the ability to delete their own characters
 
 Config.DefaultSlots = 3 -- How many total character slots everyone will have by default
 
