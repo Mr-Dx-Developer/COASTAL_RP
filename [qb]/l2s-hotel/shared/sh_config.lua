@@ -23,7 +23,7 @@ Shared.Events = {
     inventory3 = 'inventory:client:ItemBox', -- your inventory event (client event)
     phone = 'lb-phone:server:sendNewMailToOffline', -- your phone event (server event) file open source if you want make it export server/mail.lua
     outfits = "qb-clothing:server:openOutfitMenu", -- your outfits event (server event)
-    doorlock = "ox_doorlock:server:ToggleHotel" -- if you uses your v4 files dont touch
+    doorlock = "qb-doorlock:server:ToggleHotel" -- if you uses your v4 files dont touch
 }
 
 Shared.Exports = {

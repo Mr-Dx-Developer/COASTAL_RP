@@ -1030,7 +1030,7 @@ Config.market_categories = {
 			},
 			['fishingrod'] = {
 				['name'] = "Fishing Rod",
-				['price_to_customer'] = 350,
+				['price_to_customer'] = 550,
 				['price_to_customer_min'] = 75,
 				['price_to_customer_max'] = 300,
 				['price_to_export'] = 135,
@@ -1041,7 +1041,7 @@ Config.market_categories = {
 			},
 			['fishbait'] = {
 				['name'] = "Fishing Bait",
-				['price_to_customer'] = 550,
+				['price_to_customer'] = 100,
 				['price_to_customer_min'] = 175,
 				['price_to_customer_max'] = 700,
 				['price_to_export'] = 315,
@@ -1070,7 +1070,7 @@ Config.market_categories = {
 				['price_to_owner'] = 125,
 				['amount_to_owner'] = 20,
 				['amount_to_delivery'] = 20,
-				['img'] = 'emp_flower_box.png',
+				['img'] = 'flower_emp_box.png',
 			},
 			['flower_paper'] = {
 				['name'] = "Flower Paper",
@@ -1082,6 +1082,17 @@ Config.market_categories = {
 				['amount_to_owner'] = 20,
 				['amount_to_delivery'] = 20,
 				['img'] = 'flower_paper.png',
+			},
+			['ghostcam '] = {
+				['name'] = "Ghost Camera",
+				['price_to_customer'] = 100,
+				['price_to_customer_min'] = 175,
+				['price_to_customer_max'] = 700,
+				['price_to_export'] = 315,
+				['price_to_owner'] = 300,
+				['amount_to_owner'] = 20,
+				['amount_to_delivery'] = 20,
+				['img'] = 'ghostcam.png',
 			},
 		}
 	},     

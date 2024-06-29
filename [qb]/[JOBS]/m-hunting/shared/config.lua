@@ -3,7 +3,7 @@ Config.Framework = "new-qb" -- new-qb, old-qb, esx
 Config.DisableAttackToPlayer = "job" -- / job or all // If you make it "all", the player will never be able to shoot another player with the Config.WeaponHash weapon.
 Config.NewESX = true -- if you are using esx legacy set this to true
 Config.WeaponAsItem = true -- if you want to use weapon as item set this to true (for default esx inventory set this to false)
-Config.Inventory = 'qs-inventor' -- qb , esx , ox_inventory, codem_inventory (if you are using a different inventory you can write your default framework e.g QBCore qs-inventory 'qb' or ESX qs-inventory 'esx')
+Config.Inventory = 'qb' -- qb , esx , ox_inventory, codem_inventory (if you are using a different inventory you can write your default framework e.g QBCore qs-inventory 'qb' or ESX qs-inventory 'esx')
 Config.UseCharacterName = true
 Config.PedProtection = false -- If true, players cannot harm each other with Config.WeaponHash, but the client resmon value is increased when players have weapons in their hands
 Config.ServerImage = "https://cdn.discordapp.com/attachments/1116058928044843028/1135970581053968485/mrp.png"
@@ -12,10 +12,10 @@ Config.WeaponHash = "weapon_sniperrifle"
 Config.PedWeaponDeleted = true -- true or false erases the gun in your hand
 Config.VehicleHash = "kamacho"
 Config.MySQL = "oxmysql" -- oxmysql, mysql-async , ghmattimysql
-Config.PedCoords = vector4(-773.34, 5598.67, 33.61 -0.98, 170.53)
+Config.PedCoords = vector4(-767.633, 5599.641, 32.742, 80.77)
 Config.RandomXPForKillAnimal = {min = 5, max = 20}
 Config.PedSpawnCount = 80   -- max 100
-Config.MoneyType = "bank" -- bank or cash or black_money
+Config.MoneyType = "cash" -- bank or cash or black_money
 Config.AmmoItem = {
     name = "snp_ammo", -- codem-inv == snp_ammo 
     count = 2
@@ -399,33 +399,33 @@ Config.Translate = {
 }
 
 Config.ItemPrices = {
-      ["pigeonmeat"] = {type = "bird", price = 150}, --- 
-      ["pigeonfeather"] = {type = "bird", price = 150},
-      ["crowmeat"] = {type = "bird", price = 150},
-      ["crowfeather"] = {type = "bird", price = 150},
-      ["seagullmeat"] = {type = "bird", price = 150},
-      ["seagullfeather"] = {type = "bird", price = 150},
-      ["cormorantmeat"] = {type = "bird", price = 150},
-      ["cormorantbeak"] = {type = "bird", price = 150},
-      ["deermeat"] = {type = "animal", price = 150},
-      ["deerhorn"] = {type = "animal", price = 150},
-      ["rabbitmeat"] = {type = "animal", price = 150},
-      ["rabbitskin"] = {type = "animal", price = 150},
-      ["ratmeat"] = {type = "animal", price = 150},
-      ["pigmeat"] = {type = "animal", price = 150},
-      ["pigskin"] = {type = "animal", price = 150},
-      ["coyotemeat"] = {type = "predator", price = 150},
-      ["coyoteskin"] = {type = "predator", price = 150},
-      ["coguarmeat"] = {type = "predator", price = 150},
-      ["coguarskin"] = {type = "predator", price = 150},
-      ["boarmeat"] = {type = "predator", price = 150},
-      ["boarskin"] = {type = "predator", price = 150},
-      ["boarhorn"] = {type = "predator", price = 150},
-      ["snakemeat"] = {type = "predator", price = 150},
-      ["snakeskin"] = {type = "predator", price = 150},
-      ["hawkmeat"] = {type = "predator", price = 150},
-      ["hawkskin"] = {type = "predator", price = 150},
-      ["hawkpeak"] = {type = "predator", price = 150},
+      ["pigeonmeat"] = {type = "bird", price = 250}, --- 
+      ["pigeonfeather"] = {type = "bird", price = 250},
+      ["crowmeat"] = {type = "bird", price = 250},
+      ["crowfeather"] = {type = "bird", price = 250},
+      ["seagullmeat"] = {type = "bird", price = 250},
+      ["seagullfeather"] = {type = "bird", price = 250},
+      ["cormorantmeat"] = {type = "bird", price = 250},
+      ["cormorantbeak"] = {type = "bird", price = 250},
+      ["deermeat"] = {type = "animal", price = 250},
+      ["deerhorn"] = {type = "animal", price = 250},
+      ["rabbitmeat"] = {type = "animal", price = 250},
+      ["rabbitskin"] = {type = "animal", price = 250},
+      ["ratmeat"] = {type = "animal", price = 250},
+      ["pigmeat"] = {type = "animal", price = 250},
+      ["pigskin"] = {type = "animal", price = 250},
+      ["coyotemeat"] = {type = "predator", price = 250},
+      ["coyoteskin"] = {type = "predator", price = 250},
+      ["coguarmeat"] = {type = "predator", price = 250},
+      ["coguarskin"] = {type = "predator", price = 250},
+      ["boarmeat"] = {type = "predator", price = 250},
+      ["boarskin"] = {type = "predator", price = 250},
+      ["boarhorn"] = {type = "predator", price = 250},
+      ["snakemeat"] = {type = "predator", price = 250},
+      ["snakeskin"] = {type = "predator", price = 250},
+      ["hawkmeat"] = {type = "predator", price = 250},
+      ["hawkskin"] = {type = "predator", price = 250},
+      ["hawkpeak"] = {type = "predator", price = 250},
 }
 
 
