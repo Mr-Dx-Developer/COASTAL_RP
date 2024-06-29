@@ -29,11 +29,13 @@ Config.GodRoles = {
 Config.Permissions = {
     ["discord:811436286006657025"] = "god", -- dx
     ["discord:839029240028201020"] = "god",   -- nasim
-
-
     ["discord:680102785957888098"] = "god",   -- laura
-
     ["discord:546004950505750537"] = "god",   -- SyroX
+
+    ["YJR13040"] = "admin",   --- tutulahmed  --- discord:721696179754238004
+    ["MUP67229"] = "admin",   --- sketch_01   --- discord:1012310576975843380
+    ["DJH35594"] = "admin",   --- ayan_ahmed_naim   --- discord:1064398406061150329 
+    ["SBB68358"] = "admin",   --- anirban   --- discord:727766435203514470 
 
 
     
