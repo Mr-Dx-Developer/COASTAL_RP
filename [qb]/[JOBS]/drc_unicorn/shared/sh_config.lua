@@ -22,7 +22,7 @@ Config.NeedCleanHands = true -- Required to clean hands to make drinks etc.
 
 --dispatch
 Config.PoliceJobs = { 'police', 'sheriff' } -- For Alert
-Config.Dispatch = { enabled = true, script = "linden_outlawalert" } -- cd_dispatch, linden_outlawalert, ps-disptach
+Config.Dispatch = { enabled = true, script = "ps-disptach" } -- cd_dispatch, linden_outlawalert, ps-disptach
 
 Config.Inventory = "quasar" -- ox, quasar, chezza, qb
 
