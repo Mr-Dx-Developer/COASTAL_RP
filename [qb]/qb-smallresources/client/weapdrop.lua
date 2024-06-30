@@ -1,5 +1,4 @@
 local disabledPickups = {
-    
     `PICKUP_WEAPON_ADVANCEDRIFLE`,
     `PICKUP_WEAPON_APPISTOL`,
     `PICKUP_WEAPON_ASSAULTRIFLE`,

@@ -49,8 +49,6 @@ Config.AIResponse = {
 }
 
 -- To Set This Up visit https://forum.cfx.re/t/how-to-updated-discord-rich-presence-custom-image/157686
-
-
 --[[ Config.Discord = {
     isEnabled = false,                                     -- If set to true, then discord rich presence will be enabled
     applicationId = '00000000000000000',                   -- The discord application id
@@ -73,8 +71,6 @@ Config.AIResponse = {
     }
 }
  ]]
-
-
 Config.Density = {
     parked = 0.1,
     vehicle = 0.1,
@@ -96,131 +92,49 @@ Config.Disable = {
 
 Config.RelieveWeedStress = math.random(15, 20) -- stress relief amount (100 max)
 
-Config.ConsumablesEat = {
-
-    
-    ["burger-heartstopper"] = math.random(35, 54),
-    ["burger-meatfree"] = math.random(35, 54),
-    
-    ["taco"] = math.random(25, 34),
-
-    ["sandwich"] = math.random(35, 54),
-    ["tosti"] = math.random(40, 50),
-    ["twerks_candy"] = math.random(35, 54),
-    ["snikkel_candy"] = math.random(40, 50),
-
-    ["burger-bleeder"] = math.random(35, 54),
-    ["burger-moneyshot"] = math.random(36, 55),
-    ["burger-torpedo"] = math.random(37, 56),
-    ["burger-fries"] = math.random(20, 40),
-
-    ["bigmac"] = math.random(15, 20),
-    ["mcchicken"] = math.random(15, 20),--
-    ["quarterpounder"] = math.random(15, 20),
-    ["dquarterpounder"] = math.random(15, 20),--
-    ["filet-o-fish"] = math.random(15, 20),--
-    ["cheeseburger"] = math.random(15, 20),--
-    ["bigmac_meal"] = math.random(25, 40),--
-    ["mcchicken_meal"] = math.random(25, 40),
-    ["quarterpounder_meal"] = math.random(25, 40),
-    ["dquarterpounder_meal"] = math.random(25, 40),
-    ["filet-o-fish_meal"] = math.random(25, 40),
-    ["cheeseburger_meal"] = math.random(25, 40),
-    ["dcheeseburger"] = math.random(15, 20),
-    ["tcheeseburger"] = math.random(15, 20),
-    ["6pnuggets"] = math.random(15, 20),
-    ["10pnuggets"] = math.random(15, 20),
-    ["20pnuggets"] = math.random(15, 20),
-    ["dcheeseburger_meal"] = math.random(25, 40),
-    ["tcheeseburger_meal"] = math.random(25, 40),
-    ["6pnuggets_meal"] = math.random(25, 40),
-    ["10pnuggets_meal"] = math.random(25, 40),
-    ["20pnuggets_meal"] = math.random(25, 40),
-    ["sfries"] = math.random(5, 10),
-    ["mfries"] = math.random(15, 20),
-    ["lfries"] = math.random(20, 25),
-    ["hotapplepie"] = math.random(15, 20),
-
-    ["limeysdonut"] = math.random(10, 25),
-    ["limeysdonut2"] = math.random(10, 25),
-	["limeysgum"] = math.random(10, 25),
-    ["limeyschocolate"] = math.random(10, 25),
-    ["limeyschocolate2"] = math.random(10, 25),
-
-    ["burgershot_bigking"] = math.random(40, 50),
-    ["burgershot_bleeder"] = math.random(20, 30),
-    ["burgershot_goatwrap"] = math.random(50, 60),
-    ["burgershot_macaroon"] = math.random(10, 15),
-    ["burgershot_patatob"] = math.random(15, 20),
-    ["burgershot_patatos"] = math.random(5, 10),
-    ["burgershot_shotnuggets"] = math.random(10, 15),
-    ["burgershot_shotrings"] = math.random(10, 15),
-    ["burgershot_thesmurfsicecream"] = math.random(1, 3),
-    ["burgershot_smurfetteicecream"] = math.random(1, 3),
-    ["burgershot_matchaicecream"] = math.random(1, 3),
-    ["burgershot_ubeicecream"] = math.random(1, 3),
-    ["burgershot_unicornicecream"] = math.random(1, 3),
-    ["burgershot_vanillaicecream"] = math.random(1, 3),
-    ["burgershot_chocolateicecream"] = math.random(1, 3),
-    ["burgershot_strawberryicecream"] = math.random(1, 3),
-
-    ["apple"] = math.random(10, 20),
-    ["beef"] = math.random(35, 50),
-    ["slicedpie"] = math.random(10, 20),
-    ["corncob"] = math.random(25, 40),
-    ["canofcorn"] = math.random(35, 50),
-    ["grapes"] = math.random(10, 20),
-    ["greenpepper"] = math.random(10, 20),
-    ["chillypepper"] = math.random(10, 20),
-    ["tomato"] = math.random(10, 20),
-    ["tomatopaste"] = math.random(25, 40),
-    ["cooked_bacon"] = math.random(35, 50),
-    ["cooked_sausage"] = math.random(35, 50),
-    ["cooked_pork"] = math.random(35, 50),
-    ["cooked_ham"] = math.random(35, 50),
-
-}
-
-Config.ConsumablesDrink = {
-
-    
-    ["water_bottle"] = math.random(35, 54),
-    ["kurkakola"] = math.random(35, 54),
-    ["coffee"] = math.random(40, 50),
-    ["burger-softdrink"] = math.random(50, 60),
-    ["burger-mshake"] = math.random(52, 54),
-
-    ["ssconef"] = math.random(15, 20),
-    ["sscone"] = math.random(15, 20),
-    ["mflurryo"] = math.random(15, 20),
-    ["mflurrym"] = math.random(15, 20),
-    ["cocacola"] = math.random(20, 30),
-
-    ["cherrydrink"] = math.random(55, 80),
-    ["lemondrink"] = math.random(55, 80),
-    ["limedrink"] = math.random(55, 80),
-    ["orangedrink"] = math.random(55, 80),
-    ["watermelondrink"] = math.random(55, 80),
-
-    ["burgershot_colab"] = math.random(40, 50),
-    ["burgershot_colas"] = math.random(20, 30),
-    ["burgershot_coffee"] = math.random(10, 20),
-
-    ["apple_juice"] = math.random(25, 45),
-    ["grapejuice"] = math.random(25, 45),
-    ["hotsauce"] = math.random(10, 15),
-}
-
-Config.ConsumablesAlcohol = {
-    ["whiskey"] = math.random(20, 30),
-    ["beer"] = math.random(30, 40),
-    ["vodka"] = math.random(20, 40),
-
-    ["paradisecocktail"] = math.random(75, 100),
-    ["cherrycocktail"] = math.random(50, 75),
-    ["applecocktail"] = math.random(50, 75),
-    ["bananacocktail"] = math.random(50, 75),
-    ["kiwicocktail"] = math.random(50, 75),    
+Config.Consumables = {
+    eat = { -- default food items
+        ['sandwich'] = math.random(35, 54),
+        ['tosti'] = math.random(40, 50),
+        ['twerks_candy'] = math.random(35, 54),
+        ['snikkel_candy'] = math.random(40, 50)
+    },
+    drink = { -- default drink items
+        ['water_bottle'] = math.random(35, 54),
+        ['kurkakola'] = math.random(35, 54),
+        ['coffee'] = math.random(40, 50)
+    },
+    alcohol = { -- default alcohol items
+        ['whiskey'] = math.random(20, 30),
+        ['beer'] = math.random(30, 40),
+        ['vodka'] = math.random(20, 40),
+    },
+    custom = { -- put any custom items here
+        -- ['newitem'] = {
+        --     progress = {
+        --         label = 'Using Item...',
+        --         time = 5000
+        --     },
+        --     animation = {
+        --         animDict = 'amb@prop_human_bbq@male@base',
+        --         anim = 'base',
+        --         flags = 8,
+        --     },
+        --     prop = {
+        --         model = false,
+        --         bone = false,
+        --         coords = false, -- vector 3 format
+        --         rotation = false, -- vector 3 format
+        --     },
+        --     replenish = {'''
+        --         type = 'Hunger', -- replenish type 'Hunger'/'Thirst' / false
+        --         replenish = math.random(20, 40),
+        --         isAlcohol = false, -- if you want it to add alcohol count
+        --         event = false, -- 'eventname' if you want it to trigger an outside event on use useful for drugs
+        --         server = false -- if the event above is a server event
+        --     }
+        -- }
+    }
 }
 
 Config.Fireworks = {
