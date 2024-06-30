@@ -1,17 +1,11 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version 'cerulean'
-
 game 'gta5'
-
 lua54 'yes'
-
 version '2.6.5'
-
 data_file 'WEAPONINFO_FILE_PATCH' 'weaponsnspistol.meta'
-
 ui_page 'html/ui.html'
-
 files {
     'config/*.js',
     'html/ui.html',
@@ -24,14 +18,12 @@ files {
     'html/*.ttf',
     'weaponsnspistol.meta'
 }
-
 shared_scripts {
     '@ox_lib/init.lua',
     'config/*.lua',
     'locales/*.lua',
     'shared/*.lua',
 }
-
 client_script {
     'client/custom/framework/*.lua',
     'client/*.lua',
@@ -39,7 +31,6 @@ client_script {
     'client/custom/misc/*.lua',
     'client/custom/target/*.lua',
 }
-
 server_scripts {
     '@oxmysql/lib/MySQL.lua',
     'server/custom/framework/*.lua',
@@ -48,7 +39,6 @@ server_scripts {
     'server/modules/*.lua',
     'server/custom/misc/*.lua',
 }
-
 escrow_ignore {
     'shared/items.lua',
     'shared/weapons.lua',
@@ -62,10 +52,8 @@ escrow_ignore {
     'server/custom/webhook/*.lua',
     'server/custom/misc/*.lua',
 }
-
 dependencies {
     '/server:4752', -- ⚠️PLEASE READ⚠️ This requires at least server build 4700 or higher
     'ox_lib',       -- Required
 }
-
 dependency '/assetpacks'

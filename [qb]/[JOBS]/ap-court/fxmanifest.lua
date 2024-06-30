@@ -1,15 +1,11 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version 'adamant'
 games { 'gta5' }
-
 mod 'QB AP COURT'
 version '1.2.1'
-
 lua54 'yes'
-
 ui_page 'html/index.html'
-
 files {
 	'html/index.html',
 	'html/assets/css/*.css',
@@ -19,13 +15,11 @@ files {
 	'html/assets/fonts/justsignature/JustSignature.woff',
 	'html/assets/images/*.png'
 }
-
 shared_scripts {
   --'@ox_lib/init.lua', -- UNCOMMENT THIS IF YOUR USING OX LIBS
   'config.lua',
   'language.lua'
 }
-
 client_scripts {
   '@PolyZone/client.lua',
 	'@PolyZone/BoxZone.lua',
@@ -33,21 +27,17 @@ client_scripts {
   'client/main.lua',
   'client/target.lua'
 }
-
 server_scripts {
   '@mysql-async/lib/MySQL.lua',
   'server/main.lua',
   'server/webhook.lua'
 }
-
 exports {
   'usingCriminalRecord',
 }
-
 dependencies {
   'bcs_questionare'
 }
-
 escrow_ignore {
 	'language.lua',
 	'config.lua',

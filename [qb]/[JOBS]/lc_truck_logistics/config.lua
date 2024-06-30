@@ -48,11 +48,11 @@ Config.jobs = {
 	['generated_amount'] = 5,					-- Number of contracts created per interval ('cooldown'). Each interval will create a quick job contract and a freight job contract, so a value of 5 will generate 5 quick job and 5 freight job contracts
 	['max_active_contracts'] = 30,				-- Maximum of contracts that can be active per page, this means that when generating a contact that exceeds this number, the oldest contract will be deleted
 	['price_per_km_min'] = 1000,				-- Minimum price per kilometer of the contract
-	['price_per_km_max'] = 5000,				-- Maximum price per kilometer of the contract
+	['price_per_km_max'] = 1800,				-- Maximum price per kilometer of the contract
 	['freight_job_mutiplier'] = 1.2,			-- Multiplier applied when generating FREIGHT loads (this means that freight jobs will have a 20% higher rewards)
 	['probability_urgent_cargo'] = 10,			-- The urgent load is generated randomly, here you can configure the probability (%)
 	['available_trucks'] = {					-- List of rented trucks that are generated in contracts
-		"hauler","packer" --[[ "blacktop", "brickades", "vetirs" ]]
+		"hauler","packer", "blacktop", "brickades", "vetirs"
 	},
 	['must_bring_truck_back'] = true,			-- true: Payment will only be made when bringing the truck back to the garage (except with own truck) | false: Payment will be made upon delivery of the cargo
 	['available_loads'] = {

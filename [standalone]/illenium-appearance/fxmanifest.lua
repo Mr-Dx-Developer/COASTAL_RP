@@ -1,15 +1,12 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version "cerulean"
 game "gta5"
-
 author "snakewiz & iLLeniumStudios"
 description "A flexible player customization script for FiveM servers."
 repository "https://github.com/iLLeniumStudios/illenium-appearance"
 version "v5.6.1"
-
 lua54 "yes"
-
 client_scripts {
   "game/constants.lua",
   "game/util.lua",
@@ -41,7 +38,6 @@ client_scripts {
   "client/props.lua",
   "client/client.lua",
 }
-
 server_scripts {
   "@oxmysql/lib/MySQL.lua",
   "server/database/database.lua",
@@ -62,7 +58,6 @@ server_scripts {
   "server/server.lua",
   "server/permissions.lua"
 }
-
 shared_scripts {
   "shared/config.lua",
   "shared/blacklist.lua",
@@ -87,10 +82,8 @@ shared_scripts {
   "locales/id.lua",
   "@ox_lib/init.lua"
 }
-
 files {
   "web/dist/index.html",
   "web/dist/assets/*.js"
 }
-
 ui_page "web/dist/index.html"

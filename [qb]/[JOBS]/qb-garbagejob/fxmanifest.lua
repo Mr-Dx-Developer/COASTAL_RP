@@ -1,19 +1,17 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
 author 'Kakarot'
 description 'Allows players to collect garbage for money'
 version '1.2.0'
-
 shared_scripts {
 	'@qb-core/shared/locale.lua',
 	'locales/en.lua',
 	'locales/*.lua',
 	'config.lua'
 }
-
 client_script {
 	'@PolyZone/client.lua',
 	'@PolyZone/BoxZone.lua',
@@ -22,5 +20,4 @@ client_script {
 	'@PolyZone/ComboZone.lua',
 	'client/main.lua'
 }
-
 server_script 'server/main.lua'

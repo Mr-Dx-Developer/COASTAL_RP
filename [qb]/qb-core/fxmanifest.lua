@@ -1,12 +1,11 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
 author 'Kakarot'
 description 'Core resource for the framework, contains all the core functionality and features'
 version '1.2.6'
-
 shared_scripts {
     'config.lua',
     'shared/locale.lua',
@@ -20,7 +19,6 @@ shared_scripts {
     'shared/weapons.lua',
     'shared/locations.lua'
 }
-
 client_scripts {
     'client/main.lua',
     'client/functions.lua',
@@ -28,7 +26,6 @@ client_scripts {
     'client/events.lua',
     'client/drawtext.lua'
 }
-
 server_scripts {
     '@oxmysql/lib/MySQL.lua',
     'server/main.lua',
@@ -39,14 +36,11 @@ server_scripts {
     'server/exports.lua',
     'server/debug.lua'
 }
-
 ui_page 'html/index.html'
-
 files {
     'html/index.html',
     'html/css/style.css',
     'html/css/drawtext.css',
     'html/js/*.js'
 }
-
 dependency 'oxmysql'

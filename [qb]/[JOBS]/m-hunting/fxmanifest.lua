@@ -1,13 +1,11 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version 'adamant'
 game 'gta5'
 author 'CodeM Team'
 version '1.5'
 lua54 'yes'
-
 ui_page 'ui/index.html'
-
 client_scripts {
     'shared/GetFrameworkObject.lua',
     '@PolyZone/client.lua',
@@ -19,14 +17,12 @@ client_scripts {
     'client/main.lua',
     'client/editable.lua'
 }
-
 server_scripts {
     'shared/GetFrameworkObject.lua',
     'shared/config.lua',
     'server/main.lua',
     'server/editable.lua'
 }
-
 files {
     'ui/index.html',
     'ui/css/*.css',
@@ -35,7 +31,6 @@ files {
     'ui/img/*.png',
     'ui/js/*.js'
 }
-
 escrow_ignore {
     'shared/*.lua',
     'client/editable.lua',

@@ -1,20 +1,15 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.js'
 shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 game 'common'
-
 fx_version 'cerulean'
 author 'AvarianKnight'
 description 'VOIP built using FiveM\'s built in mumble.'
-
 dependencies {
 	'/onesync',
 }
-
 lua54 'yes'
-
 shared_script 'shared.lua'
-
 client_scripts {
 	'client/utils/*',
 	'client/init/proximity.lua',
@@ -24,28 +19,23 @@ client_scripts {
 	'client/module/*.lua',
 	'client/*.lua',
 }
-
 server_scripts {
 	'server/**/*.lua',
 	'server/**/*.js'
 }
-
 files {
 	'ui/*.ogg',
 	'ui/css/*.css',
 	'ui/js/*.js',
 	'ui/index.html',
 }
-
 ui_page 'ui/index.html'
-
 provides {
 	'mumble-voip',
 	'tokovoip',
 	'toko-voip',
 	'tokovoip_script'
 }
-
 convar_category 'PMA-Voice' {
 	"PMA-Voice Configuration Options",
 	{

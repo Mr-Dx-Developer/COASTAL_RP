@@ -1,12 +1,10 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version "cerulean"
 game "gta5"
 lua54 "yes"
 use_experimental_fxv2_oal "yes"
-
 version "1.0.6"
-
 shared_script "shared/*.lua"
 client_scripts {
     "client/*.lua",
@@ -16,7 +14,6 @@ server_scripts {
     "server/*.lua",
     "server/functions/*.lua"
 }
-
 files {
     "client/html/*.html",
     "client/html/*.js"

@@ -1,3 +1,4 @@
+shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.js'
 fx_version 'bodacious'
 game 'common'
 client_script 'dist/client.js'

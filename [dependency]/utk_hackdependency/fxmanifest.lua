@@ -1,9 +1,7 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version "adamant"
-
 game "gta5"
-
 files {
     "html/index.html",
     "html/success.ogg",
@@ -16,11 +14,8 @@ files {
     "sounds/dlcheist3/door_hacking.awc",
     "sounds/dlcheist3/fingerprint_match.awc"
 }
-
 ui_page "html/index.html"
-
 data_file "AUDIO_GAMEDATA" "sounds/dlcheist3_game.dat"
 data_file "AUDIO_SOUNDDATA" "sounds/dlcheist3_sounds.dat"
 data_file "AUDIO_WAVEPACK" "sounds/dlcheist3"
-
 client_script "client.lua"

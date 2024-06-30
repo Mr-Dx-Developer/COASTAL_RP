@@ -1,15 +1,13 @@
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
+shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
-
 name "um-multicharacter"
 author "uyuyorum store"
 license 'FiveM Escrow'
 version "4.0.0"
 description "UM - Multi Character"
-
 shared_scripts {
 	'@ox_lib/init.lua',
 	'locales/*.lua',
@@ -17,19 +15,15 @@ shared_scripts {
 	'config.lua',
 	'framework/custom.lua',
 }
-
 client_scripts {
 	'client/*.lua',
 }
-
 server_scripts {
 	'@oxmysql/lib/MySQL.lua',
 	'server/*.lua',
 	'framework/getskin.lua',
 }
-
 ui_page 'web/build/index.html'
-
 files {
 	'web/build/index.html',
 	'web/build/assets/*.js',
@@ -39,7 +33,6 @@ files {
 	'web/build/audio/*.wav',
 	'web/build/audio/*.mp3',
 }
-
 escrow_ignore {
 	'locales/*.lua',
 	'list/*.lua',
@@ -49,7 +42,6 @@ escrow_ignore {
 	'server/qb_logs.lua',
 	'framework/*.lua',
 }
-
 dependencies {
 	'ox_lib',
     '/onesync',
