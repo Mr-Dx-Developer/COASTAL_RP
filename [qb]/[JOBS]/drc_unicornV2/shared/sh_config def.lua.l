@@ -24,7 +24,7 @@ Config.NeedCleanHands = true -- Required to clean hands to make drinks etc.
 Config.PoliceJobs = { 'police', 'sheriff' } -- For Alert
 Config.Dispatch = { enabled = true, script = "linden_outlawalert" } -- cd_dispatch, linden_outlawalert, ps-disptach
 
-Config.Inventory = "quasar" -- ox, quasar, chezza, qb
+Config.Inventory = "ox" -- ox, quasar, chezza, qb
 
 Config.Logs = { enabled = true, type = "webhook" } -- use webhook or ox_lib (datadog) Can be changed in server > sv_utils.lua
 Config.DropPlayer = true -- Drop (Kick) Player if tries to cheat!
@@ -32,7 +32,7 @@ Config.AnticheatBan = false -- Change in server/sv_Utils.lua!!! WIll not work by
 
 Config.NudityStrippers = false
 
-Config.DisableDefaultMusic = true
+Config.DisableDefaultMusic = false
 
 Config.ThrowMoney = 500
 
@@ -92,11 +92,11 @@ Config.Hookers = {
 }
 
 Config.CigShop = {
-    enabled = true, -- change item to your cigarette item before enabling
-    AddMoneyToSociety = true,
+    enabled = false, -- change item to your cigarette item before enabling
+    AddMoneyToSociety = false,
     Header = "Cigarette vending",
     Items = {
-        { label = 'Cigarette', item = 'cigarette', description = "Buy cigarette for: $", price = 50 },
+        { label = 'Box of cigarette', item = 'YOUR CIGARETE ITEM', description = "Buy Box of cigarette for: $", price = 50 },
     },
     CigMachines = {
         "prop_vend_fags_01",
@@ -104,14 +104,35 @@ Config.CigShop = {
 }
 
 Config.LapDance = {
-    Seller =  { model = "s_m_y_devinsec_01", coords = vec4(117.4648, -1295.9160, 28.2693, 316.8826), scenario = "WORLD_HUMAN_SMOKING" },
+    Seller =  { model = "s_m_y_devinsec_01", coords = vec4(118.7, -1295.48, 28.27, 304.5), scenario = "WORLD_HUMAN_SMOKING" },
     Locations = {
         {
             Title = "Private Lapdance cabin #1",
             Spawn = vec4(114.58, -1295.01, 28.27, 214.25),
             price = 200,
             coords = {
-                { pos = vector3(119.6016, -1296.1283, 28.2693), time = 4000 }
+                { pos = vector3(115.8, -1297.0, 28.27), time = 4000 },
+                { pos = vector3(118.44, -1301.37, 28.27), time = 4500 }
+            },
+            Anims = {
+                { dict = "mini@strip_club@private_dance@part2", anim = "priv_dance_p2", time = 120000 },
+               -- { dict = "mini@strip_club@idles@stripper", anim = "stripper_idle_02", time = 20000 },
+            },
+            Models = {
+                `csb_stripper_01`,
+                `s_f_y_stripper_01`,
+                `s_f_y_stripperlite`,
+            },
+        },
+        {
+            Title = "Private Lapdance cabin #2",
+            Spawn = vec4(114.58, -1295.01, 28.27, 214.25),
+            price = 200,
+            coords = {
+                { pos = vector3(115.8, -1297.0, 28.27), time = 4000 },
+                { pos = vector3(117.63, -1300.44, 28.02), time = 7000 },
+                { pos = vector3(115.71, -1301.48, 28.02), time = 8000 },
+                { pos = vector3(116.18, -1302.42, 28.27), time = 2000 }
             },
             Anims = {
                 { dict = "mini@strip_club@private_dance@part2", anim = "priv_dance_p2", time = 120000 },
@@ -123,25 +144,106 @@ Config.LapDance = {
                 `s_f_y_stripperlite`,
             },
         },
-        --YOU CAN ADD MORE LOCATIONS
-        -- LIKE THIS :
-        --{
-        --    Title = "Private Lapdance cabin #1",
-        --    Spawn = vec4(114.58, -1295.01, 28.27, 214.25),
-        --    price = 200,
-        --    coords = {
-        --        { pos = vector3(119.6016, -1296.1283, 28.2693), time = 4000 }
-        --    },
-        --    Anims = {
-        --        { dict = "mini@strip_club@private_dance@part2", anim = "priv_dance_p2", time = 120000 },
+        {
+            Title = "Private Lapdance cabin #3",
+            Spawn = vec4(114.58, -1295.01, 28.27, 214.25),
+            price = 200,
+            coords = {
+                { pos = vector3(115.8, -1297.0, 28.27), time = 4000 },
+                { pos = vector3(117.63, -1300.44, 28.02), time = 7000 },
+                { pos = vector3(115.42, -1301.79, 28.02), time = 8000 },
+                { pos = vector3(115.04, -1300.99, 28.27), time = 2000 }
+            },
+            Anims = {
+                { dict = "mini@strip_club@private_dance@part2", anim = "priv_dance_p2", time = 120000 },
               --  { dict = "mini@strip_club@idles@stripper", anim = "stripper_idle_02", time = 20000 },
-        --    },
-        --    Models = {
-        --        `csb_stripper_01`,
-        --       `s_f_y_stripper_01`,
-        --        `s_f_y_stripperlite`,
-        --    },
-        --},
+            },
+            Models = {
+                `csb_stripper_01`,
+                `s_f_y_stripper_01`,
+                `s_f_y_stripperlite`,
+            },
+        },
+        {
+            Title = "Private Lapdance cabin #4",
+            Spawn = vec4(114.58, -1295.01, 28.27, 214.25),
+            price = 200,
+            coords = {
+                { pos = vector3(115.8, -1297.0, 28.27), time = 4000 },
+                { pos = vector3(117.63, -1300.44, 28.02), time = 7000 },
+                { pos = vector3(113.42, -1302.91, 28.02), time = 8000 },
+                { pos = vector3(114.14, -1303.66, 28.27), time = 2000 }
+            },
+            Anims = {
+                { dict = "mini@strip_club@private_dance@part2", anim = "priv_dance_p2", time = 120000 },
+              --  { dict = "mini@strip_club@idles@stripper", anim = "stripper_idle_02", time = 20000 },
+            },
+            Models = {
+                `csb_stripper_01`,
+                `s_f_y_stripper_01`,
+                `s_f_y_stripperlite`,
+            },
+        },
+        {
+            Title = "Private Lapdance cabin #5",
+            Spawn = vec4(114.58, -1295.01, 28.27, 214.25),
+            price = 200,
+            coords = {
+                { pos = vector3(115.8, -1297.0, 28.27), time = 4000 },
+                { pos = vector3(117.63, -1300.44, 28.02), time = 7000 },
+                { pos = vector3(113.42, -1302.91, 28.02), time = 8000 },
+                { pos = vector3(113.16, -1302.1, 28.27), time = 2000 }
+            },
+            Anims = {
+                { dict = "mini@strip_club@private_dance@part2", anim = "priv_dance_p2", time = 120000 },
+              --  { dict = "mini@strip_club@idles@stripper", anim = "stripper_idle_02", time = 20000 },
+            },
+            Models = {
+                `csb_stripper_01`,
+                `s_f_y_stripper_01`,
+                `s_f_y_stripperlite`,
+            },
+        },
+        {
+            Title = "Private Lapdance cabin #6",
+            Spawn = vec4(114.58, -1295.01, 28.27, 214.25),
+            price = 200,
+            coords = {
+                { pos = vector3(115.8, -1297.0, 28.27), time = 4000 },
+                { pos = vector3(117.63, -1300.44, 28.02), time = 7000 },
+                { pos = vector3(111.61, -1303.97, 28.02), time = 8000 },
+                { pos = vector3(112.17, -1304.76, 28.27), time = 2000 }
+            },
+            Anims = {
+                { dict = "mini@strip_club@private_dance@part2", anim = "priv_dance_p2", time = 120000 },
+              --  { dict = "mini@strip_club@idles@stripper", anim = "stripper_idle_02", time = 20000 },
+            },
+            Models = {
+                `csb_stripper_01`,
+                `s_f_y_stripper_01`,
+                `s_f_y_stripperlite`,
+            },
+        },
+        {
+            Title = "Private Lapdance cabin #7",
+            Spawn = vec4(114.58, -1295.01, 28.27, 214.25),
+            price = 200,
+            coords = {
+                { pos = vector3(115.8, -1297.0, 28.27), time = 4000 },
+                { pos = vector3(117.63, -1300.44, 28.02), time = 7000 },
+                { pos = vector3(111.61, -1303.97, 28.02), time = 8000 },
+                { pos = vector3(111.28, -1303.17, 28.27), time = 2000 }
+            },
+            Anims = {
+                { dict = "mini@strip_club@private_dance@part2", anim = "priv_dance_p2", time = 120000 },
+              --  { dict = "mini@strip_club@idles@stripper", anim = "stripper_idle_02", time = 20000 },
+            },
+            Models = {
+                `csb_stripper_01`,
+                `s_f_y_stripper_01`,
+                `s_f_y_stripperlite`,
+            },
+        },
     }
 }
 
@@ -149,36 +251,36 @@ Config.LapDance = {
 Config.unicorn = {
     PoleEnabled = true,
     Poledance = {
-        pole1 = { coords = vector3(105.0791, -1291.1047, 29.0998), dict = 'mini@strip_club@pole_dance@pole_dance1', anim = "pd_dance_01"},
-        pole2 = { coords = vector3(104.7740, -1294.2447, 29.3866), dict = 'mini@strip_club@pole_dance@pole_dance1', anim = "pd_dance_01"},
-        pole3 = { coords = vector3(102.2257, -1289.9059, 29.3604), dict = 'mini@strip_club@pole_dance@pole_dance1', anim = "pd_dance_01"},
-        pole4 = { coords = vector3(133.3988, -1279.3443, 29.5197), dict = 'mini@strip_club@pole_dance@pole_dance1', anim = "pd_dance_01"},
+        pole1 = { coords = vector3(104.2, -1294.0, 29.25), dict = 'mini@strip_club@pole_dance@pole_dance1', anim = "pd_dance_01"},
+        pole2 = { coords = vector3(102.24, -1290.63, 29.25), dict = 'mini@strip_club@pole_dance@pole_dance1', anim = "pd_dance_01"},
+        pole3 = { coords = vector3(112.61, -1286.76, 28.46), dict = 'mini@strip_club@pole_dance@pole_dance1', anim = "pd_dance_01"},
     },
 
     PrivateDances = {
-        { coords = vector3(114.8777, -1303.9745, 29.2720), heading = 253.2636, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
-        { coords = vector3(112.9996, -1304.9867, 29.2720), heading = 167.7012, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
-        { coords = vector3(111.8303, -1302.5922, 29.2720), heading = 73.1104, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
-        { coords = vector3(113.6621, -1301.0468, 29.2721), heading = 98.1804, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
-        { coords = vector3(119.4162, -1288.1040, 29.0526), heading = 331.8597, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
-        { coords = vector3(111.7946, -1285.2072, 29.0571), heading = 308.6962, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
+        { coords = vector3(118.48, -1301.7, 29.27), heading = 30.0, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
+        { coords = vector3(116.36, -1302.87, 29.27), heading = 30.0, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
+        { coords = vector3(114.2, -1304.06, 29.27), heading = 30.0, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
+        { coords = vector3(112.45, -1305.3, 29.27), heading = 30.0, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
+        { coords = vector3(111.04, -1302.68, 29.27), heading = 30.0, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
+        { coords = vector3(112.96, -1301.75, 29.27), heading = 30.0, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
+        { coords = vector3(114.86, -1300.71, 29.27), heading = 30.0, dict = 'mini@strip_club@private_dance@part1', anim = "priv_dance_p1"},
     },
     Lean = {
-        { coords = vector3(106.8017, -1290.6082, 28.2602), teleport = vector3(106.8017, -1290.6082, 28.2602), heading = 119.6515, pole = "pole1"},
-        { coords = vector3(107.2739, -1291.4602, 28.2602), teleport = vector3(107.2739, -1291.4602, 28.2602), heading = 94.7051, pole = "pole1"},
-        { coords = vector3(107.4794, -1294.3127, 28.2602), teleport = vector3(107.4794, -1294.3127, 28.2602), heading = 86.9258, pole = "pole1"},
+        { coords = vector3(114.31, -1290.02, 27.26), teleport = vector3(114.31, -1290.02, 27.26), heading = 32.93, pole = "pole1"},
+        { coords = vector3(114.76, -1285.9, 27.26), teleport = vector3(114.76, -1285.9, 27.26), heading = 118.36, pole = "pole1"},
+        { coords = vector3(110.94, -1284.3, 27.26), teleport = vector3(110.94, -1284.3, 27.26), heading = 205.33, pole = "pole1"},
 
-        { coords = vector3(107.0802, -1294.5315, 28.2602), teleport = vector3(107.0802, -1294.5315, 28.2602), heading = 76.5486, pole = "pole2"},
-        { coords = vector3(106.4523, -1296.3215, 28.2602), teleport = vector3(106.4523, -1296.3215, 28.2602), heading = 45.0772, pole = "pole2"},
+        { coords = vector3(103.35, -1287.91, 27.26), teleport = vector3(103.35, -1287.91, 27.26), heading = 157.31, pole = "pole2"},
+        { coords = vector3(100.82, -1287.93, 27.26), teleport = vector3(100.82, -1287.93, 27.26), heading = 211.07, pole = "pole2"},
 
-        { coords = vector3(104.7866, -1288.8627, 28.2602), teleport = vector3(104.7866, -1288.8627, 28.2602), heading = 155.2343, pole = "pole3"},
-        { coords = vector3(102.2107, -1287.7810, 28.2602), teleport = vector3(102.2107, -1287.7810, 28.2602), heading = 189.2290, pole = "pole3"},
+        { coords = vector3(106.34, -1296.76, 27.26), teleport = vector3(106.34, -1296.76, 27.26), heading = 32.69, pole = "pole3"},
+        { coords = vector3(107.43, -1294.58, 27.26), teleport = vector3(107.43, -1294.58, 27.26), heading = 77.48, pole = "pole3"},
     },
 
     Peds = {
-        pole1 = { model = "s_f_y_stripper_01", coords = vector3(105.0791, -1291.1047, 29.0998), dict = 'mini@strip_club@pole_dance@pole_dance2', anim = "pd_dance_02", stripper = true},
-        pole2 = { model = "s_f_y_stripperlite", coords = vector3(104.7740, -1294.2447, 29.3866), dict = 'mini@strip_club@pole_dance@pole_dance3', anim = "pd_dance_03", stripper = true},
-        pole3 = { model = "csb_stripper_01", coords = vector3(102.2257, -1289.9059, 29.3604), dict = 'mini@strip_club@pole_dance@pole_dance1', anim = "pd_dance_01", stripper = true},
+        pole1 = { model = "s_f_y_stripper_01", coords = vector3(104.2, -1294.0, 29.25), dict = 'mini@strip_club@pole_dance@pole_dance2', anim = "pd_dance_02", stripper = true},
+        pole2 = { model = "s_f_y_stripperlite", coords = vector3(102.24, -1290.63, 29.25), dict = 'mini@strip_club@pole_dance@pole_dance3', anim = "pd_dance_03", stripper = true},
+        pole3 = { model = "csb_stripper_01", coords = vector3(112.61, -1286.76, 28.46), dict = 'mini@strip_club@pole_dance@pole_dance1', anim = "pd_dance_01", stripper = true},
     },
 
     PolyZone = {
@@ -188,8 +290,8 @@ Config.unicorn = {
     AlertPolice = vec3(126.97, -1281.52, 28.99),
     AlarmButton = { enabled = true, coords = vec4(127.07, -1281.45, 28.91, 118.52) },
 
-    Delivery = vec3(131.7057, -1288.7290, 29.7696),
-    Phone = { enabled = true, coords = vec4(131.7057, -1288.7290, 28.9696, 31.1683) },
+    Delivery = vec3(132.75, -1295.01, 29.6),
+    Phone = { enabled = false, coords = vec4(131.5, -1288.68, 29.79, 210.46) },
 
     Garage = {
         Ped = {
@@ -222,10 +324,10 @@ Config.unicorn = {
 
     Sinks = {
         FrontBar = {
-            coords = vector3(133.6448, -1286.7816, 29.4408),
+            coords = vector3(130.3844, -1286.3746, 28.9845),
             radius = 0.3,
             debug = false,
-            WaterStream = vector3(133.6448, -1286.7816, 29.5408),
+            WaterStream = vector3(129.9891, -1286.1013, 29.2077),
         --[[},
         BackBar = {
             coords = vector3(-1374.89, -627.13, 30.81),
@@ -236,40 +338,40 @@ Config.unicorn = {
         },
     },
 
-    DJ = { coords = vec3(106.57, -1284.63, 28.26), radius = 0.4, playingradius = 31, defaultvol = 0.2, Playing = false },
+    DJ = { coords = vec3(120.08, -1281.7, 29.45), radius = 1.5, playingradius = 31, defaultvol = 0.2, Playing = false },
 
     Duty = {
-        Front = { coords = vector3(102.2655, -1299.4333, 29.5729), radius = 0.4, debug = false },
+        Main = { coords = vector3(102.3134, -1299.5570, 29.6036), radius = 0.7, debug = false },
     },
 
     CloakRoom = {
-        Main = { coords = vector3(104.84, -1303.55, 28.79), radius = 0.6, debug = false },
+        Main = { coords = vector3(104.33, -1303.82, 28.49), radius = 0.9, debug = true },
     },
 
     Stashes = {
 
         Main = {
-            name = "Unicorn_Refregiator",
-            label = "Unicorn Refregiator",
+            name = "Unicorn_Refregiator1",
+            label = "Unicorn Refregiator 1",
             TargetIcon = "fas fa-ice-cream",
             TargetLabel = "Refregiator",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(119.17, -1302.85, 28.87),
+            coords = vector3(132.8, -1286.14, 28.78),
             radius = 0.5,
             debug = false,
             job = "unicorn"
         },
 
-        Refregiator2 = {
+        Refregiato2 = {
             name = "Unicorn_Refregiator2",
             label = "Unicorn Refregiator 2",
             TargetIcon = "fas fa-ice-cream",
             TargetLabel = "Refregiator",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(132.45, -1285.69, 28.92),
-            radius = 0.45,
+            coords = vector3(131.98, -1284.96, 28.77),
+            radius = 0.5,
             debug = false,
             job = "unicorn"
         },
@@ -281,8 +383,8 @@ Config.unicorn = {
             TargetLabel = "Refregiator",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(129.8, -1280.72, 28.72),
-            radius = 0.5,
+            coords = vector3(131.31, -1283.89, 28.82),
+            radius = 0.35,
             debug = false,
             job = "unicorn"
         },
@@ -294,8 +396,8 @@ Config.unicorn = {
             TargetLabel = "Refregiator",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(129.01, -1283.98, 28.77),
-            radius = 0.45,
+            coords = vector3(130.03, -1281.37, 28.77),
+            radius = 0.5,
             debug = false,
             job = "unicorn"
         },
@@ -307,8 +409,8 @@ Config.unicorn = {
             TargetLabel = "Refregiator",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(129.93, -1285.46, 28.77),
-            radius = 0.4,
+            coords = vector3(129.22, -1279.98, 28.72),
+            radius = 0.5,
             debug = false,
             job = "unicorn"
         },
@@ -320,8 +422,47 @@ Config.unicorn = {
             TargetLabel = "Refregiator",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(92.92, -1290.93, 29.26),
-            radius = 0.45,
+            coords = vector3(129.04, -1284.03, 28.77),
+            radius = 0.5,
+            debug = false,
+            job = "unicorn"
+        },
+
+        Refregiato7 = {
+            name = "Unicorn_Refregiator7",
+            label = "Unicorn Refregiator 7",
+            TargetIcon = "fas fa-ice-cream",
+            TargetLabel = "Refregiator",
+            Slots = 20,
+            Weight = 50000, -- 50 KG
+            coords = vector3(128.3, -1282.65, 28.82),
+            radius = 0.38,
+            debug = false,
+            job = "unicorn"
+        },
+
+        Refregiato8 = {
+            name = "Unicorn_Refregiator8",
+            label = "Unicorn Refregiator 8",
+            TargetIcon = "fas fa-ice-cream",
+            TargetLabel = "Refregiator",
+            Slots = 20,
+            Weight = 50000, -- 50 KG
+            coords = vector3(129.77, -1285.51, 28.62),
+            radius = 0.38,
+            debug = false,
+            job = "unicorn"
+        },
+
+        Refregiato9 = {
+            name = "Unicorn_Refregiator9",
+            label = "Unicorn Refregiator 9",
+            TargetIcon = "fas fa-ice-cream",
+            TargetLabel = "Refregiator",
+            Slots = 20,
+            Weight = 50000, -- 50 KG
+            coords = vector3(93.04, -1291.12, 29.27),
+            radius = 0.5,
             debug = false,
             job = "unicorn"
         },
@@ -333,7 +474,7 @@ Config.unicorn = {
             TargetLabel = "Table",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(94.77, -1289.96, 28.91),
+            coords = vector3(124.23, -1283.19, 28.93),
             radius = 0.45,
             debug = false
         },
@@ -345,8 +486,8 @@ Config.unicorn = {
             TargetLabel = "Table",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(114.67, -1305.65, 28.64),
-            radius = 0.45,
+            coords = vector3(124.41, -1285.47, 28.98),
+            radius = 0.5,
             debug = false
         },
 
@@ -357,8 +498,8 @@ Config.unicorn = {
             TargetLabel = "Table",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(113.76, -1299.81, 28.62),
-            radius = 0.45,
+            coords = vector3(125.65, -1287.72, 28.99),
+            radius = 0.5,
             debug = false
         },
 
@@ -369,8 +510,8 @@ Config.unicorn = {
             TargetLabel = "Table",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(111.26, -1304.28, 28.64),
-            radius = 0.45,
+            coords = vector3(122.72, -1288.26, 27.91),
+            radius = 0.5,
             debug = false
         },
 
@@ -381,8 +522,8 @@ Config.unicorn = {
             TargetLabel = "Table",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(114.68, -1299.18, 29.22),
-            radius = 0.45,
+            coords = vector3(121.78, -1286.56, 27.77),
+            radius = 0.5,
             debug = false
         },
 
@@ -393,8 +534,8 @@ Config.unicorn = {
             TargetLabel = "Table",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(123.36, -1294.77, 28.62),
-            radius = 0.45,
+            coords = vector3(120.79, -1284.88, 27.97),
+            radius = 0.5,
             debug = false
         },
 
@@ -405,8 +546,8 @@ Config.unicorn = {
             TargetLabel = "Table",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(119.95, -1296.72, 28.57),
-            radius = 0.5,
+            coords = vector3(118.77, -1282.6, 27.97),
+            radius = 0.55,
             debug = false
         },
 
@@ -417,8 +558,8 @@ Config.unicorn = {
             TargetLabel = "Table",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(122.07, -1287.07, 27.71),
-            radius = 0.45,
+            coords = vector3(105.89, -1283.51, 27.86),
+            radius = 0.5,
             debug = false
         },
 
@@ -429,8 +570,8 @@ Config.unicorn = {
             TargetLabel = "Table",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(120.96, -1285.21, 27.56), 
-            radius = 0.55,
+            coords = vector3(102.32, -1285.6, 27.86),
+            radius = 0.5,
             debug = false
         },
 
@@ -441,8 +582,8 @@ Config.unicorn = {
             TargetLabel = "Table",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(117.49, -1282.76, 27.66),
-            radius = 0.45,
+            coords = vector3(111.75, -1294.07, 28.01), 
+            radius = 0.5,
             debug = false
         },
 
@@ -453,208 +594,38 @@ Config.unicorn = {
             TargetLabel = "Table",
             Slots = 20,
             Weight = 50000, -- 50 KG
-            coords = vector3(113.91, -1282.42, 27.71),
-            radius = 0.45,
+            coords = vector3(107.9, -1296.23, 27.81),
+            radius = 0.5,
             debug = false
         },
-
-        Table12 = {
-            name = "Unicorn_Table12",
-            label = "Unicorn Table 12",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(116.36, -1291.31, 27.66),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table13 = {
-            name = "Unicorn_Table13",
-            label = "Unicorn Table 13",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(125.81, -1286.77, 29.27),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table14 = {
-            name = "Unicorn_Tabl14",
-            label = "Unicorn Table 14",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(124.22, -1283.94, 29.37),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table15 = {
-            name = "Unicorn_Tabl15",
-            label = "Unicorn Table 15",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(110.05, -1282.96, 27.81),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table16 = {
-            name = "Unicorn_Tabl16",
-            label = "Unicorn Table 16",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(114.0350, -1291.4268, 28.0000),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table17 = {
-            name = "Unicorn_Tabl17",
-            label = "Unicorn Table 17",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(131.57, -1291.62, 29.27),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table18 = {
-            name = "Unicorn_Tabl18",
-            label = "Unicorn Table 18",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(138.4, -1285.14, 28.97),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table19 = {
-            name = "Unicorn_Tabl19",
-            label = "Unicorn Table 19",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(141.1, -1293.76, 28.87),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table20 = {
-            name = "Unicorn_Tabl20",
-            label = "Unicorn Table 20",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(137.99, -1297.76, 28.78),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table21 = {
-            name = "Unicorn_Tabl21",
-            label = "Unicorn Table 21",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(133.91, -1299.96, 29.23),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table22 = {
-            name = "Unicorn_Tabl22",
-            label = "Unicorn Table 22",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(126.62, -1300.29, 29.23),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table23 = {
-            name = "Unicorn_Tabl23",
-            label = "Unicorn Table 23",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(126.72, -1304.43, 29.23),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table24 = {
-            name = "Unicorn_Tabl24",
-            label = "Unicorn Table 24",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(123.78, -1306.03, 28.83),
-            radius = 0.45,
-            debug = false
-        },
-
-        Table25 = {
-            name = "Unicorn_Tabl25",
-            label = "Unicorn Table 25",
-            TargetIcon = "fas fa-tablet",
-            TargetLabel = "Table",
-            Slots = 20,
-            Weight = 50000, -- 50 KG
-            coords = vector3(118.65, -1306.82, 28.78),
-            radius = 0.45,
-            debug = false
-        },
-
-
 
     },
 
     BossMenu = {
-        Main = { coords = vector3(96.2516, -1293.2615, 29.0546), radius = 0.3, debug = false },
+        Main = { coords = vector3(95.77, -1293.17, 29.26), radius = 0.55, debug = false },
     },
 
     IceMachine = {
-        FrontBar = { coords = vector3(128.01, -1281.78, 29.17), radius = 0.45, debug = false },
+        FrontBar = { coords = vector3(128.01, -1281.78, 29.27), radius = 0.45, debug = false },
     },
 
     Registers = {
-        FrontBar = { coords = vector3(129.5015, -1285.2175, 29.4592), radius = 0.2, debug = false, amount = 0 },
+        FrontBar = { coords = vector3(129.05, -1285.03, 29.27), radius = 0.45, debug = false, amount = 0 },
     },
 
     DancePlatforms = {
-        DJ = { coords = vector3(106.2397, -1284.0128, 27.2602), radius = 0.7, debug = false,
+        DJ = { coords = vector3(120.5862, -1281.3948, 29.4805), radius = 0.7, debug = false,
             dict = "anim@amb@nightclub@djs@dixon@", anim = "dixn_dance_cntr_open_dix" },
     },
 
     -- Here, we're not using any teleports, so we just put it underground.. if you want it, you can change coords
     Teleports = {
         FrontBar = {
-            coords = vector3(0.8512, 0.6432, 0.6261),
-            radius = 0.7,
+            coords = vector3(130.22, -1287.56, 29.12),
+            radius = 0.8,
             debug = false,
-            BehindCoords = { coords = vector3(0), heading = 86.2596 },
-            FrontCoords = { coords = vector3(0), heading = 102.0459 },
+            BehindCoords = { coords = vector3(131.4595, -1286.6543, 28.2750), heading = 128.9888 },
+            FrontCoords = { coords = vector3(129.7043, -1287.7062, 28.2797), heading = 304.0650 },
         },
     }
 }
@@ -752,7 +723,7 @@ Config.Food = {
         Title = "Bowl of nuts",
         description = "Requirements: Bowl, Nuts",
         RequiredItems = {
-            { item = "bowl", count = 1, remove = true },
+            { item = "bar_bowl", count = 1, remove = true },
             { item = "nuts", count = 1, remove = true },
         },
         AddItems = {
@@ -760,11 +731,11 @@ Config.Food = {
         }
     },
     BowlBeans = {
-        Title = "Bowl of nuts",
-        description = "Requirements: Bowl, Nuts",
+        Title = "Bowl of beans",
+        description = "Requirements: Bowl, Beans",
         RequiredItems = {
-            { item = "bowl", count = 1, remove = true },
-            { item = "nuts", count = 1, remove = true },
+            { item = "bar_bowl", count = 1, remove = true },
+            { item = "beans", count = 1, remove = true },
         },
         AddItems = {
             { item = "bar_beans", count = 1 },
@@ -828,7 +799,7 @@ Config.Blips = {
 --Job BLIPS
 Config.JobBlips = {
     PawnShop = { -- do not use same value twice (will result in overwriting of blip)
-        BlipCoords = vec3(-1311.47, -1172.07, 3.9), -- Blip coords
+        BlipCoords = vec3(124.22, -1487.95, 28.14), -- Blip coords
         Sprite = 59, -- Blip Icon
         Display = 4, -- keep 4
         Scale = 0.8, -- Size of blip
@@ -867,7 +838,7 @@ Config.Shop = {
             MaxAmount = 20 },
     },
     Ped = {
-        { model = "mp_m_shopkeep_01", coords = vec4(-1312.43, -1171.91, 3.9, 284.6), scenario = "WORLD_HUMAN_SMOKING" },
+        { model = "mp_m_shopkeep_01", coords = vec4(124.22, -1487.95, 28.14, 53.63), scenario = "WORLD_HUMAN_SMOKING" },
     },
 }
 
@@ -1239,367 +1210,211 @@ Config.ChairsDebug = false
 Config.Chairs = {
     --TABLE 1
     {
-        coords = vector3(109.8657, -1281.5925, 27.7602), offsetZ = -0.10, heading = 187.5198, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(109.8742, -1282.2256, 28.2602, 187.5198)
+        coords = vector3(124.8843, -1282.7286, 28.8527), offsetZ = -0.10, heading = 124.7589, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(125.4445, -1283.4063, 29.2824, 34.0343)
     },
     {
-        coords = vector3(110.8365, -1281.4282, 27.7603), offsetZ = -0.10, heading = 188.7338, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(110.8584, -1282.0610, 28.2602, 188.7338)
+        coords = vector3(123.4632, -1283.5830, 28.8527), offsetZ = -0.10, heading = 299.1101, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(109.5518, -1291.8939, 28.2602, 23.7923)
     },
     {
-        coords = vector3(111.7421, -1281.2279, 27.7602), offsetZ = -0.10, heading = 189.4382, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(111.7717, -1281.8604, 28.2602, 189.4382)
+        coords = vector3(124.7727, -1284.6920, 28.8527), offsetZ = -0.10, heading = 138.0630, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(124.2462, -1284.2748, 29.2868, 159.1692)
     },
     {
-        coords = vector3(112.8018, -1281.1604, 27.7602), offsetZ = -0.10, heading = 187.4072, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(112.8091, -1281.7935, 28.2602, 187.4072)
+        coords = vector3(125.0180, -1285.7603, 28.8527), offsetZ = -0.10, heading = 72.0487, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(124.8759, -1286.4352, 29.2880, 36.1799)
+    },
+
+    {
+        coords = vector3(126.2204, -1287.1541, 28.8527), offsetZ = -0.10, heading = 134.3776, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(125.9120, -1286.5114, 29.2861, 157.8897)
     },
     {
-        coords = vector3(113.7751, -1280.9406, 27.7602), offsetZ = -0.10, heading = 190.4273, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(113.8157, -1281.5724, 28.2602, 190.4273)
-    },
-    --PINK SOFA
-    {
-        coords = vector3(115.1857, -1285.8967, 27.7602), offsetZ = -0.10, heading = 338.5557, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(115.4848, -1285.3387, 28.2672, 338.5557)
-    },
-    {
-        coords = vector3(116.3270, -1286.3557, 27.7602), offsetZ = -0.10, heading = 335.8420, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(116.6523, -1285.8125, 28.2602, 335.8420)
-    },
-    {
-        coords = vector3(116.9480, -1287.0923, 27.7602), offsetZ = -0.10, heading = 245.5743, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(117.4897, -1287.4200, 28.2614, 245.5742)
-    },
-    {
-        coords = vector3(115.8171, -1287.0662, 27.7602), offsetZ = -0.10, heading = 157.8511, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(115.5111, -1287.6205, 28.2659, 157.8511)
-    },
-    {
-        coords = vector3(114.7618, -1286.6506, 27.7602), offsetZ = -0.10, heading = 161.7623, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(114.4943, -1287.2245, 28.2602, 161.7623)
-    },
-    {
-        coords = vector3(114.5271, -1285.9729, 27.7602), offsetZ = -0.10, heading = 65.6462, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(113.9850, -1285.6458, 28.2602, 65.6462)
+        coords = vector3(126.0598, -1288.4303, 28.8527), offsetZ = -0.10, heading = 33.0098, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(126.7428, -1288.2937, 29.2865, 110.3629)
     },
     --TABLE 2
     {
-        coords = vector3(115.4113, -1281.4491, 27.7602), offsetZ = -0.10, heading = 190.7147, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(115.4412, -1281.8812, 28.1022, 190.7147)
+        coords = vector3(124.5265, -1294.3115, 28.8527), offsetZ = -0.10, heading = 126.8070, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(124.1598, -1294.6217, 29.2691, 119.1764)
     },
     {
-        coords = vector3(116.3726, -1281.2891, 27.7602), offsetZ = -0.10, heading = 189.5474, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(116.4035, -1281.9214, 28.2602, 189.5474)
+        coords = vector3(124.3568, -1295.5372, 28.8527), offsetZ = -0.10, heading = 32.8256, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(124.0858, -1295.1290, 29.3068, 24.8815)
     },
     {
-        coords = vector3(117.2883, -1281.1525, 27.8831), offsetZ = -0.10, heading = 183.4660, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(117.3762, -1281.7017, 27.2602, 183.4660)
+        coords = vector3(123.6490, -1295.8667, 28.8527), offsetZ = -0.10, heading = 38.3890, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(123.3461, -1295.5397, 29.2861, 30.4656)
     },
     {
-        coords = vector3(118.1986, -1281.3113, 27.8831), offsetZ = -0.10, heading = 160.0094, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(118.0707, -1281.8589, 27.2602, 160.0094)
+        coords = vector3(122.5528, -1295.7767, 28.8527), offsetZ = -0.10, heading = 315.3800, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(122.9623, -1295.4003, 29.2684, 309.6602)
+    },
+    --TABLE 3
+    {
+        coords = vector3(121.3747, -1296.3170, 28.8527), offsetZ = -0.10, heading = 134.1628, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(121.0100, -1296.4789, 29.3612, 109.7189)
     },
     {
-        coords = vector3(118.9634, -1281.8427, 27.8831), offsetZ = -0.10, heading = 128.0857, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(118.5246, -1282.1819, 27.2589, 128.0857)
+        coords = vector3(121.0868, -1297.3658, 28.8527), offsetZ = -0.10, heading = 38.443, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(120.8557, -1296.9607, 29.2684, 37.9998)
     },
     {
-        coords = vector3(119.3103, -1282.6425, 27.8831), offsetZ = -0.10, heading = 99.1393, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(118.8130, -1282.7972, 27.2554, 99.1393)
+        coords = vector3(120.4173, -1297.7954, 28.8527), offsetZ = -0.10, heading = 22.1649, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(120.1015, -1297.4119, 29.2832, 61.7872)
+    },
+    {
+        coords = vector3(119.3683, -1297.6309, 28.8527), offsetZ = -0.10, heading = 308.5934, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(119.7016, -1297.2512, 29.2934, 299.6207)
+    },
+    --TABLE 4
+    {
+        coords = vector3(118.3126, -1281.0762, 27.8222), offsetZ = -0.10, heading = 149.4354, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(117.9620, -1281.6014, 28.2752, 146.4492)
+    },
+    {
+        coords = vector3(119.8834, -1283.6519, 27.8222), offsetZ = -0.10, heading = 89.2487, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(119.1191, -1283.6265, 28.2789, 78.3978)
+    },
+    {
+        coords = vector3(121.3120, -1283.7991, 27.8222), offsetZ = -0.10, heading = 138.0062, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(120.1013, -1284.6578, 28.2782, 214.6958)
+    },
+    {
+        coords = vector3(122.0892, -1285.1782, 27.8222), offsetZ = -0.10, heading = 140.5415, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(121.2387, -1285.5591, 28.2627, 122.9263)
+    },
+    {
+        coords = vector3(122.9505, -1286.6978, 27.8222), offsetZ = -0.10, heading = 112.3235, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(122.4687, -1287.0029, 28.2609, 130.7378)
+    },
+    {
+        coords = vector3(123.6950, -1288.7998, 27.8222), offsetZ = -0.10, heading = 24.5922, radius = 1.0, distance = 1.7,
+        LeaveCoords = vector4(121.8004, -1287.9277, 28.2609, 97.5895)
+    },
+    --TABLE 5
+    {
+        coords = vector3(112.9996, -1293.2510, 27.8222), offsetZ = -0.10, heading = 106.2189, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(112.2465, -1293.2581, 28.2610, 89.3768)
+    },
+    {
+        coords = vector3(110.4511, -1294.8969, 27.8222), offsetZ = -0.10, heading = 299.3090, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(110.7181, -1294.1075, 28.2610, 14.5313)
+    },
+    {
+        coords = vector3(109.3155, -1295.3870, 27.8222), offsetZ = -0.10, heading = 102.7758, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(108.3880, -1295.4631, 28.2610, 99.3453)
+    },
+    {
+        coords = vector3(106.5998, -1296.9868, 27.8222), offsetZ = -0.10, heading = 319.4055, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(107.0371, -1296.3243, 28.2610, 64.1895)
     },
     --TABLE 6
     {
-        coords = vector3(120.3339, -1284.1119, 27.8831), offsetZ = -0.10, heading = 209.9036, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(120.6591, -1284.5745, 27.2587, 209.9036)
+        coords = vector3(109.1235, -1292.2389, 27.8222), offsetZ = -0.10, heading = 52.2837, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(109.4238, -1292.8506, 28.2609, 347.7061)
     },
     {
-        coords = vector3(121.4663, -1283.8474, 27.8831), offsetZ = -0.10, heading = 175.8504, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(121.2868, -1284.3159, 27.2602, 175.8504)
+        coords = vector3(110.1325, -1291.6455, 27.8222), offsetZ = -0.10, heading = 25.4782, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(110.5631, -1292.1392, 28.2609, 42.6171)
     },
     {
-        coords = vector3(122.1494, -1284.5983, 27.8831), offsetZ = -0.10, heading = 125.3508, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(121.6713, -1284.8397, 27.2604, 125.3508)
-    },
-    {
-        coords = vector3(122.4534, -1285.5507, 27.8831), offsetZ = -0.10, heading = 73.2978, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(121.9277, -1285.4055, 27.2557, 73.2978)
-    },
-    {
-        coords = vector3(121.6319, -1286.3036, 27.8831), offsetZ = -0.10, heading = 37.6982, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(121.3505, -1285.8153, 27.2602, 37.6982)
+        coords = vector3(111.4196, -1290.8890, 27.8222), offsetZ = -0.10, heading = 33.1275, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(111.7172, -1291.5071, 28.2609, 15.5804)
     },
     --TABLE 7
     {
-        coords = vector3(123.0713, -1286.7272, 27.8831), offsetZ = -0.10, heading = 187.9797, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(122.9451, -1287.2068, 27.2602, 187.9797)
+        coords = vector3(116.8310, -1288.5288, 27.8222), offsetZ = -0.10, heading = 91.0768, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(116.1303, -1288.5201, 28.2610, 85.9810)
     },
     {
-        coords = vector3(123.8439, -1287.5515, 27.8831), offsetZ = -0.10, heading = 182.2098, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(123.2552, -1287.7681, 27.2602, 182.2098)
+        coords = vector3(116.1389, -1286.5001, 27.8222), offsetZ = -0.10, heading = 120.7214, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(115.3225, -1286.7704, 28.2614, 70.8598)
     },
     {
-        coords = vector3(124.1546, -1288.4507, 27.8831), offsetZ = -0.10, heading = 76.7260, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(123.6182, -1288.3331, 27.2602, 76.7260)
+        coords = vector3(114.9849, -1284.6700, 27.8222), offsetZ = -0.10, heading = 124.6503, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(114.1866, -1284.9348, 28.2641, 111.7996)
     },
     {
-        coords = vector3(123.4008, -1289.1797, 27.8831), offsetZ = -0.10, heading = 37.9876, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(123.0324, -1288.7502, 27.2602, 37.9876)
+        coords = vector3(113.8080, -1282.9146, 27.8222), offsetZ = -0.10, heading = 138.7681, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(113.3735, -1283.5835, 28.2661, 167.3538)
     },
     --TABLE 8
     {
-        coords = vector3(124.3408, -1293.7279, 28.8183), offsetZ = -0.10, heading = 121.6098, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(123.8481, -1294.0190, 28.2693, 121.6098)
+        coords = vector3(108.4791, -1285.8140, 27.8222), offsetZ = -0.10, heading = 245.3286, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(107.8747, -1285.4504, 28.2610, 226.9757)
     },
     {
-        coords = vector3(124.8770, -1294.6318, 28.8484), offsetZ = -0.10, heading = 115.1720, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(124.3108, -1294.7925, 28.2694, 115.1720)
+        coords = vector3(106.7119, -1286.8359, 27.8222), offsetZ = -0.10, heading = 222.0797, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(106.3155, -1286.2839, 28.2610, 203.6313)
     },
     {
-        coords = vector3(124.4872, -1295.8425, 28.8484), offsetZ = -0.10, heading = 54.0744, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(124.1556, -1295.4296, 28.2694, 54.0744)
-    },
-    {
-        coords = vector3(123.5813, -1296.3651, 28.8484), offsetZ = -0.10, heading = 26.8883, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(123.4196, -1295.8546, 28.2694, 26.8883)
-    },
-    {
-        coords = vector3(122.4040, -1295.9778, 28.8484), offsetZ = -0.10, heading = 308.4721, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(122.8666, -1295.6416, 28.2694, 308.4721)
-    },
-    {
-        coords = vector3(121.9062, -1295.1108, 28.8484), offsetZ = -0.10, heading = 311.0298, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(122.4075, -1294.8466, 28.2694, 311.0298)
+        coords = vector3(104.8078, -1288.0243, 27.8222), offsetZ = -0.10, heading = 180.1841, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(104.7855, -1287.2441, 28.2610, 197.5137)
     },
     --TABLE 9
     {
-        coords = vector3(120.8525, -1295.6863, 28.8484), offsetZ = -0.10, heading = 124.4409, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(120.5119, -1296.0554, 28.2694, 124.4409)
+        coords = vector3(107.1545, -1282.9089, 27.8222), offsetZ = -0.10, heading = 154.0490, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(107.0886, -1283.6404, 28.2609, 122.1405)
     },
     {
-        coords = vector3(121.4925, -1296.6168, 28.8484), offsetZ = -0.10, heading = 110.0061, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(120.9953, -1296.8926, 28.2694, 110.0061)
+        coords = vector3(104.7625, -1284.2616, 27.8222), offsetZ = -0.10, heading = 293.5667, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(105.6677, -1284.2567, 28.2609, 241.1432)
     },
     {
-        coords = vector3(121.1351, -1297.8300, 28.8484), offsetZ = -0.10, heading = 22.9529, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(120.7976, -1297.3656, 28.2694, 22.9529)
+        coords = vector3(103.3476, -1284.9879, 27.8222), offsetZ = -0.10, heading = 204.4641, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(103.8210, -1285.5314, 28.2609, 164.6384)
     },
     {
-        coords = vector3(120.2928, -1298.3162, 28.8484), offsetZ = -0.10, heading = 18.9943, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(119.9361, -1297.8619, 28.2694, 18.9943)
-    },
-    {
-        coords = vector3(119.0261, -1297.9738, 28.8484), offsetZ = -0.10, heading = 306.0406, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(119.4664, -1297.5934, 28.2694, 306.0406)
-    },
-    {
-        coords = vector3(118.5218, -1297.0306, 28.8484), offsetZ = -0.10, heading = 292.2786, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(119.0106, -1296.7721, 28.2694, 292.2786)
+        coords = vector3(101.0981, -1286.2946, 27.8222), offsetZ = -0.10, heading = 310.8039, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(101.9531, -1286.3417, 28.2609, 287.4625)
     },
     --TABLE 10
     {
-        coords = vector3(112.7460, -1300.3533, 28.8484), offsetZ = -0.10, heading = 209.3583, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(113.0902, -1300.7990, 28.2927, 209.3583)
+        coords = vector3(110.6441, -1301.7236, 28.8186), offsetZ = -0.10, heading = 212.5608, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(110.9296, -1302.3605, 29.2695, 205.3210)
     },
     {
-        coords = vector3(111.8175, -1300.9615, 28.8484), offsetZ = -0.10, heading = 207.3478, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(112.2105, -1301.3729, 28.2927, 207.3478)
+        coords = vector3(113.0880, -1306.2363, 28.8186), offsetZ = -0.10, heading = 25.2723, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(112.6864, -1305.6569, 29.2695, 26.8892)
     },
     {
-        coords = vector3(111.0221, -1301.5034, 28.8484), offsetZ = -0.10, heading = 216.8274, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(111.3143, -1301.8555, 28.2927, 216.8274)
+        coords = vector3(114.8358, -1305.1893, 28.8186), offsetZ = -0.10, heading = 345.2220, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(114.6591, -1304.6100, 29.2695, 30.4387)
     },
     {
-        coords = vector3(110.2212, -1302.0726, 28.8484), offsetZ = -0.10, heading = 260.2877, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(110.7265, -1302.2605, 28.3296, 260.2877)
+        coords = vector3(112.3452, -1300.7582, 28.8186), offsetZ = -0.10, heading = 245.9223, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(112.5911, -1301.3589, 29.2692, 269.6539)
     },
     {
-        coords = vector3(110.5166, -1303.0498, 28.8484), offsetZ = -0.10, heading = 306.0406, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(111.0717, -1302.8835, 29.2924, 319.6523)
+        coords = vector3(114.2228, -1299.6460, 28.8186), offsetZ = -0.10, heading = 218.3685, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(114.5637, -1300.1528, 29.2689, 209.7597)
     },
     {
-        coords = vector3(111.9851, -1305.6008, 28.8484), offsetZ = -0.10, heading = 307.5330, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(112.4165, -1305.3024, 28.3443, 307.5330)
+        coords = vector3(117.0021, -1303.9529, 28.8186), offsetZ = -0.10, heading = 32.6807, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(116.6289, -1303.3928, 29.2695, 57.8464)
     },
     {
-        coords = vector3(112.7056, -1306.3507, 28.8484), offsetZ = -0.10, heading = 357.1729, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(112.8100, -1305.8630, 28.2927, 357.1729)
-    },
-    {
-        coords = vector3(113.7458, -1305.9983, 28.8484), offsetZ = -0.10, heading = 26.2957, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(113.4625, -1305.6075, 28.2927, 26.2957)
-    },
-    {
-        coords = vector3(115.5091, -1305.0121, 28.8484), offsetZ = -0.10, heading = 34.8896, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(115.1573, -1304.5172, 28.2927, 7.6775)
-    },
-    {
-        coords = vector3(116.2858, -1304.3356, 28.8484), offsetZ = -0.10, heading = 73.7213, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(115.8083, -1304.1415, 28.2927, 73.7213)
-    },
-    {
-        coords = vector3(115.9479, -1303.3240, 28.8484), offsetZ = -0.10, heading = 115.2382, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(115.4993, -1303.5592, 28.2927, 115.2382)
-    },
-    --TABLE 11
-    {
-        coords = vector3(117.2455, -1292.7332, 27.8831), offsetZ = -0.10, heading = 38.8528, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(116.9475, -1292.2291, 27.2602, 26.8228)
-    },
-    {
-        coords = vector3(116.2019, -1293.0452, 27.8831), offsetZ = -0.10, heading = 348.4792, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(116.3668, -1292.5144, 27.2513, 342.3091)
-    },
-    {
-        coords = vector3(115.5133, -1292.2919, 27.8831), offsetZ = -0.10, heading = 307.0855, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(115.9724, -1291.9591, 27.2555, 304.1265)
+        coords = vector3(119.1272, -1302.7494, 28.8186), offsetZ = -0.10, heading = 24.2936, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(118.8595, -1302.1360, 29.2694, 32.3086)
     },
     --SOFA1
     {
-        coords = vector3(124.0078, -1279.5321, 28.8507), offsetZ = -0.10, heading = 208.5998, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(124.3146, -1279.9835, 28.2693, 208.5998)
+        coords = vector3(95.0648, -1289.6490, 28.8333), offsetZ = -0.10, heading = 203.2062, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(95.4691, -1290.1320, 29.2687, 205.9125)
     },
     {
-        coords = vector3(125.0815, -1278.8871, 28.8507), offsetZ = -0.10, heading = 204.0523, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(125.3629, -1279.3873, 28.2693, 204.0523)
-    },
-    --SOFA2
-    {
-        coords = vector3(98.7329, -1290.4625, 28.8507), offsetZ = -0.10, heading = 119.2904, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(98.2758, -1290.8250, 28.2635, 125.6112)
-    },
-    {
-        coords = vector3(98.0714, -1289.4818, 28.8507), offsetZ = -0.10, heading = 119.2904, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(97.5673, -1289.7594, 28.2635, 48.4941)
-    },
-    --OUTDOOR RIGHT
-    {
-        coords = vector3(140.3908, -1292.4805, 28.7917), offsetZ = -0.10, heading = 206.0273, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(140.5063, -1292.8107, 29.0649, 206.0273)
-    },
-    {
-        coords = vector3(142.6317, -1293.0892, 28.8286), offsetZ = -0.10, heading = 117.7342, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(142.2495, -1293.2357, 29.1475, 117.7342)
-    },
-    {
-        coords = vector3(141.9905, -1295.1641, 28.7914), offsetZ = -0.10, heading = 33.4626, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(141.8394, -1294.8636, 29.0588, 33.4626)
-    },
-    {
-        coords = vector3(139.5479, -1296.8176, 28.7327), offsetZ = -0.10, heading = 118.6605, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(139.2957, -1296.9191, 28.9470, 118.6605)
-    },
-    {
-        coords = vector3(137.2177, -1296.2754, 28.7327), offsetZ = -0.10, heading = 210.1840, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(137.3065, -1296.4803, 28.9087, 210.1840)
-    },
-    {
-        coords = vector3(136.3725, -1298.7764, 28.7429), offsetZ = -0.10, heading = 303.8773, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(136.4875, -1298.7174, 28.8445, 303.8774)
-    },
-    --OUTDOOR LEFT
-    {
-        coords = vector3(125.3413, -1305.1324, 28.7327), offsetZ = -0.10, heading = 121.2180, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(125.0209, -1305.2782, 29.0104, 121.2180)
-    },
-    {
-        coords = vector3(122.9679, -1304.5472, 28.7327), offsetZ = -0.10, heading = 205.7000, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(123.1069, -1304.9524, 29.0708, 205.7000)
-    },
-    {
-        coords = vector3(122.2892, -1306.8877, 28.7327), offsetZ = -0.10, heading = 294.3576, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(122.6601, -1306.7700, 29.0398, 294.3576)
-    },
-    {
-        coords = vector3(139.5479, -1296.8176, 28.7327), offsetZ = -0.10, heading = 118.6605, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(139.2957, -1296.9191, 28.9470, 118.6605)
-    },
-    {
-        coords = vector3(119.5039, -1308.1726, 28.7327), offsetZ = -0.10, heading = 32.2515, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(119.2902, -1307.7245, 29.1247, 32.2515)
-    },
-    {
-        coords = vector3(117.2118, -1307.5466, 28.7327), offsetZ = -0.10, heading = 298.4845, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(117.5793, -1307.4001, 29.0449, 298.4846)
-    },
-    {
-        coords = vector3(117.8036, -1305.3748, 28.7327), offsetZ = -0.10, heading = 208.1004, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(117.9841, -1305.8367, 29.1242, 208.1004)
-    },
-    -- ARCADE SOFA 1
-    {
-        coords = vector3(139.9307, -1291.1533, 28.8292), offsetZ = -0.10, heading = 30.9677, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(139.6710, -1290.5759, 29.3182, 30.9677)
-    },
-    {
-        coords = vector3(140.5392, -1290.9048, 28.8115), offsetZ = -0.10, heading = 31.3606, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(140.3552, -1290.5029, 29.1790, 31.3606)
-    },
-    {
-        coords = vector3(141.4038, -1290.3267, 28.8630), offsetZ = -0.10, heading = 32.3270, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(141.2329, -1289.9698, 29.1783, 32.3270)
-    },
-        -- ARCADE SOFA 2
-    {
-        coords = vector3(140.0742, -1287.8339, 28.7696), offsetZ = -0.10, heading = 124.8017, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(139.7047, -1288.0308, 29.1001, 124.8017)
-    },
-    {
-        coords = vector3(139.7385, -1287.2952, 28.7696), offsetZ = -0.10, heading = 122.5138, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(139.4444, -1287.4370, 29.0272, 122.5138)
-    },
-    {
-        coords = vector3(139.2908, -1286.5044, 28.7696), offsetZ = -0.10, heading = 122.4548, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(138.9942, -1286.6471, 29.0293, 122.4548)
-    },
-        -- STRIP BEHIND BAR 1
-    {
-        coords = vector3(135.3287, -1279.7231, 28.7696), offsetZ = -0.10, heading = 123.4038, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(135.1366, -1279.8195, 28.9390, 123.4038)
-    },
-    {
-        coords = vector3(134.9473, -1279.0620, 28.7696), offsetZ = -0.10, heading = 121.2741, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(134.6562, -1279.1948, 29.0220, 121.2741)
-    },
-    {
-        coords = vector3(134.5110, -1278.3068, 28.7696), offsetZ = -0.10, heading = 122.1944, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(134.3970, -1278.3610, 28.8689, 122.1944)
-    },
-        -- STRIP BEHIND BAR 2
-    {
-        coords = vector3(133.0459, -1277.2662, 28.8523), offsetZ = -0.10, heading = 210.1980, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(133.2503, -1277.6626, 29.3915, 210.8987)
-    },
-    {
-        coords = vector3(132.3843, -1277.6857, 28.7696), offsetZ = -0.10, heading = 212.7292, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(132.5279, -1277.9805, 29.0282, 212.7292)
-    },
-    {
-        coords = vector3(131.5071, -1278.1870, 28.7694), offsetZ = -0.10, heading = 213.9936, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(131.7009, -1278.5634, 29.1037, 213.9936)
-    },
-            -- STRIP BEHIND BAR 3
-    {
-        coords = vector3(131.5682, -1280.0039, 28.7696), offsetZ = -0.10, heading = 302.0221, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(131.7831, -1279.9025, 28.9569, 302.0221)
-    },
-    {
-        coords = vector3(132.0086, -1280.7616, 28.7696), offsetZ = -0.10, heading = 301.3287, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(132.2944, -1280.6310, 29.0175, 301.3287)
-    },
-    {
-        coords = vector3(132.4203, -1281.4811, 28.7696), offsetZ = -0.10, heading = 303.5624, radius = 0.4, distance = 1.7,
-        LeaveCoords = vector4(132.6324, -1281.3739, 28.9570, 303.5624)
+        coords = vector3(94.0869, -1290.2772, 28.8333), offsetZ = -0.10, heading = 238.5555, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(94.4902, -1290.7908, 29.2687, 265.3612)
     },
     --CHAIR1
     {
-        coords = vector3(94.9903, -1293.7760, 28.7635), offsetZ = -0.10, heading = 317.4995, radius = 0.5, distance = 1.7,
-        LeaveCoords = vector4(95.4699, -1293.3628, 29.2635, 317.4995)
+        coords = vector3(95.2360, -1293.4696, 28.8567), offsetZ = -0.10, heading = 330.2567, radius = 0.5, distance = 1.7,
+        LeaveCoords = vector4(94.6510, -1292.7789, 29.2635, 52.0339)
     },
 
-
 }
-
 
 Config.Delivery = {
     {

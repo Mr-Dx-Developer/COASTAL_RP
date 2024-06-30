@@ -67,7 +67,7 @@ for k, v in pairs(Config.Consumables) do
     end)
 end
 
-local webhook = "https://discord.com/api/webhooks/1255878038122659931/PWl0YfKDN4gSViFqQnEisnVzKfBHT3qxMOdOld4UGFotp3NTdzifeezBrFxmSNjcol6k"
+local webhook = "YOUR_WEBHOOK"
 function Logs(source, message, type)
     if message ~= nil then
         if Config.Logs.enabled then

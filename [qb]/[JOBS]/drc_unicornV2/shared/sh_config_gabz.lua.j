@@ -24,7 +24,7 @@ Config.NeedCleanHands = true -- Required to clean hands to make drinks etc.
 Config.PoliceJobs = { 'police', 'sheriff' } -- For Alert
 Config.Dispatch = { enabled = true, script = "linden_outlawalert" } -- cd_dispatch, linden_outlawalert, ps-disptach
 
-Config.Inventory = "quasar" -- ox, quasar, chezza, qb
+Config.Inventory = "ox" -- ox, quasar, chezza, qb
 
 Config.Logs = { enabled = true, type = "webhook" } -- use webhook or ox_lib (datadog) Can be changed in server > sv_utils.lua
 Config.DropPlayer = true -- Drop (Kick) Player if tries to cheat!

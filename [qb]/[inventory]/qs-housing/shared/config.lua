@@ -209,7 +209,7 @@ Config.Garage = getGarages()
 	Here we can choose the basic and advanced configuration of the asset.
 ]]
 
-Config.Society = 'qb-management'       -- 'none', 'esx_society', 'ap-government', 'esx_society' or 'qb-management'
+Config.Society = 'none'       -- 'none', 'esx_society', 'ap-government', 'esx_society' or 'qb-management'
 Config.SocietyCommision = 0.3 -- Percentage of the commission for the company (%30 of house price)
 
 Config.CreatorJobs = {        -- Choose the jobs suitable for creating houses

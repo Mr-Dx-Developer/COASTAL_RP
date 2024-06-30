@@ -1,7 +1,7 @@
 return {
     Deliveries = 10, -- 
     Account = 'cash',
-    Payout = {min = 205, max = 335},
+    Payout = {min = 300, max = 400},
     Locations = { -- Random delivery houses.
         vec3(224.11, 513.52, 140.92),
         vec3(57.51, 449.71, 147.03),

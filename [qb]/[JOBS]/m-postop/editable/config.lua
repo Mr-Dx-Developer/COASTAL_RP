@@ -254,9 +254,9 @@ end
 HSN.Routes = { 
     ["cargo"] = {
         ["airport"] = {
-            totalDelivery = 15,
+            totalDelivery = 200,
             revenue = {min = 20000, max = 75000},
-            requiredIndex = 15,
+            requiredIndex = 2,
             label = "AIRPORT",
             locations = {
                 vector4(-1267.37, -2683.48, 19.63, 338.4),
@@ -278,9 +278,9 @@ HSN.Routes = {
             }
         },
         ["downtown"] = {
-            totalDelivery = 10,
+            totalDelivery = 5,
             revenue = {min = 10000, max = 50000},
-            requiredIndex = 10,
+            requiredIndex = 1,
             label = "DOWNTOWN",
             locations = {
                 vector4(196.17, -406.39, 45.32, 246.82),
@@ -304,9 +304,9 @@ HSN.Routes = {
             }
         },
         ["sandy"] = {
-            totalDelivery = 20,
+            totalDelivery = 300,
             revenue = {min = 30000, max = 90000},
-            requiredIndex = 20,
+            requiredIndex = 3,
             label = "SANDY",
             locations = {
                 vector4(2160.18, 4789.63, 41.96, 269.06),
@@ -329,9 +329,9 @@ HSN.Routes = {
             }
         },
         ["paleto"] = {
-            totalDelivery = 15,
+            totalDelivery = 400,
             revenue = {min = 60000, max = 90000},
-            requiredIndex = 10,
+            requiredIndex = 4,
             label = "PALETO BAY",
             locations = {
                 vector4(-238.34, 6423.65, 31.46, 43.57),

@@ -1,7 +1,7 @@
 -- Webhook for instapic posts, recommended to be a public channel
-INSTAPIC_WEBHOOK = "https://discord.com/api/webhooks/1255861472702234717/zCfi07E_arGA8yiWsdaWZU4Au0jwoJ-1R0Nj2PJOZQcaKsRd5ckvrn2DTLUEI_pXWbux"
+INSTAPIC_WEBHOOK = "https://discord.com/api/webhooks/1154124535398924298/sZoByl52O5GhqTRAjmn1AjakMdIGJi0G1hsQKF8uF62CUi8jCfZbHvXxnGA-i01cUHZA"
 -- Webhook for birdy posts, recommended to be a public channel
-BIRDY_WEBHOOK = "https://discord.com/api/webhooks/1255861542763626558/aH3cDdac58TUWEkUg4xVGVfpzX4Z-Qyg6MYRDvn8U5fzAwKL06qMfjEos_aFTkAIoRCR"
+BIRDY_WEBHOOK = "https://discord.com/api/webhooks/1154124472794755124/bxAvABaXii9VzXW3AemgP9NWKIKC-whPP5vZmsYGgAHQWP9j8rF4BgAQuBRfFNqfcGOs"
 
 -- Discord webhook for server logs
 LOGS = {

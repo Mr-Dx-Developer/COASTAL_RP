@@ -8,7 +8,7 @@ Config = {}
 Config.checkForUpdates = false -- Check for updates?
 
 Config.DiscordInfo = {
-    botToken = 'MTI1NTc3NTM2ODM4MDU1MTIxOA.GxSISP.PaH6p50KiINnYdTE921AlBIeHTNBDtJcYvNG6o', -- Your Discord bot token here
+    botToken = 'MTI0NzQ1ODg3NzE5MzE5MTQ0Ng.GZwDeZ.ClIMgcFK6yzZxrPEJ-4TWewMi92Z4xTEa3Sx0o', -- Your Discord bot token here
     guildID = '835233053823205427', -- Your Discord's server ID here(Aka Guild ID)
 }
 

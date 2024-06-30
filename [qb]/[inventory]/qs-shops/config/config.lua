@@ -218,29 +218,14 @@ Config.Products = {
             type = 'item',
             slot = 12,
         },
+        
         [13] = {
-            name = 'fishingrod',
-            price = 550,
-            amount = 5000,
-            info = {},
-            type = 'item',
-            slot = 13,
-        },
-        [14] = {
-            name = 'fishbait',
-            price = 100,
-            amount = 5000,
-            info = {},
-            type = 'item',
-            slot = 14,
-        },
-        [15] = {
             name = 'ghostcam',
             price = 100,
             amount = 5000,
             info = {},
             type = 'item',
-            slot = 15,
+            slot = 13,
         },
 
     },
@@ -453,6 +438,22 @@ Config.Products = {
             type = 'item',
             slot = 2,
         },
+        [3] = {
+            name = 'fishingrod',
+            price = 550,
+            amount = 5000,
+            info = {},
+            type = 'item',
+            slot = 3,
+        },
+        [4] = {
+            name = 'fishbait',
+            price = 50,
+            amount = 5000,
+            info = {},
+            type = 'item',
+            slot = 4,
+        },
     },
     ['leisureshop'] = {
         [1] = {
@@ -541,22 +542,22 @@ Config.Products = {
             slot = 6,
             requiresLicense = false
         },
-        [6] = {
+        [7] = {
             name = 'weapon_revolver',
             price = 6500,
             amount = 5,
             info = {},
             type = 'item',
-            slot = 6,
+            slot = 7,
             requiresLicense = false
         },
-        [7] = {
+        [8] = {
             name = 'pistol_ammo',
             price = 200,
             amount = 250,
             info = {},
             type = 'item',
-            slot = 7,
+            slot = 8,
             requiresLicense = false
         },
     }
