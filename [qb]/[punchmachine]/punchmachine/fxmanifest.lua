@@ -1,5 +1,3 @@
-shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version 'adamant'
 game 'gta5'
 ui_page 'nui/index.html'

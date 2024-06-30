@@ -1,22 +1,17 @@
-shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version 'cerulean'
 game 'gta5'
 description 'CODEM POSTOP JOB'
 version '1.2'
-
 shared_scripts { 
     'GetFrameworkObject.lua',
 	'editable/config.lua'
 }
-
 client_scripts {
     'GetFrameworkObject.lua',
     'editable/config.lua',
     'client/*.lua',
     'editable/client-editable.lua',
 }
-
 server_scripts {
     '@oxmysql/lib/MySQL.lua', --⚠️PLEASE READ⚠️; Uncomment this line if you use 'oxmysql'.⚠️
         -- '@mysql-async/lib/MySQL.lua', --⚠️PLEASE READ⚠️; Uncomment this line if you use 'mysql-async'.⚠️
@@ -24,11 +19,9 @@ server_scripts {
     'server/*.lua',
     'editable/server-editable.lua',
 }
-
 ui_page {
     'ui/index.html',
 }
-
 files {
     'ui/index.html',
     'ui/fonts/*.otf',
@@ -39,10 +32,8 @@ files {
     'ui/package-lock.json',
     'ui/package.json',
 }
-
 escrow_ignore{
     'editable/*.lua',
 }
-
 lua54 'yes'
 dependency '/assetpacks'

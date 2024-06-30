@@ -1,21 +1,15 @@
-shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version 'adamant'
 game 'gta5'
 author 'Lucid#3604'
 description 'codem'
-
 shared_script 'config.lua'
-
 client_scripts {
     'client/*.lua',
 }
-
 server_scripts {
     '@mysql-async/lib/MySQL.lua',
     'server/*.lua',
 }
-
 ui_page 'html/index.html'
 files {
     'html/index.html',
@@ -31,12 +25,8 @@ files {
     'html/assets/settings/*.png',
     'html/lib/*.js',
 }
-
-
 lua54 'yes'
-
 escrow_ignore {
 	'config.lua',
 }
-
 dependency '/assetpacks'

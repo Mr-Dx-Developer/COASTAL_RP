@@ -1,5 +1,3 @@
-shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 fx_version "cerulean"
 game "gta5"
 description 'L2S V4 Editied By : @L2S Dev Team || l2s.dev'

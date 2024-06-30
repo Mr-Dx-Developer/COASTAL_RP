@@ -27,18 +27,18 @@ return {
                 pos = vector3(-1072.81, -246.69, 54.01),
             },
         },
-        ['Example'] = {
+        ['casino tower'] = {
             {
                 number = 0, -- floor
-                name = false, -- or false
+                name = 'Ground Floor', -- or false
                 code = nil, -- restrict floor by password
-                pos = vector3(-1067.68, -284.49, 37.71),
+                pos = vector3(-149.566, -1073.914, 28.999),
             },
             {
                 number = 1, -- floor
                 name = 'Roof', -- or false
                 code = nil, -- restrict floor by password
-                pos = vector3(-1066.94, -286.98, 50.02),
+                pos = vector3(-175.034, -1062.406, 175.715),
             },
         },
         ['Hospital Lift'] = {

@@ -27,7 +27,7 @@ Settings = {
         },
         [3] = {
             RadioCode = 3, 
-            Jobs = {"police", "sheriff", "ambulance"},
+            Jobs = {"police"},
         },
         [4] = {
             RadioCode = 4, 
@@ -40,7 +40,7 @@ Settings = {
         [6] = {
             RadioCode = 6, 
             Jobs = {"ambulance"},
-        }, 
+        },
     },
 }
 

@@ -1,5 +1,3 @@
-shared_script '@BRPS-GUARD/ai_module_fg-obfuscated.lua'
-shared_script '@BRPS-GUARD/shared_fg-obfuscated.lua'
 version '4.4' -- THIS IS THE SCRIPT VERSION
 author 'jaksam1074'
 shared_scripts {

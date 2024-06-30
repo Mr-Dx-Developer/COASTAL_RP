@@ -75,12 +75,12 @@ um.coords = {
         text = 'Motel St'
     },
     ['hospital'] = {
-        coords = vector4(286.42, -602.82, 43.19, 128.92),
+        coords = vector4(273.409, -1429.227, 29.527, 28.527),
         street = 'Elgin Ave Del Perro Fwy',
         text = 'Hospital Ave'
     },
     ['police'] = {
-        coords = vector4(400.46, -979.54, 29.39, 270.35),
+        coords = vector4(384.065, -963.95, 29.436, 277.908),
         street = 'Sinner St Atlee St',
         text = 'Police Station'
     },
