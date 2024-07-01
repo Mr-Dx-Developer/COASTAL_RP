@@ -2,9 +2,10 @@ if Config.Framework ~= 'esx' then
     return
 end
 
-userTable = 'users'             -- users
-identifierColumn = 'identifier' -- identifier
+userTable = 'users'                 -- users
+identifierColumn = 'identifier'     -- identifier
 accountsColumn = 'accounts'
+fiveguardresourcename = 'fiveguard' -- Five Ward anticheat name
 
 ESX = exports['es_extended']:getSharedObject()
 

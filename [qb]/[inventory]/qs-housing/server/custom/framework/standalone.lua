@@ -1,8 +1,9 @@
 if Config.Framework ~= 'standalone' then return end
 
+fiveguardresourcename = 'fiveguard' -- Five Ward anticheat name
+
 -- ESX Callbacks
 local serverCallbacks = {}
-
 local clientRequests = {}
 local RequestId = 0
 

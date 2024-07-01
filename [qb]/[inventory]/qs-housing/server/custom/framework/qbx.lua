@@ -4,9 +4,10 @@ end
 
 QBCore = exports['qb-core']:GetCoreObject()
 
-userTable = 'players'          -- users
-identifierColumn = 'citizenid' -- identifier
+userTable = 'players'               -- users
+identifierColumn = 'citizenid'      -- identifier
 accountsColumn = 'money'
+fiveguardresourcename = 'fiveguard' -- Five Ward anticheat name
 
 RegisterNetEvent('QBCore:Server:PlayerLoaded')
 AddEventHandler('QBCore:Server:PlayerLoaded', function(player)

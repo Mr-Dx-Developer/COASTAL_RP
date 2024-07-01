@@ -214,7 +214,7 @@ Config.SocietyCommision = 0.3 -- Percentage of the commission for the company (%
 
 Config.CreatorJobs = {        -- Choose the jobs suitable for creating houses
 	'realestate',
-	--'police',
+--	'police',
 	'realestatejob'
 }
 
@@ -237,11 +237,11 @@ Config.OpenJobMenu = 'F6'        -- Key to open the house creation menu
 	Please make use of the mini-game scripts that you will see in the documentation > dependencies.
 ]]
 
-Config.RequiredCop = 5 -- Number of police required (only for lockpicking)
+Config.RequiredCop = 3 -- Number of police required (only for lockpicking)
 Config.PoliceJobs = {  -- Jobs that will be considered police
-	'realestate',
-	'police',
-	'realestatejob'
+--	'realestate',
+	'police'
+--	'realestatejob'
 }
 
 Config.EnableRobbery = true            -- Enable or disable the usable item to initiate robberies
