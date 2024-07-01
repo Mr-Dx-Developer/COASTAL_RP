@@ -10,6 +10,62 @@ CreateThread(function()
     end
 end)
 
+
+function ClearInventoryESX(client)
+    local player = getPlayer(client)
+
+    if not player then
+        return false
+    end
+
+    local inventory = player.getInventory()
+    local p = promise.new()
+    local state = false
+
+    dbg.debugInventory('Using ESX clear inventory custom function.')
+
+    if inventory and next(inventory) then
+        local size = table.size(inventory)
+
+        for k, v in pairs(inventory) do
+            if v.count > 0 then
+                if Prison.KeepItemState and not Prison.KeepItems[v.name:lower()] then
+                    local match = string.match(v.name, "^WEAPON_(.*)")
+
+                    if match then
+                        player.removeWeapon(v.name)
+                    else
+                        player.setInventoryItem(v.name, 0)
+                    end
+                elseif not Prison.KeepItemState then
+                    local match = string.match(v.name, "^WEAPON_(.*)")
+
+                    if match then
+                        player.removeWeapon(v.name)
+                    else
+                        player.setInventoryItem(v.name, 0)
+                    end
+                end
+            end
+
+            if k >= size then
+                TriggerEvent("esx:playerInventoryCleared", client)
+                TriggerEvent("esx:playerLoadoutCleared", client)
+                p:resolve(true)
+                state = true
+            end
+        end
+    else
+        p:resolve(false)
+    end
+
+    Citizen.Await(p)
+
+    dbg.debugInventory('ESX clear inventory returning with state: %s', state)
+
+    return state
+end
+
 Bridge.TransferCreditToMoney = function(serverId, charid)
     if not Prison.Release.TransferCreditsFromAccount then return end
 
@@ -137,6 +193,12 @@ Bridge.AddItem = function(playerId, itemName, itemCount, metadata, slot)
                 return Player.addMoney(tonumber(itemCount), 'prison_stashed_item')
             end
 
+            local match = string.match(itemName, "^WEAPON_(.*)")
+    
+            if match then
+                Player.addWeapon(itemName, math.random(32, 160))
+            end
+
             return Player.addInventoryItem(itemName, itemCount)
         elseif HasResource(Prison.InventoryScripts.CODEM_INVENTORY) then
             if Prison.Framework == FRAMEWORK_MAP.QBCORE then
@@ -160,73 +222,6 @@ Bridge.AddItem = function(playerId, itemName, itemCount, metadata, slot)
     end
 end
 
-Bridge.ReturnVirtualMoney = function(source, charId)
-    if not source then
-        return
-    end
-
-    if isResourceLoaded('qs-inventory') then
-        local itemList = Utils.LoadScriptData('shared/items', 'qs-inventory', 'ItemList')
-
-        if itemList and (itemList['money'] or itemList['cash']) then
-            return
-        end
-    end
-
-    if isResourceLoaded('ox_inventory') then
-        return
-    end
-
-    local prefix = ('%s_%s_%s'):format('prison', 'money', charId)
-    local amount = GetResourceKvpInt(prefix)
-
-    if amount <= 0 then
-        return
-    end
-
-    dbg.debugInventory('Returning virtual money for player %s with amount %s', GetPlayerName(source), amount)
-    
-    Bridge.AddItem(source, 'money', amount)
-    SetTimeout(1000, function()
-        DeleteResourceKvp(prefix)
-    end)
-end
-
-Bridge.SaveVirtualMoney = function(source, charId)
-    if not source then
-        return
-    end
-    
-    if isResourceLoaded('qs-inventory') then
-        local itemList = Utils.LoadScriptData('shared/items', 'qs-inventory', 'ItemList')
-
-        if itemList and (itemList['money'] or itemList['cash']) then
-            return
-        end
-    end
-
-    if isResourceLoaded('ox_inventory') then
-        return
-    end
-
-    if Prison.KeepItemState and Prison.KeepItems['money'] then
-        return
-    end
-
-    local prefix = ('%s_%s_%s'):format('prison', 'money', charId)
-    local amount = Bridge.GetItem(source, 'money')
-    
-    if amount <= 0 then
-        return
-    end
-
-    dbg.debugInventory('Saving virtual money for player %s with amount %s', GetPlayerName(source), amount)
-
-    SetResourceKvpInt(prefix, amount)
-    SetTimeout(1000, function()
-        Bridge.RemoveItem(source, 'money', amount)
-    end)
-end
 
 Bridge.ReturnPrisonerItems = function(serverId, charId, returnType)
     if not serverId then return end
@@ -244,9 +239,6 @@ Bridge.ReturnPrisonerItems = function(serverId, charId, returnType)
         end
     end
 
-    if returnType == 'release' then
-        Bridge.ReturnVirtualMoney(serverId, charId)
-    end
 
     if not Prison.Release.ReturnItemsOnRelease and returnType == 'release' then
         if Prison.StashItemsOnRelease then
@@ -278,8 +270,6 @@ Bridge.TakePrisonerItems = function(targetSID, charId)
 
     if inventoryState then
         local userInventory, status = gatherInventoryData(targetSID)
-
-        Bridge.SaveVirtualMoney(targetSID, charId)
 
         if status == INVENTORY_STATUS_CODES.HAS_ITEMS then
             dbg.debugInventory('Player named %s has items in his inventory, saving to database.',
@@ -515,7 +505,7 @@ Bridge.ReturnPrisonerItemsFromStash = function(src)
     if decodedStashItems and next(decodedStashItems) then
         state = true
 
-        dbg.critical('Returning items from stash for player %s!', GetPlayerName(src))
+        dbg.debug('Returning items from stash for player %s!', GetPlayerName(src))
 
         for itemName, data in pairs(decodedStashItems) do
             Bridge.AddItem(src, data.name, data.count, data.metadata or data.info or {})
@@ -545,6 +535,8 @@ function ClearInventory(serverId)
         end
 
         clearState = true
+    elseif shared.inventory == 'es_extended' then
+        clearState = ClearInventoryESX(serverId)
     elseif HasResource('tgiann-inventory') then
         exports["tgiann-inventory"]:ClearInventory(serverId)
 
@@ -623,6 +615,8 @@ function ClearInventory(serverId)
                     clearState = true
                 end
             end
+        elseif shared.inventory == 'es_extended' then
+            clearState = ClearInventoryESX(serverId)
         end
     end
 
@@ -678,6 +672,36 @@ function getPlayer(source)
     end
 end
 
+function gatherVirtualMoney(playerId)
+    if not playerId then
+        return
+    end
+    
+    if isResourceLoaded('qs-inventory') then
+        local itemList = Utils.LoadScriptData('shared/items', 'qs-inventory', 'ItemList')
+
+        if itemList and (itemList['money'] or itemList['cash']) then
+            return
+        end
+    end
+
+    if isResourceLoaded('ox_inventory') then
+        return
+    end
+
+    if Prison.KeepItemState and Prison.KeepItems['money'] then
+        return
+    end
+
+    local amount = Bridge.GetItem(playerId, 'money')
+
+    if amount > 0 then
+        Bridge.RemoveItem(playerId, 'money', amount)
+    end
+    
+    return amount or 0
+end
+
 function gatherInventoryData(playerId)
     local inventoryData = getInventoryDataByPlayerId(playerId)
     local inventory, statusCode = {}, INVENTORY_STATUS_CODES.EMPTY_INVENTORY
@@ -696,11 +720,23 @@ function gatherInventoryData(playerId)
         return inventory, statusCode
     end
 
-    if inventoryData and next(inventoryData) and inventoryData.value and next(inventoryData.value) then
-        for k, item in pairs(inventoryData.value) do
+    local inventoryItems = inventoryData.value
+
+    if Prison.Framework == FRAMEWORK_MAP.QBCORE then
+        inventoryItems[#inventoryItems+1] = {
+            name = 'money',
+            count = gatherVirtualMoney(playerId),
+            metadata = {}
+        }
+    end
+
+    if inventoryData and next(inventoryData) and inventoryItems and next(inventoryItems) then
+        for k, item in pairs(inventoryItems) do
             iterCount = iterCount + 1
 
             if item and not inventory[iterCount] then
+                print(iterCount, item.name)
+
                 inventory[iterCount] = {
                     name = item and item.name or 'UNK-NAME',
                     label = item and item.label or item.name or 'UNK-LABEL',
@@ -709,7 +745,7 @@ function gatherInventoryData(playerId)
                 }
             end
 
-            if iterCount >= tablesize(inventoryData.value) then
+            if iterCount >= tablesize(inventoryItems) then
                 p:resolve(true)
                 statusCode = INVENTORY_STATUS_CODES.HAS_ITEMS
             end
@@ -793,9 +829,52 @@ function getInventoryDataByPlayerId(serverId)
 
         if hasESXInventory then
             local player = getPlayer(serverId)
-            local inventory = player and player.inventory or {}
 
-            return p:resolve(inventory)
+            if not player then
+                return {}
+            end
+
+            local items = player.inventory
+            local loadout = player.getLoadout(false)
+
+            local playerInventory = {}
+            local internalPromise = promise.new()
+
+
+            if items and next(items) then
+                local size = table.size(items)
+                local iterateCount = 0
+
+                for k, v in pairs(items) do
+                    iterateCount = iterateCount + 1
+
+                    if v.count > 0 then
+                        playerInventory[#playerInventory + 1] = {
+                            name = v.name,
+                            count = v.count,
+                            label = v.label,
+                            weight = v.weight,
+                            useable = v.useable,
+                            rare = v.rare,
+                        }
+                    end
+
+                    if size >= iterateCount then
+                        internalPromise:resolve(true)
+                    end
+                end
+            else
+                internalPromise:resolve(false)
+            end
+
+            Citizen.Await(internalPromise)
+
+            if loadout and next(loadout) then
+                playerInventory = table.merge(playerInventory, loadout)
+            end
+
+
+            return p:resolve(playerInventory)
         end
 
         if hasOxInventory then

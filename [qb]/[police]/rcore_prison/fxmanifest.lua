@@ -2,11 +2,13 @@
 fx_version   'cerulean'
 lua54        'yes'
 game         'gta5'
+
 --[[ Resource Information ]]--
 name         'rcore_prison'
 author       'NewEdit'
 version      '1.99'
 description  'Standalone unique Prison system.'
+
 shared_scripts {
 	'shared/const.lua',
 	'configs/config.lua',
@@ -17,6 +19,7 @@ shared_scripts {
 	'modules/**/shared-internal.lua',
 	'modules/**/init-prison.lua'
 }
+
 escrow_ignore {
 	'assets/includedLibrary',
 	'assets/includedMaps',
@@ -44,6 +47,7 @@ escrow_ignore {
 	'configs/outfits.lua',
 	'configs/webhook.lua',
 }
+
 client_scripts {
 	'modules/**/framework/**/client.lua',
 	'modules/**/target/**/client.lua',
@@ -51,6 +55,7 @@ client_scripts {
 	'modules/base/client/*.lua',
 	'modules/api/client/*.lua',
 }
+
 server_scripts {
 	'@oxmysql/lib/MySQL.lua',
 	'configs/webhook.lua',
@@ -67,7 +72,9 @@ server_scripts {
 	'modules/bridge/stats/sv-main.lua',
 	'modules/api/server/*.lua',
 }
+
 ui_page 'web/build/index.html'
+
 files {
 	'zones.json',
 	'web/build/index.html',
@@ -78,8 +85,10 @@ files {
 	'data/*.lua',
 	'data/**/*.lua',
 }
+
 dependencies {
 	'/server:5104',
 	'/onesync',
 }
+
 dependency '/assetpacks'

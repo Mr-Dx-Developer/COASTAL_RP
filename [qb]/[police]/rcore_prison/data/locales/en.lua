@@ -30,6 +30,8 @@ return {
     ['CITIZEN_JAILED_ANNOUCEMENT'] = 'Citizen named %s was jailed for %s months',
     ['PRISON'] = 'Prison',
 
+    ['JOB_BLIP_LABEL'] = 'Prison Job task area',
+
     ['ACCOUNT_TRANSACTIONS'] = 'Transactions',
     ['ACCOUNT_ID'] = 'Account number',
     ['ACCOUNT_GIFTSTATE'] = 'Receive gifts',

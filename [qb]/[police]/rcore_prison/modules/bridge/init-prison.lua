@@ -922,7 +922,7 @@ else
 		end
 
 		SetBlipDisplay(blip, 4)
-		SetBlipCategory(blip, 10)
+		-- SetBlipCategory(blip, 10)
 
 		SetBlipSprite(blip, data.sprite)
 		SetBlipScale(blip, data.scale)

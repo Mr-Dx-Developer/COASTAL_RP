@@ -27,6 +27,7 @@ return {
     ['USER_NOT_ONLINE'] = 'Nemůžete věznit offline občana.',
     ['CITIZEN_JAILED_ANNOUCEMENT'] = 'Občan jménem %s byl vězněn na %s měsíců',
     ['PRISON'] = 'Věznice',
+    ['JOB_BLIP_LABEL'] = 'Místo vykonani práce',
     ['ACCOUNT_TRANSACTIONS'] = 'Transakce',
     ['ACCOUNT_ID'] = 'Číslo účtu',
     ['ACCOUNT_GIFTSTATE'] = 'Přijímat dary',
