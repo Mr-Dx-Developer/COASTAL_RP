@@ -531,6 +531,8 @@ sparetire                   = { name = "sparetire", label = "Spare Tire", weight
 manual                      = { name = 'manual', label = 'Manual Transmission', weight = 0, type = 'item', image = 'manual.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Manual Transmission change for vehicles' },
 underglow                   = { name = 'underglow', label = 'Underglow LEDS', weight = 0, type = 'item', image = 'underglow.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Underglow addition for vehicles' },
 
+
+['carkey'] 				 		 = {['name'] = 'carkey', 			  	  		['label'] = 'Vehicle Keys', 			['weight'] = 100, 		['type'] = 'item', 		['image'] = 'carkey.png', 				['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,   ['combinable'] = nil,   	['description'] = 'Vehicle Key Fob'},
 --Already in QBCore
 --harness                      = { name = 'harness', label = 'Race Harness', weight = 1000, type = 'item', image = 'harness.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Racing Harness so no matter what you stay in the car' },
 --repairkit                    = { name = 'repairkit', label = 'Repairkit', weight = 2500, type = 'item', image = 'repairkit.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'A nice toolbox with stuff to repair your vehicle' },

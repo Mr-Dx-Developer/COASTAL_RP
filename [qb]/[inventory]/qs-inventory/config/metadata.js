@@ -39,6 +39,9 @@ function FormatItemInfo(itemData) {
             };
     
             $(".item-info-description").html('<p> Package Included: '+ descText + '</p>');
+        } else if (itemData.name == "carkey") {
+            $(".item-info-title").html('<p>'+itemData.label+'</p>')
+            $(".item-info-description").html("<p><strong>Brand: </strong>" + itemData.info.brand + "</p><p><strong>Name: </strong>" + itemData.info.name + "</p><p><strong>Vehicle ID: </strong>" + itemData.info.id + "</p><p><strong>Plate: </strong>" + itemData.info.plate + "</p>");
         } else if (phoneMeta.includes(itemData.name) && itemData.info.phoneNumber) {
             $(".item-info-title").html("<p>" + `${itemData.info.label || label}` + "</p>");
             $(".item-info-description").html(
