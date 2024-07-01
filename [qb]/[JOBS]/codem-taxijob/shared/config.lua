@@ -78,8 +78,8 @@ Config.VipMissions = {
         finishLocation = vector3(-1459.41, -969.68, 7.19),
         ped = `ig_kerrymcintosh_02`,
         ped_2 = `a_c_husky`,
-        minxp = 1000,
-        maxxp = 1500,
+        minxp = 100,
+        maxxp = 150,
       },
       {
         id = 2,
@@ -91,8 +91,8 @@ Config.VipMissions = {
         spawnLocation = vector4(1529.1, 2231.61, 75.73, 93.09),
         finishLocation = vector3(-319.52, 6071.05, 31.34),
         ped = `cs_nigel`,
-        minxp = 2000,
-        maxxp = 2500,
+        minxp = 200,
+        maxxp = 250,
       },
       {
         id = 3,
@@ -106,8 +106,8 @@ Config.VipMissions = {
         ped = `cs_milton`,
         ped_2 = `csb_reporter`,
         ped_3 = `csb_tomcasino`,
-        minxp = 2500,
-        maxxp = 3000,
+        minxp = 250,
+        maxxp = 300,
       },
       {
         id = 4,
@@ -133,8 +133,8 @@ Config.VipMissions = {
         spawnLocation = vector4(-1102.03, 365.39, 68.75, 309.74),
         finishLocation = vector3(3513.11, 3762.61, 29.93),
         ped = `u_m_m_bankman`,
-        minxp = 3500,
-        maxxp = 4000,
+        minxp = 350,
+        maxxp = 400,
       },
       {
         id = 6,
@@ -146,8 +146,8 @@ Config.VipMissions = {
         spawnLocation = vector4(-1284.26, 296.85, 64.94, 153.16),
         finishLocation = vector3(-1199.61, -1534.45, 4.41),
         ped = `a_f_m_beach_01`,
-        minxp = 4000,
-        maxxp = 4500,
+        minxp = 400,
+        maxxp = 450,
       },
 }
 
@@ -333,7 +333,7 @@ Config.RemoveVehiclekey = function(plate, model)
         elseif Config.RemoveVehicleSystem == 'wasabi-carlock' then
             exports.wasabi_carlock:RemoveKey(plate)
         elseif Config.RemoveVehicleSystem == 'qb-vehiclekeys' then
-            TriggerServerEvent('qb-vehiclekeys:client:RemoveKeys', plate)
+            TriggerEvent('qb-vehiclekeys:client:RemoveKeys', plate)
         end
     end
 end

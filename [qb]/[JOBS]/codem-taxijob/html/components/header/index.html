@@ -18,7 +18,8 @@
 
         </div>
         <div class="header-pp-container">
-            <img :src="playerData.avatar">
+            <img :src="playerData.avatar" v-if="playerData.avatar">
+            <img src="/html/assets/images/test-pp.png" v-else>
         </div>
     </div>
 </div>
