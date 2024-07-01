@@ -63,4 +63,4 @@ Config.GarageTables = {
 -- use cd if you use cd_garage keys system
 -- use mk if you use mk_vehiclekeys
 -- if you choose other, make sure to make changes in client/open/cl_vehicles_customise.lua
-Config.Keys = "qb" -- "qb" or "cd" or "other"
+Config.Keys = "mk" -- "qb" or "cd" or "other"
