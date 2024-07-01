@@ -1,5 +1,5 @@
-ALTER TABLE `player_vehicles` ADD COLUMN IF NOT EXISTS `financed` tinyint(1) NOT NULL DEFAULT 0;
-ALTER TABLE `player_vehicles` ADD COLUMN IF NOT EXISTS `finance_data` longtext DEFAULT NULL;
+ALTER TABLE `owned_vehicles` ADD COLUMN IF NOT EXISTS `financed` tinyint(1) NOT NULL DEFAULT 0;
+ALTER TABLE `owned_vehicles` ADD COLUMN IF NOT EXISTS `finance_data` longtext DEFAULT NULL;
 
 CREATE TABLE IF NOT EXISTS `dealership_data` (
   `name` varchar(100) NOT NULL,
@@ -30,9 +30,7 @@ CREATE TABLE IF NOT EXISTS `dealership_dispveh` (
   `coords` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_dispveh_dealership` (`dealership`),
-  KEY `fk_dispveh_vehicle` (`vehicle`),
-  CONSTRAINT `fk_dispveh_dealership` FOREIGN KEY (`dealership`) REFERENCES `dealership_data` (`name`),
-  CONSTRAINT `fk_dispveh_vehicle` FOREIGN KEY (`vehicle`) REFERENCES `dealership_vehicles` (`spawn_code`)
+  KEY `fk_dispveh_vehicle` (`vehicle`)
 );
 
 CREATE TABLE IF NOT EXISTS `dealership_orders` (
@@ -64,9 +62,7 @@ CREATE TABLE IF NOT EXISTS `dealership_sales` (
   KEY `fk_sales_vehicle` (`vehicle`),
   KEY `fk_sales_dealership` (`dealership`),
   KEY `fk_sales_player` (`player`),
-  KEY `fk_sales_plate` (`plate`),
-  CONSTRAINT `fk_sales_dealership` FOREIGN KEY (`dealership`) REFERENCES `dealership_data` (`name`),
-  CONSTRAINT `fk_sales_vehicle` FOREIGN KEY (`vehicle`) REFERENCES `dealership_vehicles` (`spawn_code`)
+  KEY `fk_sales_plate` (`plate`)
 );
 
 CREATE TABLE IF NOT EXISTS `dealership_stock` (
@@ -75,9 +71,7 @@ CREATE TABLE IF NOT EXISTS `dealership_stock` (
   `stock` int(11) NOT NULL,
   `price` float NOT NULL DEFAULT 0,
   PRIMARY KEY (`dealership`, `vehicle`),
-  KEY `vehicle_fk` (`vehicle`),
-  CONSTRAINT `dealership_fk` FOREIGN KEY (`dealership`) REFERENCES `dealership_data` (`name`),
-  CONSTRAINT `vehicle_fk` FOREIGN KEY (`vehicle`) REFERENCES `dealership_vehicles` (`spawn_code`)
+  KEY `vehicle_fk` (`vehicle`)
 );
 
 CREATE TABLE IF NOT EXISTS `dealership_employees` (
@@ -87,6 +81,5 @@ CREATE TABLE IF NOT EXISTS `dealership_employees` (
   `role` varchar(100) NOT NULL,
   `joined` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `fk_employees_dealership` (`dealership`),
-  CONSTRAINT `fk_employees_dealership` FOREIGN KEY (`dealership`) REFERENCES `dealership_data` (`name`)
+  KEY `fk_employees_dealership` (`dealership`)
 );

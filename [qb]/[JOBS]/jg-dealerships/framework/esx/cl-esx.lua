@@ -1,4 +1,4 @@
-if Config.Framework == "ESX" then
+if (Config.Framework == "auto" and GetResourceState("es_extended") == "started") or Config.Framework == "ESX" then
   -- Player data
   Globals.PlayerData = ESX.GetPlayerData()
 
@@ -6,9 +6,9 @@ if Config.Framework == "ESX" then
   AddEventHandler('esx:playerLoaded', function(xPlayer)
     Globals.PlayerData = xPlayer
     
-    Citizen.CreateThread(function()
+    CreateThread(function()
       Wait(1000)
-      Framework.Client.TriggerCallback("jg-dealerships:server:exit-showroom", function() end)
+      lib.callback.await("jg-dealerships:server:exit-showroom", false)
     end)
   end)
 

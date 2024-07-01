@@ -1,11 +1,16 @@
-Framework.Server.CreateCallback("jg-dealerships:server:purchase-vehicle", function(src, cb, purchaseType, society, societyType, model, amount, paymentMethod, dealership, financed, financeData, sellerPlayerId)
-  local dealershipData = Config.DealershipLocations[dealership]
-  if financed == 1 and not dealershipData.enableFinance then
-    return cb({ error = true })
+lib.callback.register("jg-dealerships:server:purchase-vehicle", function(src, purchaseType, society, societyType, model, paymentMethod, dealershipId, financed, directSale, sellerPlayerId, noOfPayments, downPayment)
+  local dealershipData = Config.DealershipLocations[dealershipId]
+
+  if financed and not dealershipData.enableFinance then
+    return false
+  end
+
+  if paymentMethod ~= "bank" and paymentMethod ~= "cash" and paymentMethod ~= "societyFund" then
+    Framework.Server.Notify(src, "INVALID_PAYMENT_METHOD", "error")
+    return false
   end
 
   local player = Framework.Server.GetPlayerIdentifier(src)
-  local paymentType, paid, owed = "full", amount, 0
 
   local sellerPlayer, sellerPlayerName = nil, nil
   if sellerPlayerId then
@@ -14,80 +19,113 @@ Framework.Server.CreateCallback("jg-dealerships:server:purchase-vehicle", functi
     sellerPlayerName = sellerPlayerName and sellerPlayerName.name or nil
   end
   
-  local plate = Framework.Server.VehicleGeneratePlate()
+  local plate = Framework.Server.VehicleGeneratePlate(Config.PlateFormat, true)
   if not plate then
     Framework.Server.Notify(src, "COULD_NOT_GENERATE_PLATE", "error")
-    return cb({ error = true })
+    return false
   end
   
-  local vehicle = MySQL.single.await("SELECT * FROM dealership_stock WHERE vehicle = ? AND dealership = ?", {model, dealership})
-  if not vehicle then return cb({ error = true }) end
-  
-  local vehicleStock = vehicle.stock
+  local vehicle = MySQL.single.await("SELECT * FROM dealership_stock WHERE vehicle = ? AND dealership = ?", {model, dealershipId})
+  if not vehicle then
+    return false
+  end
 
-  if financed == 1 then
-    local playerFinancedVehicles = MySQL.single.await("SELECT COUNT(*) as total FROM " .. Framework.VehiclesTable .. " WHERE financed = 1 AND " .. Framework.PlayerId .. " = ?", {player})
-    if playerFinancedVehicles.total >= (Config.MaxFinancedVehiclesPerPlayer or 999999) then
+  -- Check stock level
+  local vehicleStock = vehicle.stock
+  if dealershipData.type == "owned" and vehicleStock < 1 then
+    Framework.Server.Notify(src, Locale.errorVehicleOutOfStock, "error")
+    return false
+  end
+
+  local financeData = nil
+  local amountToPay = round(vehicle.price)
+  local accountBalance = Framework.Server.GetPlayerBalance(src, paymentMethod)
+  local paymentType, paid, owed = "full", amountToPay, 0
+
+  if purchaseType == "society" and paymentMethod == "societyFund" then
+    accountBalance = Framework.Server.GetSocietyBalance(society, societyType)
+  end
+
+  if financed and purchaseType == "personal" then
+    amountToPay = round(vehicle.price * (1 + Config.FinanceInterest) * downPayment) -- down payment
+    
+    if directSale then
+      amountToPay = round(vehicle.price * (1 + Config.FinanceInterest) * downPayment)
+    end
+
+    financeData = {
+      total = round(vehicle.price * (1 + Config.FinanceInterest)),
+      paid = amountToPay,
+      recurring_payment = round((vehicle.price * (1 + Config.FinanceInterest) * (1 - downPayment)) / noOfPayments),
+      payments_complete = 0,
+      total_payments = noOfPayments,
+      payment_interval = Config.FinancePaymentInterval,
+      payment_failed = false,
+      seconds_to_next_payment = Config.FinancePaymentInterval * 3600,
+      seconds_to_repo = 0,
+      dealership_id = dealershipId,
+      vehicle = model
+    }
+
+    local vehiclesOnFinance = MySQL.scalar.await("SELECT COUNT(*) as total FROM " .. Framework.VehiclesTable .. " WHERE financed = 1 AND " .. Framework.PlayerId .. " = ?", {player})
+    
+    if vehiclesOnFinance >= (Config.MaxFinancedVehiclesPerPlayer or 999999) then
       Framework.Server.Notify(src, "TOO_MANY_FINANCED_VEHICLES", "error")
-      return cb({ error = true })
+      return false
     end
 
     paymentType = "finance"
     owed = financeData.total - financeData.paid
   end
 
-  if paymentMethod ~= "bank" and paymentMethod ~= "cash" and paymentMethod ~= "societyFund" then
-    Framework.Server.Notify(src, "INVALID_PAYMENT_METHOD", "error")
-    return cb({ error = true })
-  end
-
-  -- Check stock level
-  if dealershipData.type == "owned" and vehicleStock < 1 then
-    Framework.Server.Notify(src, Locale.errorVehicleOutOfStock, "error")
-    return cb({ error = true })
+  if amountToPay > accountBalance then
+    Framework.Server.Notify(src, Locale.errorCannotAffordVehicle, "error")
+    return false
   end
 
   -- Remove money
   if purchaseType == "society" and paymentMethod == "societyFund" then
-    Framework.Server.RemoveFromSocietyFund(society, societyType, amount)
+    Framework.Server.RemoveFromSocietyFund(society, societyType, amountToPay)
   else
-    Framework.Server.PlayerRemoveMoney(src, amount, paymentMethod)
+    Framework.Server.PlayerRemoveMoney(src, amountToPay, paymentMethod)
   end
 
   if dealershipData.type == "owned" then
-    MySQL.update.await("UPDATE dealership_stock SET stock = stock - 1 WHERE vehicle = ? AND dealership = ?", {model, dealership})
-    MySQL.update.await("UPDATE dealership_data SET balance = balance + ? WHERE name = ?", {amount, dealership})
+    MySQL.update.await("UPDATE dealership_stock SET stock = stock - 1 WHERE vehicle = ? AND dealership = ?", {model, dealershipId})
+    MySQL.update.await("UPDATE dealership_data SET balance = balance + ? WHERE name = ?", {amountToPay, dealershipId})
+    updateDealershipShowroomCache(dealershipId)
   end
-  MySQL.insert.await("INSERT INTO dealership_sales (dealership, vehicle, plate, player, seller, purchase_type, paid, owed) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", {dealership, model, plate, player, sellerPlayer, paymentType, paid, owed})
+  
+  MySQL.insert.await("INSERT INTO dealership_sales (dealership, vehicle, plate, player, seller, purchase_type, paid, owed) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", {dealershipId, model, plate, player, sellerPlayer, paymentType, paid, owed})
 
   -- Save vehicle to garage
-  Framework.Server.SaveVehicleToGarage(src, purchaseType, society, societyType, model, plate, financed, financeData)
+  local vehicleId = Framework.Server.SaveVehicleToGarage(src, purchaseType, society, societyType, model, plate, financed, financeData)
 
   -- Send webhook
-  Functions.SendWebhook(src, Webhooks.Purchase, "New Vehicle Purchase", "success", {
+  sendWebhook(src, Webhooks.Purchase, "New Vehicle Purchase", "success", {
     { key = "Vehicle", value = model },
     { key = "Plate", value = plate },
     { key = "Financed", value = (financed == 1 and "Yes" or "No") },
-    { key = "Amount Paid", value = amount },
+    { key = "Amount Paid", value = amountToPay },
     { key = "Payment method", value = paymentMethod },
-    { key = "Dealership", value = dealership },
+    { key = "Dealership", value = dealershipId },
     { key = "Seller Name", value = sellerPlayerName or "-" }
   })
 
   Framework.Server.Notify(src, Locale.purchaseSuccess, "success")
-  cb({ ok = true, plate = plate })
+
+  return {
+    vehicleId = vehicleId,
+    plate = plate,
+    price = amountToPay
+  }
 end)
 
-RegisterNetEvent("jg-dealerships:server:update-purchased-vehicle-props", function(plate, props)
+RegisterNetEvent("jg-dealerships:server:update-purchased-vehicle-props", function(purchaseType, society, plate, props)
   local src = source
-  local identifier = Framework.Server.GetPlayerIdentifier(src)
+  local identifier = purchaseType == "society" and society or Framework.Server.GetPlayerIdentifier(src)
 
-  local vehicle = MySQL.single.await("SELECT * FROM " .. Framework.VehiclesTable .. " WHERE plate = ? AND " .. Framework.PlayerId .. " = ?", {plate, identifier})
-  if not vehicle then return false end
-  if vehicle[Framework.VehProps] ~= nil and vehicle[Framework.VehProps] ~= "" and vehicle[Framework.VehProps] ~= false then
-    print("Error: Could not update props because they already exist!")
-    return false
-  end
-
-  MySQL.update.await("UPDATE " .. Framework.VehiclesTable .. " SET " .. Framework.VehProps .. " = ? WHERE plate = ?", {json.encode(props), plate})
+  MySQL.update.await("UPDATE " .. Framework.VehiclesTable .. " SET " .. Framework.VehProps .. " = ? WHERE plate = ? AND " .. Framework.PlayerId .. " = ?", {
+    json.encode(props), plate, identifier
+  })
 end)

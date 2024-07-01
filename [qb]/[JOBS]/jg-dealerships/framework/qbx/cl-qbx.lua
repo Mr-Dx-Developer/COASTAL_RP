@@ -1,10 +1,10 @@
-if (Config.Framework == "auto" and GetResourceState("qb-core") == "started") or Config.Framework == "QBCore" then
+if (Config.Framework == "auto" and GetResourceState("qbx_core") == "started") or Config.Framework == "Qbox" then
   -- Player data
-  Globals.PlayerData = QBCore.Functions.GetPlayerData()
+  Globals.PlayerData = exports.qbx_core:GetPlayerData()
 
   RegisterNetEvent("QBCore:Client:OnPlayerLoaded")
   AddEventHandler("QBCore:Client:OnPlayerLoaded", function()
-    Globals.PlayerData = QBCore.Functions.GetPlayerData()
+    Globals.PlayerData = exports.qbx_core:GetPlayerData()
     
     CreateThread(function()
       Wait(1000)

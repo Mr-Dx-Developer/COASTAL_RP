@@ -1,98 +1,81 @@
-RegisterNUICallback("purchase-vehicle", function(data, cb)
-  local dealership = Config.DealershipLocations[data.dealership]
+---Purchase a vehicle
+---@param dealershipId string
+---@param vehicleModel string|integer
+---@param vehicleColor string
+---@param purchaseType "society"|"personal"
+---@param paymentMethod "bank"|"cash"
+---@param dealerPlayerId? integer If purchased via direct sale
+---@param finance boolean
+---@param noOfPayments? number
+---@param downPayment? any
+---@param society? any if purchaseType == "society"
+---@param societyType? any
+---@return boolean success
+local function purchaseVehicle(dealershipId, vehicleModel, vehicleColor, purchaseType, paymentMethod, directSale, dealerPlayerId, finance, noOfPayments, downPayment, society, societyType)
+  local dealership = Config.DealershipLocations[dealershipId]
+  local hash = convertModelToHash(vehicleModel)
+  local vehicleType = getVehicleTypeFromClass(GetVehicleClassFromName(hash))
+  local coords = findVehicleSpawnCoords(dealership.purchaseSpawn)
 
-  local purchaseType = data.purchaseType
-  local purchaseSpawn = Functions.GetVehicleSpawnPoint(dealership.purchaseSpawn)
-  local society = data.society
-  local societyType = data.societyType
+  exitShowroom()
+
+  local data = lib.callback.await(
+    "jg-dealerships:server:purchase-vehicle",
+    false, purchaseType, society, societyType, vehicleModel, paymentMethod, dealershipId, finance, directSale, dealerPlayerId, noOfPayments, downPayment
+  )
+  if not data then return false end
+
+  local price, plate, vehicleId = data.price, data.plate, data.vehicleId
+  local warp = not Config.DoNotSpawnInsideVehicle
+
+  local vehicle = spawnVehicle(hash, plate, coords, warp, {
+    plate = plate,
+    colour = vehicleColor
+  })
+  if not vehicle or vehicle == 0 then return false end
+  
+  local netId = VehToNet(vehicle)
+  local props = Framework.Client.GetVehicleProperties(vehicle)
+  Entity(vehicle).state:set("vehicleid", vehicleId, true) -- for qbx
+    
+  TriggerServerEvent("jg-dealerships:server:update-purchased-vehicle-props", purchaseType, society, plate, props)
+  TriggerEvent("jg-dealerships:client:purchase-vehicle:config", vehicle, plate, purchaseType, price, paymentMethod, finance)
+  TriggerServerEvent("jg-dealerships:server:purchase-vehicle:config", netId, plate, purchaseType, price, paymentMethod, finance)
+
+  -- If they are running jg-advancedgarages, register the vehicle is out & set vehicle in valid garage ID
+  if GetResourceState("jg-advancedgarages") == "started" then
+    TriggerServerEvent("jg-advancedgarages:server:register-vehicle-outside", plate, netId)
+    TriggerServerEvent("jg-advancedgarages:server:dealerships-send-to-default-garage", vehicleType, plate)
+  end
+
+  DoScreenFadeIn(500)
+
+  return true
+end
+
+RegisterNUICallback("purchase-vehicle", function(data, cb)
   local dealershipId = data.dealership
   local vehicleModel = data.vehicle
   local vehicleColor = data.color
+  local purchaseType = data.purchaseType
   local paymentMethod = data.paymentMethod
   local finance = data.finance
+  local directSale = data.directSale
   local dealerPlayerId = data.dealerPlayerId
   local noOfPayments = data.noOfPayments or Config.FinancePayments
   local downPayment = data.downPayment or Config.FinanceDownPayment
-  local hash = type(vehicleModel) == "string" and joaat(vehicleModel) or vehicleModel
-  local vehicleType = Functions.VehTypeFromClass(GetVehicleClassFromName(hash))
+  local society = data.society
+  local societyType = data.societyType
 
-  Framework.Client.TriggerCallback("jg-dealerships:server:get-showroom-vehicle-data", function(vehicle)
-    local vehiclePrice = vehicle.price
-    local amountToPay = roundVal(vehiclePrice)
-    local financed, financeData = 0, null
-    local accBalance = -1
+  DoScreenFadeOut(500)
+  Wait(500)
 
-    Citizen.CreateThread(function()
-      DoScreenFadeOut(200)
-      Citizen.Wait(200)
-
-      if purchaseType == "society" and paymentMethod == "societyFund" then
-        accBalance = Framework.Client.GetSocietyBalance(society, societyType)
-      else
-        accBalance = Framework.Client.GetBalance(paymentMethod)
-      end
-      while accBalance == -1 do Wait(0) end
-
-      if finance and purchaseType == "personal" then
-        amountToPay = roundVal(vehiclePrice * (1 + Config.FinanceInterest) * downPayment) -- down payment
-        if data.directSale then amountToPay = roundVal(vehiclePrice * (1 + Config.FinanceInterest) * data.downPayment) end
-
-        financed = 1
-        financeData = {
-          total = roundVal(vehiclePrice * (1 + Config.FinanceInterest)),
-          paid = amountToPay,
-          recurring_payment = roundVal((vehiclePrice * (1 + Config.FinanceInterest) * (1 - downPayment)) / noOfPayments),
-          payments_complete = 0,
-          total_payments = noOfPayments,
-          payment_interval = Config.FinancePaymentInterval,
-          payment_failed = false,
-          seconds_to_next_payment = Config.FinancePaymentInterval * 3600,
-          seconds_to_repo = 0,
-          dealership_id = dealershipId,
-          vehicle = vehicleModel
-        }
-      end
-
-      if amountToPay > accBalance then
-        Framework.Client.Notify(Locale.errorCannotAffordVehicle, "error")
-        DoScreenFadeIn(0)
-        return cb({ error = true })
-      end
-
-      TriggerEvent("jg-dealerships:client:exit-showroom", function()
-        Framework.Client.TriggerCallback("jg-dealerships:server:purchase-vehicle", function(cbData)
-          if cbData and cbData.error then
-            DoScreenFadeIn(0)
-            return cb(false)
-          end
+  local res = purchaseVehicle(dealershipId, vehicleModel, vehicleColor, purchaseType, paymentMethod, directSale, dealerPlayerId, finance, noOfPayments, downPayment, society, societyType)
   
-          local plate = cbData.plate
-          local hasUsableSeats = GetVehicleModelNumberOfSeats(hash) > 0
-          
-          Functions.SpawnVehicle(hash, plate, purchaseSpawn, false, hasUsableSeats, function(vehicleEntity, netId)
-            if not vehicleEntity then
-              return cb(false)
-            end
+  if not res then
+    DoScreenFadeIn(0)
+    return cb({error = true}) 
+  end
   
-            Functions.SetVehicleColor(vehicleEntity, vehicleColor)
-            Framework.Client.VehicleSetFuel(vehicleEntity, 100)
-            Framework.Client.VehicleGiveKeys(plate, vehicleEntity)
-            local props = Framework.Client.GetVehicleProperties(vehicleEntity)
-  
-            TriggerServerEvent("jg-dealerships:server:update-purchased-vehicle-props", plate, props)
-            TriggerEvent("jg-dealerships:client:purchase-vehicle:config", vehicleEntity, plate, purchaseType, amountToPay, paymentMethod, financed)
-            TriggerServerEvent("jg-dealerships:server:purchase-vehicle:config", netId, plate, purchaseType, amountToPay, paymentMethod, financed)
-  
-            -- If they are running jg-advancedgarages, register the vehicle is out & set vehicle in valid garage ID
-            if GetResourceState("jg-advancedgarages") == "started" then
-              TriggerServerEvent("jg-advancedgarages:server:RegisterVehicleOutside", plate, netId)
-              TriggerServerEvent("jg-advancedgarages:server:dealerships-send-to-default-garage", vehicleType, plate)
-            end
-  
-            cb(cbData)
-          end)
-        end, purchaseType, society, societyType, vehicleModel, amountToPay, paymentMethod, dealershipId, financed, financeData, dealerPlayerId)
-      end)
-    end)
-  end, dealershipId, vehicleModel)
+  cb(true)
 end)

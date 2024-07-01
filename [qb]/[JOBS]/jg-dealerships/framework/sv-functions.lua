@@ -1,153 +1,191 @@
---
--- Core Functions
---
-function Framework.Server.CreateCallback(cbRef, cb)
-  if Config.Framework == "QBCore" then
-    return QBCore.Functions.CreateCallback(cbRef, function(...)
-      cb(...)
-    end)
-  elseif Config.Framework == "ESX" then
-    ESX.RegisterServerCallback(cbRef, function(...)
-      cb(...)
-    end)
-  end
-end
-
+---@param src integer
+---@param msg string
+---@param type "success" | "warning" | "error"
 function Framework.Server.Notify(src, msg, type)
-  TriggerClientEvent('jg-dealerships:client:notify', src, msg, type, 5000)
+  TriggerClientEvent("jg-dealerships:client:notify", src, msg, type, 5000)
 end
 
-function Framework.Server.RegisterCommand(name, help, arguments, argsrequired, callback)
-  if Config.Framework == "QBCore" then
-    QBCore.Commands.Add(name, help, arguments, argsrequired, callback)
-  elseif Config.Framework == "ESX" then
-    RegisterCommand(name, callback)
-  end
-end
-
+---@param src integer
+---@returns boolean
 function Framework.Server.IsAdmin(src)
-  if Config.Framework == "QBCore" then
-    return QBCore.Functions.HasPermission(src, "command")
-  elseif Config.Framework == "ESX" then
-    return ESX.GetPlayerFromId(src).getGroup() == "admin"
-  end
+  return IsPlayerAceAllowed(tostring(src), "command") or false
 end
 
 -- 
 -- Society
 --
-local usingNewQBBanking = GetResourceState("qb-banking") == "started" and tonumber(string.sub(GetResourceMetadata("qb-banking", "version"), 1, 3)) >= 2
 
-function Framework.Server.RemoveFromSocietyFund(societyName, type, amount)
-  if Config.Framework == "QBCore" then
+local usingNewQBBanking = GetResourceState("qb-banking") == "started" and tonumber(string.sub(GetResourceMetadata("qb-banking", "version", 0), 1, 3)) >= 2
+
+---@param society string
+---@param societyType "job"|"gang"
+---@return number balance
+function Framework.Server.GetSocietyBalance(society, societyType)
+  if GetResourceState("okokBanking") == "started" then
+    return exports['okokBanking']:GetAccount(society)
+  elseif Config.Framework == "QBCore" then
     if usingNewQBBanking then
-      exports['qb-banking']:RemoveMoney(societyName, amount)
+      return exports['qb-banking']:GetAccountBalance(society)
     else
-      if type == "job" then
-        exports['qb-management']:RemoveMoney(societyName, amount)
-      elseif type == "gang" then
-        exports['qb-management']:RemoveGangMoney(societyName, amount)
+      if societyType == "job" then
+        return exports['qb-management']:GetAccount(society)
+      elseif societyType == "gang" then
+        return exports['qb-management']:GetGangAccount(society)
       end
     end
   elseif Config.Framework == "ESX" then
-    if type == "cash" then type = "money" end
+    local balance = promise.new()
 
-    TriggerEvent('esx_society:getSociety', societyName, function(society)
-      TriggerEvent('esx_addonaccount:getSharedAccount', society.account, function(account)
+    TriggerEvent("esx_society:getSociety", society, function(data)
+      if not data then return balance:resolve(0) end
+
+      TriggerEvent("esx_addonaccount:getSharedAccount", data.account, function(account)
+        return balance:resolve(account.money)
+      end)
+    end)
+
+		return Citizen.Await(balance)
+  end
+
+  return 0
+end
+
+lib.callback.register("jg-dealerships:server:get-society-balance", function(_, society, type)
+  return Framework.Server.GetSocietyBalance(society, type)
+end)
+
+---@param societyName string
+---@param societyType "job"|"gang"
+---@param amount number
+function Framework.Server.RemoveFromSocietyFund(societyName, societyType, amount)
+  if GetResourceState("okokBanking") == "started" then
+    exports['okokBanking']:RemoveMoney(societyName, amount)
+  elseif Config.Framework == "QBCore" then
+    if usingNewQBBanking then
+      exports["qb-banking"]:RemoveMoney(societyName, amount)
+    else
+      if societyType == "job" then
+        exports["qb-management"]:RemoveMoney(societyName, amount)
+      elseif societyType == "gang" then
+        exports["qb-management"]:RemoveGangMoney(societyName, amount)
+      end
+    end
+  elseif Config.Framework == "ESX" then
+    TriggerEvent("esx_society:getSociety", societyName, function(society)
+      TriggerEvent("esx_addonaccount:getSharedAccount", society.account, function(account)
         account.removeMoney(amount)
       end)
     end)
   end
 end
 
-Framework.Server.CreateCallback("jg-dealerships:server:get-society-balance", function(src, cb, society, type)
-  if Config.Framework == "QBCore" then
-    if usingNewQBBanking then
-      cb(exports['qb-banking']:GetAccountBalance(society))
-    else
-      if type == "job" then
-        cb(exports['qb-management']:GetAccount(society))
-      elseif type == "gang" then
-        cb(exports['qb-management']:GetGangAccount(society))
-      end
-    end
-  elseif Config.Framework == "ESX" then
-    if type == "cash" then type = "money" end
-
-    TriggerEvent('esx_society:getSociety', society, function(data)
-      if not data then return cb(0) end
-      TriggerEvent('esx_addonaccount:getSharedAccount', data.account, function(account)
-        cb(account.money)
-      end)
-    end)
-  end
-end)
-
+---@param purchaseType "society"|"personal"
+---@param society? string
+---@param societyType? string
+---@param model string|integer
+---@param plate string
+---@param financed? boolean
+---@param financeData? table
+---@return integer|nil vehicleId
 function Framework.Server.SaveVehicleToGarage(src, purchaseType, society, societyType, model, plate, financed, financeData)
-  if Config.Framework == "QBCore" then
+  local vehicleId = nil
+
+  if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
     local playerData = Framework.Server.GetPlayer(src).PlayerData
     local license = playerData.license
     local citizenid = playerData.citizenid
+    local props = json.encode({
+      model = convertModelToHash(model),
+      plate = plate
+    })
 
     if purchaseType == "society" then
-      if societyType == "job" then
-        MySQL.insert.await("INSERT INTO player_vehicles (license,citizenid,vehicle,hash,plate,financed,finance_data,job_vehicle,job_vehicle_rank) VALUES(?,?,?,?,?,?,?,?,?)", {license, society, model, joaat(model), plate, financed, json.encode(financeData), 1, 0})
-      elseif societyType == "gang" then
-        MySQL.insert.await("INSERT INTO player_vehicles (license,citizenid,vehicle,hash,plate,financed,finance_data,gang_vehicle,gang_vehicle_rank) VALUES(?,?,?,?,?,?,?,?,?)", {license, society, model, joaat(model), plate, financed, json.encode(financeData), 1, 0})
-      end
+      vehicleId = MySQL.insert.await(
+        "INSERT INTO player_vehicles (license, citizenid, vehicle, hash, mods, plate, financed, finance_data, job_vehicle, job_vehicle_rank, gang_vehicle, gang_vehicle_rank) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        {license, society, model, joaat(model), props, plate, financed, json.encode(financeData), societyType == "job" and 1 or 0, 0, societyType == "gang" and 1 or 0, 0}
+      )
     else
-      MySQL.insert.await("INSERT INTO player_vehicles (license,citizenid,vehicle,hash,plate,financed,finance_data) VALUES(?,?,?,?,?,?,?)", {license, citizenid, model, joaat(model), plate, financed, json.encode(financeData)})
+      vehicleId = MySQL.insert.await(
+        "INSERT INTO player_vehicles (license, citizenid, vehicle, hash, mods, plate, financed, finance_data) VALUES(?, ?, ?, ?, ?, ?, ?, ?)",
+        {license, citizenid, model, joaat(model), props, plate, financed, json.encode(financeData)}
+      )
     end
   elseif Config.Framework == "ESX" then
     local identifier = Framework.Server.GetPlayerIdentifier(src)
 
-    if purchaseType == "society" then
-      if societyType == "job" then
-        MySQL.insert.await("INSERT INTO owned_vehicles (owner,plate,financed,finance_data,job_vehicle,job_vehicle_rank) VALUES(?,?,?,?,?,?)", {society, plate, financed, json.encode(financeData), 1, 0})
-      elseif societyType == "gang" then
-        MySQL.insert.await("INSERT INTO owned_vehicles (owner,plate,financed,finance_data,gang_vehicle,gang_vehicle_rank) VALUES(?,?,?,?,?,?)", {society, plate, financed, json.encode(financeData), 1, 0})
-      end
+    if purchaseType == "society" and societyType == "job" then
+      vehicleId = MySQL.insert.await(
+        "INSERT INTO owned_vehicles (owner, plate, vehicle, financed, finance_data, job_vehicle, job_vehicle_rank) VALUES(?, ?, ?, ?, ?, ?, ?)",
+        {society, plate, props, financed, json.encode(financeData), 1, 0}
+      )
     else
-      MySQL.insert.await("INSERT INTO owned_vehicles (owner,plate,financed,finance_data) VALUES(?,?,?,?)", {identifier, plate, financed, json.encode(financeData)})
+      vehicleId = MySQL.insert.await(
+        "INSERT INTO owned_vehicles (owner, plate, vehicle, financed, finance_data) VALUES(?, ?, ?, ?, ?)",
+        {identifier, plate, props, financed, json.encode(financeData)}
+      )
     end
   end
+
+  return vehicleId
 end
 
-function Framework.Server.VehicleGeneratePlate()
-  local plateFormat = Config.PlateFormat or "1AA111AA"
+---@param vehicle integer
+---@return string | false plate 
+function Framework.Server.GetPlate(vehicle)
+  local plate = GetVehicleNumberPlateText(vehicle)
+  if not plate or plate == nil or plate == "" then return false end
+
+  local trPlate = string.gsub(plate, "^%s*(.-)%s*$", "%1")
+  return trPlate
+end
+
+---Generate a plate based on a seed
+---@param seed string
+---@param checkIfExists? boolean Check if the plate exists in the DB
+---@return string|false generatedPlate
+function Framework.Server.VehicleGeneratePlate(seed, checkIfExists)
+  seed = seed or "1AA111AA"
+
+  local CHARSET_NUMBERS, CHARSET_LETTERS = "0123456789", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   local attempts = 0
 
   while attempts < 20 do
-    local charsetNumbers = "0123456789"
-    local charsetLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    local plate = ""
-    local i = 0
+    local i, plate = 0, ""
 
-    while i <= 8 do
-      local c = plateFormat:sub(i, i)
-      if c == "A" then
-        local randLetterPos = math.random(1, #charsetLetters)
-        local randLetter = charsetLetters:sub(randLetterPos, randLetterPos)
-        plate = plate .. randLetter -- Ensure only one character is added
-      elseif c == "1" then
-        local randNumberPos = math.random(1, #charsetNumbers)
-        local randNumber = charsetNumbers:sub(randNumberPos, randNumberPos)
-        plate = plate .. randNumber -- Ensure only one character is added
-      elseif c == "^" then
-        i = i + 1 -- Skip the caret and use the next character
-        if i <= #plateFormat then
-          plate = plate .. plateFormat:sub(i, i)
-        end
+    while i <= seed:len() do
+      local char = seed:sub(i, i)
+
+      if char == "A" then
+        local randLetterPos = math.random(1, #CHARSET_LETTERS)
+        local randLetter = CHARSET_LETTERS:sub(randLetterPos, randLetterPos)
+        plate = plate .. randLetter
+      elseif char == "1" then
+        local randNumberPos = math.random(1, #CHARSET_NUMBERS)
+        local randNumber = CHARSET_NUMBERS:sub(randNumberPos, randNumberPos)
+        plate = plate .. randNumber
+      elseif char == "^" then
+        i = i + 1
+        if i <= seed:len() then plate = plate .. seed:sub(i, i) end
       else
-        plate = plate .. c
+        plate = plate .. char
       end
+
       i = i + 1
     end
 
-    local result = MySQL.scalar.await("SELECT plate FROM " .. Framework.VehiclesTable .. " WHERE plate = ?", {plate})
-    if not result then
-      return plate:upper()
+    plate = plate:upper()
+
+    if plate:len() > 8 then
+      error("^1[ERROR] You are generating a plate with more than 8 characters.")
+      return false
     end
+
+    if not checkIfExists then
+      return plate
+    end
+
+    local result = MySQL.scalar.await("SELECT plate FROM " .. Framework.VehiclesTable .. " WHERE plate = ?", {plate})
+    if not result then return plate end
 
     attempts = attempts + 1
   end
@@ -155,22 +193,31 @@ function Framework.Server.VehicleGeneratePlate()
   return false
 end
 
+lib.callback.register("jg-dealerships:server:vehicle-generate-plate", function(_, ...)
+  return Framework.Server.VehicleGeneratePlate(...)
+end)
+
 --
 -- Player Functions
 --
+
+---@param src integer
 function Framework.Server.GetPlayer(src)
   if Config.Framework == "QBCore" then
     return QBCore.Functions.GetPlayer(src)
+  elseif Config.Framework == "Qbox" then
+    return exports.qbx_core:GetPlayer(src)
   elseif Config.Framework == "ESX" then
     return ESX.GetPlayerFromId(src)
   end
 end
 
+---@param src integer
 function Framework.Server.GetPlayerInfo(src)
   local player = Framework.Server.GetPlayer(src)
   if not player then return false end
 
-  if Config.Framework == "QBCore" then
+  if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
     return {
       name = player.PlayerData.charinfo.firstname .. " " .. player.PlayerData.charinfo.lastname
     }
@@ -181,11 +228,12 @@ function Framework.Server.GetPlayerInfo(src)
   end
 end
 
+---@param identifier string
 function Framework.Server.GetPlayerInfoFromIdentifier(identifier)
   local player = MySQL.single.await("SELECT * FROM " .. Framework.PlayersTable .. " WHERE " .. Framework.PlayersTableId .. " = ?", {identifier})
   if not player then return false end
 
-  if Config.Framework == "QBCore" then
+  if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
     local charinfo = json.decode(player.charinfo)
     return {
       name = charinfo.firstname .. " " .. charinfo.lastname
@@ -197,20 +245,27 @@ function Framework.Server.GetPlayerInfoFromIdentifier(identifier)
   end
 end
 
+---@param src integer
 function Framework.Server.GetPlayerIdentifier(src)
   local player = Framework.Server.GetPlayer(src)
   if not player then return false end
 
-  if Config.Framework == "QBCore" then
+  if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
     return player.PlayerData.citizenid
   elseif Config.Framework == "ESX" then
     return player.getIdentifier()
   end
 end
 
+---@param identifier string
+---@return integer | false src
 function Framework.Server.GetPlayerFromIdentifier(identifier)
   if Config.Framework == "QBCore" then
     local player = QBCore.Functions.GetPlayerByCitizenId(identifier)
+    if not player then return false end
+    return player.PlayerData.source
+  elseif Config.Framework == "Qbox" then
+    local player = exports.qbx_core:GetPlayerByCitizenId(identifier)
     if not player then return false end
     return player.PlayerData.source
   elseif Config.Framework == "ESX" then
@@ -218,13 +273,21 @@ function Framework.Server.GetPlayerFromIdentifier(identifier)
     if not xPlayer then return false end
     return xPlayer.source
   end
+
+  return false
 end
 
+-- 
+-- Player Money
+--
+
+---@param src integer
+---@param type "cash" | "bank" | "money"
 function Framework.Server.GetPlayerBalance(src, type)
   local player = Framework.Server.GetPlayer(src)
   if not player then return 0 end
 
-  if Config.Framework == "QBCore" then
+  if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
     return player.PlayerData.money[type]
   elseif Config.Framework == "ESX" then
     if type == "cash" then type = "money" end
@@ -239,30 +302,43 @@ function Framework.Server.GetPlayerBalance(src, type)
   end
 end
 
+---@param src integer
+---@param amount number
+---@param account "cash" | "bank" | "money"
 function Framework.Server.PlayerAddMoney(src, amount, account)
   local player = Framework.Server.GetPlayer(src)
-  account = account or 'bank'
+  account = account or "bank"
 
-  if Config.Framework == "QBCore" then
-    player.Functions.AddMoney(account, roundVal(amount))
+  if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
+    player.Functions.AddMoney(account, round(amount, 0))
   elseif Config.Framework == "ESX" then
     if account == "cash" then account = "money" end
-    player.addAccountMoney(account, roundVal(amount))
+    player.addAccountMoney(account, round(amount, 0))
   end
 end
 
+---@param src integer
+---@param amount number
+---@param account "cash" | "bank" | "money"
 function Framework.Server.PlayerRemoveMoney(src, amount, account)
   local player = Framework.Server.GetPlayer(src)
-  account = account or 'bank'
+  account = account or "bank"
 
-  if Config.Framework == "QBCore" then
-    player.Functions.RemoveMoney(account, roundVal(amount))
+  if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
+    player.Functions.RemoveMoney(account, round(amount, 0))
   elseif Config.Framework == "ESX" then
     if account == "cash" then account = "money" end
-    player.removeAccountMoney(account, roundVal(amount))
+    player.removeAccountMoney(account, round(amount, 0))
   end
 end
 
+--
+-- Player Job
+--
+
+---@param src integer
+---@param job string
+---@param role "sales" | "supervisor" | "manager" | number
 function Framework.Server.PlayerSetJob(src, job, role)
   local player = Framework.Server.GetPlayer(src)
 
@@ -271,27 +347,34 @@ function Framework.Server.PlayerSetJob(src, job, role)
   if role == "supervisor" then rank = 2 end
   if role == "manager" then rank = 3 end
 
-  if Config.Framework == "QBCore" then
+  if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
     player.Functions.SetJob(job, rank)
   elseif Config.Framework == "ESX" then
     player.setJob(job, rank)
   end
 end
 
+---@param identifier string
+---@param job string
+---@param role "sales" | "supervisor" | "manager" | number
 function Framework.Server.PlayerSetJobOffline(identifier, job, role)
   -- Adjust this as necessary for your job setup
   local rank = 1 -- sales
   if role == "supervisor" then rank = 2 end
   if role == "manager" then rank = 3 end
-
-  if Config.Framework == "QBCore" then
-    if not QBCore.Shared.Jobs[job] then return false end
+  
+  if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
+    local jobsList = {}
+    if Config.Framework == "QBCore" then jobsList = QBCore.Shared.Jobs
+    elseif Config.Framework == "Qbox" then jobsList = exports.qbx_core:GetJobs() end
+    
+    if not jobsList[job] then return false end
 
     local jobData = {
       name = job,
-      label = QBCore.Shared.Jobs[job].label,
-      onduty = QBCore.Shared.Jobs[job].defaultDuty,
-      type = QBCore.Shared.Jobs[job].type or 'none',
+      label = jobsList[job].label,
+      onduty = jobsList[job].defaultDuty,
+      type = jobsList[job].type or 'none',
       grade = {
         name = 'No Grades',
         level = 0,
@@ -299,9 +382,8 @@ function Framework.Server.PlayerSetJobOffline(identifier, job, role)
       payment = 30,
       isboss = false
     }
-
-    if QBCore.Shared.Jobs[job].grades[tostring(rank)] then
-      local jobgrade = QBCore.Shared.Jobs[job].grades[tostring(rank)]
+    if jobsList[job].grades[tostring(rank)] then
+      local jobgrade = jobsList[job].grades[tostring(rank)]
       jobData.grade = {}
       jobData.grade.name = jobgrade.name
       jobData.grade.level = rank
@@ -319,6 +401,8 @@ function Framework.Server.GetPlayers()
   local players = {}
   if Config.Framework == "QBCore" then
     players = QBCore.Functions.GetQBPlayers()
+  elseif Config.Framework == "Qbox" then
+    players = exports.qbx_core:GetQBPlayers()
   elseif Config.Framework == "ESX" then
     players = ESX.GetExtendedPlayers()
   end
@@ -337,6 +421,8 @@ end
 function Framework.Server.GetJobs()
   if Config.Framework == "QBCore" then
     return QBCore.Shared.Jobs
+  elseif Config.Framework == "Qbox" then
+    return exports.qbx_core:GetJobs()
   elseif Config.Framework == "ESX" then
     return ESX.GetJobs()
   end
@@ -351,8 +437,7 @@ RegisterNetEvent("jg-dealerships:server:save-ti-fuel-type", function(plate, type
   MySQL.update.await("UPDATE " .. Framework.VehiclesTable .. " SET ti_fuel_type = ? WHERE plate = ?", {type, plate});
 end)
 
-Framework.Server.CreateCallback('jg-dealerships:server:get-ti-fuel-type', function(src, cb, plate)
+lib.callback.register("jg-dealerships:server:get-ti-fuel-type", function(src, plate)
   MySQL.query.await("ALTER TABLE " .. Framework.VehiclesTable .. " ADD COLUMN IF NOT EXISTS `ti_fuel_type` VARCHAR(100) DEFAULT '';")
-  local data = MySQL.single.await("SELECT ti_fuel_type FROM  " .. Framework.VehiclesTable .. " WHERE plate = ?", {plate});
-  cb(data.ti_fuel_type)
+  return MySQL.scalar.await("SELECT ti_fuel_type FROM  " .. Framework.VehiclesTable .. " WHERE plate = ?", {plate})
 end)

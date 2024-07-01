@@ -1,23 +1,24 @@
 --
 -- Discord Webhooks
 --
+
 Webhooks = {}
-Webhooks.TestDrive = "https://discord.com/api/webhooks/1255864711744979017/eGtlof_J46QS0bxuOLmPhs4hUiQvlhDyoMThZKMPnSUhkHxIAGzYxZ7MniqRpgk2m3S-"
-Webhooks.Purchase = "https://discord.com/api/webhooks/1255864778136489989/W_AxNi1bbWs4_IXkCrV575YYw22g5LqAzz9sECXsy6dLjWgixhnRKEXjKJbVcnPLMcff"
-Webhooks.Finance = "https://discord.com/api/webhooks/1255864842611462194/Tf4qN1CsNR_j2PQeDhmBURHbQaljjoMaM7LgWKAvAXktpRDYFMewa1gQ89J-mWH7rbCX"
-Webhooks.Dealership = "https://discord.com/api/webhooks/1255864938526801951/IeYB_LHmtNRrobKWjR4jzXmJo6uOb9nhIs6b6CcoOCCMPB2yZONy4sB2deJSHH7yawDo"
-Webhooks.Admin = "https://discord.com/api/webhooks/1255865000451375146/_PYGSjsaP8pEDMNbuiQQLwWIrRRQ8OSfFUqe4dT45UXU8brtLXMXiYGn2FfNHWq86kI6"
+Webhooks.TestDrive = ""
+Webhooks.Purchase = ""
+Webhooks.Finance = ""
+Webhooks.Dealership = ""
+Webhooks.Admin = ""
 
 --[[
   EXAMPLE WEBHOOK CALL
 
-  Functions.SendWebhook(src, Webhooks.Admin, "Webhook Title", "success", {
+  sendWebhook(src, Webhooks.Admin, "Webhook Title", "success", {
     { key = "Data fields", value = "Data value" },
     { key = "Data fields 2", value = "Data value 2" }
   })
 ]]--
 
-function Functions.SendWebhook(playerId, webhookUrl, title, type, data)
+function sendWebhook(playerId, webhookUrl, title, type, data)
   if not webhookUrl then return end
 
   local player = Framework.Server.GetPlayerInfo(playerId)
@@ -65,9 +66,3 @@ function Functions.SendWebhook(playerId, webhookUrl, title, type, data)
     {["Content-Type"] = "application/json"}
   )
 end
-
--- For sending from client files...
-RegisterNetEvent("jg-dealerships:server:send-webhook", function(event, ...)
-  local src = source
-  Functions.SendWebhook(src, Webhooks[event], ...)
-end)
