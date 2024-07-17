@@ -192,6 +192,6 @@ Config.Speech = {
     Texts = {
         "Hello [name], how are you today?",
         "I love you [name], maybe you've never heard that before",
-        "Welcome to BRPS Roleplay"
+        "Welcome to CRP Roleplay"
     }
 }

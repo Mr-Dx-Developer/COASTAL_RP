@@ -17,7 +17,7 @@ Config = {
     CancelPreviousEmote = false,     -- If turned on, playing an emote will cancel the previous one.
 
     -- Menu Customization Options
-    MenuTitle = 'BRPS', -- You can change the name of the menu here or leave it blank to remove the text in front of the custom banners
+    MenuTitle = 'ROLEPLAY', -- You can change the name of the menu here or leave it blank to remove the text in front of the custom banners
     MenuPosition = 'right', -- You can change the menu position here. Use 'left' or 'right'
     CustomMenuEnabled = true, -- You can change the header image for the menu here, Note this might cause an issue of the image getting stuck on people's screens
     MenuImage = '', -- You can change the menu image here, please use an image with the same width and length hosted online

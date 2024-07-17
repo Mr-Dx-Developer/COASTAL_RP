@@ -1,6 +1,6 @@
 fx_version 'cerulean'
 game 'gta5'
-name 'BRPS-RadioList'
+name 'Dx-RadioList'
 author 'KT_ BRAVEHEART#9005'
 description 'Radio List : List of players in each radio for pma-voice'
 shared_scripts {

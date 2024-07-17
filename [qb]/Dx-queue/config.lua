@@ -76,12 +76,12 @@ Config.DiscordQueue = {
 }
 
 strings = {
-    verifyConnection = '[BRPS] Verifying connection...',
-    verifyLauncher = '[BRPS] Verifying Launcher...',
-    verifyDiscord = '[BRPS] Verifying Discord...',
-    verifyQueue = '[BRPS] Adding to queue...',
-    notInDiscord = '[BRPS] You must join the discord: https://discord.gg/SvEqTuPBPH to fly in!',
-    noDiscord = '[BRPS] You must have Discord downloaded, installed, and running to connect!',
-    error = '[BRPS] An error has occured, please try again!',
-    noSteam = '[BRPS] You must have Steam downloaded, installed and running to connect!',
+    verifyConnection = '[CRP] Verifying connection...',
+    verifyLauncher = '[CRP] Verifying Launcher...',
+    verifyDiscord = '[CRP] Verifying Discord...',
+    verifyQueue = '[CRP] Adding to queue...',
+    notInDiscord = '[CRP] You must join the discord: https://discord.gg/SvEqTuPBPH to fly in!',
+    noDiscord = '[CRP] You must have Discord downloaded, installed, and running to connect!',
+    error = '[CRP] An error has occured, please try again!',
+    noSteam = '[CRP] You must have Steam downloaded, installed and running to connect!',
 }

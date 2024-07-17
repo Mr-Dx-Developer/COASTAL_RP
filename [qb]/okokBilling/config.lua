@@ -112,9 +112,9 @@ Config.AdminGroups = {
 
 -- To set your Discord Webhook URL go to sv_utils.lua, line 3
 
-Config.BotName = 'BRPS' -- Write the desired bot name
+Config.BotName = 'CRP' -- Write the desired bot name
 
-Config.ServerName = 'BRPS' -- Write your server's name
+Config.ServerName = 'CRP' -- Write your server's name
 
 Config.IconURL = '' -- Insert your desired image link
 

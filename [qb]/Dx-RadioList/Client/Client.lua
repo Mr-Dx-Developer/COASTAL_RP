@@ -3,8 +3,8 @@ local PlayersInRadio = {}
 local firstTimeEventGetsTriggered = true
 local RadioChannelsName = {--[[Will Be Automatically Filled With Channels' Name => e.g. every frequency between 0 and 1 will be named to Admin Radio]]}
 
-RegisterNetEvent('BRPS-RadioList:Client:SyncRadioChannelPlayers')
-AddEventHandler('BRPS-RadioList:Client:SyncRadioChannelPlayers', function(src, RadioChannelToJoin, PlayersInRadioChannel)
+RegisterNetEvent('Dx-RadioList:Client:SyncRadioChannelPlayers')
+AddEventHandler('Dx-RadioList:Client:SyncRadioChannelPlayers', function(src, RadioChannelToJoin, PlayersInRadioChannel)
 	if firstTimeEventGetsTriggered then
 		for i, v in pairs(Config.RadioChannelsWithName) do
 			local frequency = tonumber(i)
@@ -78,8 +78,8 @@ AddEventHandler('pma-voice:radioActive', function(talkingState)
 	SendNUIMessage({ radioId = PlayerServerID, radioTalking = talkingState }) -- Set player talking in radio list
 end)
 
-RegisterNetEvent('BRPS-RadioList:Client:DisconnectPlayerCurrentChannel')
-AddEventHandler('BRPS-RadioList:Client:DisconnectPlayerCurrentChannel', function()
+RegisterNetEvent('Dx-RadioList:Client:DisconnectPlayerCurrentChannel')
+AddEventHandler('Dx-RadioList:Client:DisconnectPlayerCurrentChannel', function()
 	ResetTheRadioList() -- Delete the PlayersInRadio contents so it opens up memory
 	HideTheRadioList()
 end)
