@@ -8,16 +8,16 @@ Config = {}
 Config.checkForUpdates = false -- Check for updates?
 
 Config.DiscordInfo = {
-    botToken = 'MTI0NzQ1ODg3NzE5MzE5MTQ0Ng.GZwDeZ.ClIMgcFK6yzZxrPEJ-4TWewMi92Z4xTEa3Sx0o', -- Your Discord bot token here
-    guildID = '835233053823205427', -- Your Discord's server ID here(Aka Guild ID)
+    botToken = 'MTI2MzE4MTE2NDEzMTM4NTM2Ng.GEyEpP.j-73cOgDWoVFTUiL1eklBgWKOMYbf58Pm0T3ZU', -- Your Discord bot token here
+    guildID = '1251835743408488510', -- Your Discord's server ID here(Aka Guild ID)
 }
 
 Config.DiscordWhitelist = { -- Restrict if someone can fly in if they lack specific Discord role(s)
     enabled = true, -- Enable?
-    deniedMessage = 'https://discord.gg/SvEqTuPBPH : Join our Discord server and verify to play!', -- Message for those who lack whitelisted role(s)
+    deniedMessage = 'https://discord.gg/wzEAeuwPAC : Join our Discord server and verify to play!', -- Message for those who lack whitelisted role(s)
     whitelistedRoles = {
       --'ROLE_ID_HERE',
-        '1148329617376170044', -- Maybe like a civilian role or whitelisted role(can add multiple to table)
+        '1251835743408488512', -- Maybe like a civilian role or whitelisted role(can add multiple to table)
     }
 }
 
@@ -28,7 +28,7 @@ Config.DiscordQueue = {
     title = 'Bangladesh RolePlay', -- Maybe server name here?
 
     image = { -- Image shown on adaptive card
-        link = 'https://i.ibb.co/W2fY1Cr/BRPS-1.gif', -- Link to image, maybe like a server logo?
+        link = '', -- Link to image, maybe like a server logo?
         width = '600px', -- Width of image(would not go much higher than this)
         height = '338px' -- Height
     },
@@ -45,19 +45,19 @@ Config.DiscordQueue = {
         button1 = { -- Webstore button config
             title = 'WebStore',
             iconUrl = 'https://i.imgur.com/8msLEGN.png', -- Little button icon image link
-            url = 'https://discord.gg/SvEqTuPBPH' -- Link button goes to
+            url = 'https://discord.gg/wzEAeuwPAC' -- Link button goes to
         },
         button2 = {
             title = 'Discord',
             iconUrl = 'https://i.imgur.com/4a1Rdgf.png',
-            url = 'https://discord.gg/SvEqTuPBPH'
+            url = 'https://discord.gg/wzEAeuwPAC'
         }
     },
     roles = {
 
         { -- This ones provided by default are purely for example
             name = 'Member', -- Name you want displayed as role on queue card
-            roleId = '1148329617376170044', -- Role ID of role
+            roleId = '1251835743408488512', -- Role ID of role
             points = 0 -- Points to add to queue(Higher the number, higher the queue)
         },
 
@@ -69,7 +69,7 @@ Config.DiscordQueue = {
 
         {
             name = 'DEV',
-            roleId = '1148329440309428224',
+            roleId = '1253027606778085546',
             points = 60
         },
     }

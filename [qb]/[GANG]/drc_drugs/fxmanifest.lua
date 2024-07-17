@@ -1,9 +1,13 @@
 fx_version 'cerulean'
 game 'gta5'
-author 'DRC Scripts'
-description 'DRC DRUGS'
+author 'Mr_Dx'
+description 'Dx DRUGS'
 version '1.1'
 lua54 'yes'
+
+
+
+
 shared_scripts {
   '@ox_lib/init.lua',
   'shared/*.lua',
@@ -22,4 +26,5 @@ escrow_ignore {
   'client/*.lua',
   'server/*.lua',
 }
+dependency '/assetpacks'
 dependency '/assetpacks'

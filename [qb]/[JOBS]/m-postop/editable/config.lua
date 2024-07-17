@@ -15,7 +15,7 @@ HSN.Config = {
     VehicleItem = "transportitem",
     UseJob = false, -- if you want to use job system set true
     JobName = "police", -- job name for access postop
-    DiscordBotToken = "", -- discord bot token for user image
+    DiscordBotToken = "MTI2MzE4MTE2NDEzMTM4NTM2Ng.GEyEpP.j-73cOgDWoVFTUiL1eklBgWKOMYbf58Pm0T3ZU", -- discord bot token for user image
     FinishJobCommand = {enable = true, command = "FinishJob", DeleteVehicleAfterUsage = true},
     OXInventoryCashItem = "money",
     BadgePrice = 250,
