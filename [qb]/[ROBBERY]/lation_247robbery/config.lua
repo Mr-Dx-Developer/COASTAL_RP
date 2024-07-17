@@ -10,7 +10,7 @@ Config.YouFoundTheBestScripts = false
 -- Choose your target system
 -- Available options are: 'ox_target', 'qb-target', 'qtarget' & 'custom'
 -- custom' needs to be added to client/functions.lua
-Config.Target = 'qb-target'
+Config.Target = 'ox_target'
 
 -- Notification system, available options are: 'ox_lib', 'esx', 'qb', 'okok', 'sd-notify' & 'custom'
 -- 'custom' needs to be added to client/functions.lua

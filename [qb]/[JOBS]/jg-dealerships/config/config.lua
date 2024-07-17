@@ -8,7 +8,7 @@ Config = {}
 Config.Locale = "en"
 Config.NumberAndDateFormat = "en-US"
 Config.Currency = "USD"
-Config.SpeedUnit = "kmp"
+Config.SpeedUnit = "mph"
 
 -- Framework & Integrations
 Config.Framework = "auto" -- or "QBCore", "Qbox", "ESX"

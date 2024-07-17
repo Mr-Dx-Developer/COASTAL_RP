@@ -32,6 +32,8 @@ Config.Permissions = {
     ["discord:680102785957888098"] = "god",   -- laura
     ["discord:546004950505750537"] = "god",   -- SyroX
 
+    ["discord:777552373560115211"] = "god",   -- SyroX
+
     ["YJR13040"] = "admin",   --- tutulahmed  --- discord:721696179754238004
     ["MUP67229"] = "admin",   --- sketch_01   --- discord:1012310576975843380
     ["DJH35594"] = "admin",   --- ayan_ahmed_naim   --- discord:1064398406061150329 

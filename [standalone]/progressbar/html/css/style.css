@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@200&display=swap');
+
 html {
     overflow: hidden;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Catamaran', sans-serif;
 }
 
 body {
@@ -17,47 +18,35 @@ body {
     display: none;
     z-index: 5;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Catamaran', sans-serif;
     width: 15%;
     position: fixed;
     bottom: 12.65%;
+    height: 10px;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 6px;
 }
-
-@keyframes gelatine {
-    from, to { transform: scale(1, 1) perspective(1em) rotateZ(-4deg); }
-    25% { transform: scale(0.6, 1.3) perspective(1em) rotateZ(-4deg); }
-    50% { transform: scale(1.3, 0.6) perspective(1em) rotateZ(-4deg); }
-    75% { transform: scale(1.1, 1) perspective(1em) rotateZ(-4deg); }
-    100% { transform: scale(1, 1) perspective(1em) rotateZ(-4deg); }
-  }
 
 .progress-labels {
     width: 100%;
-    height: 4vh;
+    height: 7vh;
     line-height: 4vh;
     text-align: center;
-    position: fixed;
-    bottom: 164;
-    right: 0;
+    position: absolute;
     display: inline-block;
     white-space: nowrap;
 }
 
 .progress-labels div {
-    font-size: 1.7vh;
-    line-height: 4vh;
+    font-size: 1.5vh;
     position: relative;
     color: #ffffff;
+    top: -39px;
     z-index: 10;
     font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    animation: gelatine 0.6s;
-    transform: perspective(1em) rotateZ(-4deg);
+    font-family: 'Catamaran', sans-serif;
 }
 
 .progress-bar-container {
@@ -65,23 +54,22 @@ body {
     height: 1.5vh;
     background: rgba(0, 0, 0, 0.246);
     text-align: left;
+    overflow: hidden;
     position: relative;
     display: block;
     white-space: nowrap;
-    border-radius: 6px;
-
-    animation: gelatine 0.6s;
-    transform: perspective(1em) rotateZ(-4deg);
+    border-radius: 8px;
+    /* blue glow */
+    box-shadow: 0 0 8px #00c5df;
 }
 
 .progress-bar {
-    background-color: #dc143c !important;
+    background-color: #00c5df !important;
+    border-right: 4px solid #02b9d1;
+    border-bottom: 4px solid #00c5df;
+    box-shadow:1px 1px 2px #00c5df;
     width: 0%;
-    height: 1.5vh;
+    height: 4vh;
     transition: width 0.3s;
     transition-timing-function: ease-out;
-    box-shadow: 0 0 1em 0 #dc143c;
-    border-radius: 6px;
-
-    animation: gelatine 0.6s;
 }

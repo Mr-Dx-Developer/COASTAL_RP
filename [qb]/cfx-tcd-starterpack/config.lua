@@ -8,8 +8,8 @@ Config = {}
 Config.Lang = 'en'
 Config.Debug = false                       -- if you want to see debug messages in console
 
-Config.TargetResource = 'qb-target'       -- supported: ox_target, qb-target
-Config.InventoryResource = 'qs-inventory' -- supported: ox_inventory, qb-inventory, ps-inventory, qs-inventory
+Config.TargetResource = 'ox_target'       -- supported: ox_target, qb-target
+Config.InventoryResource = 'ox_inventory' -- supported: ox_inventory, qb-inventory, ps-inventory, qs-inventory
 Config.SQLResource = 'oxmysql'            -- supported: oxmysql, mysql-async, ghmattimysql
 
 Config.UseCommand = true                  -- if you want to use command to give starter pack to player

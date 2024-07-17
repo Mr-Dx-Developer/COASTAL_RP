@@ -48,7 +48,7 @@ Prison = {
         playerUnloadedClient = 'qbcore', -- ['esx', 'qbcore'] Set playerUnloadedClient (client-side) event, automatic detection will be performed
         playerLoadedClient = 'qbcore', -- ['esx', 'qbcore'] Set playerLoadedClient (client-side) event, automatic detection will be performed
         resourceName = 'qbcore', -- ['esx', 'qbcore'] Set the resource name, if left blank, automatic detection will be performed
-        resourceNameClothing = 'illenium-appearance', -- [ ESX = 'skinchanger' / QBCore = 'qb-clothing', 'fivem-appearance', 'illenium-appearance' ] Set the clothing resource name, if left blank, automatic detection will be performed
+        resourceNameClothing = 'qb-clothing', -- [ ESX = 'skinchanger' / QBCore = 'qb-clothing', 'fivem-appearance', 'illenium-appearance' ] Set the clothing resource name, if left blank, automatic detection will be performed
         resourceNamePhone = 'lb-phone', -- '[ 'qb-phone', 'npwd', 'gksphone', 'qs-smartphone'] Set the phone resource name for booth usage, if left blank, automatic detection will be performed
     },
 
@@ -62,12 +62,12 @@ Prison = {
 
     InventoryScripts = {
     --    MF_INVENTORY = 'mf-inventory',
-    --    OX_INVENTORY = 'ox_inventory',
+        OX_INVENTORY = 'ox_inventory',
     --    QB_INVENTORY = 'qb-inventory',
     --    LJ_INVENTORY = 'lj-inventory',
     --    AJ_INVENTORY = 'aj-inventory',
     --    PS_INVENTORY = 'ps-inventory',
-        QS_INVENTORY = 'qs-inventory',
+    --    QS_INVENTORY = 'qs-inventory',
     --    CHEEZA_INVENTORY = 'inventory',
     --    ESX_INVENTORY = 'es_extended',
     --    CODEM_INVENTORY = 'codem-inventory',
