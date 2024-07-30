@@ -5,6 +5,7 @@ var lastCategory = "character"
 var selectedCam = null;
 var hasTracker = false;
 var canChange = true;
+var translations = {};
 
 var clothingCategorys = [];
 
@@ -336,6 +337,10 @@ QBClothing.ToggleChange = function(bool) {
 
 $(document).ready(function() {
     window.addEventListener('message', function(event) {
+        if(event.data.translations != undefined) {
+            translations = event.data.translations;
+            translate();
+        }
         switch (event.data.action) {
             case "open":
                 QBClothing.Open(event.data);
@@ -362,7 +367,7 @@ $(document).ready(function() {
 QBClothing.ReloadOutfits = function(outfits) {
     $(".clothing-menu-myOutfits-container").html("");
     $.each(outfits, function(index, outfit) {
-        var elem = '<div class="clothing-menu-option" data-myOutfit="' + (index + 1) + '"> <div class="clothing-menu-option-header"><p>' + outfit.outfitname + '</p></div><div class="clothing-menu-myOutfit-option-button"><p>Select</p></div><div class="clothing-menu-myOutfit-option-button-remove"><p>Delete</p></div></div>'
+        var elem = '<div class="clothing-menu-option" data-myOutfit="' + (index + 1) + '"> <div class="clothing-menu-option-header"><p>' + outfit.outfitname + '</p></div><div class="clothing-menu-myOutfit-option-button"><p data-tkey="select">Select</p></div><div class="clothing-menu-myOutfit-option-button-remove"><p data-tkey="delete">Delete</p></div></div>'
         $(".clothing-menu-myOutfits-container").append(elem)
 
         $("[data-myOutfit='" + (index + 1) + "']").data('myOutfitData', outfit)
@@ -409,14 +414,12 @@ QBClothing.Open = function(data) {
 
     $(".change-camera-buttons").fadeIn(150);
 
-    // Reset display of all containers
     $(".clothing-menu-roomOutfits-container").css("display", "none");
     $(".clothing-menu-myOutfits-container").css("display", "none");
     $(".clothing-menu-character-container").css("display", "none");
     $(".clothing-menu-clothing-container").css("display", "none");
-    // Ensure the accessory menu is also set to display
-    $(".clothing-menu-accessoires-container").css("display", "block");
-
+    $(".clothing-menu-hair-container").css("display", "none");
+    $(".clothing-menu-accessoires-container").css("display", "none");
     $(".clothing-menu-container").css({ "display": "block" }).animate({ right: 0, }, 200);
     QBClothing.SetMaxValues(data.maxValues);
     $(".clothing-menu-header").html("");
@@ -430,6 +433,10 @@ QBClothing.Open = function(data) {
 
             if (menu.label == "Clothing") {
                 $("#faceoption").css("display", "none");
+                $('div[data-type="face"]').css("display", "none");
+                $('div[data-type="face2"]').css("display", "none");
+                $('div[data-type="facemix"]').css("display", "none");
+                $('div[data-type="model"]').css("display", "none");
             } else {
                 $("#faceoption").css("display", "block");
             }
@@ -443,7 +450,7 @@ QBClothing.Open = function(data) {
 
         if (menu.menu == "roomOutfits") {
             $.each(menu.outfits, function(index, outfit) {
-                var elem = '<div class="clothing-menu-option" data-outfit="' + (index + 1) + '"> <div class="clothing-menu-option-header"><p>' + outfit.outfitLabel + '</p></div> <div class="clothing-menu-outfit-option-button"><p>Select Outfit</p></div> </div>'
+                var elem = '<div class="clothing-menu-option" data-outfit="' + (index + 1) + '"> <div class="clothing-menu-option-header"><p>' + outfit.outfitLabel + '</p></div> <div class="clothing-menu-outfit-option-button"><p data-tkey="select">Select Outfit</p></div> </div>'
                 $(".clothing-menu-roomOutfits-container").append(elem)
 
                 $("[data-outfit='" + (index + 1) + "']").data('outfitData', outfit)
@@ -452,7 +459,7 @@ QBClothing.Open = function(data) {
 
         if (menu.menu == "myOutfits") {
             $.each(menu.outfits, function(index, outfit) {
-                var elem = '<div class="clothing-menu-option" data-myOutfit="' + (index + 1) + '"> <div class="clothing-menu-option-header"><p>' + outfit.outfitname + '</p></div><div class="clothing-menu-myOutfit-option-button"><p>Select</p></div><div class="clothing-menu-myOutfit-option-button-remove"><p>Delete</p></div></div>'
+                var elem = '<div class="clothing-menu-option" data-myOutfit="' + (index + 1) + '"> <div class="clothing-menu-option-header"><p>' + outfit.outfitname + '</p></div><div class="clothing-menu-myOutfit-option-button"><p data-tkey="select">Select</p></div><div class="clothing-menu-myOutfit-option-button-remove"><p data-tkey="delete">Delete</p></div></div>'
                 $(".clothing-menu-myOutfits-container").append(elem)
 
                 $("[data-myOutfit='" + (index + 1) + "']").data('myOutfitData', outfit)
@@ -507,6 +514,7 @@ QBClothing.Close = function() {
     $(".clothing-menu-myOutfits-container").css("display", "none");
     $(".clothing-menu-character-container").css("display", "none");
     $(".clothing-menu-clothing-container").css("display", "none");
+    $(".clothing-menu-hair-container").css("display", "none");
     $(".clothing-menu-accessoires-container").css("display", "none");
     $(".clothing-menu-header").html("");
 
@@ -523,35 +531,73 @@ QBClothing.Close = function() {
 QBClothing.SetMaxValues = function(maxValues) {
     $.each(maxValues, function(i, cat) {
         if (cat.type == "character") {
+
             var containers = $(".clothing-menu-character-container").find('[data-type="' + i + '"]');
+
             var itemMax = $(containers).find('[data-headertype="item-header"]');
+            $(itemMax).data('maxItem', maxValues[containers.data('type')].item);
+            $(itemMax).html("<p><span data-tkey='item'>Item</span>: " + maxValues[containers.data('type')].item + "</p>");
+
             var headerMax = $(containers).find('[data-headertype="texture-header"]');
+            $(headerMax).data('maxTexture', maxValues[containers.data('type')].texture);
+            $(headerMax).html("<p><span data-tkey='texture'>Texture</span>: " + maxValues[containers.data('type')].texture + "</p>");
 
-            $(itemMax).data('maxItem', maxValues[containers.data('type')].item)
-            $(headerMax).data('maxTexture', maxValues[containers.data('type')].texture)
+            var itemInputMax = $(containers).find('[data-type="item"]');
+            $(itemInputMax).attr({ 'max': maxValues[containers.data('type')].item, 'min' : -1 });
 
-            $(itemMax).html("<p>Item: " + maxValues[containers.data('type')].item + "</p>")
-            $(headerMax).html("<p>Texture: " + maxValues[containers.data('type')].texture + "</p>")
-        } else if (cat.type == "hair") {
+            var textureInputMax = $(containers).find('[data-type="texture"]');
+            $(textureInputMax).attr({ 'max': maxValues[containers.data('type')].texture, 'min' : -1 });
+
+        } else if (cat.type == "clothing") {
             var containers = $(".clothing-menu-clothing-container").find('[data-type="' + i + '"]');
+
             var itemMax = $(containers).find('[data-headertype="item-header"]');
+            $(itemMax).data('maxItem', maxValues[containers.data('type')].item);
+            $(itemMax).html("<p><span data-tkey='item'>Item</span>: " + maxValues[containers.data('type')].item + "</p>");
+
             var headerMax = $(containers).find('[data-headertype="texture-header"]');
+            $(headerMax).data('maxTexture', maxValues[containers.data('type')].texture);
+            $(headerMax).html("<p><span data-tkey='texture'>Texture</span>: " + maxValues[containers.data('type')].texture + "</p>");
 
-            $(itemMax).data('maxItem', maxValues[containers.data('type')].item)
-            $(headerMax).data('maxTexture', maxValues[containers.data('type')].texture)
+            var itemInputMax = $(containers).find('[data-type="item"]');
+            $(itemInputMax).attr({ 'max': maxValues[containers.data('type')].item, 'min' : -1 });
 
-            $(itemMax).html("<p>Item: " + maxValues[containers.data('type')].item + "</p>")
-            $(headerMax).html("<p>Texture: " + maxValues[containers.data('type')].texture + "</p>")
+            var textureInputMax = $(containers).find('[data-type="texture"]');
+            $(textureInputMax).attr({ 'max': maxValues[containers.data('type')].texture, 'min' : -1 });
+
+        } else if (cat.type == "hair") {
+            var containers = $(".clothing-menu-hair-container").find('[data-type="' + i + '"]');
+
+            var itemMax = $(containers).find('[data-headertype="item-header"]');
+            $(itemMax).data('maxItem', maxValues[containers.data('type')].item);
+            $(itemMax).html("<p><span data-tkey='item'>Item</span>: " + maxValues[containers.data('type')].item + "</p>");
+
+            var headerMax = $(containers).find('[data-headertype="texture-header"]');
+            $(headerMax).data('maxTexture', maxValues[containers.data('type')].texture);
+            $(headerMax).html("<p><span data-tkey='texture'>Texture</span>: " + maxValues[containers.data('type')].texture + "</p>");
+
+            var itemInputMax = $(containers).find('[data-type="item"]');
+            $(itemInputMax).attr({ 'max': maxValues[containers.data('type')].item, 'min' : -1 });
+
+            var textureInputMax = $(containers).find('[data-type="texture"]');
+            $(textureInputMax).attr({ 'max': maxValues[containers.data('type')].texture, 'min' : -1 });
+
         } else if (cat.type == "accessoires") {
             var containers = $(".clothing-menu-accessoires-container").find('[data-type="' + i + '"]');
+
             var itemMax = $(containers).find('[data-headertype="item-header"]');
+            $(itemMax).data('maxItem', maxValues[containers.data('type')].item);
+            $(itemMax).html("<p><span data-tkey='item'>Item</span>: " + maxValues[containers.data('type')].item + "</p>");
+
             var headerMax = $(containers).find('[data-headertype="texture-header"]');
+            $(headerMax).data('maxTexture', maxValues[containers.data('type')].texture);
+            $(headerMax).html("<p><span data-tkey='texture'>Texture</span>: " + maxValues[containers.data('type')].texture + "</p>");
 
-            $(itemMax).data('maxItem', maxValues[containers.data('type')].item)
-            $(headerMax).data('maxTexture', maxValues[containers.data('type')].texture)
+            var itemInputMax = $(containers).find('[data-type="item"]');
+            $(itemInputMax).attr({ 'max': maxValues[containers.data('type')].item, 'min' : -1 });
 
-            $(itemMax).html("<p>Item: " + maxValues[containers.data('type')].item + "</p>")
-            $(headerMax).html("<p>Texture: " + maxValues[containers.data('type')].texture + "</p>")
+            var textureInputMax = $(containers).find('[data-type="texture"]');
+            $(textureInputMax).attr({ 'max': maxValues[containers.data('type')].texture, 'min' : -1 });
         }
     })
 }
@@ -604,5 +650,16 @@ $(document).on('click', '.change-camera-button', function(e) {
         type: rotationType
     }))
 });
+
+function translatePhrase(phrase, old) {
+    return translations[phrase] || old;
+}
+
+function translate() {
+    for(let item in translations) {
+        let obj = $(".container").find(`[data-tkey="${item}"]`);
+        obj.text(translatePhrase(item, obj.text()));
+    }
+}
 
 // QBClothing.Open()

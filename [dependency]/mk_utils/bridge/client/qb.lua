@@ -1,4 +1,5 @@
-if GetResourceState('qb-core') == 'missing' then return end 
+---@diagnostic disable: duplicate-set-field
+if GetResourceState('qb-core') == 'missing' then return end
 
 QBCore = exports['qb-core']:GetCoreObject()
 
@@ -30,9 +31,9 @@ end
 ---@return boolean true player is restricted from performing tasks. ex: dead or cuffed. false if not
 framework.isRestricted = function(self)
     --utils.logger:debug(GetInvokingResource(), 'in last stand: '..tostring(playerState.mk_playerData?.metadata?.inlaststand)..' | is dead: '..tostring(playerState.mk_playerData?.metadata?.isdead)..' | is handcuffed: '..tostring(playerState.mk_playerData?.metadata?.ishandcuffed), {console = true})
-    
+
     if playerState.mk_playerData?.metadata?.inlaststand or playerState.mk_playerData?.metadata?.isdead or playerState.mk_playerData?.metadata?.ishandcuffed then 
-        return true 
+        return true
     else
         return false
     end
@@ -51,7 +52,7 @@ end
 ---@param modelString string Vehicle model name
 ---@return number Vehicle sell price
 framework.getVehiclePrice = function(self, modelNumber, modelString)
-    if QBCore.Shared.Vehicles[modelString]?.price then 
+    if QBCore.Shared.Vehicles[modelString]?.price then
         return tonumber(QBCore.Shared.Vehicles[modelString]?.price)
     else
         return 0
@@ -84,7 +85,7 @@ end)
 --- Updates mk_jobUpdate statebag. Used by [mk_garage] to recheck garage authorization when the player job is updated
 RegisterNetEvent('QBCore:Client:OnJobUpdate', function(job)
     local pData = playerState.mk_playerData
-    if pData and job then 
+    if pData and job then
         pData.job = job
         playerState.mk_jobUpdate = pData
     end
@@ -93,13 +94,13 @@ end)
 --- Updates mk_gangUpdate statebag. Used by [mk_garage] to recheck garage authorization when the player gang is updated
 RegisterNetEvent('QBCore:Client:OnGangUpdate', function(gang)
     local pData = playerState.mk_playerData
-    if pData and gang then 
+    if pData and gang then
         pData.gang = gang
         playerState.mk_gangUpdate = pData
     end
 end)
 
--- Used by [mk_garage] [mk_usedvehicles] [mk_vehiclekeys]
+-- Used by [mk_garage] [mk_usedvehicles] [mk_vehiclekeys] [mk_vehicleshop]
 ---@return string, string|number Player job name and job grade
 framework.getJob = function(self)
     return playerState.mk_playerData?.job?.name, playerState.mk_playerData?.job?.grade?.level
@@ -114,20 +115,20 @@ end
 -- Used by [mk_garage]
 ---@return table|boolean List of player jobs and grades or false
 framework.getJobs = function(self)
-    if QBCore.Shared.Jobs and next(QBCore.Shared.Jobs) ~= nil then 
+    if QBCore.Shared.Jobs and next(QBCore.Shared.Jobs) ~= nil then
         return QBCore.Shared.Jobs
     else
-        return false 
+        return false
     end
 end
 
 -- Used by [mk_garage]
----@return table|boolen List of player gangs and grades or false
+---@return table|boolean #List of player gangs and grades or false
 framework.getGangs = function(self)
-    if QBCore.Shared.Gangs and next(QBCore.Shared.Gangs) ~= nil then 
+    if QBCore.Shared.Gangs and next(QBCore.Shared.Gangs) ~= nil then
         return QBCore.Shared.Gangs
     else
-        return false 
+        return false
     end
 end
 
@@ -135,32 +136,77 @@ end
 ---@param itemName string Name of item to check
 ---@param metadata table|nil Metadata item should have when checking if the player has it
 ---@return boolean true if player has item. false if not
-inventory.hasItem = function(self, itemName, metadata)
+inventory.hasItem = function(self, itemName, metadata, checkContainers)
     local hasItem = false
 
     if GetResourceState('ox_inventory') == 'started' then 
         local inv = exports['ox_inventory']:Search('count', itemName, metadata)
-        if inv > 0 then 
+        if inv > 0 then
             hasItem = true
+        else
+            if checkContainers then
+                local items = exports['ox_inventory']:GetPlayerItems()
+                local containers = {}
+                if items and next(items) then
+                    for key, value in pairs(items) do
+                        if value?.metadata?.container then
+                            table.insert(containers, key)
+                        end
+                    end
+
+                    if containers and next(containers) then
+                        local containerItems = lib.callback.await('mk_utils:server:getOxInvContainerItems', false, containers)
+                        if containerItems and next(containerItems) then
+                            for a, b in pairs(containerItems) do
+                                if b.items and next(b.items) then
+                                    for key, value in pairs(b.items) do
+                                        if value.name == itemName then
+                                            if metadata and next(metadata) then
+                                                if value.metadata and next(value.metadata) then
+                                                    local metaMatch = true
+                                                    for index, val in pairs(metadata) do
+                                                        for i, v in pairs(value.metadata) do
+                                                            if i == index then
+                                                                if v ~= val then
+                                                                    metaMatch = false
+                                                                end
+                                                            end
+                                                        end
+                                                    end
+
+                                                    if metaMatch then hasItem = true break end
+                                                end
+                                            else
+                                                hasItem = true
+                                            end
+                                        end
+                                        if hasItem then break end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
         end
     else
         local items = playerState.mk_playerData?.items
-        local next = next 
+        local next = next
 
-        if items and next(items) ~= nil then 
-            for key, value in pairs(items) do 
-                if value?.name == itemName then 
-                    if metadata and next(metadata) ~= nil then 
-                        for index, val in pairs(metadata) do 
-                            if value.info?[index] then 
-                                if value.info?[index] == val then 
-                                    hasItem = true 
+        if items and next(items) ~= nil then
+            for key, value in pairs(items) do
+                if value?.name == itemName then
+                    if metadata and next(metadata) ~= nil then
+                        for index, val in pairs(metadata) do
+                            if value.info?[index] then
+                                if value.info?[index] == val then
+                                    hasItem = true
                                     break
                                 end
                             end
                         end
                     else
-                        hasItem = true 
+                        hasItem = true
                     end
                 end
             end
@@ -176,20 +222,20 @@ end
 inventory.getItemAmount = function(self, itemName)
     local itemAmount = 0
 
-    if GetResourceState('ox_inventory') == 'started' then 
+    if GetResourceState('ox_inventory') == 'started' then
         local inv = exports['ox_inventory']:Search('count', itemName)
-        if inv > 0 then 
+        if inv > 0 then
             return inv
         else
             return 0
         end
     else
         local items = playerState.mk_playerData?.items
-        local next = next 
+        local next = next
 
-        if items and next(items) ~= nil then 
-            for key, value in pairs(items) do 
-                if value?.name == itemName then 
+        if items and next(items) ~= nil then
+            for key, value in pairs(items) do
+                if value?.name == itemName then
                     if not QBCore.Shared.Items[itemName].unique then
                         return value.amount
                     else
@@ -202,7 +248,6 @@ inventory.getItemAmount = function(self, itemName)
         else
             return 0
         end
-            
     end
 
     return itemAmount

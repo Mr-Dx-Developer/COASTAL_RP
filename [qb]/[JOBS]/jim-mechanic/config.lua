@@ -7,7 +7,7 @@ Config = {
 		Notify = "qb",				-- "qb", "ox", "gta", "esx"
 		ProgressBar = "ox", 		-- "qb", "ox", "gta", "esx"
 
-		distkph = true, 			-- Set to false to read distance travelled in Miles.
+		distkph = false, 			-- Set to false to read distance travelled in Miles.
 
 		RenewedBanking = false, 	-- This is used for manualrepair benches, enable to use
 	},
@@ -24,7 +24,7 @@ Config = {
 		JobLocationRequired = true, -- Are the mecahanics locked to specific locations?
 		LocationBlips = true, 		-- Enable to grab the blip locations from locations.lua
 		CosmeticsJob = false, 		-- Do vehicle cosmetics require a mechanic job role?
-		JobRoles = { "mechanic" }, -- These are the job roles who can use items if RequiresJob is enabled.
+		JobRoles = { "mechanic", }, -- These are the job roles who can use items if RequiresJob is enabled.
 									-- Add your extra job roles here or just leave as "mechanic"
 									-- Example-- --JobRoles = { "mechanic", "tuner" }
 	},
@@ -63,7 +63,7 @@ Config = {
 		JobOnly = false,			-- Only allow job roles to add a Harness to vehicle
 		HarnessControl = true,		-- Enable harness AND seatbelt features of the script, requires edits to smallresources and hud scripts
 		seatbeltEasyLeave = false,	-- if true players can exit vehicled before removing seatbelt
-		harnessEasyLeave = false,	-- if true players can exit vehicled before removing harness
+		harnessEasyLeave = true,	-- if true players can exit vehicled before removing harness
 
 		progOn = true,				-- if true add a progressBar to buckle harness
 		progOff = true,				-- if true add a progressBar to unbuckle harness
@@ -73,7 +73,7 @@ Config = {
 		timeOn = 3000,				-- Time for the progress bar to put on harness
 		timeOff = 2000,				-- Time for the progress bar to take off harness
 
-		minimumSpeed = 700,			-- Minimum speed for crash logic to be triggered
+		minimumSpeed = 70,			-- Minimum speed for crash logic to be triggered
 		minimumSeatBeltSpeed = 1100, -- Minimuim speed for ejecting with a seatbelt attached
 		minimumDamage = 15.0, 		-- Minimum body damage for ejecting a player (default 15 = .15%)
 
@@ -92,7 +92,7 @@ Config = {
 	vehFailure = { 						-- Enabling these will make allow you to no longer need qb-vehiclefailure
 										-- ONLY ENABLE IF NOT USING VEHICLEFAILURE OR ANOTHER SCRIPT TO REPLACE IT
 		damages = true,					-- Makes jim-mechanic automatically handle extra damages instead of needing an edit to vehfailure
-		repairKits = true,				-- Takes control of repairkit and advancedrepairkit
+		repairKits = false,				-- Takes control of repairkit and advancedrepairkit
 		fixCommand = true,				-- takes control of /fix command
 		PreventRoll = true,			-- takes control of preventing rolling your car back over when upside down
 		increaseEngDamage = true,		-- enabling this adds extra damage based on what the body damage has just taken
@@ -136,7 +136,7 @@ Config = {
 	},
 
 	Repairs = {	--Repair Related
-		FreeRepair = true,  		-- Are repairs free? True means yes
+		FreeRepair = false,  		-- Are repairs free? True means yes
 		StashRepair = true, 		-- Enable for repair materials to be removed from a job stash (disabled if RequiresJob = false)
 
 		ExtraDamages = true,		-- When enabled, it will use the built in extra damage systems (Like qb-mechanicjobs functions)
@@ -344,11 +344,10 @@ Config = {
 			["police"] = 0, -- Job and Job Grade
 			["ambulance"] = 0,
 			["mechanic"] = 0,
-			
 		},
 		LockEmergency = false,  -- Enable this to lock make only "Emergency" (Class 18) vehicles to be used with the bench
 		Locations = {
-			{ coords = vec4(457.252, -975.235, 25.706, 89.886), prop = false, }, -- MRPD UNDERGROUND PARKING
+			{ coords = vec4(451.05, -973.19, 25.7, 180.0), prop = true, }, -- MRPD UNDERGROUND PARKING
 			{ coords = vec4(342.51, -570.98, 28.8, 70.0), prop = true, }, -- PILL BOX GARAGE
 			{ coords = vec4(-1163.01, -2009.41, 13.18, 117.71), prop = true },
 		},
@@ -460,7 +459,7 @@ Config = {
 
 		EnableScreen = true, 		-- True adds screen effects while boosting
 
-		skillcheck = "ox_lib", -- When adding Nos to a vehicle there are three script options available
+		skillcheck = "qb-skillbar", -- When adding Nos to a vehicle there are three script options available
 									-- "qb-skillbar" "qb-lock" "ps-ui" "ox_lib"
 
 		explosiveFail = true, 		-- Better not fail that skill check. (1 in 10 chance of explosion)

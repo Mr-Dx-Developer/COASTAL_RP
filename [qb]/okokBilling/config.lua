@@ -12,7 +12,9 @@ Config.Locale = 'en'
 
 Config.DatabaseTable = 'okokbilling'
 
-Config.OpenMenuKey = 56 -- Default 168 (F7)
+Config.ReferencePrefix = 'OK'
+
+Config.OpenMenuKey = 168 -- Default 168 (F7)
 
 Config.OpenMenuCommand = 'invoices' -- Command to open the menu
 
@@ -112,9 +114,9 @@ Config.AdminGroups = {
 
 -- To set your Discord Webhook URL go to sv_utils.lua, line 3
 
-Config.BotName = 'CRP' -- Write the desired bot name
+Config.BotName = 'ServerName' -- Write the desired bot name
 
-Config.ServerName = 'CRP' -- Write your server's name
+Config.ServerName = 'ServerName' -- Write your server's name
 
 Config.IconURL = '' -- Insert your desired image link
 

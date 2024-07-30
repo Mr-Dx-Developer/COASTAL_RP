@@ -1,6 +1,6 @@
 Config.Locations = Config.Locations or {}
 
-Config.Locations[#Config.Locations+1] = { 
+Config.Locations[#Config.Locations+1] = { --[[ GABZ ALTA STREET BENNYS ]]--
 	Enabled = true,
 	job = "mechanic",
 	zones = {

@@ -73,10 +73,10 @@ Config.OccupyingStretcherOffSet = { -- Offset for occupying stretcher
 
 
 Config.BagProp = `xm_prop_x17_bag_med_01a`
-Config.UseRadialMenu = false             -- Enable use of radial menu built in to ox_lib? (REQUIRES OX_LIB 3.0 OR HIGHER - Editable in client/radial.lua)
+Config.UseRadialMenu = false             -- Enable use of radial menu built in to ox_lib? (REQUIRES OX_LIB 3.0 OR HIGHER - Editable)
 Config.EnableAnimReset = false           -- If your death animation does not run correctly, then enable this
-Config.MobileMenu = {                    -- Enabling this will use ox_lib menu rather than ox_lib context menu!
-    enabled = false,                     -- Use a mobile menu from ox_lib rather than context? (Use arrow keys to navigate menu rather than mouse)
+Config.MobileMenu = {                    -- Enabling this will use menu rather than context menu!
+    enabled = false,                     -- Use a mobile menu rather than context? (Use arrow keys to navigate menu rather than mouse)
     position =
     'bottom-right'                       -- Choose where menu is positioned. Options : 'top-left' or 'top-right' or 'bottom-left' or 'bottom-right'
 }
@@ -142,7 +142,7 @@ Config.AmbulanceOffsets = {
 
 Config.GPSBlips = {  -- Warning: May experience high usage when at high player count. Possibly turn up refreshrate as remedy!
     enabled = true, -- Enabled?
-    refreshrate = 5, -- In Seconds Note: it could impact the server performance
+    refreshrate = 1, -- In Seconds Note: it could impact the server performance
     item = false,    -- Item required? Note: You have to use it then
     blip = {
         sprite = 1,
@@ -256,7 +256,7 @@ Config.EnviPrescriptions = {
 }
 
 Config.EnviMedic = {
-     ---------------------------------------------------
+    ---------------------------------------------------
     --       If you use Envi Medic:          --
     -- https://envi-scripts.tebex.io/package/5969648 --
     ---------------------------------------------------
@@ -280,18 +280,18 @@ Config.FuelSystem = false           -- 'legacy' (LegacyFuel) / 'ox' (ox_fuel) / 
 
 Config.jobMenu = 'F6'               -- Default job menu key
 Config.billingSystem = 'okok'        -- Current options: 'esx' (For esx_billing) / 'qb' (For qbcore users) 'okok' (For okokBilling) / 'pefcl' (For NPWD billing system) (Easy to add more in editable client - SET TO false IF UNDESIRED) or of course false to disable
-Config.targetSystem = false          -- Target system for targetting players, medbags, and stretcher(If disabled with replace with menus/3D text) (Compatible out of the box with qTarget, qb-target, and ox_target)
+Config.targetSystem = true          -- Target system for targetting players, medbags, and stretcher(If disabled with replace with menus/3D text) (Compatible out of the box with qTarget, qb-target, and ox_target)
 
-Config.RespawnTimer = 5 * minutes   -- Time before optional respawn
-Config.BleedoutTimer = 20 * minutes -- Time before it forces respawn
+Config.RespawnTimer = 3 * minutes   -- Time before optional respawn
+Config.BleedoutTimer = 10 * minutes -- Time before it forces respawn
 Config.ChargeForRevive = {
     enabled = true,                -- Charge players to revive after the timer expires when they hold E to revive?
-    cost = 500,                     -- Cost to revive if enabled
+    cost = 200,                     -- Cost to revive if enabled
     payAccount = 'bank',            -- Account to pay from
     allowNegativeBalance = false    -- QB ONLY: Allow negative balance if player does not have enough money?
 }
 
-Config.removeItemsOnDeath = false   -- Must have supported inventory or add function to sv_customize.lua OR add inventory to wasabi_bridge.
+Config.removeItemsOnDeath = false -- Must have supported inventory or add function to sv_customize.lua OR add inventory to wasabi_bridge.
 --Config.Inventory = 'ox'           -- NOW USES WSB.INVENTORY FUNCTION
 
 Config.keepItemsOnDeath = {
@@ -345,7 +345,7 @@ Config.EMSItems = {
 
 Config.ReviveRewards = {
     enabled = true,           -- Enable cash rewards for reviving
-    paymentAccount = 'cash', -- If you have old ESX 1.1 you may need to switch to 'cash'
+    paymentAccount = 'money', -- If you have old ESX 1.1 you may need to switch to 'cash'
     no_injury = 600,         -- If above enabled, how much reward for fully treated patient with no injury in diagnosis
     burned = 300,            -- How much if player is burned and revived without being treated
     beat = 250,              -- So on, so forth
@@ -373,7 +373,7 @@ Config.TreatmentItems = {
 }
 
 Config.lowHealthAlert = {
-    enabled = false,
+    enabled = true,
     health = 140, -- Notify when at HP (200 full health / 100 is death)
     notification = {
         title = 'ATTENTION',
@@ -419,8 +419,8 @@ Config.StandaloneCheckIns = {
 Config.Locations = {
     Pillbox = {
         RespawnPoint = { -- When player dies and bleeds out; they will revive at nearest hospital; Define the coords of this hospital here.
-            coords = vec3(323.546, -1412.037, 32.148),
-            heading = 49.83,
+            coords = vec3(-466.59481811523, -282.77166748047, 35.835079193115),
+            heading = 203.40788269043,
             -- Even if you have useCheckInInstead to true, you must still define these coords for finding closest hospital
             -- If you want to use check-in instead of respawning at this location(Otherwise will just spawn at the coords above)
             useCheckInInstead = true
@@ -428,7 +428,7 @@ Config.Locations = {
 
         Blip = {
             Enabled = true,
-            Coords = vec3(352.852, -1406.228, 32.423),
+            Coords = vec3(-448.384, -340.206, 34.502),
             Sprite = 61,
             Color = 2,
             Scale = 1.0,
@@ -437,7 +437,7 @@ Config.Locations = {
 
         clockInAndOut = {
             enabled = true,                       -- Enable clocking in and out at a set location? (If using ESX you must have a off duty job for Config.ambulanceJob with same grades - example in main _install_first directory)
-            coords = vec3(351.706, -1428.717, 32.429), -- Location of where to go on and off duty(If not using target)
+            coords = vec3(-430.08, -318.17, 34.91), -- Location of where to go on and off duty(If not using target)
             label = '[E] - Go On/Off Duty',        -- Text to display(If not using target)
             distance = 3.0,                        -- Distance to display text UI(If not using target)
             target = {
@@ -456,7 +456,7 @@ Config.Locations = {
         PersonalLocker = {
             enabled = true,                        -- Enable personal locker(stash) 
             jobLock = 'ambulance',                   -- Job lock?
-            coords = vec(386.777, -1403.681, 32.936),   -- Location of where to access personal locker (If target is disabled)
+            coords = vec(-436.65, -318.39, 34.91),   -- Location of where to access personal locker (If target is disabled)
             label = '[E] - Access Personal Locker', -- Text to display(If not using target)
             maxWeight = 5000,                      -- Total Weight of the personalLocker
             slots = 30,                             -- Number of slots available in the Personal Locker
@@ -476,7 +476,7 @@ Config.Locations = {
 
         BossMenu = {
             Enabled = true,                        -- Enabled boss menu?
-            Coords = vec3(-447.05, -1041.26, 33.69), -- Location of boss menu (If not using target)
+            Coords = vec3(-504.44, -298.59, 42.32), -- Location of boss menu (If not using target)
             Label = '[E] - Access Boss Menu',      -- Text UI label string (If not using target)
             Distance = 2.5,                        -- Distance to allow access/prompt with text UI (If not using target)
             Target = {
@@ -494,9 +494,9 @@ Config.Locations = {
         CheckIn = {                                      -- Hospital check-in
             Enabled = true,                              -- Enable ped and check-in area?
             Ped = 's_m_m_scientist_01',                  -- Check in ped
-            Coords = vec3(349.596, -1403.534, 32.423 - 0.9), -- Coords of ped
-            Distance = 4.85,                             -- Distance to show textUI (If target is not enabled below)
-            Heading = 46.93,                             -- Heading of ped
+            Coords = vec3(-435.28, -324.16, 34.91 - 0.9), -- Coords of ped
+            Distance = 3.85,                             -- Distance to show textUI (If target is not enabled below)
+            Heading = 165.1,                             -- Heading of ped
             Cost = 500,                                 -- Cost of using hospital check-in. Set to false for free
             Duration = 15 * seconds,                     -- Time it takes to spend in hospital bed
             MaxOnDuty = 3,                               -- If this amount or less you can use, otherwise it will tell you that EMS is avaliable(Set to false to always enable check-in)
@@ -505,18 +505,18 @@ Config.Locations = {
             Label = '[E] - Check In',                    -- label of text UI if target is not enabled below
             HotKey = 38,                                 -- Default: 38 (E) (If target below is not enabled)
             Target = {
-                enabled = false,                          -- Enable Target? (Can be customized in wasabi_bridge/customize/cl_customize.lua the target system)
+                enabled = true,                          -- Enable Target? (Can be customized in wasabi_bridge/customize/cl_customize.lua the target system)
                 label = 'Check In',
-                coords = vec3(-487.56, -988.33, 24.29),
-                heading = 92.62,
+                coords = vec3(-435.28, -324.16, 34.9),
+                heading = 165.1,
                 distance = 5.0,
                 width = 2.0,
                 length = 1.0,
-                minZ = 43.02 - 0.9,
-                maxZ = 43.98 + 0.9
+                minZ = 33.02 - 0.9,
+                maxZ = 33.98 + 0.9
             },
             DisableHospitalBeds = false,                                                       -- Disable hospital beds for check-in at this location?(Player will spend Duration checking in before respawning in RespawnNoBedLocation when set to true)
-            RespawnNoBedLocation = { coords = vec3(334.998, -1406.921, 32.129), heading = 146.08 }, -- Coords and heading of where to spawn player if DisableHospitalBeds is set to true or beds are full
+            RespawnNoBedLocation = { coords = vec3(-466.59481811523, -282.77166748047, 35.835079193115), heading = 203.40788269043 }, -- Coords and heading of where to spawn player if DisableHospitalBeds is set to true or beds are full
             HospitalBeds = {
                 --              { coords = vec3(332.62, -587.17, 42.84+0.3), heading = 160.0 },
                --[[  { coords = vec3(317.67, -585.37, 42.84 + 0.3), heading = 160.0 },
@@ -531,10 +531,11 @@ Config.Locations = {
                 { coords = vec3(354.44, -600.19, 42.85 + 0.3), heading = 250.0 },
                 { coords = vec3(324.26, -582.8, 42.84 + 0.3),  heading = 340.0 }, ]]
 
-                { coords = vec3(333.254, -1405.361, 32.129 + 0.1), heading = 140.67 },
-                { coords = vec3(331.192, -1403.719, 32.129 + 0.1), heading = 145.56 },
-                { coords = vec3(326.468, -1408.238, 32.129 + 0.1), heading = 49.99 },
-                { coords = vec3(325.239, -1410.14, 32.129 + 0.1), heading = 52.9 },
+                { coords = vec3(-466.59481811523, -282.77166748047, 35.835079193115 + 0.1), heading = 203.40788269043 },
+                { coords = vec3(-463.66650390625, -289.8073425293, 35.833221435547 + 0.1), heading = 21.860538482666 },
+                { coords = vec3(-462.86395263672, -281.32543945313, 35.835048675537 + 0.1), heading = 199.94317626953 },
+                { coords = vec3(-460.22265625, -288.69342041016, 35.833206176758 + 0.1), heading = 36.001201629639 },
+                { coords = vec3(-466.67175292969, -282.68228149414, 35.835094451904 + 0.1), heading = 201.47679138184 },
                 
                 
                 -- Stock qb-ambulance hospital bed coords:
@@ -639,8 +640,8 @@ Config.Locations = {
         MedicalSupplies = {                                                     -- EMS Shop for supplies
             Enabled = true,                                                     -- If set to false, rest of this table do not matter
             Ped = 's_m_m_doctor_01',                                            -- Ped to target
-            Coords = vec3(389.686, -1405.07, 31.936),                       -- Coords of ped/target
-            Heading = 147.83,                                                   -- Heading of ped
+            Coords = vec3(-455.44, -311.03, 33.91),                       -- Coords of ped/target
+            Heading = 29.88,                                                   -- Heading of ped
             Supplies = {                                                        -- Supplies
                 { item = 'medbag',     label = 'Medical Bag',   price = 1000 }, -- Pretty self explanatory, price may be set to 'false' to make free
                 { item = 'medikit',    label = 'First-Aid Kit', price = 250 },

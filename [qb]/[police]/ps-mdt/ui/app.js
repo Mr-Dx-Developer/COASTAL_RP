@@ -3968,11 +3968,11 @@ $(document).ready(() => {
   function JobColors(sentJob) {
     if (sentJob) {
       if (PoliceJobs[sentJob] !== undefined)  {
-        if (sentJob == "sasp") {
+        if (sentJob == "police") {
             applyCustomTheme(customThemes.lspd)
           } else if (sentJob == "bcso"){
             applyCustomTheme(customThemes.bcso)
-          } else if (sentJob == "police") {
+          } else if (sentJob == "sasp") {
             applyCustomTheme(customThemes.sasp)
           } else if (sentJob == "sast") {
             applyCustomTheme(customThemes.sast)
@@ -5788,7 +5788,7 @@ center: [0, -1024],
 maxBoundsViscosity: 1.0
 });
  // https://upload.versescripts.net/ 
-var customImageUrl = 'https://users-cdn.versescripts.net/aeb7987615ac1a17a73e6acdd11c00fa.jpg';
+var customImageUrl = 'https://files.fivemerr.com/images/a62a84ff-6a1b-4dc4-a199-c7140a216703.jpg';
 
 var sw = map.unproject([0, 1024], 3 - 1);
 var ne = map.unproject([1024, 0], 3 - 1);

@@ -509,18 +509,71 @@ Config.market_locations = {
 		}
 	},
 	["ammunation_1"] = {
-		['buy_price'] = 2000000,
-		['sell_price'] = 500000,
+		['buy_price'] = 20000000,
+		['sell_price'] = 10000000,
 		['coord'] = {14.470663070679,-1106.0792236328,29.797006607056},
 		['garage_coord'] = {27.71,-1113.25,29.3,329.89},
 		['truck_parking_location'] = {-13.8833,-1125.8661, 27.5543,157.6875},
-		['map_blip_coord'] = {20.91,-1110.49,29.79},
+		['map_blip_coord'] = {14.470663070679,-1106.0792236328,29.797006607056},
 		['sell_blip_coords'] = {
-			{22.64, -1106.88, 29.8},
-			{20.91, -1110.49, 29.8},
-			{19.58, -1109.95, 29.8}
+			{20.910318374634,-1110.4947509766,29.797004699707},
+			{19.58235168457,-1109.9547119141,29.797004699707}
 		},
 		['deliveryman_coord'] = {18.89,-1116.02,29.79},
+		['type'] = 'ammunation',
+		['account'] = {
+			['item'] = {
+				[1] = {
+					['icon'] = 'img/credit_card.png',
+					['account'] = 'bank'
+				},
+				[2] = {
+					['icon'] = 'img/cash.png',
+					['account'] = 'cash'
+				}
+			},
+			['store'] = 'bank',
+		}
+	},
+	["ammunation_2"] = {
+		['buy_price'] = 20000000,
+		['sell_price'] = 10000000,
+		['coord'] = {248.69, -47.07, 69.94},
+		['garage_coord'] = {231.85, -37.11, 69.71, 67.24},
+		['truck_parking_location'] = {231.85, -37.11, 69.71, 67.24},
+		['map_blip_coord'] = {248.69, -47.07, 69.94},
+		['sell_blip_coords'] = {
+			{246.77, -50.39, 69.94}
+			
+		},
+		['deliveryman_coord'] = {242.26, -48.04, 69.9},
+		['type'] = 'ammunation',
+		['account'] = {
+			['item'] = {
+				[1] = {
+					['icon'] = 'img/credit_card.png',
+					['account'] = 'bank'
+				},
+				[2] = {
+					['icon'] = 'img/cash.png',
+					['account'] = 'cash'
+				}
+			},
+			['store'] = 'bank',
+		}
+	},
+	["ammunation_3"] = {
+		['buy_price'] = 20000000,
+		['sell_price'] = 10000000,
+		['coord'] = {-322.9, 6079.69, 31.45},
+		['garage_coord'] = {-320.07, 6071.35, 31.34, 231.77},
+		['truck_parking_location'] = {-315.97, 6075.34, 31.36, 231.77},
+		['map_blip_coord'] = {-322.9, 6079.69, 31.45},
+		['sell_blip_coords'] = {
+			{-326.09, 6079.87, 31.45}
+			
+		},
+		['deliveryman_coord'] = {-321.93, 6077.88, 31.25},
 		['type'] = 'ammunation',
 		['account'] = {
 			['item'] = {
@@ -605,7 +658,7 @@ Config.market_types = {
 	['ammunation'] = {
 		['stock_capacity'] = 50,
 		['max_employees'] = 5,
-		['required_job'] = {'police', 'example'},
+		['required_job'] = {},
 		['upgrades'] = {
 			['stock'] = {
 				['price'] = 16000,
@@ -651,7 +704,9 @@ Config.market_types = {
 		},
 		['max_purchasable_categories'] = 4,
 		['categories'] = {
-			"melee_weapons", "pistol_weapons", "rifle_weapons", "shotgun_weapons", "smg_weapons", "throwable_weapons", "ammo_weapons", "others_weapons"
+			--"melee_weapons", "pistol_weapons", "rifle_weapons", "shotgun_weapons", "smg_weapons", "throwable_weapons", "ammo_weapons", "others_weapons"
+			"melee_weapons", "pistol_weapons", "ammo_weapons", "others_weapons"
+		
 		},
 		['default_categories'] = {
 			"melee_weapons", "pistol_weapons", "ammo_weapons", "others_weapons"
@@ -710,7 +765,7 @@ Config.market_categories = {
 				['amount_to_delivery'] = 35,
 				['img'] = 'vodka.png',
 			},
-			['wine'] = {
+			--[[ ['wine'] = {
 				['name'] = "Wine",
 				['price_to_customer'] = 15,
 				['price_to_customer_min'] = 7,
@@ -720,7 +775,7 @@ Config.market_categories = {
 				['amount_to_owner'] = 35,
 				['amount_to_delivery'] = 35,
 				['img'] = 'wine.png',
-			},
+			}, ]]
 		}
 	},
 
@@ -732,7 +787,7 @@ Config.market_categories = {
 		['category_buy_price'] = 5000,
 		['category_sell_price'] = 2500,
 		['items'] = {
-			['grapejuice'] = {
+			--[[ ['grapejuice'] = {
 				['name'] = "Grape Juice",
 				['price_to_customer'] = 10,
 				['price_to_customer_min'] = 5,
@@ -742,7 +797,7 @@ Config.market_categories = {
 				['amount_to_owner'] = 35,
 				['amount_to_delivery'] = 35,
 				['img'] = 'grapejuice.png',
-			},
+			}, ]]
 			['water_bottle'] = {
 				['name'] = "Bottle of Water",
 				['price_to_customer'] = 4,
@@ -754,7 +809,7 @@ Config.market_categories = {
 				['amount_to_delivery'] = 35,
 				['img'] = 'water_bottle.png',
 			},
-			['coffee'] = {
+			--[[ ['coffee'] = {
 				['name'] = "Coffee",
 				['price_to_customer'] = 4,
 				['price_to_customer_min'] = 2,
@@ -764,7 +819,7 @@ Config.market_categories = {
 				['amount_to_owner'] = 35,
 				['amount_to_delivery'] = 35,
 				['img'] = 'coffee.png',
-			},
+			}, ]]
 			['kurkakola'] = {
 				['name'] = "Cola",
 				['price_to_customer'] = 4,
@@ -853,7 +908,7 @@ Config.market_categories = {
 				['amount_to_delivery'] = 2,
 				['img'] = 'phone.png',
 			},
-			['iphone'] = {
+			--[[ ['iphone'] = {
 				['name'] = "iPhone",
 				['price_to_customer'] = 1000,
 				['price_to_customer_min'] = 500,
@@ -874,7 +929,7 @@ Config.market_categories = {
 				['amount_to_owner'] = 2,
 				['amount_to_delivery'] = 2,
 				['img'] = 'samsungphone.png',
-			},
+			}, ]]
 			['radio'] = {
 				['name'] = "Radio",
 				['price_to_customer'] = 200,
@@ -886,7 +941,7 @@ Config.market_categories = {
 				['amount_to_delivery'] = 2,
 				['img'] = 'radio.png',
 			},
-			['laptop'] = {
+			--[[ ['laptop'] = {
 				['name'] = "Laptop",
 				['price_to_customer'] = 700,
 				['price_to_customer_min'] = 350,
@@ -907,7 +962,7 @@ Config.market_categories = {
 				['amount_to_owner'] = 2,
 				['amount_to_delivery'] = 2,
 				['img'] = 'tablet.png',
-			},
+			}, ]]
 		}
 	},
 
@@ -930,7 +985,7 @@ Config.market_categories = {
 				['amount_to_delivery'] = 2,
 				['img'] = 'repairkit.png',
 			},
-			['cleaningkit'] = {
+			--[[ ['cleaningkit'] = {
 				['name'] = "Cleaning Kit",
 				['price_to_customer'] = 150,
 				['price_to_customer_min'] = 75,
@@ -940,7 +995,7 @@ Config.market_categories = {
 				['amount_to_owner'] = 2,
 				['amount_to_delivery'] = 2,
 				['img'] = 'cleaningkit.png',
-			},
+			}, ]]
 			['screwdriverset'] = {
 				['name'] = "Toolkit",
 				['price_to_customer'] = 350,
@@ -951,6 +1006,28 @@ Config.market_categories = {
 				['amount_to_owner'] = 2,
 				['amount_to_delivery'] = 2,
 				['img'] = 'screwdriverset.png',
+			},
+			['fishbait'] = {
+				['name'] = "Fish Bait",
+				['price_to_customer'] = 25,
+				['price_to_customer_min'] = 175,
+				['price_to_customer_max'] = 700,
+				['price_to_export'] = 315,
+				['price_to_owner'] = 300,
+				['amount_to_owner'] = 2,
+				['amount_to_delivery'] = 2,
+				['img'] = 'fishbait.png',
+			},
+			['fishingrod'] = {
+				['name'] = "Fishing Rod",
+				['price_to_customer'] = 100,
+				['price_to_customer_min'] = 175,
+				['price_to_customer_max'] = 700,
+				['price_to_export'] = 315,
+				['price_to_owner'] = 300,
+				['amount_to_owner'] = 2,
+				['amount_to_delivery'] = 2,
+				['img'] = 'fishingrod.png',
 			},
 		}
 	},
@@ -1044,51 +1121,38 @@ Config.market_categories = {
 		['category_buy_price'] = 25000,
 		['category_sell_price'] = 12500,
 		['items'] = {
-			['weapon_pistol'] = {
-				['name'] = "Pistol",
-				['price_to_customer'] = 2500,
-				['price_to_customer_min'] = 1250,
-				['price_to_customer_max'] = 5000,
-				['price_to_export'] = 2500,
+			['weapon_pistol50'] = {
+				['name'] = "Pistol .50",
+				['price_to_customer'] = 4500,
+				['price_to_customer_min'] = 4000,
+				['price_to_customer_max'] = 6000,
+				['price_to_export'] = 4500,
 				['price_to_owner'] = 1875,
 				['amount_to_owner'] = 1,
 				['amount_to_delivery'] = 1,
 				['is_weapon'] = true,
-				['requires_license'] = true,
+				['requires_license'] = false,
 				['max_amount_to_purchase'] = 1,
-				['img'] = 'weapon_pistol.png',
+				['img'] = 'weapon_pistol50.png',
 			},
-			['weapon_snspistol'] = {
-				['name'] = "SNS Pistol",
-				['price_to_customer'] = 1500,
-				['price_to_customer_min'] = 750,
-				['price_to_customer_max'] = 3000,
+			['weapon_revolver'] = {
+				['name'] = "CRP Pistol",
+				['price_to_customer'] = 6500,
+				['price_to_customer_min'] = 6000,
+				['price_to_customer_max'] = 7500,
 				['price_to_export'] = 1350,
 				['price_to_owner'] = 1200,
 				['amount_to_owner'] = 1,
 				['amount_to_delivery'] = 1,
 				['is_weapon'] = true,
-				['requires_license'] = true,
+				['requires_license'] = false,
 				['max_amount_to_purchase'] = 1,
-				['img'] = 'weapon_snspistol.png',
+				['img'] = 'weapon_revolver.png',
 			},
-			['weapon_vintagepistol'] = {
-				['name'] = "Vintage Pistol",
-				['price_to_customer'] = 4000,
-				['price_to_customer_min'] = 2000,
-				['price_to_customer_max'] = 8000,
-				['price_to_export'] = 3600,
-				['price_to_owner'] = 3000,
-				['amount_to_owner'] = 1,
-				['amount_to_delivery'] = 1,
-				['is_weapon'] = true,
-				['requires_license'] = true,
-				['max_amount_to_purchase'] = 1,
-				['img'] = 'weapon_vintagepistol.png',
-			},
+			
 		}
 	},
-
+--[[ 
 	['rifle_weapons'] = {
 		['page_name'] = "Rifle Weapons",
 		['page_desc'] = "Dominate the battlefield with our high-performance assault rifles, built to provide accuracy, range, and stopping power in any combat situation",
@@ -1230,7 +1294,7 @@ Config.market_categories = {
 			},
 		}
 	},
-
+ ]]
 	['ammo_weapons'] = {
 		['page_name'] = "Ammo",
 		['page_desc'] = "Stay locked and loaded with our extensive range of high-quality ammunition, designed to deliver maximum power and accuracy to your weapon",
@@ -1239,31 +1303,31 @@ Config.market_categories = {
 		['category_buy_price'] = 35000,
 		['category_sell_price'] = 17500,
 		['items'] = {
-			['pistol_ammo'] = {
-				['name'] = "Pistol Ammo",
-				['price_to_customer'] = 250,
+			['ammo-50'] = {
+				['name'] = ".50 AE",
+				['price_to_customer'] = 200,
 				['price_to_customer_min'] = 125,
 				['price_to_customer_max'] = 500,
 				['price_to_export'] = 200,
 				['price_to_owner'] = 150,
 				['amount_to_owner'] = 100,
 				['amount_to_delivery'] = 100,
-				['requires_license'] = true,
-				['img'] = 'pistol_ammo.png',
+				['requires_license'] = false,
+				['img'] = 'ammo-50.png',
 			},
-			['rifle_ammo'] = {
-				['name'] = "Rifle Ammo",
-				['price_to_customer'] = 350,
+			['ammo-44'] = {
+				['name'] = ".44 Magnum",
+				['price_to_customer'] = 250,
 				['price_to_customer_min'] = 175,
 				['price_to_customer_max'] = 700,
 				['price_to_export'] = 300,
 				['price_to_owner'] = 250,
 				['amount_to_owner'] = 100,
 				['amount_to_delivery'] = 100,
-				['requires_license'] = true,
-				['img'] = 'rifle_ammo.png',
+				['requires_license'] = false,
+				['img'] = 'ammo-44.png',
 			},
-			['smg_ammo'] = {
+			--[[ ['smg_ammo'] = {
 				['name'] = "SMG Ammo",
 				['price_to_customer'] = 300,
 				['price_to_customer_min'] = 150,
@@ -1286,7 +1350,7 @@ Config.market_categories = {
 				['amount_to_delivery'] = 100,
 				['requires_license'] = true,
 				['img'] = 'shotgun_ammo.png',
-			},
+			}, ]]
 		}
 	},
 
@@ -1298,7 +1362,7 @@ Config.market_categories = {
 		['category_buy_price'] = 5000,
 		['category_sell_price'] = 2500,
 		['items'] = {
-			['weapon_flaregun'] = {
+			--[[ ['weapon_flaregun'] = {
 				['name'] = "Flare Gun",
 				['price_to_customer'] = 1000,
 				['price_to_customer_min'] = 500,
@@ -1311,7 +1375,7 @@ Config.market_categories = {
 				['requires_license'] = false,
 				['max_amount_to_purchase'] = 1,
 				['img'] = 'weapon_flaregun.png',
-			},
+			}, ]]
 			['parachute'] = {
 				['name'] = "Parachute",
 				['price_to_customer'] = 2500,

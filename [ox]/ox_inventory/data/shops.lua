@@ -61,7 +61,7 @@ return {
 	},
 
 	YouTool = {
-		name = 'YouTool',
+		name = 'YouTool',https://game.vibegames.com/server/89c5c829
 		blip = {
 			id = 402, colour = 69, scale = 0.8
 		}, inventory = {
@@ -105,8 +105,8 @@ return {
 			{ loc = vec3(-1117.61, 2700.26, 18.67), length = 0.6, width = 0.5, heading = 221.82, minZ = 18.5, maxZ = 18.9, distance = 2.0 },
 			{ loc = vec3(841.05, -1034.76, 28.31), length = 0.6, width = 0.5, heading = 360.0, minZ = 28.2, maxZ = 28.6, distance = 2.0 }
 		}
-	},
-
+	}, ]]
+--[[ 
 	PoliceArmoury = {
 		name = 'Police Armoury',
 		groups = shared.police,
@@ -118,21 +118,50 @@ return {
 			{ name = 'ammo-rifle', price = 5, },
 			{ name = 'WEAPON_FLASHLIGHT', price = 200 },
 			{ name = 'WEAPON_NIGHTSTICK', price = 100 },
+
+			{ name = 'heavyarmor', price = 25, },
+			{ name = 'handcuffs', price = 80, },
+			{ name = 'radio', price = 100, },
+
+			{ name = 'ifaks', price = 5, },
+			{ name = 'advancedrepairkit', price = 25, },
+			{ name = 'empty_evidence_bag', price = 5, },
+			{ name = 'police_stormram', price = 15, },
+			{ name = 'weapon_flashlight', price = 50, },
+			{ name = 'weapon_nightstick', price = 50, },
+			{ name = 'weapon_stungun', price = 50, },
+
 			{ name = 'WEAPON_PISTOL', price = 500, metadata = { registered = true, serial = 'POL' }, license = 'weapon' },
 			{ name = 'WEAPON_CARBINERIFLE', price = 1000, metadata = { registered = true, serial = 'POL' }, license = 'weapon', grade = 3 },
 			{ name = 'WEAPON_STUNGUN', price = 500, metadata = { registered = true, serial = 'POL'} }
 
-		}, locations = {
-			vec3(461.63, -1002.90, 31.59 - 1),
-			vec3(836.04, -1287.22, 29.26 - 1),
-			vec3(1842.4128, 3698.2122, 34.4735 - 1),
-		}, targets = {
-			{ loc = vec3(461.63, -1002.90, 31.59 - 1), length = 0.5, width = 3.0, heading = 270.0, minZ = 30.5, maxZ = 32.0, distance = 6 },
-			{ loc = vec3(1842.4128, 3698.2122, 34.4735 - 1), length = 0.5, width = 3.0, heading = 270.0, minZ = 30.5, maxZ = 32.0, distance = 6 },
-			{ loc = vec3(836.04, -1287.22, 29.26 - 1), length = 0.5, width = 3.0, heading = 92.26, minZ = 30.5, maxZ = 32.0, distance = 6 }
+		}, 
+        locations = {
+			vec3(482.363, -995.165, 30.69)
+			--vec3(836.04, -1287.22, 29.26 - 1),
+			--vec3(1842.4128, 3698.2122, 34.4735 - 1),
+		}, 
+        targets = {
+			{ 
+                loc = vec3(482.363, -995.165, 30.69 - 1), 
+                length = 0.5, 
+                width = 3.0, 
+                heading = 177.56, 
+                minZ = 30.45, 
+                maxZ = 32.50, 
+                distance = 6 
+                },
+                {
+                ped = `mp_m_shopkeep_01`,
+                scenario = 'WORLD_HUMAN_AA_COFFEE',
+                loc = vec3(482.363, -995.165, 30.69),
+                heading = 177.56,
+            }
+			--{ loc = vec3(1842.4128, 3698.2122, 34.4735 - 1), length = 0.5, width = 3.0, heading = 270.0, minZ = 30.5, maxZ = 32.0, distance = 6 },
+			--{ loc = vec3(836.04, -1287.22, 29.26 - 1), length = 0.5, width = 3.0, heading = 92.26, minZ = 30.5, maxZ = 32.0, distance = 6 }
 		}
-	},
-
+	}, ]]
+--[[ 
 	PoliceHrana = {
 		name = 'Данчо Хранителов',
 		inventory = {
@@ -163,8 +192,8 @@ return {
                 heading = 1865.48,
             },
 		}
-	},
-	Medicine = {
+	}, ]]
+	--[[ Medicine = {
 		name = 'Medicine Cabinet',
 		groups = {
 			['ambulance'] = 0
@@ -195,18 +224,18 @@ return {
 
 		}
 	},
-
+ ]]
 	VendingMachineDrinks = {
 		name = 'Vending Machine',
 		inventory = {
-			{ name = 'water', price = 10 },
+			{ name = 'water_bottle', price = 10 },
 			{ name = 'cola', price = 10 },
 		},
 		model = {
 			`prop_vend_soda_02`, `prop_vend_fridge01`, `prop_vend_water_01`, `prop_vend_soda_01`
 		}
 	},
-
+--[[ 
 	DigitalDen = {
 		name = 'Digital Den',
 		blip = {

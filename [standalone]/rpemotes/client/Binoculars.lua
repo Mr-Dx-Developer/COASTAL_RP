@@ -1,12 +1,8 @@
-
-
-
-
 IsUsingBinoculars = false
 if Config.BinocularsEnabled then
     RegisterCommand("binoculars", function()
         UseBinocular()
-    end)
+    end, false)
     TriggerEvent('chat:addSuggestion', '/binoculars', 'Use binoculars', {})
 
 
@@ -39,7 +35,7 @@ if Config.BinocularsEnabled then
             PushScaleformMovieFunctionParameterInt(i - 1)
             ScaleformMovieMethodAddParamPlayerNameString(GetControlInstructionalButton(0, btn.key, true))
             BeginTextCommandScaleformString("STRING")
-            AddTextComponentScaleform(Config.Languages[lang][btn.text])
+            AddTextComponentScaleform(Translate(btn.text))
             EndTextCommandScaleformString()
             PopScaleformMovieFunctionVoid()
         end
@@ -82,7 +78,7 @@ if Config.BinocularsEnabled then
 
                 TaskPlayAnim(PlayerPedId(), "amb@world_human_binoculars@male@idle_a", "idle_c", 5.0, 5.0, -1, 51, 0, 0, 0, 0)
                 PlayAmbientSpeech1(PlayerPedId(), "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
-                SetCurrentPedWeapon(GetPlayerPed(-1), GetHashKey("WEAPON_UNARMED"), true)
+                SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"), true)
 
                 RemoveAnimDict("amb@world_human_binoculars@male@idle_a")
                 SetModelAsNoLongerNeeded("prop_binoc_01")
@@ -216,6 +212,8 @@ if Config.BinocularsEnabled then
             SetCamRot(cam, new_x, 0.0, new_z, 2)
         end
     end
+
+
 
 
     function HandleZoom(cam)

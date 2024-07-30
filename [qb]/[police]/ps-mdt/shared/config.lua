@@ -3,6 +3,14 @@ Config = Config or {}
 Config.UsingPsHousing = false
 Config.UsingDefaultQBApartments = true
 Config.OnlyShowOnDuty = true
+
+-- RECOMMENDED Fivemerr Images. DOES NOT EXPIRE. 
+-- YOU NEED TO SET THIS UP FOLLOW INSTRUCTIONS BELOW.
+-- Documents: https://docs.fivemerr.com/integrations/mdt-scripts/ps-mdt
+Config.FivemerrMugShot = true
+
+-- Discord webhook for images. NOT RECOMMENDED, IMAGES EXPIRE.
+Config.MugShotWebhook = false
 Config.UseCQCMugshot = true
 
 -- Front, Back Side. Use 4 for both sides, we recommend leaving at 1 for default.
@@ -21,12 +29,18 @@ Config.QBBankingUse = false
 -- However, if you're using a different inventory system, please refer to the "Inventory Edit | Automatic Add Weapons with images" section in ps-mdt's README.
 Config.InventoryForWeaponsImages = "ox_inventory"
 
+-- Only compatible with ox_inventory
+Config.RegisterWeaponsAutomatically = true
+
+-- Set to true to register all weapons that are added via AddItem in ox_inventory
+Config.RegisterCreatedWeapons = true
+
 -- "LegacyFuel", "lj-fuel", "ps-fuel"
 Config.Fuel = "LegacyFuel"
 
 -- Google Docs Link
 Config.sopLink = {
-    ['police'] = 'https://docs.google.com/document/d/1QqyRoP302r8mV1jPdOhYKTo-yXoBAqC-Ko0t9vzNK9c/edit',
+    ['police'] = '',
     ['ambulance'] = '',
     ['bcso'] = '',
     ['doj'] = '',
@@ -39,7 +53,7 @@ Config.sopLink = {
 
 -- Google Docs Link
 Config.RosterLink = {
-    ['police'] = 'https://docs.google.com/spreadsheets/d/1dAR0jBPoXY19nfCvy22SYgPZqoJvyT3yQLhOUFFRugI/edit?usp=sharing',
+    ['police'] = '',
     ['ambulance'] = '',
     ['bcso'] = '',
     ['doj'] = '',

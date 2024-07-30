@@ -1,12 +1,18 @@
 fx_version 'cerulean'
 game 'gta5'
-
-description 'QB-Clothing'
+lua54 'yes'
+author 'Kakarot'
+description 'A menu providing players the ability to change their clothing and accessories'
 version '1.2.0'
 
 ui_page 'html/index.html'
 
-shared_script 'config.lua'
+shared_scripts {
+    '@qb-core/shared/locale.lua',
+    'locales/en.lua',
+    'locales/*.lua',
+    'config.lua'
+}
 
 server_scripts {
     '@oxmysql/lib/MySQL.lua',
@@ -26,5 +32,3 @@ files {
     'html/reset.css',
     'html/script.js'
 }
-
-lua54 'yes'

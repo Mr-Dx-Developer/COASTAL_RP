@@ -10,7 +10,7 @@ end
 
 -- remove item used to open crate (ref client/config.lua -> line 21)
 RegisterNetEvent('mm_airdrop:server:removeitem', function()
-    Airdrop:RemoveItem(source, 'wrench', 1)
+    Airdrop:RemoveItem(source, 'drill', 1)
 end)
 
 ---@class logdata

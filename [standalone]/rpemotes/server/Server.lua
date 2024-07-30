@@ -51,7 +51,9 @@ RegisterNetEvent("rpemotes:ptfx:sync", function(asset, name, offset, rot, bone, 
         print("[rpemotes] ptfx:sync: invalid arguments for source:", source)
         return
     end
+
     local srcPlayerState = Player(source).state
+
     srcPlayerState:set('ptfxAsset', asset, true)
     srcPlayerState:set('ptfxName', name, true)
     srcPlayerState:set('ptfxOffset', offset, true)
@@ -164,9 +166,33 @@ local function addKeybindEventHandlers()
                 function() TriggerClientEvent("rp:ClientKeybindGetOne", src, key, emote) end)
         end
     end)
+
+    RegisterServerEvent("rp:ServerKeybindDelete")
+	AddEventHandler("rp:ServerKeybindDelete", function(key)
+        local src = source
+        local srcid = GetPlayerIdentifierByType(src, 'license')
+
+        local lists_keybinds = {
+            ['num4'] = 'emote1',
+            ['num5'] = 'emote2',
+            ['num6'] = 'emote3',
+            ['num7'] = 'emote4',
+            ['num8'] = 'emote5',
+            ['num9'] = 'emote6',
+        }
+
+        for k,v in pairs(lists_keybinds) do
+            if key == k then
+                MySQL.Async.execute("UPDATE dpkeybinds SET "..v.." = '' WHERE id=@id", {id = srcid}, function()
+                    TriggerClientEvent('esx:showNotification', src, 'Suppresion de votre bind : '..key..' ')
+                end)
+            end
+        end
+
+    end)
 end
 
-if Config.SqlKeybinding and MySQL then
+if Config.SqlKeybinding then -- and MySQL then
     MySQL.update(
         [[
 		CREATE TABLE IF NOT EXISTS `dpkeybinds` (

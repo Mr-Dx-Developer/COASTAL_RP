@@ -599,7 +599,7 @@ Config.Unique_Blips = true --Do you want each garage to be named by its unique i
 Config.Blip = { --You can find more info on blips here - https://docs.fivem.net/docs/game-references/blips.
     ['car'] = {
         sprite = 357, --Icon of the blip.
-        scale = 0.6, --Size of the blip.
+        scale = 0.9, --Size of the blip.
         colour = 9, --Colour of the blip.
         name = L('garage')..' ' --You dont need to change this.
     },
@@ -638,8 +638,8 @@ Config.Locations = {
     {
         Garage_ID = 'A', --The very first car garage's `garage_id` must be the same as the default value of the `garage_id` in the database as when a vehicle is purchased it gets sent to this garage. You can change the garage id's to what ever you like but make sure to also change the default garage_id in the database.
         Type = 'car', --The type of vehicles which use this garage. ('car'/'boat'/'air').
-        Dist = 10, --The distance that you can use this garage.
-        x_1 = 215.09, y_1 = -805.17, z_1 = 30.81, --This is the location of the garage, where you press e to open for example.
+        Dist = 20, --The distance that you can use this garage.
+        x_1 = 222.606, y_1 = -793.274, z_1 = 30.714, --This is the location of the garage, where you press e to open for example.vector3(222.606, -793.274, 30.714)
         EventName1 = 'cd_garage:QuickChoose', --DONT CHANGE THIS.
         EventName2 = 'cd_garage:EnterGarage', --DONT CHANGE THIS.
         Name = UIText, --You dont need to change this.

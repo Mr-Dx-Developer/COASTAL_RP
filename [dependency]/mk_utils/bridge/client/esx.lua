@@ -1,4 +1,5 @@
-if GetResourceState('es_extended') == 'missing' then return end 
+---@diagnostic disable: duplicate-set-field
+if GetResourceState('es_extended') == 'missing' then return end
 
 ESX = exports.es_extended:getSharedObject()
 
@@ -22,6 +23,7 @@ end
 
 -- Used by [mk_vehiclekeys]
 ---@param data { message: string, coords: vector3, vehicle: number, plate: string, vehicleName: string, modelHash: number, modelString: string, blipText: string } Dispatch notify data
+---@diagnostic disable-next-line: duplicate-set-field
 framework.policeDispatchNotify = function(self, data)
     TriggerServerEvent('mk_utils:server:esxDispatchNotify', data)
 end
@@ -29,7 +31,7 @@ end
 -- Triggered by [mk_utils] on players with 'police' job to display dispatch notification for base ESX
 RegisterNetEvent('mk_utils:client:esxDispatchNotify', function(data)
     ESX.ShowNotification("[DISPATCH]: "..data.message, "error", 10000)
-    PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
+    PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", false, 0, true)
     local transG = 250
     local blip = AddBlipForCoord(data.coords.x, data.coords.y, data.coords.z)
     local blip2 = AddBlipForCoord(data.coords.x, data.coords.y, data.coords.z)
@@ -66,9 +68,9 @@ end)
 ---@return boolean true player is restricted from performing tasks. ex: dead or cuffed. false if not
 framework.isRestricted = function(self)
     --utils.logger:debug(GetInvokingResource(), 'is dead: '..tostring(playerState.mk_playerData?.dead)..' | is handcuffed: '..tostring(playerState.mk_playerData?.cuffed), {console = true})
-    
+
     if playerState.mk_playerData?.dead or playerState.mk_playerData?.cuffed then 
-        return true 
+        return true
     else
         return false
     end
@@ -111,13 +113,13 @@ end)
 --- Updates mk_jobUpdate statebag. Used by [mk_garage] to recheck garage authorization when the player job is updated
 RegisterNetEvent('esx:setJob', function(job, lastJob)
     local pData = playerState.mk_playerData
-    if pData and job then 
+    if pData and job then
         pData.job = job
         playerState.mk_jobUpdate = pData
     end
 end)
 
--- Used by [mk_garage] [mk_usedvehicles] [mk_vehiclekeys]
+-- Used by [mk_garage] [mk_usedvehicles] [mk_vehiclekeys] [mk_vehicleshop]
 ---@return string, string|number Player job name and job grade
 framework.getJob = function(self)
     return playerState.mk_playerData?.job?.name, playerState.mk_playerData?.job?.grade
@@ -136,18 +138,18 @@ framework.getJobs = function(self)
 end
 
 -- Used by [mk_garage]
----@return table|boolen List of player gangs and grades or false
+---@return table|boolean #List of player gangs and grades or false
 framework.getGangs = function(self)
-    if not ESX.Gangs or next(ESX.Gangs) == nil then 
+    if not ESX.Gangs or next(ESX.Gangs) == nil then
         ESX.Gangs = lib.callback.await('mk_utils:server:getEsxGangs')
-        
-        if ESX.Gangs and next(ESX.Gangs) ~= nil then 
+
+        if ESX.Gangs and next(ESX.Gangs) ~= nil then
             return ESX.Gangs
         else
-            return false 
+            return false
         end
     else
-        return ESX.Gangs 
+        return ESX.Gangs
     end
 end
 
@@ -155,46 +157,91 @@ end
 ---@param itemName string Name of item to check
 ---@param metadata table|nil Metadata item should have when checking if the player has it
 ---@return boolean true if player has item. false if not
-inventory.hasItem = function(self, itemName, metadata)
+inventory.hasItem = function(self, itemName, metadata, checkContainers)
     local hasItem = false
-    local next = next 
+    local next = next
 
-    if GetResourceState('ox_inventory') == 'started' then 
+    if GetResourceState('ox_inventory') == 'started' then
         local inv = exports['ox_inventory']:Search('count', itemName, metadata)
-        if inv > 0 then 
+        if inv > 0 then
             hasItem = true
+        else
+            if checkContainers then
+                local items = exports['ox_inventory']:GetPlayerItems()
+                local containers = {}
+                if items and next(items) then
+                    for key, value in pairs(items) do
+                        if value?.metadata?.container then
+                            table.insert(containers, key)
+                        end
+                    end
+
+                    if containers and next(containers) then
+                        local containerItems = lib.callback.await('mk_utils:server:getOxInvContainerItems', false, containers)
+                        if containerItems and next(containerItems) then
+                            for a, b in pairs(containerItems) do
+                                if b.items and next(b.items) then
+                                    for key, value in pairs(b.items) do
+                                        if value.name == itemName then
+                                            if metadata and next(metadata) then
+                                                if value.metadata and next(value.metadata) then
+                                                    local metaMatch = true
+                                                    for index, val in pairs(metadata) do
+                                                        for i, v in pairs(value.metadata) do
+                                                            if i == index then
+                                                                if v ~= val then
+                                                                    metaMatch = false
+                                                                end
+                                                            end
+                                                        end
+                                                    end
+
+                                                    if metaMatch then hasItem = true break end
+                                                end
+                                            else
+                                                hasItem = true
+                                            end
+                                        end
+                                        if hasItem then break end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
         end
-    elseif GetResourceState('qs-inventory') == 'started' then 
+    elseif GetResourceState('qs-inventory') == 'started' then
         local items = exports['qs-inventory']:getUserInventory()
 
-        if items and next(items) ~= nil then 
-            for key, value in pairs(items) do 
-                if value?.name == itemName then 
-                    if metadata and next(metadata) ~= nil then 
-                        for index, val in pairs(metadata) do 
-                            if value.info?[index] then 
-                                if value.info?[index] == val then 
-                                    hasItem = true 
+        if items and next(items) ~= nil then
+            for key, value in pairs(items) do
+                if value?.name == itemName then
+                    if metadata and next(metadata) ~= nil then
+                        for index, val in pairs(metadata) do
+                            if value.info?[index] then
+                                if value.info?[index] == val then
+                                    hasItem = true
                                     break
                                 end
                             end
                         end
                     else
-                        hasItem = true 
+                        hasItem = true
                     end
                 end
             end
         end
     else
-        if metadata and next(metadata) ~= nil then 
+        if metadata and next(metadata) ~= nil then
             utils.logger:error(GetInvokingResource(), '^1Inventory resource does not support item metadata. Install dependency or setup custom inventory in ^7[^5mk_utils^7]', {console = true})
         else
             local items = ESX.PlayerData.inventory
             local next = next
-            if items and next(items) ~= nil then 
-                for key, value in pairs(items) do 
-                    if value.name == itemName then 
-                        hasItem = true 
+            if items and next(items) ~= nil then
+                for key, value in pairs(items) do
+                    if value.name == itemName then
+                        hasItem = true
                     end
                 end
             end
@@ -210,15 +257,15 @@ end
 inventory.getItemAmount = function(self, itemName)
     local itemAmount = 0
 
-    if GetResourceState('ox_inventory') == 'started' then 
+    if GetResourceState('ox_inventory') == 'started' then
         local inv = exports['ox_inventory']:Search('count', itemName)
-        if inv > 0 then 
+        if inv > 0 then
             return inv
         else
             return 0
         end
     else
-        local itemAmount = ESX.SearchInventory(itemName, 1)
+        itemAmount = ESX.SearchInventory(itemName, 1)
 
         return itemAmount
     end

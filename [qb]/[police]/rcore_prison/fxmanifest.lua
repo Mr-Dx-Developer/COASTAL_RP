@@ -5,83 +5,150 @@ game         'gta5'
 
 --[[ Resource Information ]]--
 name         'rcore_prison'
-author       'NewEdit'
-version      '1.99'
-description  'Standalone unique Prison system.'
+author       'NewEdit | rcore.cz'
+version      '2.0.3'
+description  'Standalone unique Prison system - prison break, prison jobs and more!'
 
 shared_scripts {
-	'shared/const.lua',
-	'configs/config.lua',
-	'shared/init.lua',
-	'data/presets/*.lua',
-	'configs/permissions.lua',
-	'configs/outfits.lua',
-	'modules/**/shared-internal.lua',
-	'modules/**/init-prison.lua'
-}
-
-escrow_ignore {
-	'assets/includedLibrary',
-	'assets/includedMaps',
-	'assets/inventoryImages',
-	'modules/api/**/*.lua',
-	'modules/base/server/sv_bridge.lua',
-	'modules/base/client/cl-menu-api.lua',
-	'modules/base/client/cl-menu.lua',
-	'modules/base/client/cl-dealers.lua',
-	'modules/**/database/*.lua',
-	'modules/**/booth/**/*.lua',
-	'modules/**/imports/*.lua',
-	'modules/**/inventory/*.lua',
-	'modules/**/framework/**/server.lua',
-	'modules/**/framework/**/client.lua',
-	'modules/**/target/**/client.lua',
-	'modules/**/clothing/cl-main.lua',
-	'modules/**/init-prison.lua',
-	'web/build/config.js',
-	'data/locales/*.lua',
-	'data/presets/*.lua',
-	'configs/config.lua',
-	'configs/permissions.lua',
-	'configs/interiors.lua',
-	'configs/outfits.lua',
-	'configs/webhook.lua',
-}
-
-client_scripts {
-	'modules/**/framework/**/client.lua',
-	'modules/**/target/**/client.lua',
-	'modules/**/clothing/cl-main.lua',
-	'modules/base/client/*.lua',
-	'modules/api/client/*.lua',
+    'shared/sh-utils.lua',
+    'shared/sh-const.lua',
+    'shared/sh-locale.lua',
+    'data/locales/*.lua',
+    'config.lua',
+    'shared/sh-init.lua',
+    'modules/base/shared/api/*.lua'
 }
 
 server_scripts {
-	'@oxmysql/lib/MySQL.lua',
-	'configs/webhook.lua',
-	'modules/base/server/api/sv-deployer.lua',
-	'modules/base/server/api/sv-init.lua',
-	'modules/base/server/*.lua',
-	'modules/api/server/resources/*.lua',
-	'modules/**/booth/**/*.lua',
-	'modules/**/booth/*.lua',
-	'modules/**/imports/*.lua',
-	'modules/**/database/*.lua',
-	'modules/**/inventory/*.lua',
-	'modules/**/framework/**/server.lua',
-	'modules/bridge/stats/sv-main.lua',
-	'modules/api/server/*.lua',
+    '@mysql-async/lib/MySQL.lua',
+
+    'sconfig.lua',
+    'permissions.lua',
+    
+    'modules/base/server/sv-ace.lua',
+    'modules/base/server/models/*.lua',
+
+    'modules/bridge/server/sv-deployer.lua',
+    'modules/bridge/server/sv-bridge.lua',
+
+
+    'modules/bridge/server/database/sv-ghmatti.lua',
+    'modules/bridge/server/database/sv-db.lua',
+
+    'modules/bridge/server/framework/*.lua',
+
+    'modules/bridge/server/inventory/sv-ox_inventory.lua',
+    'modules/bridge/server/inventory/sv-qs_inventory.lua',
+    'modules/bridge/server/inventory/sv-esx_inventory.lua',
+    'modules/bridge/server/inventory/sv-qb_inventory.lua',
+    'modules/bridge/server/inventory/sv-mf_inventory.lua',
+    'modules/bridge/server/inventory/sv-ps_inventory.lua',
+    'modules/bridge/server/inventory/sv-lj_inventory.lua',
+    'modules/bridge/server/inventory/sv-core_inventory.lua',
+    'modules/bridge/server/inventory/sv-cheeza_inventory.lua',
+    'modules/bridge/server/inventory/sv-tgiann-inventory.lua',
+    'modules/bridge/server/inventory/sv-standalone.lua',
+
+    'modules/bridge/server/booths/*.lua',
+    'modules/bridge/server/other/*.lua',
+    'modules/bridge/server/dispatch/*.lua',
+    'modules/bridge/server/rcore/*.lua',
+
+    'modules/bridge/server/notify/*.lua',
+    'modules/bridge/server/doorlocks/*.lua',
+    'modules/bridge/server/consumables/*.lua',
+    'modules/bridge/server/maps/*.lua',
+
+    'modules/base/server/sv-callback.lua',
+
+    'modules/base/server/init/*.lua',
+    'modules/base/server/models/*.lua',
+    'modules/base/server/services/*.lua',
+    'modules/base/server/lib/*.lua',
+    'modules/base/server/storage/*.lua',
+    'modules/base/server/lifecycle/init/*.lua',
+    'modules/base/server/api/*.lua',
+    'modules/base/server/sv-commands.lua',
+    'modules/base/server/*.lua',
+
+    'modules/bridge/server/sv-migration.lua',
 }
 
-ui_page 'web/build/index.html'
+
+client_scripts {
+    'outfits.lua',
+
+    'modules/bridge/client/cl-bridge.lua',
+
+    'modules/bridge/client/framework/*.lua',
+
+    'modules/bridge/client/target/cl-main.lua',
+    'modules/bridge/client/menu/cl-main.lua',
+
+    'modules/base/client/cl-callback.lua',
+
+    'modules/base/client/init/*.lua',
+    'modules/base/client/models/*.lua',
+    'modules/base/client/services/*.lua',
+    'modules/base/client/lib/menu/*.lua',
+    'modules/base/client/lib/menu/menus/*.lua',
+    'modules/base/client/lib/*.lua',
+    'modules/base/client/storage/*.lua',
+    'modules/base/client/lifecycle/**/*.lua',
+    'modules/base/client/api/*.lua',
+
+    'modules/bridge/client/clothing/cl-main.lua',
+    'modules/bridge/client/notify/cl-main.lua',
+    'modules/bridge/client/textUI/cl-main.lua',
+    'modules/bridge/client/dispatch/*.lua',
+}
+
+
+escrow_ignore {
+    'modules/bridge/client/clothing/*.lua',
+    'modules/bridge/client/dispatch/*.lua',
+    'modules/bridge/client/framework/*.lua',
+    'modules/bridge/client/notify/*.lua',
+    'modules/bridge/client/textUI/*.lua',
+
+    'assets/includedLibrary',
+    'assets/includedMaps',
+    'assets/inventoryImages',
+
+    'modules/bridge/server/database/*.lua',
+    'modules/bridge/server/dispatch/*.lua',
+    'modules/bridge/server/framework/*.lua',
+    'modules/bridge/server/inventory/*.lua',
+    'modules/bridge/server/notify/*.lua',
+    'modules/bridge/server/booths/*.lua',
+
+    'modules/base/shared/api/sh-time.lua',
+    'modules/base/server/api/*.lua',
+    'modules/base/server/sv-commands.lua',
+
+    'modules/base/client/api/*.lua',
+    'permissions.lua',
+    'config.lua',
+    'sconfig.lua',
+    'outfits.lua',
+    'zones.json',
+    'data/locales/*.lua',
+    'data/presets/*.lua',
+}
+
+
+ui_page 'modules/nui/web/build/index.html'
 
 files {
 	'zones.json',
-	'web/build/index.html',
-	'web/build/app.js',
-	'web/build/config.js',
-    'web/build/fonts/*.ttf',
-    'web/build/**/*',
+    'modules/nui/web/build/index.html',
+    'modules/nui/web/build/config.js',
+    'modules/nui/web/build/images/*.png',
+    'modules/nui/web/build/images/*.jpg',
+    'modules/nui/web/build/images/*.jpeg',
+	'modules/nui/web/build/**/*',
+    'assets/inventoryImages/png/*.png',
+    'assets/inventoryImages/webp/*.webp',
 	'data/*.lua',
 	'data/**/*.lua',
 }
@@ -89,6 +156,7 @@ files {
 dependencies {
 	'/server:5104',
 	'/onesync',
+    'rcore_prison_assets'
 }
 
 dependency '/assetpacks'

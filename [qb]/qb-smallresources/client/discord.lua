@@ -1,10 +1,10 @@
-local appid = '1247458877193191446' 
-local image1 = 'brp'
-local image2 = 'brp'
+local appid = '1263181164131385366' 
+local image1 = 'logo'
+local image2 = 'logo'
 local prevtime = GetGameTimer()
 local prevframes = GetFrameCount()
 local fps = -1
-local disocrd = 'https://discord.gg/e3yTCdWU4q'
+local disocrd = 'https://discord.gg/wzEAeuwPAC'
 local fivem = "fivem://connect/cfx.re/join/v79dkk"
 
 function location()
@@ -17,7 +17,7 @@ function SetRP()
     SetDiscordAppId(appid)
     SetDiscordRichPresenceAsset(image1)
     SetDiscordRichPresenceAssetSmall(image2)
-    SetDiscordRichPresenceAssetText('discord.gg/e3yTCdWU4q')
+    SetDiscordRichPresenceAssetText('discord.gg/wzEAeuwPAC')
 end
 
 CreateThread(function()

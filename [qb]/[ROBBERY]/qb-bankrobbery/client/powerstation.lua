@@ -64,7 +64,7 @@ RegisterNetEvent('thermite:UseThermite', function()
                     SetNuiFocus(true, true)
                     SendNUIMessage({
                         action = "openThermite",
-                        amount = math.random(5, 10),
+                        amount = math.random(1, 2),
                     })
                     currentStation = closestStation
                 else
@@ -84,7 +84,7 @@ RegisterNetEvent('thermite:UseThermite', function()
             SetNuiFocus(true, true)
             SendNUIMessage({
                 action = "openThermite",
-                amount = math.random(5, 10),
+                amount = math.random(1, 2),
             })
         else
             QBCore.Functions.Notify(Lang:t("error.minium_police_required", {police = Config.MinimumThermitePolice}), "error")

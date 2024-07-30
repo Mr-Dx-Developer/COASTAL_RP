@@ -37,11 +37,11 @@ Config = {
 		{ 	zoneEnable = true,
 			job = "police",
 			garage = {
-				spawn = vector4(446.184, -972.932, 25.706, 274.612),
-				out = vector4(450.194, -967.738, 25.706, 180.994),
+				spawn = vector4(435.89, -976.31, 25.7, 89.26),
+				out = vector4(441.35, -974.77, 25.7, 189.43),
 				list = {
-					["mach1rb"] = {
-						CustomName = "PD Mustang",
+					["17cheyenne2"] = {
+						CustomName = "PD Truck",
 						livery = 1,
 						grade = 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -52,9 +52,9 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["pd1"] = {
-						CustomName = "PD Crown Vic",
-						livery = 1,
+					["modelsleo"] = {
+						CustomName = "PD Tesla",
+						livery = 2,
 						grade = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -64,8 +64,8 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["Char"] = {
-						CustomName = "PD Charger",
+					["nm_avent"] = {
+						CustomName = "PD Lembo",
 						livery = 1,
 						grade = 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -76,8 +76,8 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["poldemonrb"] = {
-						CustomName = "PD Demon",
+					["pd_c8"] = {
+						CustomName = "PD C8",
 						colors = { 255, 255 },
 						livery = 1,
                                                 grade = 4, 5, 6, 7, 8, 9, 10,
@@ -89,8 +89,8 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["zr1RB"] = {
-						CustomName = "PD ZR1",
+					["polamggtr"] = {
+						CustomName = "PD GTR",
 						colors = { 255, 255 },
 						livery = 1,
                                                 grade = 5, 6, 7, 8, 9, 10,
@@ -104,8 +104,8 @@ Config = {
 					},
 					
 					 
-					["Explorer"] = {
-						CustomName = "PD Explorer",
+					["r1200rtp"] = {
+						CustomName = "PD Bike",
 						colors = { 255, 255 },
 						livery = 1,
                                                 grade = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -118,8 +118,8 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["polbikeb2"] = {
-						CustomName = "PD Bike",
+					["rexon_dmp1"] = {
+						CustomName = "PD DMP1",
 						livery = 3,
                                                 grade = 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -130,8 +130,8 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["r1custom"] = {
-						CustomName = "pd bike",
+					["rexon_dmp2"] = {
+						CustomName = "pd DMP2",
 						livery = 1,
                                                 grade = 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -142,8 +142,8 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					--[[ ["rmod69police"] = {
-						CustomName = "PD 69",
+					["rexon_dmp3"] = {
+						CustomName = "PD DMP3",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -152,9 +152,9 @@ Config = {
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
-					}, ]]
-					["socharger"] = {
-						CustomName = "PD Charger",
+					},
+					["rexon_dmp4"] = {
+						CustomName = "PD DMP4",
 						livery = 1,
                                                 grade = 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -165,8 +165,8 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					--[[ ["sodurango"] = {
-						CustomName = "PD Durango",
+					["rexon_dmp5"] = {
+						CustomName = "PD DMP5",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -175,9 +175,9 @@ Config = {
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
-					}, ]]
-					["soexplorer"] = {
-						CustomName = "PD Explorer",
+					},
+					["rexon_dmp6"] = {
+						CustomName = "PD DMP6",
 						livery = 1,
                                                 grade = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -189,8 +189,8 @@ Config = {
 						},
 					},
 					
-					["sotaurus"] = {
-						CustomName = "PD Taurus",
+					["rexon_dmp7"] = {
+						CustomName = "PD DMP7",
 						livery = 1,
                                                 grade = 2, 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -201,8 +201,8 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["sotruck"] = {
-						CustomName = "PD Truck",
+					["rexon_dmp8"] = {
+						CustomName = "PD DMP8",
 						livery = 1,
                                                 grade = 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -214,8 +214,8 @@ Config = {
 						},
 					},
 					
-					["velar"] = {
-						CustomName = "PD Velar",
+					["rexon_dmp9"] = {
+						CustomName = "PD DMP9",
 						livery = 1,
                                                 grade = 8, 9, 10, 
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -226,8 +226,8 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["fbi"] = {
-						CustomName = "PD CC",
+					["rmodgt63police"] = {
+						CustomName = "PD GT63",
 						livery = 1,
                                                 grade = 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -249,8 +249,8 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					}, ]]
-					["polalamop"] = {
-						CustomName = "PD Lambo",
+					["yzfr6"] = {
+						CustomName = "PD R6",
 						livery = 1,
                                                 grade = 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -260,19 +260,8 @@ Config = {
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
-					},
-					["pbike"] = {
-						CustomName = "PD Cycle",
-						livery = 1,
-                        grade = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
-						performance = "max",
-						trunkItems = {
-							
-							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
-							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
 					}
+					
 
 					
 					
@@ -282,8 +271,8 @@ Config = {
 			{    zoneEnable = true, -- disable if you want to hide this temporarily
 			job = "police", -- set this to required job grade
 			garage = {
-				spawn = vector4(476.828, -1003.302, 45.911, 93.49),  -- Where the vehicle will spawn
-				out = vector4(468.58, -999.911, 45.911, 280.735),  -- Where you select the vehicles from
+				spawn = vector4(449.29, -981.24, 43.69, 90.21),  -- Where the vehicle will spawn
+				out = vector4(460.79, -979.43, 43.69, 186.07),  -- Where you select the vehicles from
 				list = {  -- The list of cars that will spawn
 					--[[ ["polmav"] = {
 						CustomName = "Polmav Super",
@@ -310,10 +299,10 @@ Config = {
 		{    zoneEnable = true, -- disable if you want to hide this temporarily
 			job = "ambulance", -- set this to required job grade
 			garage = {
-				spawn = vector4(313.22, -1464.881, 46.511, 154.501),  -- Where the vehicle will spawn
-				out = vector4(320.249, -1456.695, 46.512, 42.17),  -- Where you select the vehicles from
+				spawn = vector4(-448.8, -310.65, 78.17, 22.24),  -- Where the vehicle will spawn
+				out = vector4(-438.69, -316.21, 78.17, 112.6),  -- Where you select the vehicles from
 				list = {  -- The list of cars that will spawn
-					["aw139"] = {
+					["emx_heli"] = {
 						CustomName = "EMS Heli",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8 },
@@ -325,68 +314,75 @@ Config = {
 		{    zoneEnable = true, -- disable if you want to hide this temporarily
 			job = "ambulance", -- set this to required job grade
 			garage = {
-				spawn = vector4(327.64, -1377.789, 31.911, 44.461),  -- Where the vehicle will spawn
-				out = vector4(327.409, -1372.521, 31.911, 130.889),  -- Where you select the vehicles from
+				spawn = vector4(-492.03, -336.22, 34.37, 170.88),  -- Where the vehicle will spawn
+				out = vector4(-487.71, -337.34, 34.5, 81.57),  -- Where you select the vehicles from
 				list = {
 					
-					["Ambulance_Dodge_RAM"] = {
-						CustomName = "EMS RAM",
+					["emscode318tahoe"] = {
+						CustomName = "EMS TAHOE",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						
 					},
-					["audirs6emsfire"] = {
-						CustomName = "EMS RS6",
+					["emscode3camero"] = {
+						CustomName = "EMS Camero",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						
 					},
-					["DC_RoyalCustom___RS7_EMS"] = {
-						CustomName = "EMS RS7",
+					["emx1"] = {
+						CustomName = "EMS X1",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						
 					},
-					["BMW-x5_medic"] = {
-						CustomName = "EMS X5",
+					["emx14"] = {
+						CustomName = "EMS X14",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						
 					},
-					["emsbmwm7"] = {
-						CustomName = "EMS M7",
+					["emx2"] = {
+						CustomName = "EMS X2",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						
 					},
-					["RoyalCustom_RSQ8_EMS"] = {
-						CustomName = "EMS RSQ8",
+					["emx3"] = {
+						CustomName = "EMS X3",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						
 					},
-					["RoyalDodgeRAMems"] = {
-						CustomName = "EMS Dodge RAM",
+					["emx7"] = {
+						CustomName = "EMS X7",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						
 					},
-					["RoyalG30Medic"] = {
-						CustomName = "EMS G30",
+					["emx_ambulance"] = {
+						CustomName = "EMS Ambulance",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						
 					},
-					["RoyalYamahaEMS_white"] = {
-						CustomName = "EMS Bike",
+					["emx_avent"] = {
+						CustomName = "EMS Aventador",
+						livery = 1,
+						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
+						performance = "max",
+						
+					},
+					["emx_speedunit"] = {
+						CustomName = "EMS Speed Unit",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",

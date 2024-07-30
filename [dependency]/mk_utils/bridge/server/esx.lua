@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field
 if GetResourceState('es_extended') == 'missing' then return end 
 
 ESX = exports.es_extended:getSharedObject()
@@ -208,15 +209,67 @@ end
 ---@param itemName string Name of item to check
 ---@param metadata table|nil Metadata item should have when checking if the player has it
 ---@return boolean true if player has item. false if not
-inventory.hasItem = function(self, playerSource, itemName, metadata)
+inventory.hasItem = function(self, playerSource, itemName, metadata, checkContainers)
     local src = playerSource
-    local hasItem = false 
+    local hasItem = false
     local next = next
 
     if GetResourceState('ox_inventory') == 'started' then 
         local item = exports['ox_inventory']:Search(src, 'count', itemName, metadata)
-        if item > 0 then 
+        if item > 0 then
             hasItem = true
+        else
+            if checkContainers then
+                local items = exports['ox_inventory']:GetInventoryItems(playerSource)
+                local containers = {}
+                if items and next(items) then
+                    for key, value in pairs(items) do
+                        if value?.metadata?.container then
+                            table.insert(containers, key)
+                        end
+                    end
+
+                    if containers and next(containers) then
+                        local containerItems = {}
+                        for key, value in pairs(containers) do
+                            local inv = exports['ox_inventory']:GetContainerFromSlot(playerSource, value)
+                            if inv?.items then
+                                table.insert(containerItems, inv)
+                            end
+                        end
+
+                        if containerItems and next(containerItems) then
+                            for a, b in pairs(containerItems) do
+                                if b.items and next(b.items) then
+                                    for key, value in pairs(b.items) do
+                                        if value.name == itemName then
+                                            if metadata and next(metadata) then
+                                                if value.metadata and next(value.metadata) then
+                                                    local metaMatch = true
+                                                    for index, val in pairs(metadata) do
+                                                        for i, v in pairs(value.metadata) do
+                                                            if i == index then
+                                                                if v ~= val then
+                                                                    metaMatch = false
+                                                                end
+                                                            end
+                                                        end
+                                                    end
+
+                                                    if metaMatch then hasItem = true break end
+                                                end
+                                            else
+                                                hasItem = true
+                                            end
+                                        end
+                                        if hasItem then break end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
         end
     elseif GetResourceState('qs-inventory') == 'started' then 
         local items = exports['qs-inventory']:GetInventory(src)
@@ -572,13 +625,27 @@ end
 ---@param societyName string Job or gang name
 ---@return number|boolean Account balance or false
 society.getBalance = function(self, playerSource, societyType, societyName)
-    local result = MySQL.query.await('SELECT money FROM addon_account_data WHERE account_name = ?', {
-        'society_'..societyName
-    })
+    local query, params
+
+    if GetResourceState('okokBanking') == 'started' then
+        query = 'SELECT value FROM okokbanking_societies WHERE society = ?'
+        params = {
+            societyName
+        }
+    else
+        query = 'SELECT money FROM addon_account_data WHERE account_name = ?'
+        params = {
+            'society_'..societyName
+        }
+    end
+
+    local result = MySQL.query.await(query, params)
 
     if result and result[1] then 
         if result[1].money then
             return tonumber(result[1].money)
+        elseif result[1].value then
+            return tonumber(result[1].value)
         else
             return false
         end
@@ -609,14 +676,88 @@ society.updateBalance = function(self, playerSource, deposit, societyType, socie
         if newBalance < 0 then return false end
     end
 
-    local result = MySQL.query.await('UPDATE addon_account_data SET money = ? WHERE account_name = ?', {
-        newBalance,
-        'society_'..societyName
-    })
+    local query, params
+
+    if GetResourceState('okokBanking') == 'started' then
+        query = 'UPDATE okokbanking_societies SET value = ? WHERE society = ?'
+        params = {
+            newBalance,
+            societyName
+        }
+    else
+        query = 'UPDATE addon_account_data SET money = ? WHERE account_name = ?'
+        params = {
+            newBalance,
+            'society_'..societyName
+        }
+    end
+
+    local result = MySQL.query.await(query, params)
 
     if result then 
         return newBalance
     else
         return false 
     end
+end
+
+
+
+--Used by [mk_vehicleshop]
+---@param shopName string Vehicle shop name from [mk_vehicleshop] locations.lua
+framework.getShopVehicles = function(self, shopName)
+    local vehicleReturn = promise.new()
+    local next = next
+    local shopVehicles = {}
+    local vehicles = MySQL.query.await('SELECT * FROM vehicles')
+
+    if vehicles and next(vehicles) then
+        for key, value in pairs(vehicles) do
+            if value.category then
+                if not shopVehicles[value.category] then
+                    shopVehicles[value.category] = {}
+
+                    if not shopVehicles.categories then shopVehicles.categories = {} end
+                    if not shopVehicles.categories[value.category] then table.insert(shopVehicles.categories, {name = value.category, label = value.category}) end
+                end
+
+                if value.name and value.model and tonumber(value.price) then
+                    table.insert(shopVehicles[value.category], {
+                        name = value.name,
+                        model = value.model,
+                        price = tonumber(value.price)
+                    })
+                else
+                    --missing data
+                end
+            else
+                utils.logger:info(GetInvokingResource(), 'Vehicle model ['..value.model..'] name ['..value.name..'] has no defined category.', {console = true})
+            end
+        end
+
+        if shopVehicles and next(shopVehicles) then
+            for key, value in pairs(shopVehicles) do
+                if key ~= 'categories' then
+                    table.sort(value, function(a, b) return a.name < b.name end)
+                end
+            end
+
+            table.sort(shopVehicles.categories, function(a, b) return a.name < b.name end)
+
+            vehicleReturn:resolve(shopVehicles)
+        else
+            vehicleReturn:resolve(false)
+        end
+    else
+        vehicleReturn:resolve(false)
+    end
+
+    return Citizen.Await(vehicleReturn)
+end
+
+--Used by [mk_vehicleshop]
+---@param playerSource number Player server id
+---@param bool boolean On Duty boolean
+framework.setjobDuty = function(self, playerSource, bool)
+    --No default duty system for ESX
 end

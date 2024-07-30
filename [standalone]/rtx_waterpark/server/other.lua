@@ -21,7 +21,7 @@ if Config.Framework == "qbcore" then
 				local playersource = source
 				local Player = QBCore.Functions.GetPlayer(playersource)
 				if Player then		
-					if Player.Functions.GetItemByName("waterpassunlimited").amount >= 1 or waterpass[playersource] ~= nil then		
+					if Player.Functions.HasItem("waterpassunlimited", 1) or waterpass[playersource] ~= nil then		
 						waterparkpayed[playersource] = true
 						TriggerClientEvent("rtx_waterpark:Notify", playersource, Language[Config.Language]["waterpass"])
 						TriggerClientEvent("rtx_waterpark:WaterParkLock", -1, false)

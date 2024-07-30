@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field
 if GetResourceState('qb-core') == 'missing' then return end 
 
 QBCore = exports['qb-core']:GetCoreObject()
@@ -205,14 +206,66 @@ end
 ---@param itemName string Name of item to check
 ---@param metadata table|nil Metadata item should have when checking if the player has it
 ---@return boolean true if player has item. false if not
-inventory.hasItem = function(self, playerSource, itemName, metadata)
+inventory.hasItem = function(self, playerSource, itemName, metadata, checkContainers)
     local src = playerSource
     local hasItem = false 
 
     if GetResourceState('ox_inventory') == 'started' then 
         local item = exports['ox_inventory']:Search(src, 'count', itemName, metadata)
-        if item > 0 then 
+        if item > 0 then
             hasItem = true
+        else
+            if checkContainers then
+                local items = exports['ox_inventory']:GetInventoryItems(playerSource)
+                local containers = {}
+                if items and next(items) then
+                    for key, value in pairs(items) do
+                        if value?.metadata?.container then
+                            table.insert(containers, key)
+                        end
+                    end
+
+                    if containers and next(containers) then
+                        local containerItems = {}
+                        for key, value in pairs(containers) do
+                            local inv = exports['ox_inventory']:GetContainerFromSlot(playerSource, value)
+                            if inv?.items then
+                                table.insert(containerItems, inv)
+                            end
+                        end
+
+                        if containerItems and next(containerItems) then
+                            for a, b in pairs(containerItems) do
+                                if b.items and next(b.items) then
+                                    for key, value in pairs(b.items) do
+                                        if value.name == itemName then
+                                            if metadata and next(metadata) then
+                                                if value.metadata and next(value.metadata) then
+                                                    local metaMatch = true
+                                                    for index, val in pairs(metadata) do
+                                                        for i, v in pairs(value.metadata) do
+                                                            if i == index then
+                                                                if v ~= val then
+                                                                    metaMatch = false
+                                                                end
+                                                            end
+                                                        end
+                                                    end
+
+                                                    if metaMatch then hasItem = true break end
+                                                end
+                                            else
+                                                hasItem = true
+                                            end
+                                        end
+                                        if hasItem then break end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
         end
     else
         local player = QBCore.Functions.GetPlayer(src)
@@ -358,7 +411,7 @@ inventory.setNewMetadata = function(self, playerSource, item, slot, metadataKey,
     end
 end
 
--- Used by [mk_garage] [mk_usedvehicles]
+-- Used by [mk_garage] [mk_usedvehicles] [mk_vehicleshop]
 ---@param data { shared: true|nil (true if a shared vehicle), userData: table|nil (owners row from the players database or nil if shared vehicle), modelString: string (vehicle model name), 
 ---@param data      modelHash: number (vehicle model number), mods: table (vehicle mods), plate: string (vehicle plate), vin: string|nil (vehicle vin number), garage: string (garage name),
 ---@param data      state: number (0 - out 1 - garaged 2 - impounded), fuelLevel: number (vehicle fuel amount), engineHealth: number (vehicle engine health), bodyHealth: number (vehicle body health),
@@ -485,7 +538,7 @@ database.impoundVehicle = function(self, data, cb)
     }, cb)
 end
 
--- Used by [mk_garage]
+-- Used by [mk_garage] [mk_vehicleshop]
 ---@param playerSource number Player server id
 ---@param playerIdentifier string Player identifier
 ---@return string|boolean player firstname, player lastname or false, false
@@ -506,13 +559,12 @@ framework.getPlayerName = function(self, playerSource, playerIdentifier)
     end
 end
 
--- Used by [mk_garage] [mk_plates]
+-- Used by [mk_garage] [mk_plates] [mk_vehicleshop]
 ---@param playerSource number Player server id
 ---@return string|boolean player job name, player job grade or false, false
 framework.getJob = function(self, playerSource)
     local src = playerSource
     local player = QBCore.Functions.GetPlayer(src)
-
     return player?.PlayerData?.job?.name, player?.PlayerData?.job?.grade?.level
 end
 
@@ -525,7 +577,7 @@ framework.getPlayerSourceByIdentifier = function(self, playerIdentifier)
     return tonumber(player?.PlayerData?.source) or false
 end
 
--- Used by [mk_garage] [mk_mining] [mk_usedvehicles] [mk_garbage] [mk_vehiclekeys]
+-- Used by [mk_garage] [mk_mining] [mk_usedvehicles] [mk_garbage] [mk_vehiclekeys] [mk_vehicleshop]
 ---@param playerSource number Player server id
 ---@param moneyType string 'cash'|'bank' Account to check
 ---@return number Account balance or 0
@@ -540,7 +592,7 @@ framework.checkMoney = function(self, playerSource, moneyType)
     end
 end
 
--- Used by [mk_garage] [mk_mining] [mk_usedvehicles] [mk_garbage] [mk_vehiclekeys]
+-- Used by [mk_garage] [mk_mining] [mk_usedvehicles] [mk_garbage] [mk_vehiclekeys] [mk_vehicleshop]
 ---@param playerSource number Player server id
 ---@param moneyType string 'cash'|'bank' Account to remove money from
 ---@param amount number Amount to remove
@@ -560,7 +612,7 @@ framework.removeMoney = function(self, playerSource, moneyType, amount)
     end
 end
 
--- Used by [mk_garbage] [mk_mining] [mk_usedvehicles]
+-- Used by [mk_garbage] [mk_mining] [mk_usedvehicles] [mk_vehicleshop]
 ---@param playerSource number Player server id
 ---@param moneyType string 'cash'|'bank' Account to add money to
 ---@param amount number Amount to add
@@ -601,20 +653,69 @@ framework.addMoneyToOfflinePlayer = function(self, identifier, moneyType, amount
     end
 end
 
--- Used by [mk_garage]
+CreateThread(function()
+    useQbManagement = false
+    local result = MySQL.query.await('SHOW COLUMNS FROM bank_accounts')
+    if result then
+        local name, bal, ty = false, false, false
+        for i = 1, #result do
+            local column = result[i]
+            if column.Field == 'account_name' then
+                name = true
+            elseif column.Field == 'account_balance' then
+                bal = true
+            elseif column.Field == 'account_type' then
+                ty = true
+            end
+        end
+
+        if not name or not bal or not ty then
+            local res = MySQL.query.await('SHOW COLUMNS FROM management_funds')
+            if res then useQbManagement = true end
+        end
+    else
+        local res = MySQL.query.await('SHOW COLUMNS FROM management_funds')
+        if res then useQbManagement = true end
+    end
+end)
+
+
+-- Used by [mk_garage] [mk_vehicleshop]
 ---@param playerSource number Player server id requesting balance
 ---@param societyType string 'job'|'gang' Job or gang society
 ---@param societyName string Job or gang name
 ---@return number|boolean Account balance or false
 society.getBalance = function(self, playerSource, societyType, societyName)
-    local result = MySQL.query.await('SELECT amount FROM management_funds WHERE job_name = ? AND `type` = ?', {
-        societyName,
-        societyType == 'job' and 'boss' or 'gang'
-    })
+    local query, params
 
-    if result and result[1] then 
+    if GetResourceState('okokBanking') == 'started' then
+        query = 'SELECT value FROM okokbanking_societies WHERE society = ?'
+        params = {
+            societyName
+        }
+    elseif useQbManagement then
+        query = 'SELECT amount FROM management_funds WHERE job_name = ? AND `type` = ?'
+        params = {
+            societyName,
+            societyType == 'job' and 'boss' or 'gang'
+        }
+    else
+        query = 'SELECT account_balance FROM bank_accounts WHERE account_name = ? and account_type = ?'
+        params = {
+            societyName,
+            societyType
+        }
+    end
+
+    local result = MySQL.query.await(query, params)
+
+    if result and result[1] then
         if result[1].amount then
             return tonumber(result[1].amount)
+        elseif result[1].account_balance then
+            return tonumber(result[1].account_balance)
+        elseif result[1].value then
+            return tonumber(result[1].value)
         else
             return false
         end
@@ -623,7 +724,7 @@ society.getBalance = function(self, playerSource, societyType, societyName)
     end
 end
 
--- Used by [mk_garage]
+-- Used by [mk_garage] [mk_vehicleshop]
 ---@param playerSource number Player server id requesting update balance
 ---@param deposit boolean true if depositing money. false if withdrawing
 ---@param societyType string 'job'|'gang' Job or gang society
@@ -645,15 +746,96 @@ society.updateBalance = function(self, playerSource, deposit, societyType, socie
         if newBalance < 0 then return false end
     end
 
-    local result = MySQL.query.await('UPDATE management_funds SET amount = ? WHERE job_name = ? AND `type` = ?', {
-        newBalance,
-        societyName,
-        societyType == 'job' and 'boss' or 'gang'
-    })
+    local query, params
 
-    if result then 
+    if GetResourceState('okokBanking') == 'started' then
+        query = 'UPDATE okokbanking_societies SET value = ? WHERE society = ?'
+        params = {
+            newBalance,
+            societyName
+        }
+    elseif useQbManagement then
+        query = 'UPDATE management_funds SET amount = ? WHERE job_name = ? AND `type` = ?'
+        params = {
+            newBalance,
+            societyName,
+            societyType == 'job' and 'boss' or 'gang'
+        }
+    else
+        query = 'UPDATE bank_accounts SET account_balance = ? WHERE account_name = ? and account_type = ?'
+        params = {
+            newBalance,
+            societyName,
+            societyType
+        }
+    end
+
+    local result = MySQL.query.await(query, params)
+
+    if result then
         return newBalance
     else
         return false 
     end
+end
+
+--Used by [mk_vehicleshop]
+---@param shopName string Vehicle shop name from [mk_vehicleshop] locations.lua
+framework.getShopVehicles = function(self, shopName)
+    local vehicleReturn = promise.new()
+    local next = next
+    local shopVehicles = {}
+
+    if QBCore.Shared.Vehicles and next(QBCore.Shared.Vehicles) ~= nil then
+        for _, value in pairs(QBCore.Shared.Vehicles) do
+            if shopName:lower() == value.shop:lower() then
+                if value.category then
+                    if not shopVehicles[value.category] then
+                        shopVehicles[value.category] = {}
+
+                        if not shopVehicles.categories then shopVehicles.categories = {} end
+                        if not shopVehicles.categories[value.category] then table.insert(shopVehicles.categories, {name = value.category, label = value.categoryLabel and value.categoryLabel or value.category}) end
+                    end
+
+                    if value.name and value.model and tonumber(value.price) then
+                        table.insert(shopVehicles[value.category], {
+                            name = value.name,
+                            model = value.model,
+                            price = tonumber(value.price)
+                        })
+                    else
+                        --missing data
+                    end
+                else
+                    utils.logger:info(GetInvokingResource(), 'Vehicle model ['..value.model..'] name ['..value.name..'] has no defined category.', {console = true})
+                end
+            end
+        end
+
+        if shopVehicles and next(shopVehicles) then
+            for key, value in pairs(shopVehicles) do
+                if key ~= 'categories' then
+                    table.sort(value, function(a, b) return a.name < b.name end)
+                end
+            end
+
+            table.sort(shopVehicles.categories, function(a, b) return a.name < b.name end)
+
+            vehicleReturn:resolve(shopVehicles)
+        else
+            vehicleReturn:resolve(false)
+        end
+    else
+        vehicleReturn:resolve(false)
+    end
+
+    return Citizen.Await(vehicleReturn)
+end
+
+--Used by [mk_vehicleshop]
+---@param playerSource number Player server id
+---@param bool boolean On Duty boolean
+framework.setjobDuty = function(self, playerSource, bool)
+    local player = QBCore.Functions.GetPlayer(playerSource)
+    if player then player.Functions.SetJobDuty(bool) end
 end

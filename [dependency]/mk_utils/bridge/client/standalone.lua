@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field
 if GetResourceState('myCustomCore') == 'missing' then return end 
 
 --MyCore = Load Your Core
@@ -85,10 +86,10 @@ RegisterNetEvent('gangUpdateEvent', function(gang)
     end
 end)
 
--- Used by [mk_garage] [mk_usedvehicles] [mk_vehiclekeys]
+-- Used by [mk_garage] [mk_usedvehicles] [mk_vehiclekeys] [mk_vehicleshop]
 ---@return string, string|number Player job name and job grade
 framework.getJob = function(self)
-    
+
 end
 
 -- Used by [mk_garage]

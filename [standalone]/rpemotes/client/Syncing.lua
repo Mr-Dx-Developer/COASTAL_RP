@@ -1,8 +1,3 @@
-
-
-
-
-
 local isRequestAnim = false
 local requestedemote = ''
 local targetPlayerId = ''
@@ -15,6 +10,10 @@ local targetPlayerId = ''
 -----------------------------------------------------------------------------------------------------
 if Config.SharedEmotesEnabled then
     RegisterCommand('nearby', function(source, args, raw)
+        if IsPedInAnyVehicle(PlayerPedId(), true) then
+            return EmoteChatMessage(Translate('not_in_a_vehicle'))
+        end
+
         if #args > 0 then
             local emotename = string.lower(args[1])
             target, distance = GetClosestPlayer()
@@ -22,13 +21,13 @@ if Config.SharedEmotesEnabled then
                 if RP.Shared[emotename] ~= nil then
                     dict, anim, ename = table.unpack(RP.Shared[emotename])
                     TriggerServerEvent("ServerEmoteRequest", GetPlayerServerId(target), emotename)
-                    SimpleNotify(Config.Languages[lang]['sentrequestto'] ..
+                    SimpleNotify(Translate('sentrequestto') ..
                         GetPlayerName(target) .. " ~w~(~g~" .. ename .. "~w~)")
                 else
-                    EmoteChatMessage("'" .. emotename .. "' " .. Config.Languages[lang]['notvalidsharedemote'] .. "")
+                    EmoteChatMessage("'" .. emotename .. "' " .. Translate('notvalidsharedemote') .. "")
                 end
             else
-                SimpleNotify(Config.Languages[lang]['nobodyclose'])
+                SimpleNotify(Translate('nobodyclose'))
             end
         else
             NearbysOnCommand()
@@ -36,11 +35,15 @@ if Config.SharedEmotesEnabled then
     end, false)
 end
 
-RegisterNetEvent("SyncPlayEmote")
-AddEventHandler("SyncPlayEmote", function(emote, player)
+RegisterNetEvent("SyncPlayEmote", function(emote, player)
     EmoteCancel()
     Wait(300)
     targetPlayerId = player
+
+    if IsPedInAnyVehicle(GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer()), true) then
+        return EmoteChatMessage(Translate('not_in_a_vehicle'))
+    end
+
     -- wait a little to make sure animation shows up right on both clients after canceling any previous emote
     if RP.Shared[emote] ~= nil then
         if RP.Shared[emote].AnimationOptions and RP.Shared[emote].AnimationOptions.Attachto then
@@ -74,12 +77,15 @@ AddEventHandler("SyncPlayEmote", function(emote, player)
     end
 end)
 
-RegisterNetEvent("SyncPlayEmoteSource")
-AddEventHandler("SyncPlayEmoteSource", function(emote, player)
+RegisterNetEvent("SyncPlayEmoteSource", function(emote, player)
     -- Thx to Poggu for this part!
     local ply = PlayerPedId()
     local plyServerId = GetPlayerFromServerId(player)
     local pedInFront = GetPlayerPed(plyServerId ~= 0 and plyServerId or GetClosestPlayer())
+
+    if IsPedInAnyVehicle(ply, true) or IsPedInAnyVehicle(pedInFront, true) then
+        return EmoteChatMessage(Translate('not_in_a_vehicle'))
+    end
 
     local SyncOffsetFront = 1.0
     local SyncOffsetSide = 0.0
@@ -130,8 +136,7 @@ AddEventHandler("SyncPlayEmoteSource", function(emote, player)
     end
 end)
 
-RegisterNetEvent("SyncCancelEmote")
-AddEventHandler("SyncCancelEmote", function(player)
+RegisterNetEvent("SyncCancelEmote", function(player)
     if targetPlayerId and targetPlayerId == player then
         targetPlayerId = nil
         EmoteCancel()
@@ -145,8 +150,7 @@ function CancelSharedEmote(ply)
     end
 end
 
-RegisterNetEvent("ClientEmoteRequestReceive")
-AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype, target)
+RegisterNetEvent("ClientEmoteRequestReceive", function(emotename, etype, target)
     isRequestAnim = true
     requestedemote = emotename
 
@@ -157,15 +161,15 @@ AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype, target)
     end
 
     PlaySound(-1, "NAV", "HUD_AMMO_SHOP_SOUNDSET", 0, 0, 1)
-    SimpleNotify(Config.Languages[lang]['doyouwanna'] .. remote .. "~w~)")
+    SimpleNotify(Translate('doyouwanna') .. remote .. "~w~)")
     -- The player has now 10 seconds to accept the request
     local timer = 10 * 1000
     while isRequestAnim do
         Wait(5)
         timer = timer - 5
-        if timer == 0 then
+        if timer <= 0 then
             isRequestAnim = false
-            SimpleNotify(Config.Languages[lang]['refuseemote'])
+            SimpleNotify(Translate('refuseemote'))
         end
 
         if IsControlJustPressed(1, 246) then
@@ -181,7 +185,7 @@ AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype, target)
             TriggerServerEvent("ServerValidEmote", target, requestedemote, otheremote)
         elseif IsControlJustPressed(1, 182) then
             isRequestAnim = false
-            SimpleNotify(Config.Languages[lang]['refuseemote'])
+            SimpleNotify(Translate('refuseemote'))
         end
     end
 end)

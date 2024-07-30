@@ -29,7 +29,7 @@ end
 ---@param source number
 ---@param keepItems string | table
 function WSB.inventory.clearInventory(source, identifier, keepItems)
-    exports.ox_inventory:ClearInventory(source, keepItems)
+    exports.ox_inventory:ClearInventory(source, type(keepItems) == 'table' and next(keepItems) and keepItems or nil)
 end
 
 WSB.registerCallback('wasabi_bridge:registerStash', function(_source, cb, data)

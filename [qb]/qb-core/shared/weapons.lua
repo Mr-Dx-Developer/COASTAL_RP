@@ -72,7 +72,7 @@ QBShared.Weapons = {
 	[`weapon_vintagepistol`]         = { name = 'weapon_vintagepistol', label = 'Vintage Pistol', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Pistoled / Blasted / Plugged / Bust a cap in' },
 	[`weapon_flaregun`]              = { name = 'weapon_flaregun', label = 'Flare Gun', weapontype = 'Pistol', ammotype = 'AMMO_FLARE', damagereason = 'Died' },
 	[`weapon_marksmanpistol`]        = { name = 'weapon_marksmanpistol', label = 'Marksman Pistol', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Pistoled / Blasted / Plugged / Bust a cap in' },
-	[`weapon_revolver`]              = { name = 'weapon_revolver', label = 'Revolver', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Pistoled / Blasted / Plugged / Bust a cap in' },
+	[`weapon_revolver`]              = { name = 'weapon_revolver', label = 'CRP Pistol', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Pistoled / Blasted / Plugged / Bust a cap in' },
 	[`weapon_revolver_mk2`]          = { name = 'weapon_revolver_mk2', label = 'Revolver MK2', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Pistoled / Blasted / Plugged / Bust a cap in' },
 	[`weapon_doubleaction`]          = { name = 'weapon_doubleaction', label = 'Double Action Revolver', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Pistoled / Blasted / Plugged / Bust a cap in' },
 	[`weapon_raypistol`]             = { name = 'weapon_raypistol', label = 'Ray Pistol', weapontype = 'Pistol', ammotype = 'AMMO_PISTOL', damagereason = 'Pistoled / Blasted / Plugged / Bust a cap in' },

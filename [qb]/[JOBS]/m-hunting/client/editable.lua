@@ -150,5 +150,67 @@ Citizen.CreateThread(function ()
     end
 end)
 
+Citizen.CreateThread(function()
+    while true do
+        local wait = 500
+        if next(CreatedPedData) then
+            local playerPed = PlayerPedId()
+            local playerCoord = GetEntityCoords(playerPed)
+            local playerInVehicle = IsPedInAnyVehicle(playerPed, false)
+            local holdingWeapon = GetCurrentPedWeapon(playerPed, true)
 
+            for k, v in pairs(CreatedPedData) do
+                print(IsPedDeadOrDying(v.ped), GetPedSourceOfDeath(v.ped), playerPed, not v.takeitems)
+                if IsPedDeadOrDying(v.ped) and GetPedSourceOfDeath(v.ped) == playerPed and not v.takeitems then
+                    local PedCoord = GetEntityCoords(v.ped)
+                    local diff = #(PedCoord - playerCoord)
+                    local vehicle = GetVehiclePedIsIn(playerPed, false)
+                    v.death = true
+                    print(diff, vehicle, v.animal)
+                    if vehicle == 0 and diff <= 3.0 then
+                        wait = 0
+                        DrawText3Ds(PedCoord.x, PedCoord.y, PedCoord.z, Config.Translate["claimitems"])
 
+                        if IsControlJustReleased(1, 38) and not playerInVehicle then
+                            if holdingWeapon and Config.CheckHoldingWeapon then
+                                Config.SendMessage(Config.Translate["holdingweapon"], false , "client")
+                            else
+                                v.takeitems = true
+
+                                if next(ContractData) and ContractData.hash then
+                                    if RequiredKillForContract[v.animal] then
+                                        RequiredKillForContract[v.animal] = RequiredKillForContract[v.animal] + 1
+                                    end
+                                    if RequiredKillForContract[v.animal] and RequiredKillForContract[v.animal] >= ContractData.hash[v.animal] and not ContractData.took then
+                                        ContractData.took = true
+                                        clearCache()
+                                        TriggerServerEvent("m-hunting:server:AddXpforContract", ContractData.xp, ContractData.money, Huntid)
+                                    end
+                                end
+
+                                TaskStartScenarioInPlace(playerPed, "CODE_HUMAN_MEDIC_TEND_TO_DEAD", 0, true)
+
+                                if Config.Framework == "new-qb" or Config.Framework == "old-qb" then
+                                    Framework.Functions.Progressbar("cornerSellingsss", Config.Translate["itemsclaiming"], 5000, false, false, {
+                                        disableMovement = true,
+                                        disableCarMovement = true,
+                                        disableMouse = false,
+                                        disableCombat = false,
+                                    }, {}, {}, {}, function()
+                                        ClearPedTasks(playerPed)
+                                        TriggerServerEvent("m-hunting:serverclaimItems", SelectedData, v.animal, v.ped, Huntid)
+                                    end)
+                                elseif Config.Framework == "esx" then
+                                    Citizen.Wait(3000)
+                                    ClearPedTasks(playerPed)
+                                    TriggerServerEvent("m-hunting:serverclaimItems", SelectedData, v.animal, v.ped, Huntid)
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+        Citizen.Wait(wait)
+    end
+end)

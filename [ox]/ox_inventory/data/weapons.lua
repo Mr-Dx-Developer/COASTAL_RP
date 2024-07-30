@@ -55,7 +55,7 @@ return {
 		
 		--Kyros Weapon Pack V4
 		['WEAPON_GLOCK19X'] = {
-            label = 'G19X XL',
+            label = 'PD G19X XL',
             weight = 2800,
             durability = 0.1,
             ammoname = 'ammo-9'
@@ -76,7 +76,7 @@ return {
         },
 
 		['WEAPON_GLOCK40S'] = {
-            label = 'GLOCK 40 SWITCH',
+            label = 'PD GLOCK 40 SWITCH',
             weight = 2500,
             durability = 0.1,
             ammoname = 'ammo-9'
@@ -118,7 +118,7 @@ return {
         },
 
 		['WEAPON_PITVIPER'] = {
-            label = 'JW4 PIT VIPER',
+            label = 'PD JW4 PIT VIPER',
             weight = 2500,
             durability = 0.1,
             ammoname = 'ammo-9'
@@ -139,7 +139,7 @@ return {
         },
 
 		['WEAPON_LOK'] = {
-            label = 'M-LOK AR 15',
+            label = 'PD M-LOK AR 15',
             weight = 6000,
             durability = 0.1,
             ammoname = 'ammo-rifle'
@@ -223,7 +223,7 @@ return {
         },
 
 		['WEAPON_M32S'] = {
-            label = 'M32 SMOKE GL',
+            label = 'PD M32 SMOKE GL',
             weight = 8000,
             durability = 0.1,
             ammoname = 'ammo-smokegrenade'
@@ -373,12 +373,12 @@ return {
 			ammoname = 'ammo-rifle'
 		},
 
-		-- ['WEAPON_CARBINERIFLE_MK2'] = {
-		-- 	label = 'Carbine Rifle MK2',
-		-- 	weight = 3000,
-		-- 	durability = 0.03,
-		-- 	ammoname = 'ammo-rifle'
-		-- },
+		['WEAPON_CARBINERIFLE_MK2'] = {
+			label = 'PD Carbine Rifle MK2',
+			weight = 3000,
+			durability = 0.03,
+		 	ammoname = 'ammo-rifle'
+		},
 
 		['WEAPON_CERAMICPISTOL'] = {
 			label = 'Ceramic Pistol',
@@ -423,7 +423,7 @@ return {
 		},
 
 		['WEAPON_COMBATSHOTGUN'] = {
-			label = 'Combat Shotgun',
+			label = 'PD Combat Shotgun',
 			weight = 4400,
 			durability = 0.2,
 			ammoname = 'ammo-shotgun'
@@ -774,7 +774,7 @@ return {
 		},
 
 		['WEAPON_PUMPSHOTGUN_MK2'] = {
-			label = 'Pump Shotgun MK2',
+			label = 'PDPump Shotgun MK2',
 			weight = 3200,
 			durability = 0.1,
 			ammoname = 'ammo-shotgun'
@@ -808,7 +808,7 @@ return {
 		},
 
 		['WEAPON_REVOLVER'] = {
-			label = 'Revolver',
+			label = 'CRP Pistol',
 			weight = 2260,
 			durability = 0.1,
 			ammoname = 'ammo-44'
@@ -836,7 +836,7 @@ return {
 		},
 
 		['WEAPON_SMG'] = {
-			label = 'SMG',
+			label = 'PD SMG',
 			weight = 3084,
 			durability = 0.8,
 			ammoname = 'ammo-9'
@@ -947,6 +947,12 @@ return {
 			weight = 2500,
 			durability = 0.1,
 		},
+        
+        ['wrench'] = {
+        label = 'Wrench',
+        weight = 100,
+        durability = 0.1,
+        },
 
 		['WEAPON_PRECISIONRIFLE'] = {
 			label = 'Precision Rifle',
@@ -967,6 +973,8 @@ return {
 			weight = 600,
 			throwable = true,
 		},
+
+
 
 		-- EDM
 		

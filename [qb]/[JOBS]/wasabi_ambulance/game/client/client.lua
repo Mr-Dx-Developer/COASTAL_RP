@@ -167,9 +167,9 @@ AddEventHandler('onClientMapStart', function()
     exports.spawnmanager:setAutoSpawn(false)
 end)
 
-lib.onCache('ped', function(ped)
+wsb.onCache('ped', function(ped)
     if not DoesEntityExist(ped) then return end
-    if ped == cache.ped then return end
+    if ped == wsb.cache.ped then return end
     SetHealthDefaults()
 end)
 
@@ -189,7 +189,7 @@ RegisterNetEvent('wasabi_bridge:playerLoaded', function()
                     dead = wsb.playerData.metadata["inlaststand"] or false
                 end
             elseif wsb.framework == 'esx' then
-                dead = lib.callback.await('wasabi_ambulance:checkDeath', 300)
+                dead = wsb.awaitServerCallback('wasabi_ambulance:checkDeath')
             end
             if dead then
                 Wait(3000)
@@ -199,7 +199,7 @@ RegisterNetEvent('wasabi_bridge:playerLoaded', function()
                         Config.AntiCombatLog.notification.desc, 'error', 'skull-crossbones')
                 end
             else
-                local previousVitals = lib.callback.await('wasabi_ambulance:checkPreviousVitals', 1000)
+                local previousVitals = wsb.awaitServerCallback('wasabi_ambulance:checkPreviousVitals')
                 if previousVitals then
                     Wait(3000)
                     if previousVitals.health then
@@ -241,7 +241,7 @@ if Config.lowHealthAlert.enabled then
         local notified
         while true do
             Wait(1500)
-            local health = GetEntityHealth(cache.ped)
+            local health = GetEntityHealth(wsb.cache.ped)
             if health ~= 0 and health < Config.lowHealthAlert.health and not notified then
                 TriggerEvent('wasabi_bridge:notify', Config.lowHealthAlert.notification.title,
                     Config.lowHealthAlert.notification.description, 'error')
@@ -257,7 +257,7 @@ CreateThread(function()
     local setDeadFace = false
     while true do
         local sleep = 1500
-        if isDead and (IsPedArmed(cache.ped, 1) or IsPedArmed(cache.ped, 2) or IsPedArmed(cache.ped, 4)) then
+        if isDead and (IsPedArmed(wsb.cache.ped, 1) or IsPedArmed(wsb.cache.ped, 2) or IsPedArmed(wsb.cache.ped, 4)) then
             SetCurrentPedWeapon(PlayerPedId(), `WEAPON_UNARMED`, true)
         end
         if isDead == 'dead' or disableKeys or (isDead == 'laststand' and Config.DisableLastStandCrawl) then
@@ -293,7 +293,7 @@ CreateThread(function()
     end
 
     while Config.GPSBlips.enabled do
-        NAMES = lib.callback.await('wasabi_ambulance:getPlayerNames', 500)
+        NAMES = wsb.awaitServerCallback('wasabi_ambulance:getPlayerNames')
 
         Wait(60000)
     end
@@ -320,7 +320,7 @@ CreateThread(function()
         for k, data in pairs(active) do
             activePlayer = GetPlayerServerId(data)
             if not showPlayers[activePlayer] then goto continue end
-            if data == cache.playerId then goto continue end
+            if data == wsb.cache.playerId then goto continue end
             activePed = GetPlayerPed(data)
             if not DoesEntityExist(activePed) then goto continue end
 
@@ -357,7 +357,7 @@ CreateThread(function()
 
         if cooldown <= 0 then
             cooldown = Config.GPSBlips.refreshrate
-            server = lib.callback.await('wasabi_ambulance:getPlayerCoords', 500)
+            server = wsb.awaitServerCallback('wasabi_ambulance:getPlayerCoords')
             if server == {} or not server then goto skip end
 
             for k, data in pairs(serverBlips) do
@@ -395,8 +395,8 @@ AddEventHandler('wasabi_bridge:onPlayerSpawn', function(noAnim)
     isDead = false
     if Config.DeathScreenEffects then AnimpostfxStopAll() end
     if not noAnim then
-        lib.requestAnimDict('get_up@directional@movement@from_knees@action', 3000)
-        TaskPlayAnim(cache.ped, 'get_up@directional@movement@from_knees@action', 'getup_r_0', 8.0, -8.0, -1, 0, 0, false,
+        wsb.stream.animDict('get_up@directional@movement@from_knees@action')
+        TaskPlayAnim(wsb.cache.ped, 'get_up@directional@movement@from_knees@action', 'getup_r_0', 8.0, -8.0, -1, 0, 0, false,
             false, false)
         RemoveAnimDict('get_up@directional@movement@from_knees@action')
     end
@@ -424,7 +424,7 @@ AddEventHandler('wasabi_bridge:onPlayerDeath', function(data)
     end
     if not isDead then
         originalDeath = data.deathCause
-        local _, bone = GetPedLastDamageBone(cache.ped)
+        local _, bone = GetPedLastDamageBone(wsb.cache.ped)
         if originalLocation ~= Bones[bone] then
             originalLocation = Bones[bone]
         end
@@ -433,7 +433,7 @@ AddEventHandler('wasabi_bridge:onPlayerDeath', function(data)
         if data.deathCause == -842959696 then
             data.deathCause = originalDeath
         else
-            local _, bone = GetPedLastDamageBone(cache.ped)
+            local _, bone = GetPedLastDamageBone(wsb.cache.ped)
             if originalLocation ~= Bones[bone] then
                 originalLocation = Bones[bone]
             end
@@ -442,12 +442,12 @@ AddEventHandler('wasabi_bridge:onPlayerDeath', function(data)
     end
     if data.deathCause == 0 then
         local onFire = false
-        if IsEntityOnFire(cache.ped) then
+        if IsEntityOnFire(wsb.cache.ped) then
             deathInjury = 'burned'
             onFire = true
         end
         local deathSource = wsb.getClosestPlayer(vec3(data.victimCoords.x, data.victimCoords.y, data.victimCoords.z), 3.0)
-        local _, bone = GetPedLastDamageBone(cache.ped)
+        local _, bone = GetPedLastDamageBone(wsb.cache.ped)
         if originalLocation ~= Bones[bone] then
             originalLocation = Bones[bone]
         end
@@ -485,8 +485,8 @@ AddEventHandler('wasabi_bridge:onPlayerDeath', function(data)
 
     PlayerInjury = {}
     if Config.DeathLogs then
-        local killer = GetPedSourceOfDeath(cache.ped)
-        local dCause = GetPedCauseOfDeath(cache.ped)
+        local killer = GetPedSourceOfDeath(wsb.cache.ped)
+        local dCause = GetPedCauseOfDeath(wsb.cache.ped)
         local deathCause
         if IsEntityAPed(killer) and IsPedAPlayer(killer) then
             killer = NetworkGetPlayerIndexFromPed(killer)
@@ -517,7 +517,7 @@ AddEventHandler('wasabi_bridge:onPlayerDeath', function(data)
         OnPlayerDeath(false)
         return
     end
-    if not Config.LastStand or IsPedInAnyVehicle(cache.ped, false) then
+    if not Config.LastStand or IsPedInAnyVehicle(wsb.cache.ped, false) then
         OnPlayerDeath(false)
         return
     end
@@ -543,8 +543,8 @@ if Config.EnableLiveInjury then
             local playerId = NetworkGetPlayerIndexFromPed(victim)
             if playerId ~= PlayerId() then return end
             if (IsPedDeadOrDying(victim, true) or IsPedFatallyInjured(victim)) then return end
-            local health = GetEntityHealth(cache.ped)
-            local armour = GetPedArmour(cache.ped)
+            local health = GetEntityHealth(wsb.cache.ped)
+            local armour = GetPedArmour(wsb.cache.ped)
             if not previousHealth then previousHealth = health end
             if not previousArmour then previousArmour = armour end
             local healthDamage = (previousHealth - health)
@@ -570,7 +570,7 @@ if Config.EnableLiveInjury then
     end)]]
 
     function GetIdentifier()
-        local identifier = lib.callback.await('wasabi_ambulance:getIdentifier', 1000)
+        local identifier = wsb.awaitServerCallback('wasabi_ambulance:getIdentifier')
         return identifier or false
     end
 
@@ -594,8 +594,8 @@ if Config.EnableLiveInjury then
             local shouldLimp = false
             local ped = PlayerPedId()
             local playerId = PlayerId()
-            if cache.ped and DoesEntityExist(cache.ped) then
-                health = GetEntityHealth(cache.ped)
+            if wsb.cache.ped and DoesEntityExist(wsb.cache.ped) then
+                health = GetEntityHealth(wsb.cache.ped)
             end
             if not wsb.playerLoaded and playerIsLoaded then
                 local identifier = GetIdentifier()
@@ -616,7 +616,7 @@ if Config.EnableLiveInjury then
                 local identifier = GetIdentifier()
                 if identifier then
                     if loggedHealth[identifier] then
-                        SetEntityHealth(cache.ped, loggedHealth[identifier])
+                        SetEntityHealth(wsb.cache.ped, loggedHealth[identifier])
                     end
                     if loggedInjury[identifier] and next(loggedInjury[identifier]) then
                         PlayerInjury = loggedInjury[identifier]
@@ -805,7 +805,7 @@ if Config.EnableLiveInjury then
                     InjuryRunning = false
                     Wait(2000)
                 elseif limping then
-                    ResetPedMovementClipset(cache.ped, 0)
+                    ResetPedMovementClipset(wsb.cache.ped, 0)
                     limping = false
                     Wait(2000)
                 else
@@ -821,7 +821,7 @@ end
 -- Pain Killers
 if Config.EnablePainPills then
     RegisterNetEvent('wasabi_ambulance:intakePills', function(item, data)
-        if lib.callback.await('wasabi_ambulance:removeItem', 500, item) then
+        if wsb.awaitServerCallback('wasabi_ambulance:removeItem', item) then
             PlayTakePillAnimation()
             DrugIntake[#DrugIntake + 1] = {
                 item = item,
@@ -859,7 +859,7 @@ if Config.EnablePainPills then
                     table.remove(DrugIntake, toRemove[i])
                 end
 
-                SetDrugEffect(cache.ped, totalLevel)
+                SetDrugEffect(wsb.cache.ped, totalLevel)
                 OnPainKillers = true
             elseif drugEffectsStarted then
                 ClearDrugEffects(PlayerPedId())
@@ -904,7 +904,7 @@ AddEventHandler('wasabi_ambulance:accessStash', function()
 end)
 
 AddEventHandler('wasabi_ambulance:enterBackVehicle', function()
-    local coords = GetEntityCoords(cache.ped)
+    local coords = GetEntityCoords(wsb.cache.ped)
     local vehicle = wsb.getClosestVehicle(vector3(coords.x, coords.y, coords.z), 7.0, false)
     if not vehicle or not DoesEntityExist(vehicle) then return end
     local freeSeat
@@ -918,7 +918,7 @@ AddEventHandler('wasabi_ambulance:enterBackVehicle', function()
         TriggerEvent('wasabi_bridge:notify', Strings.no_back_seat, Strings.no_back_seat_desc, 'error')
         return
     end
-    TaskEnterVehicle(cache.ped, vehicle, -1, freeSeat, 2.0, 1, 0)
+    TaskEnterVehicle(wsb.cache.ped, vehicle, -1, freeSeat, 2.0, 1, 0)
 end)
 
 
@@ -981,7 +981,7 @@ CreateThread(function()
                             end
                         end
                         if hasJob then
-                            local coords = GetEntityCoords(cache.ped)
+                            local coords = GetEntityCoords(wsb.cache.ped)
                             local dist = #(coords - v.clockInAndOut.coords)
                             if dist <= v.clockInAndOut.distance then
                                 if not textUI then
@@ -1030,20 +1030,28 @@ CreateThread(function()
             else
                 CreateThread(function()
                     local textUI
-                    local point = lib.points.new({
+                    wsb.points.new({
                         coords = v.PersonalLocker.coords,
-                        distance = v.PersonalLocker.distance
-                    })
-                    function point:nearby()
-                        if not self.isClosest or (self.currentDistance > v.PersonalLocker.distance) then return end
-                        local hasJob
-                        local jobName, jobGrade = wsb.hasGroup(Config.ambulanceJobs)
-                        if jobName then hasJob = jobName end
-                        if v?.clockInAndOut?.enabled and wsb.framework == 'qb' then
-                            if not wsb.playerData.job.onduty then hasJob = nil end
-                        end
-                        if hasJob and v.PersonalLocker.jobLock then
-                            if hasJob == v.PersonalLocker.jobLock then
+                        distance = v.PersonalLocker.distance,
+                        nearby = function(self)
+                            if not self.isClosest or (self.currentDistance > v.PersonalLocker.distance) then return end
+                            local hasJob
+                            local jobName, jobGrade = wsb.hasGroup(Config.ambulanceJobs)
+                            if jobName then hasJob = jobName end
+                            if v?.clockInAndOut?.enabled and wsb.framework == 'qb' then
+                                if not wsb.playerData.job.onduty then hasJob = nil end
+                            end
+                            if hasJob and v.PersonalLocker.jobLock then
+                                if hasJob == v.PersonalLocker.jobLock then
+                                    if not textUI then
+                                        wsb.showTextUI(v.PersonalLocker.label)
+                                        textUI = true
+                                    end
+                                    if IsControlJustReleased(0, 38) then
+                                        OpenPersonalStash(k)
+                                    end
+                                end
+                            elseif hasJob and not v.PersonalLocker.jobLock then
                                 if not textUI then
                                     wsb.showTextUI(v.PersonalLocker.label)
                                     textUI = true
@@ -1052,23 +1060,14 @@ CreateThread(function()
                                     OpenPersonalStash(k)
                                 end
                             end
-                        elseif hasJob and not v.PersonalLocker.jobLock then
-                            if not textUI then
-                                wsb.showTextUI(v.PersonalLocker.label)
-                                textUI = true
-                            end
-                            if IsControlJustReleased(0, 38) then
-                                OpenPersonalStash(k)
+                        end,
+                        onExit = function()
+                            if textUI then
+                                wsb.hideTextUI()
+                                textUI = nil
                             end
                         end
-                    end
-
-                    function point:onExit()
-                        if textUI then
-                            wsb.hideTextUI()
-                            textUI = nil
-                        end
-                    end
+                    })
                 end)
             end
         end
@@ -1103,7 +1102,7 @@ CreateThread(function()
                             if not wsb.isOnDuty() then hasJob = nil end
                         end
                         if hasJob then
-                            local coords = GetEntityCoords(cache.ped)
+                            local coords = GetEntityCoords(wsb.cache.ped)
                             local dist = #(vector3(coords.x, coords.y, coords.z) - vector3(v.BossMenu.Coords.x, v.BossMenu.Coords.y, v.BossMenu.Coords.z))
                             if dist <= v.BossMenu.Distance then
                                 if not textUI then
@@ -1152,12 +1151,12 @@ CreateThread(function()
                 local textUI
                 while true do
                     local sleep = 1500
-                    local playerPed = cache.ped
+                    local playerPed = wsb.cache.ped
                     local coords = GetEntityCoords(playerPed)
                     local dist = #(vector3(coords.x, coords.y, coords.z) - vector3(v.CheckIn.Coords.x, v.CheckIn.Coords.y, v.CheckIn.Coords.z))
                     if dist <= 30 and not pedSpawned then
-                        lib.requestAnimDict('mini@strip_club@idles@bouncer@base', 3000)
-                        lib.requestModel(v.CheckIn.Ped, 3000)
+                        wsb.stream.animDict('mini@strip_club@idles@bouncer@base')
+                        wsb.stream.model(v.CheckIn.Ped, 7000)
                         ped = CreatePed(28, v.CheckIn.Ped, v.CheckIn.Coords.x, v.CheckIn.Coords.y, v.CheckIn.Coords.z,
                             v.CheckIn.Heading, false, false)
                         FreezeEntityPosition(ped, true)
@@ -1210,7 +1209,7 @@ CreateThread(function()
                         if not wsb.isOnDuty() then hasJob = nil end
                     end
                     if hasJob then
-                        local ped = cache.ped
+                        local ped = wsb.cache.ped
                         local coords = GetEntityCoords(ped)
                         local dist = #(vector3(coords.x, coords.y, coords.z) - vector3(v.Cloakroom.Coords.x, v.Cloakroom.Coords.y, v.Cloakroom.Coords.z))
                         if dist <= v.Cloakroom.Range then
@@ -1260,7 +1259,7 @@ CreateThread(function()
                 local ped, pedSpawned, textUI
                 while true do
                     local sleep = 1500
-                    local playerPed = cache.ped
+                    local playerPed = wsb.cache.ped
                     local hasJob, _grade = wsb.hasGroup(Config.ambulanceJobs or Config.ambulanceJob)
                     if v?.clockInAndOut?.enabled and wsb.framework == 'qb' then
                         if not wsb.isOnDuty() then hasJob = nil end
@@ -1268,8 +1267,8 @@ CreateThread(function()
                     local coords = GetEntityCoords(playerPed)
                     local dist = #(vector3(coords.x, coords.y, coords.z) - vector3(v.MedicalSupplies.Coords.x, v.MedicalSupplies.Coords.y, v.MedicalSupplies.Coords.z))
                     if dist <= 30 and not pedSpawned then
-                        lib.requestAnimDict('mini@strip_club@idles@bouncer@base', 3000)
-                        lib.requestModel(v.MedicalSupplies.Ped, 3000)
+                        wsb.stream.animDict('mini@strip_club@idles@bouncer@base')
+                        wsb.stream.model(v.MedicalSupplies.Ped, 7000)
                         ped = CreatePed(28, v.MedicalSupplies.Ped, v.MedicalSupplies.Coords.x, v.MedicalSupplies.Coords
                             .y, v.MedicalSupplies.Coords.z, v.MedicalSupplies.Heading, false, false)
                         FreezeEntityPosition(ped, true)
@@ -1314,7 +1313,7 @@ CreateThread(function()
                         if not wsb.isOnDuty() then hasJob = nil end
                     end
                     if hasJob then
-                        local playerPed = cache.ped
+                        local playerPed = wsb.cache.ped
                         local coords = GetEntityCoords(playerPed)
                         local dist = #(vector3(coords.x, coords.y, coords.z) - vector3(zone.coords.x, zone.coords.y, zone.coords.z))
                         local dist2 = #(vector3(coords.x, coords.y, coords.z) - vector3(v.Vehicles.Spawn.air.coords.x, v.Vehicles.Spawn.air.coords.y, v.Vehicles.Spawn.air.coords.z))
@@ -1339,19 +1338,19 @@ CreateThread(function()
                             if IsControlJustReleased(0, 38) then
                                 textUI = nil
                                 wsb.hideTextUI()
-                                if DoesEntityExist(cache.vehicle) then
+                                if DoesEntityExist(wsb.cache.vehicle) then
                                     DoScreenFadeOut(800)
                                     while not IsScreenFadedOut() do Wait(100) end
-                                    SetEntityAsMissionEntity(cache.vehicle, true, true)
+                                    SetEntityAsMissionEntity(wsb.cache.vehicle, true, true)
 
-                                    local plate = GetVehicleNumberPlateText(cache.vehicle)
-                                    local model = GetEntityModel(cache.vehicle)
-                                    wsb.removeCarKeys(plate, model, cache.vehicle)
-                                    if Config.EnableStretcher then DeleteStretcherFromVehicle(cache.vehicle) end
+                                    local plate = GetVehicleNumberPlateText(wsb.cache.vehicle)
+                                    local model = GetEntityModel(wsb.cache.vehicle)
+                                    wsb.removeCarKeys(plate, model, wsb.cache.vehicle)
+                                    if Config.EnableStretcher then DeleteStretcherFromVehicle(wsb.cache.vehicle) end
                                     if Config.AdvancedParking then
-                                        exports["AdvancedParking"]:DeleteVehicle(cache.vehicle, false)
+                                        exports["AdvancedParking"]:DeleteVehicle(wsb.cache.vehicle, false)
                                     else
-                                        DeleteVehicle(cache.vehicle)
+                                        DeleteVehicle(wsb.cache.vehicle)
                                     end
                                     DoScreenFadeIn(800)
                                 end
@@ -1365,19 +1364,19 @@ CreateThread(function()
                             if IsControlJustReleased(0, 38) then
                                 textUI = nil
                                 wsb.hideTextUI()
-                                if DoesEntityExist(cache.vehicle) then
+                                if DoesEntityExist(wsb.cache.vehicle) then
                                     DoScreenFadeOut(800)
                                     while not IsScreenFadedOut() do Wait(100) end
-                                    SetEntityAsMissionEntity(cache.vehicle, true, true)
+                                    SetEntityAsMissionEntity(wsb.cache.vehicle, true, true)
 
-                                    local plate = GetVehicleNumberPlateText(cache.vehicle)
-                                    local model = GetEntityModel(cache.vehicle)
-                                    wsb.removeCarKeys(plate, model, cache.vehicle)
-                                    if Config.EnableStretcher then DeleteStretcherFromVehicle(cache.vehicle) end
+                                    local plate = GetVehicleNumberPlateText(wsb.cache.vehicle)
+                                    local model = GetEntityModel(wsb.cache.vehicle)
+                                    wsb.removeCarKeys(plate, model, wsb.cache.vehicle)
+                                    if Config.EnableStretcher then DeleteStretcherFromVehicle(wsb.cache.vehicle) end
                                     if Config.AdvancedParking then
-                                        exports["AdvancedParking"]:DeleteVehicle(cache.vehicle, false)
+                                        exports["AdvancedParking"]:DeleteVehicle(wsb.cache.vehicle, false)
                                     else
-                                        DeleteVehicle(cache.vehicle)
+                                        DeleteVehicle(wsb.cache.vehicle)
                                     end
                                     SetEntityCoordsNoOffset(playerPed, zone.coords.x, zone.coords.y, zone.coords.z, false,
                                         false, false)
@@ -1427,12 +1426,12 @@ if Config.EnableStandaloneCheckIns then
                 local textUI
                 while true do
                     local sleep = 1500
-                    local playerPed = cache.ped
+                    local playerPed = wsb.cache.ped
                     local coords = GetEntityCoords(playerPed)
                     local dist = #(vector3(coords.x, coords.y, coords.z) - vector3(checkInSpots.Coords.x, checkInSpots.Coords.y, checkInSpots.Coords.z))
                     if dist <= 30 and not pedSpawned then
-                        lib.requestAnimDict('mini@strip_club@idles@bouncer@base', 3000)
-                        lib.requestModel(checkInSpots.Ped, 3000)
+                        wsb.stream.animDict('mini@strip_club@idles@bouncer@base')
+                        wsb.stream.model(checkInSpots.Ped, 7000)
                         ped = CreatePed(28, checkInSpots.Ped, checkInSpots.Coords.x, checkInSpots.Coords.y,
                             checkInSpots.Coords.z, checkInSpots.Heading, false, false)
                         FreezeEntityPosition(ped, true)
@@ -1479,14 +1478,16 @@ if Config.EnableStandaloneCheckIns then
 end
 
 RegisterNetEvent('wasabi_ambulance:useBandage', function()
-    local HasItem = lib.callback.await('wasabi_ambulance:itemCheck', 500, Config.Bandages.item)
+    local HasItem = wsb.awaitServerCallback('wasabi_ambulance:itemCheck', Config.Bandages.item)
     if not HasItem or HasItem < 1 then return end
-    TriggerServerEvent('wasabi_ambulance:useBandage', cache.serverId)
+    TriggerServerEvent('wasabi_ambulance:useBandage', wsb.cache.serverId)
     local progressUI
     if Config.ProgressCircle then progressUI = 'progressCircle' else progressUI = 'progressBar' end
-    if lib[progressUI]({
+
+    if wsb.progressUI({
             duration = Config.Bandages.duration,
             label = Strings.healing_self_prog,
+            position = Config.ProgressCircleLocation,
             useWhileDead = false,
             canCancel = true,
             disable = {
@@ -1496,8 +1497,8 @@ RegisterNetEvent('wasabi_ambulance:useBandage', function()
                 dict = 'missheistdockssetup1clipboard@idle_a',
                 clip = 'idle_a'
             },
-        }) then
-        local health = GetEntityHealth(cache.ped)
+        }, progressUI) then
+        local health = GetEntityHealth(wsb.cache.ped)
         health = (Config.Bandages.hpRegen * 2) + health
         if health > 200 then health = 200 end
         SetEntityHealth(PlayerPedId(), health + 0.0)
@@ -1528,7 +1529,7 @@ RegisterNetEvent('wasabi_ambulance:syncRequests', function(_plyRequests, quiet)
 end)
 
 RegisterNetEvent('wasabi_ambulance:weaponRemove', function()
-    RemoveAllPedWeapons(cache.ped, true)
+    RemoveAllPedWeapons(wsb.cache.ped, true)
 end)
 
 if wsb.framework == 'esx' then
@@ -1543,32 +1544,32 @@ RegisterNetEvent('wasabi_ambulance:revivePlayer', function(serverdata)
         local injury = serverdata
         HideDeathNui()
         TriggerEvent('wasabi_ambulance:customInjuryClear')
-        SetEntityInvincible(cache.ped, false)
+        SetEntityInvincible(wsb.cache.ped, false)
         if GetPlayerInvincible(playerId) then SetPlayerInvincible(playerId, false) end
 
         TriggerServerEvent('wasabi_ambulance:setDeathStatus', false, true)
         DrugIntake = {}
         ClearDrugEffects(PlayerPedId())
         isDead = false
-        while not DoesEntityExist(cache.ped) do Wait(500) end
+        while not DoesEntityExist(wsb.cache.ped) do Wait(500) end
         if IsPedDeadOrDying(PlayerPedId(), false) then
-            local coords = GetEntityCoords(cache.ped)
-            local heading = GetEntityHeading(cache.ped)
+            local coords = GetEntityCoords(wsb.cache.ped)
+            local heading = GetEntityHeading(wsb.cache.ped)
             NetworkResurrectLocalPlayer(coords.x, coords.y, coords.z, heading, true, false)
         else
-            ClearPedTasks(cache.ped)
+            ClearPedTasks(wsb.cache.ped)
         end
-        if GetEntityHealth(cache.ped) < 200 then SetEntityHealth(cache.ped, 200) end
-        lib.requestAnimDict('get_up@directional@movement@from_knees@action', 3000)
-        TaskPlayAnim(cache.ped, 'get_up@directional@movement@from_knees@action', 'getup_r_0', 8.0, -8.0, -1, 0, 0, false,
+        if GetEntityHealth(wsb.cache.ped) < 200 then SetEntityHealth(wsb.cache.ped, 200) end
+        wsb.stream.animDict('get_up@directional@movement@from_knees@action')
+        TaskPlayAnim(wsb.cache.ped, 'get_up@directional@movement@from_knees@action', 'getup_r_0', 8.0, -8.0, -1, 0, 0, false,
             false, false)
         RemoveAnimDict('get_up@directional@movement@from_knees@action')
-        ClearPedBloodDamage(cache.ped)
+        ClearPedBloodDamage(wsb.cache.ped)
         if Config.MythicHospital then
             TriggerEvent('mythic_hospital:client:RemoveBleed')
             TriggerEvent('mythic_hospital:client:ResetLimbs')
         end
-        FreezeEntityPosition(cache.ped, false)
+        FreezeEntityPosition(wsb.cache.ped, false)
         DoScreenFadeIn(800)
         if Config.DeathScreenEffects then AnimpostfxStopAll() end
         if wsb.framework == 'esx' then
@@ -1580,18 +1581,18 @@ RegisterNetEvent('wasabi_ambulance:revivePlayer', function(serverdata)
             TriggerEvent('wasabi_bridge:onPlayerSpawn')
         end
         if not IsCheckedIn then
-            ClearPedTasks(cache.ped)
+            ClearPedTasks(wsb.cache.ped)
         end
         Wait(1000)
         if not injury then return end
-        ApplyDamageToPed(cache.ped, Config.ReviveHealth[injury], false)
+        ApplyDamageToPed(wsb.cache.ped, Config.ReviveHealth[injury], false)
     end
 end)
 
 
 RegisterNetEvent('wasabi_ambulance:revive', function(noAnim)
     TriggerEvent('wasabi_ambulance:customInjuryClear')
-    SetEntityInvincible(cache.ped, false)
+    SetEntityInvincible(wsb.cache.ped, false)
     local playerId = PlayerId()
     if GetPlayerInvincible(playerId) then SetPlayerInvincible(playerId, false) end
 
@@ -1605,23 +1606,23 @@ RegisterNetEvent('wasabi_ambulance:revive', function(noAnim)
     while not IsScreenFadedOut() do
         Wait(50)
     end]]
-    while not DoesEntityExist(cache.ped) do Wait(500) end
+    while not DoesEntityExist(wsb.cache.ped) do Wait(500) end
 
-    if IsPedDeadOrDying(cache.ped) then
-        local coords = GetEntityCoords(cache.ped)
-        local heading = GetEntityHeading(cache.ped)
+    if IsPedDeadOrDying(wsb.cache.ped) then
+        local coords = GetEntityCoords(wsb.cache.ped)
+        local heading = GetEntityHeading(wsb.cache.ped)
         NetworkResurrectLocalPlayer(coords.x, coords.y, coords.z, heading, true, false)
     elseif not IsCheckedIn then
-        ClearPedTasks(cache.ped)
+        ClearPedTasks(wsb.cache.ped)
     end
-    if GetEntityHealth(cache.ped) < 200 then SetEntityHealth(cache.ped, 200) end
+    if GetEntityHealth(wsb.cache.ped) < 200 then SetEntityHealth(wsb.cache.ped, 200) end
     if not noAnim then
-        lib.requestAnimDict('get_up@directional@movement@from_knees@action', 3000)
-        TaskPlayAnim(cache.ped, 'get_up@directional@movement@from_knees@action', 'getup_r_0', 8.0, -8.0, -1, 0, 0, false,
+        wsb.stream.animDict('get_up@directional@movement@from_knees@action')
+        TaskPlayAnim(wsb.cache.ped, 'get_up@directional@movement@from_knees@action', 'getup_r_0', 8.0, -8.0, -1, 0, 0, false,
             false, false)
         RemoveAnimDict('get_up@directional@movement@from_knees@action')
     end
-    ClearPedBloodDamage(cache.ped)
+    ClearPedBloodDamage(wsb.cache.ped)
     isDead = false
     PlayerInjury = {}
     if Config.MythicHospital then
@@ -1639,11 +1640,11 @@ RegisterNetEvent('wasabi_ambulance:revive', function(noAnim)
     end
     Wait(1000)
     if IsCheckedIn then return end
-    ClearPedTasks(cache.ped)
+    ClearPedTasks(wsb.cache.ped)
 end)
 
 RegisterNetEvent('wasabi_ambulance:heal', function(full, quiet)
-    local ped = cache.ped
+    local ped = wsb.cache.ped
     local maxHealth = 200
     if not full then
         local health = GetEntityHealth(ped)
@@ -1675,10 +1676,10 @@ RegisterNetEvent('wasabi_ambulance:heal', function(full, quiet)
 end)
 
 RegisterNetEvent('wasabi_ambulance:sedate', function()
-    local ped = cache.ped
+    local ped = wsb.cache.ped
     TriggerEvent('wasabi_bridge:notify', Strings.assistance_title, Strings.assistance_desc, 'success', 'syringe')
     ClearPedTasks(ped)
-    lib.requestAnimDict(Config.DeathAnimation.anim, 3000)
+    wsb.stream.animDict(Config.DeathAnimation.anim)
     disableKeys = true
     TaskPlayAnim(ped, Config.DeathAnimation.anim, Config.DeathAnimation.lib, 8.0, 8.0, -1, 33, 0, false, false, false)
     FreezeEntityPosition(ped, true)
@@ -1690,7 +1691,7 @@ RegisterNetEvent('wasabi_ambulance:sedate', function()
 end)
 
 RegisterNetEvent('wasabi_ambulance:intoVehicle', function()
-    local ped = cache.ped
+    local ped = wsb.cache.ped
     local coords = GetEntityCoords(ped)
     if IsPedInAnyVehicle(ped, false) and not OccupyingStretcher then
         coords = GetOffsetFromEntityInWorldCoords(ped, -2.0, 1.0, 0.0)
@@ -1737,7 +1738,7 @@ end)
 
 AddEventHandler('wasabi_ambulance:placeInVehicle', function()
     if not targetedVehicle or not DoesEntityExist(targetedVehicle) then return end
-    local coords = GetEntityCoords(cache.ped)
+    local coords = GetEntityCoords(wsb.cache.ped)
     local closestPlayer = wsb.getClosestPlayer(vec3(coords.x, coords.y, coords.z), 3.0)
     if not closestPlayer then
         TriggerEvent('wasabi_bridge:notify', Strings.no_nearby, Strings.no_nearby_desc, 'error')
@@ -1799,7 +1800,7 @@ AddEventHandler('wasabi_ambulance:spawnVehicle', function(data)
         while not IsScreenFadedOut() do
             Wait(100)
         end
-        lib.requestModel(model, 3000)
+        wsb.stream.model(model, 12000)
         local vehicle = CreateVehicle(GetHashKey(model), spawnLoc.coords.x, spawnLoc.coords.y, spawnLoc.coords.z,
             spawnLoc.heading, true, false)
         model = GetEntityModel(vehicle)
@@ -1810,7 +1811,7 @@ AddEventHandler('wasabi_ambulance:spawnVehicle', function(data)
         if Config.FuelSystem then
             SetCarFuel(vehicle, 100)
         end
-        TaskWarpPedIntoVehicle(cache.ped, vehicle, -1)
+        TaskWarpPedIntoVehicle(wsb.cache.ped, vehicle, -1)
         SetModelAsNoLongerNeeded(model)
         DoScreenFadeIn(800)
     end
@@ -1834,7 +1835,7 @@ end)
 
 AddEventHandler('wasabi_ambulance:billPatient', function()
     if wsb.hasGroup(Config.ambulanceJobs or Config.ambulanceJob) then
-        local coords = GetEntityCoords(cache.ped)
+        local coords = GetEntityCoords(wsb.cache.ped)
         local player = wsb.getClosestPlayer(vec3(coords.x, coords.y, coords.z), 2.0)
         if not player then
             TriggerEvent('wasabi_bridge:notify', Strings.no_nearby, Strings.no_nearby_desc, 'error')
@@ -1937,7 +1938,7 @@ end)
 
 --QBCORE COMPATIBILITY START
 RegisterNetEvent('wasabi_ambulance:killPlayer', function()
-    SetEntityHealth(cache.ped, 0.0)
+    SetEntityHealth(wsb.cache.ped, 0.0)
 end)
 
 RegisterNetEvent('hospital:client:adminHeal', function()

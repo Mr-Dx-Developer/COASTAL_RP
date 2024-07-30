@@ -85,6 +85,13 @@ local function OpenPacificDoor()
     end
 end
 
+--- This is triggered once the hack at a small bank is done
+---// @param success boolean
+---// @return nil
+--[[local function OnHackDone(success)
+    Config.OnHackDone(success, closestBank)
+end]]
+
 --- This will load an animation dictionary so you can play an animation in that dictionary
 --- @param dict string
 --- @return nil
@@ -202,7 +209,7 @@ function openLocker(bankId, lockerId) -- Globally Used
         IsDrilling = true
         loadAnimDict("anim@gangops@facility@servers@")
         TaskPlayAnim(ped, 'anim@gangops@facility@servers@', 'hotwire', 3.0, 3.0, -1, 1, 0, false, false, false)
-        QBCore.Functions.Progressbar("open_locker", Lang:t("general.breaking_open_safe"), math.random(27000, 37000), false, true, {
+        QBCore.Functions.Progressbar("open_locker", Lang:t("general.breaking_open_safe"), math.random(17000, 27000), false, true, {
             disableMovement = true,
             disableCarMovement = true,
             disableMouse = false,
@@ -260,10 +267,16 @@ RegisterNetEvent('electronickit:UseElectronickit', function()
                         }, {}, {}, {}, function() -- Done
                             StopAnimTask(ped, "anim@gangops@facility@servers@", "hotwire", 1.0)
                             TriggerServerEvent('qb-bankrobbery:server:removeElectronicKit')
-                            local success = exports['qb-minigames']:Hacking(5, 30) -- code block size & seconds to solve
+
+                            -- Modified hacking system
+                            local success = exports['qb-minigames']:Hacking(Config.FleecaBlocks, Config.FleecaTime)
                             if success then
-                                TriggerServerEvent('qb-bankrobbery:server:setBankState', closestBank)
+                                TriggerServerEvent('qb-bankrobbery:server:setBankState', closestBank, true)
+                                QBCore.Functions.Notify("You successfully hacked the bank!", "success")
+                            else
+                                QBCore.Functions.Notify("You failed to hack the bank!", "error")
                             end
+
                             if copsCalled or not Config.SmallBanks[closestBank]["alarm"] then return end
                             TriggerServerEvent("qb-bankrobbery:server:callCops", "small", closestBank, pos)
                             copsCalled = true
@@ -286,6 +299,7 @@ RegisterNetEvent('electronickit:UseElectronickit', function()
         end
     end)
 end)
+
 
 RegisterNetEvent('qb-bankrobbery:client:setBankState', function(bankId)
     if bankId == "paleto" then
@@ -377,7 +391,7 @@ RegisterNetEvent('qb-bankrobbery:client:robberyCall', function(type, coords)
     SetBlipScale(blip, 1.2)
     SetBlipFlashes(blip, true)
     BeginTextCommandSetBlipName('STRING')
-    AddTextComponentSubstringPlayerName(Lang:t("general.bank_robbery_police_call"))
+    AddTextComponentString(Lang:t("general.bank_robbery_police_call"))
     EndTextCommandSetBlipName(blip)
     while transG ~= 0 do
         Wait(180 * 4)

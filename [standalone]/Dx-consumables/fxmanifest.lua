@@ -1,5 +1,5 @@
-name "Jim-Consumables"
-author "Jimathy"
+name "VL-consumables"
+author "UtshoBoy"
 version "1.5"
 description "Consumable Script By Jimathy"
 fx_version "cerulean"

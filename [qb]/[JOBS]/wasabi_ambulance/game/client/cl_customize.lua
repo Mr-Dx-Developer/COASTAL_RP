@@ -52,7 +52,7 @@ end
 
 SendDistressSignal = function() -- Edit distress signal to implement custom dispatch
 	TriggerEvent('wasabi_bridge:notify', Strings.distress_sent_title, Strings.distress_sent_desc, 'success')
-	local ped = cache.ped
+	local ped = wsb.cache.ped
 	local myPos = GetEntityCoords(ped)
 	if Config.phoneDistress == 'gks' then
 		local GPS = 'GPS: ' .. myPos.x .. ', ' .. myPos.y
@@ -120,12 +120,12 @@ AddEventHandler('wasabi_ambulance:changeClothes', function(data)
 	RemoveClothingProps()
 	if data[gender] and data[gender].clothing and next(data[gender].clothing) then
 		for _, clothing in pairs(data[gender].clothing) do
-			SetPedComponentVariation(cache.ped, clothing.component, clothing.drawable, clothing.texture, 0)
+			SetPedComponentVariation(wsb.cache.ped, clothing.component, clothing.drawable, clothing.texture, 0)
 		end
 	end
 	if data[gender] and data[gender].props and next(data[gender].props) then
 		for _, prop in pairs(data[gender].props) do
-			SetPedPropIndex(cache.ped, prop.component, prop.drawable, prop.texture, true)
+			SetPedPropIndex(wsb.cache.ped, prop.component, prop.drawable, prop.texture, true)
 		end
 	end
 end)
@@ -178,7 +178,7 @@ function StartDeathTimer()
 			end
 		end
 		while bleedoutTimer > 0 and isDead do
-			if isDead == 'laststand' then SetEntityHealth(cache.ped, 0) end
+			if isDead == 'laststand' then SetEntityHealth(wsb.cache.ped, 0) end
 			Wait(1000)
 			if not wsb.playerLoaded then
 				HideDeathNui()

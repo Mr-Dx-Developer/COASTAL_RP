@@ -1,20 +1,534 @@
 return {
-    releasePos = vec4(1847.230469, 2587.085693, 45.672638, 269.0),
+    releasePos = vec4(1852.885, 2586.028, 45.671 - 1, 271.249),
     outfitMenu = vec4(402.704010, -996.795166, -99.000252, 180.0),
-    prisonYard = vec4(1717.125610, 2503.136230, 45.564896, 74.0),
+    prisonYard = vec4(1696.727, 2565.864, 45.564, 170),
     outfitCameraOffset = vector3(0.0, -8.0, 0.0),
 
+    YardPosPool = {
+        {pos = vec4(1775.348, 2550.491, 45.564, 88.863)},
+        {pos = vec4(1775.259, 2553.737, 45.564, 88.912)},
+        {pos = vec4(1715.949, 2525.946, 45.564, 203.378)},
+        {pos = vec4(1705.124, 2521.298, 45.564, 114.265)},
+    },
+
+    BasketBallHoops = {
+        {
+            pos = vector3(1671.603149, 2502.791748, 44.557007), 
+            rot = vector4(0.000000, 0.000000, 0.934286, 0.356523),
+            State = nil,
+            Model = `prop_basketball_net`,
+            IsSubscribed = false,
+            threePointFwdDist = 0.0,
+            threePointSideDist = 0.0,
+            threePointRadius = 30.0,
+            hideBlip = true,
+        },
+        {
+            pos = vector3(1689.082520, 2523.234863, 44.557262), 
+            rot = vector4(0.000000, 0.000000, -0.318232, 0.948013),
+            State = nil,
+            Model = `prop_basketball_net`,
+            IsSubscribed = false,
+            threePointFwdDist = 0.0,
+            threePointSideDist = 0.0,
+            threePointRadius = 30.0,
+            hideBlip = true,
+        },
+    },
+
+    SolitaryCells = {
+        {
+            coords = vec3(1691.363, 2542.296, 45.632),
+            heading = 268.936,
+        },
+        {
+            coords = vec3(1691.179, 2545.784, 45.631),
+            heading = 268.936,
+        },
+        {
+            coords = vec3(1691.791, 2549.076, 45.631),
+            heading = 268.936,
+        },
+        {
+            coords = vec3(1692.100, 2552.498, 45.631),
+            heading = 268.936,
+        },
+        {
+            coords = vec3(1691.906, 2555.127, 45.631),
+            heading = 268.936,
+        },
+    },
+
+    [STRUCT_GUARDS] = {
+        {
+            [STRUCT_POS] = vector3(1770.100, 2538.464, 45.564),
+            [STRUCT_HEADING] = 315.853,
+            [STRUCT_MODEL] = GetHashKey('mp_s_m_armoured_01'),
+            [STRUCT_WEAPON] = GetHashKey('WEAPON_PISTOL'),
+            [STRUCT_ROUTE] = 'TYPE_A'
+        },
+        {
+            [STRUCT_POS] = vector3(1767.925, 2565.082, 55.467),
+            [STRUCT_HEADING] = 315.853,
+            [STRUCT_MODEL] = GetHashKey('mp_s_m_armoured_01'),
+            [STRUCT_WEAPON] = GetHashKey('WEAPON_PISTOL'),
+            [STRUCT_ROUTE] = 'TYPE_B'
+        },
+        {
+            [STRUCT_POS] = vector3(1753.888, 2502.016, 45.611),
+            [STRUCT_HEADING] = 315.853,
+            [STRUCT_MODEL] = GetHashKey('mp_s_m_armoured_01'),
+            [STRUCT_WEAPON] = GetHashKey('WEAPON_PISTOL'),
+            [STRUCT_ROUTE] = 'TYPE_C'
+        },
+        {
+            [STRUCT_POS] = vector3(1693.096, 2493.947, 45.564),
+            [STRUCT_HEADING] = 315.853,
+            [STRUCT_MODEL] = GetHashKey('mp_s_m_armoured_01'),
+            [STRUCT_WEAPON] = GetHashKey('WEAPON_PISTOL'),
+            [STRUCT_ROUTE] = 'TYPE_D'
+        },
+        {
+            [STRUCT_POS] = vector3(1656.658, 2488.947, 45.564),
+            [STRUCT_HEADING] = 315.853,
+            [STRUCT_MODEL] = GetHashKey('mp_s_m_armoured_01'),
+            [STRUCT_WEAPON] = GetHashKey('WEAPON_PISTOL'),
+            [STRUCT_ROUTE] = 'TYPE_E'
+        },
+        {
+            [STRUCT_POS] = vector3(1587.6637, 2671.749, 45.47485),
+            [STRUCT_HEADING] = 315.853,
+            [STRUCT_MODEL] = GetHashKey('mp_s_m_armoured_01'),
+            [STRUCT_WEAPON] = GetHashKey('WEAPON_PISTOL'),
+            [STRUCT_ROUTE] = 'TYPE_06'
+        },
+        {
+            [STRUCT_POS] = vector3(1757.54907, 2431.591, 45.5023),
+            [STRUCT_HEADING] = 315.853,
+            [STRUCT_MODEL] = GetHashKey('mp_s_m_armoured_01'),
+            [STRUCT_WEAPON] = GetHashKey('WEAPON_PISTOL'),
+            [STRUCT_ROUTE] = 'TYPE_07'
+        },
+    },
+
+    PrisonBreak = {
+        ['WALLS'] = {
+            ['ALL_WALLS'] = {
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1772.619995, 2534.912842, 44.537308),
+                    interactCoords = vec3(1771.966187, 2533.789307, 44.537308),
+                    zoneType = 'INNER'
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1660.881226, 2487.797607, 44.537308),
+                    interactCoords = vec3(1661.753906, 2486.833984, 44.537308),
+                    zoneType = 'INNER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1725.128784, 2489.148682, 44.537308),
+                    interactCoords = vec3(1723.836792, 2489.292969, 44.537308),
+                    zoneType = 'INNER'
+                },
+
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1655.700073, 2758.097412, 44.715355),
+                    interactCoords = vec3(1654.400635, 2758.060059, 44.715355),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1545.608765, 2465.994873, 44.690941),
+                    interactCoords = vec3(1544.492065, 2466.660400, 44.690941),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1646.324585, 2753.205811, 44.717018),
+                    interactCoords = vec3(1647.226562, 2754.141846, 44.717018),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1536.942993, 2579.814209, 44.726524),
+                    interactCoords = vec3(1536.740356, 2581.098389, 44.726524),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1777.257935, 2758.835205, 44.692490),
+                    interactCoords = vec3(1776.056763, 2759.332275, 44.692490),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1823.912476, 2481.726318, 45.332314),
+                    interactCoords = vec3(1824.088989, 2480.438477, 45.332314),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1765.101929, 2415.095459, 44.738335),
+                    interactCoords = vec3(1764.183594, 2414.175293, 44.738335),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1653.912476, 2397.722412, 44.789825),
+                    interactCoords = vec3(1655.114868, 2397.228271, 44.789825),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1769.781616, 2762.339600, 44.723412),
+                    interactCoords = vec3(1768.482178, 2762.302246, 44.723412),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1822.914429, 2624.615234, 44.729828),
+                    interactCoords = vec3(1823.225220, 2625.877441, 44.729828),
+                    zoneType = 'OUTTER',
+                }
+            },
+            ['FIRST_LAYER'] = {
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1772.619995, 2534.912842, 44.537308),
+                    interactCoords = vec3(1771.966187, 2533.789307, 44.537308),
+                    zoneType = 'INNER'
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1660.881226, 2487.797607, 44.537308),
+                    interactCoords = vec3(1661.753906, 2486.833984, 44.537308),
+                    zoneType = 'INNER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1725.128784, 2489.148682, 44.537308),
+                    interactCoords = vec3(1723.836792, 2489.292969, 44.537308),
+                    zoneType = 'INNER'
+                },
+            },
+            ['SECOND_LAYER'] = {
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1655.700073, 2758.097412, 44.715355),
+                    interactCoords = vec3(1654.400635, 2758.060059, 44.715355),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1545.608765, 2465.994873, 44.690941),
+                    interactCoords = vec3(1544.492065, 2466.660400, 44.690941),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1646.324585, 2753.205811, 44.717018),
+                    interactCoords = vec3(1647.226562, 2754.141846, 44.717018),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1536.942993, 2579.814209, 44.726524),
+                    interactCoords = vec3(1536.740356, 2581.098389, 44.726524),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1777.257935, 2758.835205, 44.692490),
+                    interactCoords = vec3(1776.056763, 2759.332275, 44.692490),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1823.912476, 2481.726318, 45.332314),
+                    interactCoords = vec3(1824.088989, 2480.438477, 45.332314),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1765.101929, 2415.095459, 44.738335),
+                    interactCoords = vec3(1764.183594, 2414.175293, 44.738335),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1653.912476, 2397.722412, 44.789825),
+                    interactCoords = vec3(1655.114868, 2397.228271, 44.789825),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1769.781616, 2762.339600, 44.723412),
+                    interactCoords = vec3(1768.482178, 2762.302246, 44.723412),
+                    zoneType = 'OUTTER',
+                },
+                {
+                    model = 'prop_fnclink_10d',
+                    coords = vec3(1822.914429, 2624.615234, 44.729828),
+                    interactCoords = vec3(1823.225220, 2625.877441, 44.729828),
+                    zoneType = 'OUTTER',
+                }
+            }
+        }
+    },
+
+
+    Chairs = {
+        [`sanhje_prison_playground_table`] = {
+            model = 'sanhje_prison_playground_table',
+            debug = true,
+            type = 'back',
+            anim = {
+                scenario = {
+                    name = "PROP_HUMAN_SEAT_BENCH"
+                },
+                lay = {
+                    dict = "timetable@tracy@sleep@",
+                    name = "idle_c"
+                },
+            },
+            positions = {
+                { offset = vec3(1.0, 0.05, 0.1) },
+                { offset = vec3(-0.1, -0.90, 0.1) },
+                { offset = vec3(0.0, 1.05, 0.1) },
+                { offset = vec3(-1.0, 0.05, 0.1) },
+            }
+        },
+
+        [`sanhje_Prison_block_table`] = {
+            model = 'sanhje_Prison_block_table',
+            debug = true,
+            type = 'back',
+            anim = {
+                scenario = {
+                    name = "PROP_HUMAN_SEAT_BENCH"
+                },
+                lay = {
+                    dict = "timetable@tracy@sleep@",
+                    name = "idle_c"
+                },
+            },
+            positions = {
+                { offset = vec3(1.0, 0.05, 0.1) },
+                { offset = vec3(-0.1, -0.90, 0.1) },
+                { offset = vec3(0.0, 1.05, 0.1) },
+                { offset = vec3(-1.0, 0.05, 0.1) },
+            }
+        },
+
+        [`prisoncanteen_tables`] = {
+            model = 'prisoncanteen_tables',
+            debug = true,
+            type = 'back',
+            anim = {
+                scenario = {
+                    name = "PROP_HUMAN_SEAT_BENCH"
+                },
+                lay = {
+                    dict = "timetable@tracy@sleep@",
+                    name = "idle_c"
+                },
+            },
+            positions = {
+                { offset = vec3(1.4, -0.15, 0.2) },
+                { offset = vec3(-0.1, -1.4, 0.2) },
+                { offset = vec3(0.0, 1.4, 0.2) },
+                { offset = vec3(-1.4, -0.15, 0.2) },
+            }
+        },
+
+        [`sanhje_Prison_Cafeteria_table`] = {
+            model = 'sanhje_Prison_Cafeteria_table',
+            debug = true,
+            type = 'back',
+            anim = {
+                scenario = {
+                    name = "PROP_HUMAN_SEAT_BENCH"
+                },
+                lay = {
+                    dict = "timetable@tracy@sleep@",
+                    name = "idle_c"
+                },
+            },
+            positions = {
+                { offset = vec3(-0.75, 0.9, 0.0) },
+                { offset = vec3(0.0, 0.9, 0.0) },
+                { offset = vec3(0.65, 0.9, 0.0) },
+                { offset = vec3(1.4, 0.9, 0.0) },
+                { offset = vec3(1.4, -1.0, 0.0) },
+                { offset = vec3(0.65, -1.0, 0.0) },
+                { offset = vec3(0.0, -1.0, 0.0) },
+                { offset = vec3(-0.75, -1.0, 0.0) },
+            }
+        },
+
+        [`prop_bench_02`] = {
+            model = 'prop_bench_02',
+            debug = true,
+            type = 'noback',
+            anim = {
+                scenario = {
+                    name = "PROP_HUMAN_SEAT_BENCH"
+                },
+                lay = {
+                    dict = "timetable@tracy@sleep@",
+                    name = "idle_c"
+                },
+            },
+            positions = {
+                { offset = vec3(-1.1, 0.0, 0.5) },
+                { offset = vec3(0.0, 0.0, 0.5) },
+                { offset = vec3(0.9, 0.0, 0.5) },
+            }
+        },
+
+        [`brofx_hei_heist_toilet03`] = {
+            model = 'brofx_hei_heist_toilet03',
+            debug = true,
+            type = 'noback',
+            anim = {
+                scenario = {
+                    name = "PROP_HUMAN_SEAT_BENCH"
+                },
+                lay = {
+                    dict = "timetable@tracy@sleep@",
+                    name = "idle_c"
+                },
+            },
+            positions = {
+                { offset = vec3(0.05, -0.10, 0.13) },
+            }
+        },
+
+        [`sanhje_Prison_block_cell_detail_01`] = {
+            model = 'sanhje_Prison_block_cell_detail_01',
+            debug = true,
+            type = 'noback',
+            anim = {
+                scenario = {
+                    name = "PROP_HUMAN_SEAT_BENCH"
+                },
+                lay = {
+                    dict = "timetable@tracy@sleep@",
+                    name = "idle_c"
+                },
+            },
+            positions = {
+                { offset = vec3(-0.9, -0.5, -0.9) },
+            }
+        },
+
+        [`brofx_hei_heist_beds03`] = {
+            model = 'brofx_hei_heist_beds03',
+            debug = true,
+            type = 'bed',
+            anim = {
+                scenario = {
+                    name = "PROP_HUMAN_SEAT_BENCH"
+                },
+                lay = {
+                    dict = "timetable@tracy@sleep@",
+                    name = "idle_c"
+                },
+            },
+            positions = {
+                { offset = vec3(-1.0, -0.35, 0.15) },
+                { offset = vec3(-0.0, -0.35, 0.15) },
+                { offset = vec3(1.0, -0.35, 0.15) },
+            }
+        },
+
+        [`prop_picnictable_02`] = {
+            model = 'prop_picnictable_02',
+            type = 'back',
+            debug = true,
+            anim = {
+                scenario = {
+                    name = "PROP_HUMAN_SEAT_BENCH"
+                },
+                lay = {
+                    dict = "timetable@tracy@sleep@",
+                    name = "idle_c"
+                },
+            },
+            positions = {
+                { offset = vec3(0.0, 0.5, 0.5) },
+                { offset = vec3(0.0, -0.5, 0.5) },
+            }
+        },
+
+        [`brofx_hei_heist_bench03`] = {
+            model = 'brofx_hei_heist_bench03',
+            debug = true,
+            type = 'noback',
+            anim = {
+                scenario = {
+                    name = "PROP_HUMAN_SEAT_BENCH"
+                },
+                lay = {
+                    dict = "timetable@tracy@sleep@",
+                    name = "idle_c"
+                },
+            },
+            positions = {
+                { offset = vec3(-0.0, 0.2, 0.2) },
+            }
+        },
+
+
+        [`prop_bleachers_04`] = {
+            model = 'prop_bleachers_04',
+            debug = true,
+            type = 'noback',
+            anim = {
+                scenario = {
+                    name = "PROP_HUMAN_SEAT_BENCH"
+                },
+                lay = {
+                    dict = "timetable@tracy@sleep@",
+                    name = "idle_c"
+                },
+            },
+            positions = {
+                { offset = vec3(1.75, -1.0, 0.45) },
+                { offset = vec3(0.7, -1.0, 0.45) },
+                { offset = vec3(-0.7, -1.0, 0.45) },
+                { offset = vec3(-1.85, -1.0, 0.45) },
+            }
+        },
+    },
+
+    prisonVertices = {
+        vec3(1829.326, 2474.521, 45.307),
+        vec3(1853.348, 2621.093, 46.684),
+        vec3(1828.696, 2624.533, 45.482),
+        vec3(1856.145, 2700.803, 45.883),
+        vec3(1774.818, 2768.410, 45.732),
+        vec3(1646.250, 2762.964, 45.798),
+        vec3(1565.218, 2683.529, 45.682),
+        vec3(1529.485, 2588.008, 45.587),
+        vec3(1536.877, 2465.795, 45.545),
+        vec3(1660.074, 2387.879, 45.217),
+        vec3(1764.278, 2403.568, 45.309)
+    },
 
     cameraProlog = {
-        initCameraPosition = vector3(1694.53, 2529.52, 55.45),
-        initCameraRot = vector3(-2.981497, 0.06393559, 260.45),
-        initGameplayCamRot = vec3(-10.6386, -0, 260.45),
+        initCameraPosition = vector3(1692.123291, 2564.680176, 57.360081),
+        initCameraRot = vector3(-2.981497, 0.06393559, 233.0),
+        initGameplayCamRot = vec3(-10.6386, -0, 233.0),
         points = {
             {
-                pos = vector3(1704.62, 2522.6, 52.81),
-                rot = vector3(-5.106454, 0.06342217, 298.95),
-                duration = 6000,
-                text = '~w~Welcome to ~o~prison~w~.',
+                pos = vec3(1715.306152, 2564.119385, 55.278774),
+                rot = vector3(-5.106454, 0.06342217, 197.89619445801),
+                duration = 8000,
+                text = _U('CAMERA_PROLOG.WELCOME_TO_PRISON'),
                 textTimeout = 1500,
                 textRenderTime = 5500,
                 options = {
@@ -29,7 +543,7 @@ return {
                 pos = vector3(1720.03, 2527.28, 47.56),
                 rot = vector3(-5.106454, 0.06342217, 343.18),
                 duration = 8000,
-                text = '~w~There is some place to play ~o~basketball~w~',
+                text = _U('CAMERA_PROLOG.BASKETBALL_PLACE'),
                 textTimeout = 9000 / 2,
                 textRenderTime = 4500,
                 options = {
@@ -45,7 +559,7 @@ return {
                 pos = vector3(1643.2, 2511.05, 53.07),
                 rot = vector3(-5.106454, 0.06342217, 5.35),
                 duration = 10000,
-                text = '~w~You can keep in form even in prison ~o~gym~w~',
+                text = _U('CAMERA_PROLOG.GYM_PLACE'),
                 textTimeout = 6000,
                 textRenderTime = 4500,
                 options = {
@@ -102,10 +616,10 @@ return {
             },
 
             {
-                pos = vector3(1755.23, 2561.83, 45.99),
-                rot = vector3(-5.106454, 0.06342217, 13.6),
+                pos = vector3(1754.4, 2563.8, 47),
+                rot = vector3(-5.106454, 0.06342217, 29.43),
                 duration = 10000,
-                text = '~w~You can do some ~o~jobs~w~ and ~o~reduce~w~ your jail time.',
+                text = _U('CAMERA_PROLOG.JOB_PLACE'),
                 textTimeout = 7000,
                 textRenderTime = 4500,
                 options = {
@@ -117,12 +631,12 @@ return {
             },
 
             {
-                pos = vector3(1763.84, 2558.8, 45.79),
-                rot = vector3(-2.428856, 0.05924932, 325.57),
-                duration = 10000,
-                text = '~w~Create your prisoner ~o~account~w~ at this Warden.',
-                textTimeout = 7000,
-                textRenderTime = 4000,
+                pos = vector3(1763.562866, 2556.079102, 46.409992),
+                rot = vector3(-2.428856, 0.05924932, 334.92651367188),
+                duration = 6000,
+                text = _U('CAMERA_PROLOG.ACCOUNT_PLACE'),
+                textTimeout = 4000,
+                textRenderTime = 2500,
                 options = {
                     fov = 90.0,
                     copyEffects = false,
@@ -136,7 +650,7 @@ return {
                 pos = vector3(1768.131958, 2552.756104, 46.770012),
                 rot = vector3(-2.981497, 0.06393559, 267.0),
                 duration = 7000,
-                text = '~w~Are you hungry? There you can get ~o~free food~w~ package.',
+                text = _U('CAMERA_PROLOG.CANTEEN_PLACE'),
                 textTimeout = 2000,
                 textRenderTime = 4000,
                 options = {
@@ -148,891 +662,507 @@ return {
                 }
             },
 
+            {
+                pos = vector3(1764.03, 2534.94, 45.57),
+                rot = vector3(-5.106454, 0.06342217, 222.11),
+                duration = 8000,
+                text = _U('CAMERA_PROLOG.BOOTH_PLACE'),
+                textTimeout = 6000,
+                textRenderTime = 2000,
+                options = {
+                    fov = 90.0,
+                    copyEffects = false,
+                    --this will cause the movement of the camera to feel more smooth becuase it wont wait till will be on the defined destination
+                    offsetDuration = 1500,
+                }
+            },
         }
-    },
-
-    spawnPoints = {
-        {
-            heading = 212.03411865234,
-            coords = vec3(1769.663940, 2506.042969, 45.848999),
-        },
-
-        {
-            heading = 207.31234741211,
-            coords = vec3(1764.477051, 2503.099121, 45.847000),
-        },
-
-        {
-            heading = 209.74281311035,
-            coords = vec3(1757.625977, 2499.189941, 45.847000),
-        },
-
-        {
-            heading = 210.92408752441,
-            coords = vec3(1754.630005, 2497.492920, 45.847000),
-        },
-
-        {
-            heading = 193.8208770752,
-            coords = vec3(1747.925049, 2492.571045, 45.842999),
-        },
-
-        {
-            heading = 211.0852355957,
-            coords = vec3(1743.282959, 2489.850098, 45.841999),
-        },
-
-        {
-            heading = 25.067739486694,
-            coords = vec3(1752.737061, 2472.976074, 45.852001),
-        },
-
-        {
-            heading = 33.770267486572,
-            coords = vec3(1758.938965, 2476.454102, 45.890999),
-        },
-
-        {
-            heading = 33.235569000244,
-            coords = vec3(1763.965942, 2479.531006, 45.890999),
-        },
-
-        {
-            heading = 34.030326843262,
-            coords = vec3(1769.817993, 2482.956055, 45.890999),
-        },
-
-        {
-            heading = 33.288208007812,
-            coords = vec3(1775.222046, 2486.352051, 45.890999),
-        },
-
-        {
-            heading = 32.564113616943,
-            coords = vec3(1781.406006, 2490.166016, 45.890999),
-        },
-
-        {
-            heading = 33.570224761963,
-            coords = vec3(1783.829956, 2492.739990, 49.237999),
-        },
-
-        {
-            heading = 33.953800201416,
-            coords = vec3(1779.755005, 2489.933105, 49.237999),
-        },
-
-        {
-            heading = 33.175827026367,
-            coords = vec3(1774.687012, 2486.698975, 49.237999),
-        },
-
-        {
-            heading = 35.483821868896,
-            coords = vec3(1769.711060, 2481.633057, 49.237999),
-        },
-
-        {
-            heading = 32.486270904541,
-            coords = vec3(1763.829956, 2477.561035, 49.237999),
-        },
-
-        {
-            heading = 32.520442962646,
-            coords = vec3(1759.478027, 2474.789062, 49.237999),
-        },
-
-        {
-            heading = 32.219833374023,
-            coords = vec3(1752.842041, 2470.657959, 49.237999),
-        },
-
-        {
-            heading = 32.689559936523,
-            coords = vec3(1749.060059, 2468.331055, 49.237999),
-        },
-
-        {
-            heading = 210.85380554199,
-            coords = vec3(1742.812988, 2489.385986, 49.223999),
-        },
-
-        {
-            heading = 210.49055480957,
-            coords = vec3(1747.753052, 2492.227051, 49.223999),
-        },
-
-        {
-            heading = 211.13304138184,
-            coords = vec3(1753.446045, 2495.904053, 49.223999),
-        },
-
-        {
-            heading = 212.76853942871,
-            coords = vec3(1757.829956, 2498.395996, 49.223999),
-        },
-
-        {
-            heading = 212.58361816406,
-            coords = vec3(1765.498047, 2503.260986, 49.223999),
-        },
-
-        {
-            heading = 219.46813964844,
-            coords = vec3(1770.380005, 2506.349121, 49.223999),
-        },
-
-        {
-            heading = 213.44456481934,
-            coords = vec3(1773.927002, 2508.931885, 49.223999),
-        },
-    },
-
-    CW = {
-        {
-            idx = 1,
-            name = 'Cleaning streets',
-            desc = 'Clean Streets of Los Santos',
-        },
-    },
-
-    Guards = {
-        {
-            type = 'sniper',
-            recording = 'TowerGuard01',
-            model = 's_m_m_security_01',
-            pos = vec3(1827.69, 2474.181, 61.7202),
-            heading = 0
-        },
-
-        {
-            type = 'sniper',
-            recording = 'TowerGuard02',
-            model = 's_m_m_security_01',
-            pos = vec3(1764.729, 2409.139, 61.7533),
-            heading = 0
-        },
-
-
-        {
-            type = 'sniper',
-            recording = 'TowerGuard03',
-            model = 's_m_m_security_01',
-            pos = vec3(1658.829, 2390.888, 61.7462),
-            heading = 0
-        },
-
-        {
-            type = 'sniper',
-            recording = 'TowerGuard04',
-            model = 's_m_m_security_01',
-            pos = vec3(1537.28, 2468.338, 61.7497),
-            heading = 0
-        },
-
-        {
-            type = 'sniper',
-            recording = 'TowerGuard05',
-            model = 's_m_m_security_01',
-            pos = vec3(1535.098, 2581.919, 61.7312),
-            heading = 0
-        },
-
-        {
-            type = 'sniper',
-            recording = 'TowerGuard06',
-            model = 's_m_m_security_01',
-            pos = vec3(1566.921, 2682.525, 61.7716),
-            heading = 0
-        },
-
-        {
-            type = 'sniper',
-            recording = 'TowerGuard07',
-            model = 's_m_m_security_01',
-            pos = vec3(1648.104, 2761.528, 61.9103),
-            heading = 0
-        },
-
-        {
-            type = 'sniper',
-            recording = 'TowerGuard08',
-            model = 's_m_m_security_01',
-            pos = vec3(1774.523, 2766.559, 61.9143),
-            heading = 0
-        },
-
-
-        {
-            type = 'sniper',
-            recording = 'TowerGuard10',
-            model = 's_m_m_security_01',
-            pos = vec3(1824.288, 2625.042, 61.9749),
-            heading = 0
-        },
-
-        {
-            type = 'guard',
-            recording = 'PatrolGuard02',
-            model = 's_m_m_prisguard_01',
-            pos = vec3(1768.628, 2538.97, 44.4054 + 1),
-            heading = 0
-        },
-        {
-            type = 'guard',
-            recording = 'PatrolGuard03',
-            model = 's_m_m_prisguard_01',
-            pos = vec3(1633.613, 2498.849, 44.4054 + 1),
-            heading = 0,
-        },
-        {
-            type = 'guard',
-            recording = 'PatrolGuard04',
-            model = 's_m_m_prisguard_01',
-            pos = vec3(1622.61, 2555.683, 44.4054 + 1),
-            heading = 198.4323
-        },
-
-        {
-            type = 'inmate',
-            anim = {
-                animDict = '',
-                animName = '',
-            },
-            scenario = 'WORLD_HUMAN_GUARD_STAND',
-            model = 's_m_y_prisoner_01',
-            pos = vec3(1721.20032, 2565.21313, 44.56519),
-            heading = 131.37
-        },
-
-        {
-            type = 'inmate',
-            anim = {
-                animDict = '',
-                animName = '',
-            },
-            scenario = 'WORLD_HUMAN_GUARD_STAND',
-            model = 's_m_y_prisoner_01',
-            pos = vec3(1698.739868, 2551.713135, 45.564869),
-            heading = 268.2
-        },
-
-        {
-            type = 'inmate',
-            anim = {
-                animDict = '',
-                animName = '',
-            },
-            scenario = 'WORLD_HUMAN_GUARD_STAND',
-            model = 's_m_y_prisoner_01',
-            pos = vec3(1711.777954, 2566.188477, 45.564823),
-            heading = 176.5
-        },
     },
 
     jobs = {
         {
-            jobId = 1,
-            activeLimit = 4,
-            reward = {
-                {
-                    type = 'reduceSentence',
-                    amount = 10,
-                },
-                {
-                    type = 'credits',
-                    amount = 90,
-                }
-            },
-            checkDist = 800,
-            requiredDelivery = 1,
-            text = l('JOB_CLEAN_YARD_MISSION_TEXT'),
-            cooldown = 2 * 30 * 1000,
-            name = l('job_cleaning_yard_label'),
-            type = 'clean_yard',
-            drawmarker = {
-                opacity = 100,
-            },
+            name = _U('JOB.ELECTRICIAN_TITLE'),
+            type = JOBS.ELECTRICIAN,
+            description = _U('JOB.ELECTRICIAN_DESCRIPTION'),
             points = {
-                {
-                    coords = vec(1758.165649, 2556.965088, 44.772537)
-                },
-                {
-                    coords = vec(1754.620239, 2565.346924, 45.558464)
-                },
-                {
-                    coords = vec3(1760.210571, 2565.096436, 45.564991)
-                },
-                {
-                    coords = vec3(1729.313843, 2563.025146, 45.564838)
-                },
-                {
-                    coords = vec3(1683.992310, 2506.005371, 45.558598)
-                }
+                {pos = vec4(1679.566, 2480.351, 45.564, 134.159)},
+                {pos = vec4(1643.321, 2490.787, 45.564, 185.544)},
+                {pos = vec4(1622.379, 2508.418, 45.564, 95.21)},
+                {pos = vec4(1609.502, 2540.015, 45.564, 145.058)},
+                {pos = vec4(1629.602, 2564.378, 45.564, 359.983)},
+                {pos = vec4(1652.630, 2564.311, 45.564, 359.733)},
+                {pos = vec4(1699.430, 2533.596, 45.564, 92.172)},
             }
         },
         {
-            jobId = 2,
-            activeLimit = 2,
-            reward = {
-                {
-                    type = 'reduceSentence',
-                    amount = 10,
-                },
-                {
-                    type = 'credits',
-                    amount = 90,
-                }
-            },
-            checkDist = 500, -- If above awaiting 1,5 sec for cycle
-            requiredDelivery = 1,
-            text = l('JOB_ELECTRICIAN_MISSION_TEXT'),
-            cooldown = 1 * 30 * 1000,
-            name = l('job_electrician_label'),
-            type = 'fix_electric',
-            drawmarker = {
-                opacity = 100,
-            },
+            name = _U('JOB.COOKING_TITLE'),
+            type = JOBS.COOK,
+            description = _U('JOB.COOK_DESCRIPTION'),
             points = {
-                {
-                    coords = vec(1629.751221, 2564.401611, 45.564861)
-                },
-                {
-                    coords = vec(1652.276123, 2564.336182, 45.564835)
-                },
-                {
-                    coords = vec(1737.204224, 2505.553467, 45.564957)
-                },
-                {
-                    coords = vec(1699.859375, 2474.301270, 45.562428)
-                },
-                {
-                    coords = vec(1623.018188, 2508.085938, 45.561508),
-                }
+                {pos = vec4(1779.595, 2563.859, 45.623, 264.0)},
             }
         },
-    },
-
-    Canteen = {
         {
-            label = 'Sludgie',
-            cost = 50,
-            itemName = 'sludgie'
+            name = _U('JOB.CLEAR_YARD_TITLE'),
+            type = JOBS.CLEAN_GROUND,
+            description = _U('JOB.LEAF_DESCRIPTION'),
+            points = {
+                {pos = vec4(1758.37, 2566.15, 45.55, 102.74)},
+                {pos = vec4(1756.89, 2514.18, 45.55, 128.11)},
+                {pos = vec4(1622.82, 2563.98, 45.56, 33.26)},
+                {pos = vec4(1689.13, 2517.97, 45.56, 278.94)},
+                {pos = vec4(1663.636, 2496.898, 45.565, 117.869)},
+                {pos = vec4(1710.316, 2535.698, 45.564, 94.229)},
+                {pos = vec4(1698.954, 2504.914, 45.564, 167.587)},
+                {pos = vec4(1687.754, 2475.003, 45.564, 310.722)},
+            } 
         },
         {
-            label = 'Sprunk',
-            cost = 30,
-            itemName = 'sprunk'
+            name = _U('JOB.BUSHES_TRIMMING_TITLE'),
+            type = JOBS.BUSH_TRIMMING,
+            description = _U('JOB.BUSHES_DESCRIPTION'),
+            points = {
+                {pos = vec4(1758.37, 2566.15, 45.55, 102.74)},
+                {pos = vec4(1756.89, 2514.18, 45.55, 128.11)},
+                {pos = vec4(1622.82, 2563.98, 45.56, 33.26)},
+                {pos = vec4(1689.13, 2517.97, 45.56, 278.94)},
+                {pos = vec4(1663.636, 2496.898, 45.565, 117.869)},
+                {pos = vec4(1710.316, 2535.698, 45.564, 94.229)},
+                {pos = vec4(1698.954, 2504.914, 45.564, 167.587)},
+                {pos = vec4(1687.754, 2475.003, 45.564, 310.722)},
+            } 
         },
         {
-            label = 'Ecola light',
-            cost = 20,
-            itemName = 'ecola_light'
-        },
-        {
-            label = 'Ecola',
-            cost = 10,
-            itemName = 'ecola'
-        },
-        {
-            label = 'Coffee',
-            cost = 40,
-            itemName = 'coffee'
+            name = _U('JOB.JANITOR_TITLE'),
+            type = JOBS.JANITOR,
+            description = _U('JOB.JANITOR_DESCRIPTION'),
+            points = {
+                {pos = vec4(1758.37, 2566.15, 45.55, 102.74)},
+                {pos = vec4(1756.89, 2514.18, 45.55, 128.11)},
+                {pos = vec4(1622.82, 2563.98, 45.56, 33.26)},
+                {pos = vec4(1689.13, 2517.97, 45.56, 278.94)},
+                {pos = vec4(1663.636, 2496.898, 45.565, 117.869)},
+                {pos = vec4(1710.316, 2535.698, 45.564, 94.229)},
+                {pos = vec4(1698.954, 2504.914, 45.564, 167.587)},
+                {pos = vec4(1687.754, 2475.003, 45.564, 310.722)},
+            } 
         }
     },
+    
 
     interaction = {
         {
-            npc = {
-                model = 's_m_y_prismuscl_01',
-                heading = 180.0,
-                anim = {
-                    type = 'scenario',
-                    name = 'PROP_HUMAN_SEAT_BENCH',
-                    dict = nil,
-                },
+            coords = vec3(1758.491, 2568.952, 45.564),
+            type = INTERACT_TYPES.BOOTH,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-phone"
             },
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
+            prop = {
+                coords = vec3(1758.491, 2568.952, 45.564),
+                heading = 320.0,
+                model = 'sf_prop_sf_phonebox_01b_s'
             },
-            coords = vec3(1707.786377, 2552.555908, 46.007427 - 1),
-            type = 'dealer',
-            name = 'What i can do for you?',
-            trade = {
-                {
-                    label = 'Knife',
-                    transaction = {
-                        takeCount = 10,
-                        takeItem = Prison.ECONOMY_ITEM,
-                        giveItem = 'WEAPON_KNIFE',
-                        giveCount = 1,
-                    },
-                },
-                {
-                    label = 'Taco',
-                    transaction = {
-                        takeCount = 3,
-                        takeItem = Prison.ECONOMY_ITEM,
-                        giveItem = 'taco',
-                        giveCount = 1,
-                    },
-                }
-            },
-            options = {},
-        },
-        {
-            npc = {
-                model = 's_m_y_prismuscl_01',
-                heading = 190.0,
-                anim = {
-                    type = 'scenario',
-                    name = 'WORLD_HUMAN_AA_SMOKE',
-                    dict = nil,
-                },
-            },
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1656.264038, 2547.330811, 45.564854),
-            type = 'dealer',
-            name = 'What i can do for you?',
-            trade = {
-                {
-                    label = 'Knife',
-                    transaction = {
-                        takeCount = 10,
-                        takeItem = Prison.ECONOMY_ITEM,
-                        giveItem = 'WEAPON_KNIFE',
-                        giveCount = 1,
-                    },
-                },
-                {
-                    label = 'Taco',
-                    transaction = {
-                        takeCount = 3,
-                        takeItem = Prison.ECONOMY_ITEM,
-                        giveItem = 'taco',
-                        giveCount = 1,
-                    },
-                }
-            },
-            options = {},
-        },
-        {
-            npc = {
-                model = 's_m_y_prismuscl_01',
-                heading = 100.0,
-                anim = {
-                    type = 'scenario',
-                    name = 'PROP_HUMAN_SEAT_BENCH',
-                    dict = nil,
-                },
-            },
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1715.009644, 2586.764404, 46.046280 - 1),
-            type = 'dealer',
-            name = 'What i can do for you?',
-            trade = {
-                {
-                    label = 'Knife',
-                    transaction = {
-                        takeCount = 10,
-                        takeItem = Prison.ECONOMY_ITEM,
-                        giveItem = 'WEAPON_KNIFE',
-                        giveCount = 1,
-                    },
-                },
-                {
-                    label = 'Taco',
-                    transaction = {
-                        takeCount = 3,
-                        takeItem = Prison.ECONOMY_ITEM,
-                        giveItem = 'taco',
-                        giveCount = 1,
-                    },
-                }
-            },
-            options = {},
-        },
-
-        {
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1635.517090, 2526.889404, 45.953522 - 1),
-            helpers = {
-                heading = 49.0,
-                size = vec2(1.2, 1.2),
-                minZ = 1.0,
-                maxZ = 1.0,
-            },
-            exercise = 'Situps',
-            type = 'gym',
-        },
-        {
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1638.037842, 2529.801514, 45.956512 - 1),
-            helpers = {
-                heading = 49.0,
-                size = vec2(1.2, 1.2),
-                minZ = 1.0,
-                maxZ = 1.0,
-            },
-            exercise = 'Situps',
-            type = 'gym',
-        },
-        {
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1640.704712, 2532.832764, 45.948532 - 1),
-            helpers = {
-                heading = 49.0,
-                size = vec2(1.2, 1.2),
-                minZ = 1.0,
-                maxZ = 1.0,
-            },
-            exercise = 'Situps',
-            type = 'gym',
-        },
-        {
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1642.816284, 2535.580566, 45.953316 - 1),
-            helpers = {
-                heading = 49.0,
-                size = vec2(1.2, 1.2),
-                minZ = 1.0,
-                maxZ = 1.0,
-            },
-            exercise = 'Situps',
-            type = 'gym',
-        },
-        {
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1643.370972, 2527.793457, 45.564861 - 1.0),
-            helpers = {
-                heading = 52.0,
-                size = vec2(1.2, 1.2),
-                minZ = 1.0,
-                maxZ = 3.0,
-                dist = 1.0,
-            },
-            exercise = 'Musclechin',
-            type = 'gym',
-        },
-        {
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1649.104614, 2529.695557, 45.564880 - 1.0),
-            helpers = {
-                heading = 52.0,
-                size = vec2(1.2, 1.2),
-                minZ = 1.0,
-                maxZ = 3.0,
-                dist = 1.0,
-            },
-            exercise = 'Musclechin',
-            type = 'gym',
-        },
-        {
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1640.315063, 2522.548828, 45.948677 - 1.05),
-            helpers = {
-                heading = 52.0,
-                size = vec2(0.8, 0.8),
-                minZ = 1.0,
-                maxZ = 2.0,
-                dist = 1.0,
-            },
-            exercise = 'Cranks',
-            type = 'gym',
-        },
-        {
-            blip = {
-                state = Prison.RenderNPCBlips,
-                name = 'Prison canteen',
-                sprite = 214,
-                scale = 0.5,
-                color = 0,
-            },
-            npc = {
-                model = 's_m_m_prisguard_01',
-                heading = 180.0,
-            },
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            helpers = {
-                dist = 2.0
-            },
-            coords = vec3(1778.180420, 2557.355469, 45.623161),
-            type = 'canteen',
-        },
-        {
-            blip = {
-                state = Prison.RenderNPCBlips,
-                name = 'Prison Account',
-                sprite = 76,
-                scale = 0.5,
-                color = 0,
-            },
-            npc = {
-                model = 's_m_m_prisguard_01',
-                heading = 180.0,
-            },
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1767.634888, 2565.829102, 45.564949),
-            type = 'account',
-        },
-        {
-            blip = {
-                state = Prison.RenderNPCBlips,
-                name = l('PRISONER_LOBBY_LABEL'),
-                sprite = 280,
-                scale = 1.0,
-                color = 0,
-            },
-            npc = {
-                model = 's_m_m_prisguard_01',
-                heading = 233.83,
-            },
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1846.04, 2587.87, 45.67),
-            type = 'lobby',
-        },
-        {
-            blip = {
-                state = Prison.RenderNPCBlips,
-                name = 'Prisoners Jobs',
-                sprite = 402,
-                scale = 0.9,
-                color = 0,
-            },
-            npc = {
-                model = 'mp_m_securoguard_01',
-                heading = 225.0,
-            },
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1752.785034, 2566.758789, 45.564972),
-            type = 'jobs',
-        },
-        {
-            blip = {
-                state = Prison.RenderNPCBlips,
-                name = 'Booth [1004]',
-                sprite = 106,
-                scale = 0.6,
-                color = 0,
-            },
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1836.185913, 2588.720703, 45.887890),
-            type = 'booth',
             booth = {
-                number = 1004,
+                number = 1002,
             },
+            access = INTERACT_ACCESS_TYPES.PRISONER_ONLY
         },
         {
-            blip = {
-                state = Prison.RenderNPCBlips,
-                name = 'Booth [1003]',
-                sprite = 106,
-                scale = 0.6,
-                color = 0,
+            coords = vec3(1762.021, 2568.468, 45.564),
+            type = INTERACT_TYPES.BOOTH,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-phone"
             },
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
+            prop = {
+                coords = vec3(1762.154, 2569.087, 45.564),
+                heading = 320.0,
+                model = 'sf_prop_sf_phonebox_01b_s'
             },
-            coords = vec3(1836.104370, 2590.031250, 45.887901),
-            type = 'booth',
-            booth = {
-                number = 1003,
-            },
-        },
-        {
-            blip = {
-                state = Prison.RenderNPCBlips,
-                name = 'Booth [1002]',
-                sprite = 106,
-                scale = 0.6,
-                color = 0,
-            },
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1836.104370, 2590.031250, 45.887901),
-            type = 'booth',
-            booth = {
-                number = 1002
-            },
-        },
-        {
-            blip = {
-                state = Prison.RenderNPCBlips,
-                name = 'Booth [1001]',
-                sprite = 106,
-                scale = 0.6,
-                color = 0,
-            },
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
-            },
-            coords = vec3(1836.043823, 2592.808350, 45.887909),
-            type = 'booth',
             booth = {
                 number = 1001,
             },
+            access = INTERACT_ACCESS_TYPES.PRISONER_ONLY
         },
         {
-            blip = {
-                state = Prison.RenderNPCBlips,
-                name = 'Booth [1000]',
-                sprite = 106,
-                scale = 0.6,
-                color = 0,
+            coords = vec3(1686.629, 2537.093, 45.564),
+            type = INTERACT_TYPES.PROP_ONLY,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane",
+                label = _U('TARGET_ZONE.HOSPITAL_BED_LABEL'),
+                distance = 3
             },
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
+            prop = {
+                coords = vec3(1686.629, 2537.093, 45.8),
+                heading = 269.0,
+                model = 'prop_bench_11'
             },
-            coords = vec3(1836.066284, 2594.139404, 45.887909),
-            type = 'booth',
-            booth = {
-                number = 1000,
-            },
+            access = INTERACT_ACCESS_TYPES.ALL
         },
         {
-            blip = {
-                state = Prison.RenderNPCBlips,
-                name = 'Booth [999]',
-                sprite = 106,
-                scale = 0.6,
-                color = 0,
+            coords = vec3(1686.533, 2533.039, 45.564),
+            type = INTERACT_TYPES.PROP_ONLY,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane",
+                label = _U('TARGET_ZONE.HOSPITAL_BED_LABEL'),
+                distance = 3
             },
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
+            prop = {
+                coords = vec3(1686.533, 2533.039, 45.564),
+                heading = 269.0,
+                model = 'prop_bench_11'
             },
-            coords = vec3(1836.090820, 2595.380127, 45.887909),
-            type = 'booth',
-            booth = {
-                number = 999,
-            },
+            access = INTERACT_ACCESS_TYPES.ALL
         },
         {
+            coords = vec3(1686.518, 2543.119, 45.564),
+            type = INTERACT_TYPES.PROP_ONLY,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane",
+                label = _U('TARGET_ZONE.HOSPITAL_BED_LABEL'),
+                distance = 3
+            },
+            prop = {
+                coords = vec3(1686.518, 2543.119, 45.564),
+                heading = 269.0,
+                model = 'prop_bench_11'
+            },
+            access = INTERACT_ACCESS_TYPES.ALL
+        },
+        {
+            coords = vec3(1778.35, 2560.55, 45.62),
+            type = INTERACT_TYPES.CANTEEN,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane",
+                label = _U('TARGET_ZONE.CANTEEN_LABEL'),
+                distance = 3
+            },
+            npc = {
+                coords = vec3(1778.35, 2560.55, 45.62),
+                heading = 180.97,
+                model = 's_m_m_armoured_01',
+                scenario = {
+                    name = 'WORLD_HUMAN_CLIPBOARD',
+                    state = true,
+                }
+            },
             blip = {
-                state = Prison.RenderNPCBlips,
-                name = l('PRISONER_CIGAR_LABEL'),
+                state = Config.RenderNPCBlips,
+                name = _U('BLIPS.CANTEEN'),
                 sprite = 214,
-                scale = 0.6,
+                scale = 0.5,
                 color = 0,
             },
-            npc = nil,
-            marker = {
-                renderState = false,
-                rgba = vec4(255, 255, 255, 255),
-                size = vec3(0.5, 0.5, 0.5),
-                type = 0
+            access = INTERACT_ACCESS_TYPES.PRISONER_ONLY
+        },
+        {
+            coords = vec3(1631.953, 2527.754, 45.564),
+            type = INTERACT_TYPES.DEALER,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane",
+                label = _U('TARGET_ZONE.DEALER_LABEL'),
+                distance = 1.0
             },
-            coords = vec3(1740.297974, 2476.256592, 45.840023),
-            type = 'package_cigarette',
-            production = {
-                items = {
+            npc = {
+                coords = vec3(1631.953, 2527.754, 45.564),
+                heading = 51.067,
+                model = 's_m_y_prismuscl_01'
+            },
+            blip = {
+                state = Config.RenderNPCBlips,
+                name = _U('BLIPS.DEALER'),
+                sprite = 155,
+                scale = 1.0,
+                color = 0,
+            },
+            items = {
+                {
+                    name = "WEAPON_KNIFE",
+                    label = _U('ITEM_LABELS.KNIFE'),
+                    price = 40,
+                },
+                {
+                    name = "ecola",
+                    price = 8,
+                },
+                {
+                    name = "donut",
+                    price = 5,
+                },
+                {
+                    name = "wire_cutter",
+                    label = _U('ITEM_LABELS.WIRE_CUTTER'),
+                    price = 30,
+                }
+            },
+            access = INTERACT_ACCESS_TYPES.PRISONER_ONLY
+        },
+        {
+            coords = vec3(1765.698, 2566.052, 45.565),
+            type = INTERACT_TYPES.QUEST,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane",
+                label = _U('TARGET_ZONE.WARDEN_LABEL')
+            },
+            npc = {
+                coords = vec3(1765.698, 2566.052, 45.565),
+                heading = 179.142,
+                model = 's_m_m_prisguard_01'
+            },
+            releasePlayerOption = true,
+            quest = {
+                name = _U('QUEST.WARDEN_NPC_NAME'),
+                description = _U('QUEST.WARDEN_DESCRIPTION'),
+                options = {
                     {
-                        itemName = 'cigar',
-                        count = math.random(2, 4)
+                        label = _U('QUEST.PRISON_ACCOUNT_LABEL'),
+                        action = Actions.SHOW_ACCOUNT
+                    },
+                    {
+                        label = _U('QUEST.JAIL_TIME_LABEL'),
+                        action = Actions.SHOW_JAIL_TIME
                     },
                 }
-            }
-        }
+            },
+            blip = {
+                state = Config.RenderNPCBlips,
+                name = _U('BLIPS.ACCOUNT'),
+                sprite = 280,
+                scale = 0.5,
+                color = 0,
+            },
+            access = INTERACT_ACCESS_TYPES.PRISONER_ONLY
+        },
+        {
+            coords = vec3(1606.681, 2565.713, 45.564),
+            type = INTERACT_TYPES.QUEST,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane",
+                label = _U('TARGET_ZONE.GENERAL_LABEL')
+            },
+            npc = {
+                coords = vec3(1606.681, 2565.713, 45.564),
+                heading = 228.878,
+                model = 's_m_y_prismuscl_01'
+            },
+            quest = {
+                name = _U('QUEST.PRISON_BREAK_NPC_NAME'),
+                description = _U('QUEST.PRISON_BREAK_DESC'),
+                options = {
+                    {
+                        label = _U('QUEST.PRISON_BREAK_LABEL'),
+                        action = Actions.PRISON_BREAK
+                    },
+                }
+            },
+            blip = {
+                state = Config.RenderNPCBlips,
+                name = _U('BLIPS.PRISON_BREAK'),
+                sprite = 126,
+                scale = 1.0,
+                color = 0,
+            },
+            access = INTERACT_ACCESS_TYPES.PRISONER_ONLY
+        },
+        {
+            coords = vec3(1753.796, 2566.465, 45.8),
+            type = INTERACT_TYPES.JOBS,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane"
+            },
+            npc = {
+                coords = vec3(1753.796, 2566.465, 45.564),
+                heading = 226.0,
+                model = 's_m_m_prisguard_01'
+            },
+            blip = {
+                state = Config.RenderNPCBlips,
+                name = _U('BLIPS.LOBBY'),
+                sprite = 402,
+                scale = 0.5,
+                color = 0,
+            },
+            access = INTERACT_ACCESS_TYPES.PRISONER_ONLY
+        },
+        {
+            coords = vec3(1766.923, 2531.067, 45.565),
+            type = INTERACT_TYPES.CIGAR_PRODUCTION,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane"
+            },
+            prop = {
+                coords = vec3(1766.923, 2531.067, 45.565),
+                heading = 208.844,
+                model = 'prop_table_01'
+            },
+            blip = {
+                state = Config.RenderNPCBlips,
+                name = _U('BLIPS.CIGAR'),
+                sprite = 214,
+                scale = 0.5,
+                color = 0,
+            },
+            access = INTERACT_ACCESS_TYPES.PRISONER_ONLY
+        },
+        {
+            coords = vec3(1779.595, 2563.859, 45.623),
+            type = INTERACT_TYPES.PROP_ONLY,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane"
+            },
+            prop = {
+                coords = vec3(1779.595, 2563.859, 45.623),
+                heading = -90.0,
+                model = 'prop_cooker_03'
+            },
+            access = INTERACT_ACCESS_TYPES.PRISONER_ONLY
+        },
+        {
+            coords = vec3(1845.988, 2587.849, 45.672),
+            type = INTERACT_TYPES.LOBBY,
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane"
+            },
+            npc = {
+                coords = vec3(1845.988, 2587.849, 45.672),
+                heading = 222.48,
+                model = 's_m_m_prisguard_01'
+            },
+            blip = {
+                state = Config.RenderNPCBlips,
+                name = _U('BLIPS.LOBBY'),
+                sprite = 280,
+                scale = 0.5,
+                color = 0,
+            },
+            access = INTERACT_ACCESS_TYPES.ALL
+        },
+
+        {
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane"
+            },
+            place = {
+                model = 'prop_pris_bench_01',
+            },
+            coords = vec3(1635.517090, 2526.889404, 45.953522 - 1),
+            exercise = EXERCISE_MAP.SITUPS,
+            type = INTERACT_TYPES.GYM,
+            access = INTERACT_ACCESS_TYPES.ALL
+        },
+
+        {
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane"
+            },
+            place = {
+                model = 'prop_pris_bench_01',
+            },
+            coords = vec3(1638.194, 2529.714, 45.956 - 1),
+            exercise = EXERCISE_MAP.SITUPS,
+            type = INTERACT_TYPES.GYM,
+            access = INTERACT_ACCESS_TYPES.ALL
+        },
+
+        {
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane"
+            },
+            place = {
+                model = 'prop_pris_bench_01',
+            },
+            coords = vec3(11640.908, 2532.774, 45.948 - 1),
+            exercise = EXERCISE_MAP.SITUPS,
+            type = INTERACT_TYPES.GYM,
+            access = INTERACT_ACCESS_TYPES.ALL
+        },
+
+        {
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane"
+            },
+            place = {
+                model = 'prop_pris_bench_01',
+            },
+            coords = vec3(1642.912, 2535.447, 45.953 - 1),
+            exercise = EXERCISE_MAP.SITUPS,
+            type = INTERACT_TYPES.GYM,
+            access = INTERACT_ACCESS_TYPES.ALL
+        },
+
+        {
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane"
+            },
+            place = {
+                model = 'prop_pris_bench_01',
+            },
+            coords = vec3(1640.624, 2532.729, 45.948 - 1),
+            exercise = EXERCISE_MAP.SITUPS,
+            type = INTERACT_TYPES.GYM,
+            access = INTERACT_ACCESS_TYPES.ALL
+        },
+
+        {
+            zone = {
+                size = vec3(1, 1, 1),
+                icon = "fa-solid fa-paper-plane"
+            },
+            place = {
+                model = 'prop_pris_bench_01',
+            },
+            coords = vec3(1640.488, 2522.329, 45.948 - 1),
+            exercise = EXERCISE_MAP.SITUPS,
+            type = INTERACT_TYPES.GYM,
+            access = INTERACT_ACCESS_TYPES.ALL
+        },
+
+        
+        {
+            zone = {
+                size = vec3(2, 2, 5),
+                icon = "fa-solid fa-paper-plane",
+                label = _U('TARGET_ZONE.CRANKS_LABEL')
+            },
+            place = {
+                model = 'prop_pris_bars_01',
+            },
+            coords = vec3(1643.273, 2527.875, 45.564),
+            exercise = EXERCISE_MAP.CRANKS,
+            type = INTERACT_TYPES.GYM,
+            access = INTERACT_ACCESS_TYPES.ALL
+        },
+
+        {
+            zone = {
+                size = vec3(2, 2, 5),
+                icon = "fa-solid fa-paper-plane",
+                label = _U('TARGET_ZONE.CRANKS_LABEL')
+            },
+            place = {
+                model = 'prop_pris_bars_01',
+            },
+            coords = vec3(1649.9425, 2530.74463, 44.565),
+            exercise = EXERCISE_MAP.CRANKS,
+            type = INTERACT_TYPES.GYM,
+            access = INTERACT_ACCESS_TYPES.ALL
+        },
     }
 }

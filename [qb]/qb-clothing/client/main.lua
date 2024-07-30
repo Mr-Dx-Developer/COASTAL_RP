@@ -11,338 +11,102 @@ local zoneName = nil
 local inZone = false
 local removeWear = false
 local skinData = {
-    ["face"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["face2"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["facemix"] = {
-        skinMix = 0,
-        shapeMix = 0,
-        defaultSkinMix = 0.0,
-        defaultShapeMix = 0.0,
-    },
-    ["pants"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["hair"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["eyebrows"] = {
-        item = -1,
-        texture = 1,
-        defaultItem = -1,
-        defaultTexture = 1,
-    },
-    ["beard"] = {
-        item = -1,
-        texture = 1,
-        defaultItem = -1,
-        defaultTexture = 1,
-    },
-    ["blush"] = {
-        item = -1,
-        texture = 1,
-        defaultItem = -1,
-        defaultTexture = 1,
-    },
-    ["lipstick"] = {
-        item = -1,
-        texture = 1,
-        defaultItem = -1,
-        defaultTexture = 1,
-    },
-    ["makeup"] = {
-        item = -1,
-        texture = 1,
-        defaultItem = -1,
-        defaultTexture = 1,
-    },
-    ["ageing"] = {
-        item = -1,
-        texture = 0,
-        defaultItem = -1,
-        defaultTexture = 0,
-    },
-    ["arms"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["t-shirt"] = {
-        item = 1,
-        texture = 0,
-        defaultItem = 1,
-        defaultTexture = 0,
-    },
-    ["torso2"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["vest"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["bag"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["shoes"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 1,
-        defaultTexture = 0,
-    },
-    ["mask"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["hat"] = {
-        item = -1,
-        texture = 0,
-        defaultItem = -1,
-        defaultTexture = 0,
-    },
-    ["glass"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["ear"] = {
-        item = -1,
-        texture = 0,
-        defaultItem = -1,
-        defaultTexture = 0,
-    },
-    ["watch"] = {
-        item = -1,
-        texture = 0,
-        defaultItem = -1,
-        defaultTexture = 0,
-    },
-    ["bracelet"] = {
-        item = -1,
-        texture = 0,
-        defaultItem = -1,
-        defaultTexture = 0,
-    },
-    ["accessory"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["decals"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["eye_color"] = {
-        item = -1,
-        texture = 0,
-        defaultItem = -1,
-        defaultTexture = 0,
-    },
-    ["moles"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = -1,
-        defaultTexture = 0,
-    },
-    ["nose_0"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["nose_1"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["nose_2"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["nose_3"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-
-    ["nose_4"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["nose_5"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["cheek_1"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["cheek_2"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["cheek_3"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["eye_opening"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["lips_thickness"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["jaw_bone_width"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["eyebrown_high"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["eyebrown_forward"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["jaw_bone_back_lenght"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["chimp_bone_lowering"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["chimp_bone_lenght"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["chimp_bone_width"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["chimp_hole"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
-    ["neck_thikness"] = {
-        item = 0,
-        texture = 0,
-        defaultItem = 0,
-        defaultTexture = 0,
-    },
+    ["face"] =                 {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["face2"] =                {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["facemix"] =              {skinMix = 0, shapeMix = 0, defaultSkinMix = 0.0, defaultShapeMix = 0.0},
+    ["pants"] =                {item = 0,    texture = 0,  defaultItem = 38,      defaultTexture = 0},
+    ["hair"] =                 {item = 0,    texture = 0,  defaultItem = 10,      defaultTexture = 0},
+    ["eyebrows"] =             {item = -1,   texture = 1,  defaultItem = -1,     defaultTexture = 1},
+    ["beard"] =                {item = -1,   texture = 1,  defaultItem = -1,     defaultTexture = 1},
+    ["blush"] =                {item = -1,   texture = 1,  defaultItem = -1,     defaultTexture = 1},
+    ["lipstick"] =             {item = -1,   texture = 1,  defaultItem = -1,     defaultTexture = 1},
+    ["makeup"] =               {item = -1,   texture = 1,  defaultItem = -1,     defaultTexture = 1},
+    ["ageing"] =               {item = -1,   texture = 0,  defaultItem = -1,     defaultTexture = 0},
+    ["arms"] =                 {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["t-shirt"] =              {item = 1,    texture = 0,  defaultItem = 15,      defaultTexture = 0},
+    ["torso2"] =               {item = 0,    texture = 0,  defaultItem = 383,      defaultTexture = 3},
+    ["vest"] =                 {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["bag"] =                  {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["shoes"] =                {item = 0,    texture = 0,  defaultItem = 17,      defaultTexture = 19},
+    ["mask"] =                 {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["hat"] =                  {item = -1,   texture = 0,  defaultItem = -1,     defaultTexture = 0},
+    ["glass"] =                {item = 0,    texture = 0,  defaultItem = 52,      defaultTexture = 0},
+    ["ear"] =                  {item = -1,   texture = 0,  defaultItem = -1,     defaultTexture = 0},
+    ["watch"] =                {item = -1,   texture = 0,  defaultItem = -1,     defaultTexture = 0},
+    ["bracelet"] =             {item = -1,   texture = 0,  defaultItem = -1,     defaultTexture = 0},
+    ["accessory"] =            {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["decals"] =               {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["eye_color"] =            {item = -1,   texture = 0,  defaultItem = -1,     defaultTexture = 0},
+    ["moles"] =                {item = 0,    texture = 0,  defaultItem = -1,     defaultTexture = 0},
+    ["nose_0"] =               {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["nose_1"] =               {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["nose_2"] =               {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["nose_3"] =               {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["nose_4"] =               {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["nose_5"] =               {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["cheek_1"] =              {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["cheek_2"] =              {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["cheek_3"] =              {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["eye_opening"] =          {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["lips_thickness"] =       {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["jaw_bone_width"] =       {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["eyebrown_high"] =        {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["eyebrown_forward"] =     {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["jaw_bone_back_lenght"] = {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["chimp_bone_lowering"] =  {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["chimp_bone_lenght"] =    {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["chimp_bone_width"] =     {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["chimp_hole"] =           {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
+    ["neck_thikness"] =        {item = 0,    texture = 0,  defaultItem = 0,      defaultTexture = 0},
 }
 local clothingCategories = {
-    ["arms"]        = {type = "variation",  id = 3},
-    ["t-shirt"]     = {type = "variation",  id = 8},
-    ["torso2"]      = {type = "variation",  id = 11},
-    ["pants"]       = {type = "variation",  id = 4},
-    ["vest"]        = {type = "variation",  id = 9},
-    ["shoes"]       = {type = "variation",  id = 6},
-    ["bag"]         = {type = "variation",  id = 5},
-    ["hair"]        = {type = "hair",       id = 2},
-    ["eyebrows"]    = {type = "overlay",    id = 2},
-    ["face"]        = {type = "face",       id = 2},
-    ["face2"]       = {type = "face",       id = 2},
-    ["facemix"]     = {type = "face",       id = 2},
-    ["beard"]       = {type = "overlay",    id = 1},
-    ["blush"]       = {type = "overlay",    id = 5},
-    ["lipstick"]    = {type = "overlay",    id = 8},
-    ["makeup"]      = {type = "overlay",    id = 4},
-    ["ageing"]      = {type = "ageing",     id = 3},
-    ["mask"]        = {type = "mask",       id = 1},
-    ["hat"]         = {type = "prop",       id = 0},
-    ["glass"]       = {type = "prop",       id = 1},
-    ["ear"]         = {type = "prop",       id = 2},
-    ["watch"]       = {type = "prop",       id = 6},
-    ["bracelet"]    = {type = "prop",       id = 7},
-    ["accessory"]   = {type = "variation",  id = 7},
-    ["decals"]      = {type = "variation",  id = 10},
-    ["eye_color"]   = {type = "eye_color",  id = 1},
-    ["moles"]   = {type = "moles",  id = 1},
-    ["jaw_bone_width"]   = {type = "cheek",  id = 1},
-    ["jaw_bone_back_lenght"]   = {type = "cheek",  id = 1},
-    ["lips_thickness"]   = {type = "nose",  id = 1},
-    ["nose_0"]   = {type = "nose",  id = 1},
-    ["nose_1"]   = {type = "nose",  id = 1},
-    ["nose_2"]   = {type = "nose",  id = 2},
-    ["nose_3"]   = {type = "nose",  id = 3},
-    ["nose_4"]   = {type = "nose",  id = 4},
-    ["nose_5"]   = {type = "nose",  id = 5},
-    ["cheek_1"]   = {type = "cheek",  id = 1},
-    ["cheek_2"]   = {type = "cheek",  id = 2},
-    ["cheek_3"]   = {type = "cheek",  id = 3},
-    ["eyebrown_high"]   = {type = "nose",  id = 1},
-    ["eyebrown_forward"]   = {type = "nose",  id = 2},
-    ["eye_opening"]   = {type = "nose",  id = 1},
-    ["chimp_bone_lowering"]   = {type = "chin",  id = 1},
-    ["chimp_bone_lenght"]   = {type = "chin",  id = 2},
-    ["chimp_bone_width"]   = {type = "cheek",  id = 3},
-    ["chimp_hole"]   = {type = "cheek",  id = 4},
-    ["neck_thikness"]   = {type = "cheek",  id = 5},
+    ["arms"] =                 {type = "variation", id = 3},
+    ["t-shirt"] =              {type = "variation", id = 8},
+    ["torso2"] =               {type = "variation", id = 11},
+    ["pants"] =                {type = "variation", id = 4},
+    ["vest"] =                 {type = "variation", id = 9},
+    ["shoes"] =                {type = "variation", id = 6},
+    ["bag"] =                  {type = "variation", id = 5},
+    ["hair"] =                 {type = "hair",      id = 2},
+    ["eyebrows"] =             {type = "overlay",   id = 2},
+    ["face"] =                 {type = "face",      id = 2},
+    ["face2"] =                {type = "face",      id = 2},
+    ["facemix"] =              {type = "face",      id = 2},
+    ["beard"] =                {type = "overlay",   id = 1},
+    ["blush"] =                {type = "overlay",   id = 5},
+    ["lipstick"] =             {type = "overlay",   id = 8},
+    ["makeup"] =               {type = "overlay",   id = 4},
+    ["ageing"] =               {type = "ageing",    id = 3},
+    ["mask"] =                 {type = "mask",      id = 1},
+    ["hat"] =                  {type = "prop",      id = 0},
+    ["glass"] =                {type = "prop",      id = 1},
+    ["ear"] =                  {type = "prop",      id = 2},
+    ["watch"] =                {type = "prop",      id = 6},
+    ["bracelet"] =             {type = "prop",      id = 7},
+    ["accessory"] =            {type = "variation", id = 7},
+    ["decals"] =               {type = "variation", id = 10},
+    ["eye_color"] =            {type = "eye_color", id = 1},
+    ["moles"] =                {type = "moles",     id = 1},
+    ["jaw_bone_width"] =       {type = "cheek",     id = 1},
+    ["jaw_bone_back_lenght"] = {type = "cheek",     id = 1},
+    ["lips_thickness"]   =     {type = "nose",      id = 1},
+    ["nose_0"] =               {type = "nose",      id = 1},
+    ["nose_1"] =               {type = "nose",      id = 1},
+    ["nose_2"] =               {type = "nose",      id = 2},
+    ["nose_3"] =               {type = "nose",      id = 3},
+    ["nose_4"] =               {type = "nose",      id = 4},
+    ["nose_5"] =               {type = "nose",      id = 5},
+    ["cheek_1"] =              {type = "cheek",     id = 1},
+    ["cheek_2"] =              {type = "cheek",     id = 2},
+    ["cheek_3"] =              {type = "cheek",     id = 3},
+    ["eyebrown_high"] =        {type = "nose",      id = 1},
+    ["eyebrown_forward"] =     {type = "nose",      id = 2},
+    ["eye_opening"] =          {type = "nose",      id = 1},
+    ["chimp_bone_lowering"] =  {type = "chin",      id = 1},
+    ["chimp_bone_lenght"] =    {type = "chin",      id = 2},
+    ["chimp_bone_width"] =     {type = "cheek",     id = 3},
+    ["chimp_hole"] =           {type = "cheek",     id = 4},
+    ["neck_thikness"] =        {type = "cheek",     id = 5},
 }
 local faceProps = {
     [1] = { ["Prop"] = -1, ["Texture"] = -1 },
@@ -355,53 +119,53 @@ local faceProps = {
 -- Functions
 function GetMaxValues()
     local maxModelValues = {
-        ["arms"]        = {type = "character", item = 0, texture = 0},
-        ["eye_color"]   = {type = "hair", item = 0, texture = 0},
-        ["t-shirt"]     = {type = "character", item = 0, texture = 0},
-        ["torso2"]      = {type = "character", item = 0, texture = 0},
-        ["pants"]       = {type = "character", item = 0, texture = 0},
-        ["shoes"]       = {type = "character", item = 0, texture = 0},
-        ["face"]        = {type = "character", item = 0, texture = 0},
-        ["face2"]       = {type = "character", item = 0, texture = 0},
-        ["facemix"]     = {type = "character", shapeMix = 0, skinMix = 0},
-        ["vest"]        = {type = "character", item = 0, texture = 0},
-        ["accessory"]   = {type = "character", item = 0, texture = 0},
-        ["decals"]      = {type = "character", item = 0, texture = 0},
-        ["bag"]         = {type = "character", item = 0, texture = 0},
-        ["moles"]       = {type = "hair", item = 0, texture = 0},
-        ["hair"]        = {type = "hair", item = 0, texture = 0},
-        ["eyebrows"]    = {type = "hair", item = 0, texture = 0},
-        ["beard"]       = {type = "hair", item = 0, texture = 0},
-        ["eye_opening"]   = {type = "hair",  id = 1},
-        ["jaw_bone_width"]       = {type = "hair", item = 0, texture = 0},
-        ["jaw_bone_back_lenght"]       = {type = "hair", item = 0, texture = 0},
-        ["lips_thickness"]       = {type = "hair", item = 0, texture = 0},
-        ["cheek_1"]       = {type = "hair", item = 0, texture = 0},
-        ["cheek_2"]       = {type = "hair", item = 0, texture = 0},
-        ["cheek_3"]       = {type = "hair", item = 0, texture = 0},
-        ["eyebrown_high"]       = {type = "hair", item = 0, texture = 0},
-        ["eyebrown_forward"]       = {type = "hair", item = 0, texture = 0},
-        ["nose_0"]       = {type = "hair", item = 0, texture = 0},
-        ["nose_1"]       = {type = "hair", item = 0, texture = 0},
-        ["nose_2"]       = {type = "hair", item = 0, texture = 0},
-        ["nose_3"]       = {type = "hair", item = 0, texture = 0},
-        ["nose_4"]       = {type = "hair", item = 0, texture = 0},
-        ["nose_5"]       = {type = "hair", item = 0, texture = 0},
-        ["chimp_bone_lowering"]       = {type = "hair", item = 0, texture = 0},
-        ["chimp_bone_lenght"]       = {type = "hair", item = 0, texture = 0},
-        ["chimp_bone_width"]       = {type = "hair", item = 0, texture = 0},
-        ["chimp_hole"]       = {type = "hair", item = 0, texture = 0},
-        ["neck_thikness"]       = {type = "hair", item = 0, texture = 0},
-        ["blush"]       = {type = "hair", item = 0, texture = 0},
-        ["lipstick"]    = {type = "hair", item = 0, texture = 0},
-        ["makeup"]      = {type = "hair", item = 0, texture = 0},
-        ["ageing"]      = {type = "hair", item = 0, texture = 0},
-        ["mask"]        = {type = "accessoires", item = 0, texture = 0},
-        ["hat"]         = {type = "accessoires", item = 0, texture = 0},
-        ["glass"]       = {type = "accessoires", item = 0, texture = 0},
-        ["ear"]         = {type = "accessoires", item = 0, texture = 0},
-        ["watch"]       = {type = "accessoires", item = 0, texture = 0},
-        ["bracelet"]    = {type = "accessoires", item = 0, texture = 0},
+        ["arms"] =                 {type = "clothing",         item = 0,     texture = 0},
+        ["t-shirt"] =              {type = "clothing",         item = 0,     texture = 0},
+        ["torso2"] =               {type = "clothing",         item = 0,     texture = 0},
+        ["pants"] =                {type = "clothing",         item = 0,     texture = 0},
+        ["shoes"] =                {type = "clothing",         item = 0,     texture = 0},
+        ["vest"] =                 {type = "clothing",         item = 0,     texture = 0},
+        ["accessory"] =            {type = "clothing",         item = 0,     texture = 0},
+        ["decals"] =               {type = "clothing",         item = 0,     texture = 0},
+        ["bag"] =                  {type = "clothing",         item = 0,     texture = 0},
+        ["hair"] =                 {type = "hair",             item = 0,     texture = 0},
+        ["eyebrows"] =             {type = "hair",             item = 0,     texture = 0},
+        ["beard"] =                {type = "hair",             item = 0,     texture = 0},
+        ["lipstick"] =             {type = "hair",             item = 0,     texture = 0},
+        ["makeup"] =               {type = "hair",             item = 0,     texture = 0},
+        ["ageing"] =               {type = "hair",             item = 0,     texture = 0},
+        ["eye_color"] =            {type = "hair",             item = 0,     texture = 0},
+        ["blush"] =                {type = "hair",             item = 0,     texture = 0},
+        ["moles"] =                {type = "hair",             item = 0,     texture = 0},
+        ["face"] =                 {type = "character",        item = 0,     texture = 0},
+        ["face2"] =                {type = "character",        item = 0,     texture = 0},
+        ["facemix"] =              {type = "character",        shapeMix = 0, skinMix = 0},
+        ["eye_opening"] =          {type = "character",        id = 1},
+        ["jaw_bone_width"] =       {type = "character",        item = 0,     texture = 0},
+        ["jaw_bone_back_lenght"] = {type = "character",        item = 0,     texture = 0},
+        ["lips_thickness"] =       {type = "character",        item = 0,     texture = 0},
+        ["cheek_1"] =              {type = "character",        item = 0,     texture = 0},
+        ["cheek_2"] =              {type = "character",        item = 0,     texture = 0},
+        ["cheek_3"] =              {type = "character",        item = 0,     texture = 0},
+        ["eyebrown_high"]       =  {type = "character",        item = 0,     texture = 0},
+        ["eyebrown_forward"] =     {type = "character",        item = 0,     texture = 0},
+        ["nose_0"] =               {type = "character",        item = 0,     texture = 0},
+        ["nose_1"] =               {type = "character",        item = 0,     texture = 0},
+        ["nose_2"] =               {type = "character",        item = 0,     texture = 0},
+        ["nose_3"] =               {type = "character",        item = 0,     texture = 0},
+        ["nose_4"] =               {type = "character",        item = 0,     texture = 0},
+        ["nose_5"] =               {type = "character",        item = 0,     texture = 0},
+        ["chimp_bone_lowering"] =  {type = "character",        item = 0,     texture = 0},
+        ["chimp_bone_lenght"] =    {type = "character",        item = 0,     texture = 0},
+        ["chimp_bone_width"] =     {type = "character",        item = 0,     texture = 0},
+        ["chimp_hole"] =           {type = "character",        item = 0,     texture = 0},
+        ["neck_thikness"] =        {type = "character",        item = 0,     texture = 0},
+        ["mask"] =                 {type = "accessoires", item = 0,     texture = 0},
+        ["hat"] =                  {type = "accessoires", item = 0,     texture = 0},
+        ["glass"] =                {type = "accessoires", item = 0,     texture = 0},
+        ["ear"] =                  {type = "accessoires", item = 0,     texture = 0},
+        ["watch"] =                {type = "accessoires", item = 0,     texture = 0},
+        ["bracelet"] =             {type = "accessoires", item = 0,     texture = 0},
     }
     local ped = PlayerPedId()
     for k, v in pairs(clothingCategories) do
@@ -497,6 +261,7 @@ local function enableCam()
 
     if customCamLocation ~= nil then
         SetCamCoord(cam, customCamLocation.x, customCamLocation.y, customCamLocation.z)
+        SetCamRot(cam, 0.0, 0.0, customCamLocation.w)
     end
 
     headingToCam = GetEntityHeading(PlayerPedId()) + 90
@@ -633,6 +398,8 @@ local function resetClothing(data)
         ClearPedProp(ped, 7)
     end
 end
+
+
 local function GetPositionByRelativeHeading(ped, head, dist)
     local pedPos = GetEntityCoords(ped)
 
@@ -646,12 +413,19 @@ local function openMenu(allowedMenus)
     creatingCharacter = true
     PlayerData = QBCore.Functions.GetPlayerData()
     local trackerMeta = PlayerData.metadata["tracker"]
+    local translations = {}
+    for k in pairs(Lang.fallback and Lang.fallback.phrases or Lang.phrases) do
+        if k:sub(0, ('ui.'):len()) then
+            translations[k:sub(('ui.'):len() + 1)] = Lang:t(k)
+        end
+    end
     GetMaxValues()
     SendNUIMessage({
         action = "open",
         menus = allowedMenus,
         currentClothing = skinData,
         hasTracker = trackerMeta,
+        translations = translations,
     })
     SetNuiFocus(true, true)
     SetCursorLocation(0.9, 0.25)
@@ -1204,46 +978,48 @@ local function getOutfits(gradeLevel, data)
     if QBCore.Functions.GetPlayerData().charinfo.gender == 1 then gender = "female" end
     QBCore.Functions.TriggerCallback('qb-clothing:server:getOutfits', function(result)
         openMenu({
-            {menu = "roomOutfits", label = "Presets", selected = true, outfits = data[gender][gradeLevel]},
-            {menu = "myOutfits", label = "My Outfits", selected = false, outfits = result},
-            {menu = "character", label = "Clothing", selected = false},
-            {menu = "accessoires", label = "Accessories", selected = false}
+            {menu = "roomOutfits", label = Lang:t("outfits.roomOutfits"), selected = true, outfits = data[gender][gradeLevel]},
+            {menu = "myOutfits", label = Lang:t("outfits.myOutfits"), selected = false, outfits = result},
+            {menu = "character", label = Lang:t("outfits.character"), selected = false},
+            {menu = "accessoires", label = Lang:t("outfits.accessoires"), selected = false}
         })
     end)
 end
 exports('getOutfits',getOutfits)
 -- Events
-AddEventHandler('onResourceStart', function(resourceName)
+
+RegisterNetEvent('onResourceStart', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then return end
     PlayerData = QBCore.Functions.GetPlayerData()
 end)
+
 RegisterNetEvent('QBCore:Client:UpdateObject', function()
 	QBCore = exports['qb-core']:GetCoreObject()
 end)
-RegisterNetEvent('qb-clothing:client:openMenu')
-AddEventHandler('qb-clothing:client:openMenu', function()
+
+RegisterNetEvent('qb-clothing:client:openMenu', function()
     customCamLocation = nil
     openMenu({
-        {menu = "character", label = "Character", selected = true},
-        {menu = "clothing", label = "Features", selected = false},
-        {menu = "accessoires", label = "Accessories", selected = false}
+        {menu = "character", label = Lang:t("menu.features"), selected = true},
+        {menu = "hair", label = Lang:t("menu.hair"), selected = false},
+        {menu = "clothing", label = Lang:t("menu.character"), selected = false},
+        {menu = "accessoires", label = Lang:t("menu.accessoires"), selected = false}
     })
 end)
-RegisterNetEvent('qb-clothing:client:reloadOutfits')
-AddEventHandler('qb-clothing:client:reloadOutfits', function(myOutfits)
+RegisterNetEvent('qb-clothing:client:reloadOutfits', function(myOutfits)
     SendNUIMessage({
         action = "reloadMyOutfits",
         outfits = myOutfits
     })
 end)
-RegisterNetEvent('qb-clothes:client:CreateFirstCharacter')
-AddEventHandler('qb-clothes:client:CreateFirstCharacter', function()
+RegisterNetEvent('qb-clothes:client:CreateFirstCharacter', function()
     QBCore.Functions.GetPlayerData(function(pData)
         local skin = "mp_m_freemode_01"
         openMenu({
-            {menu = "character", label = "Character", selected = true},
-            {menu = "clothing", label = "Features", selected = false},
-            {menu = "accessoires", label = "Accessories", selected = false}
+            {menu = "character", label = Lang:t("menu.features"), selected = true},
+            {menu = "hair", label = Lang:t("menu.hair"), selected = false},
+            {menu = "clothing", label = Lang:t("menu.character"), selected = false},
+            {menu = "accessoires", label = Lang:t("menu.accessoires"), selected = false}
         })
 
         if pData.charinfo.gender == 1 then
@@ -1256,8 +1032,8 @@ AddEventHandler('qb-clothes:client:CreateFirstCharacter', function()
         })
     end)
 end)
-RegisterNetEvent("qb-clothes:loadSkin")
-AddEventHandler("qb-clothes:loadSkin", function(_, model, data)
+
+RegisterNetEvent("qb-clothes:loadSkin", function(_, model, data)
     model = model ~= nil and tonumber(model) or false
     Citizen.CreateThread(function()
         RequestModel(model)
@@ -1271,8 +1047,8 @@ AddEventHandler("qb-clothes:loadSkin", function(_, model, data)
         TriggerEvent('qb-clothing:client:loadPlayerClothing', data, PlayerPedId())
     end)
 end)
-RegisterNetEvent('qb-clothing:client:loadPlayerClothing')
-AddEventHandler('qb-clothing:client:loadPlayerClothing', function(data, ped)
+
+RegisterNetEvent('qb-clothing:client:loadPlayerClothing', function(data, ped)
     if ped == nil then ped = PlayerPedId() end
 
     for i = 0, 11 do
@@ -1426,8 +1202,7 @@ AddEventHandler('qb-clothing:client:loadPlayerClothing', function(data, ped)
     SetPedFaceFeature(ped, 19, (data['neck_thikness'].item / 10))
     skinData = data
 end)
-RegisterNetEvent('qb-clothing:client:loadOutfit')
-AddEventHandler('qb-clothing:client:loadOutfit', function(oData)
+RegisterNetEvent('qb-clothing:client:loadOutfit', function(oData)
     local ped = PlayerPedId()
 
     local data = oData.outfitData
@@ -1544,8 +1319,7 @@ AddEventHandler('qb-clothing:client:loadOutfit', function(oData)
         QBCore.Functions.Notify("You have chosen "..oData.outfitName.."! Press Confirm to confirm outfit.")
     end
 end)
-RegisterNetEvent("qb-clothing:client:adjustfacewear")
-AddEventHandler("qb-clothing:client:adjustfacewear",function(type)
+RegisterNetEvent("qb-clothing:client:adjustfacewear", function(type)
     if QBCore.Functions.GetPlayerData().metadata["ishandcuffed"] then return end
     removeWear = not removeWear
     local AnimSet = "mp_masks@on_foot"
@@ -1663,6 +1437,7 @@ end)
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     TriggerServerEvent("qb-clothes:loadPlayerSkin")
     PlayerData = QBCore.Functions.GetPlayerData()
+    loadStores()
 --    QBCore.Shared.Jobs = exports['qb-jobs']:AddJobs()
 end)
 RegisterNetEvent('QBCore:Client:OnJobUpdate', function(JobInfo)
@@ -1674,10 +1449,11 @@ end)
 RegisterNetEvent('qb-clothing:client:openOutfitMenu', function()
     QBCore.Functions.TriggerCallback('qb-clothing:server:getOutfits', function(result)
         openMenu({
-            {menu = "myOutfits", label = "My Outfits", selected = true, outfits = result},
+            {menu = "myOutfits", label = Lang:t("outfits.myOutfits"), selected = true, outfits = result},
         })
     end)
 end)
+
 -- Callbacks
 RegisterNUICallback('selectOutfit', function(data, cb)
     TriggerEvent('qb-clothing:client:loadOutfit', data)
@@ -1708,7 +1484,7 @@ RegisterNUICallback('rotateLeft', function(_, cb)
     cb('ok')
 end)
 RegisterNUICallback('TrackerError', function(_, cb)
-    QBCore.Functions.Notify("You can't remove your ankle bracelet ..", "error")
+    QBCore.Functions.Notify(Lang:t("notify.error_bracelet"), "error")
     cb('ok')
 end)
 RegisterNUICallback('saveOutfit', function(data, cb)
@@ -1785,7 +1561,7 @@ RegisterNUICallback('updateSkinOnInput', function(data, cb)
 end)
 RegisterNUICallback('removeOutfit', function(data, cb)
     TriggerServerEvent('qb-clothing:server:removeOutfit', data.outfitName, data.outfitId)
-    QBCore.Functions.Notify("You have deleted your"..data.outfitName.." outfit!")
+    QBCore.Functions.Notify(Lang:t('notify.info_deleteOutfit', {outfit = data.outfitName}))
     cb('ok')
 end)
 RegisterNUICallback('setCurrentPed', function(data, cb)
@@ -1818,7 +1594,7 @@ Citizen.CreateThread(function()
             SetBlipScale (clothingShop, 0.7)
             SetBlipAsShortRange(clothingShop, true)
             BeginTextCommandSetBlipName("STRING")
-            AddTextComponentString("Clothing store")
+            AddTextComponentString(Lang:t("store.clothing"))
             EndTextCommandSetBlipName(clothingShop)
         end
 
@@ -1829,7 +1605,7 @@ Citizen.CreateThread(function()
             SetBlipScale (barberShop, 0.7)
             SetBlipAsShortRange(barberShop, true)
             BeginTextCommandSetBlipName("STRING")
-            AddTextComponentString("Barber")
+            AddTextComponentString(Lang:t("store.barber"))
             EndTextCommandSetBlipName(barberShop)
         end
 
@@ -1840,135 +1616,129 @@ Citizen.CreateThread(function()
             SetBlipScale  (surgeonShop, 0.7)
             SetBlipAsShortRange(surgeonShop, true)
             BeginTextCommandSetBlipName("STRING")
-            AddTextComponentString("Surgeon")
+            AddTextComponentString(Lang:t("store.surgeon"))
             EndTextCommandSetBlipName(surgeonShop)
         end
     end
 end)
-if Config.UseTarget then
-    CreateThread(function()
-        for k, v in pairs(Config.Stores) do
-            local opts = {}
-            if v.shopType == 'barber' then
-                opts = {
-                    action = function()
-                        customCamLocation = nil
-                        openMenu({
-                            {menu = "clothing", label = "Hair", selected = true},
-                        })
-                    end,
-                    icon = "fas fa-chair-office",
-                    label = "Barber",
-                }
-            elseif v.shopType == 'clothing' then
-                opts = {
-                    action = function()
-                        customCamLocation = nil
-                        openMenu({
-                            {menu = "character", label = "Clothing", selected = true},
-                            {menu = "accessoires", label = "Accessories", selected = false}
-                        })
-                    end,
-                    icon = "fas fa-clothes-hanger",
-                    label = "Clothing Store",
-                }
-            elseif v.shopType == 'surgeon' then
-                opts = {
-                    action = function()
-                        customCamLocation = nil
-                        openMenu({
-                            {menu = "clothing", label = "Features", selected = true},
-                        })
-                    end,
-                    icon = "fas fa-scalpel",
-                    label = "Plastic Surgeon",
-                }
+-- We define this as function so we don't get a nil value for job. The function triggers when the player is loaded :)
+function loadStores()
+    if Config.UseTarget then
+        CreateThread(function()
+            for k, v in pairs(Config.Stores) do
+                local opts = {}
+                if v.shopType == 'barber' then
+                    opts = {
+                        action = function()
+                            customCamLocation = nil
+                            openMenu({
+                                {menu = "hair", label = Lang:t("menu.hair"), selected = true},
+                            })
+                        end,
+                        icon = "fas fa-chair-office",
+                        label = Lang:t("store.barber"),
+                    }
+                elseif v.shopType == 'clothing' then
+                    opts = {
+                        action = function()
+                            customCamLocation = nil
+                            openMenu({
+                                {menu = "clothing", label = Lang:t("menu.character"), selected = true},
+                                {menu = "accessoires", label = Lang:t("menu.accessoires"), selected = false}
+                            })
+                        end,
+                        icon = "fas fa-clothes-hanger",
+                        label = Lang:t("store.clothing"),
+                    }
+                elseif v.shopType == 'surgeon' then
+                    opts = {
+                        action = function()
+                            customCamLocation = nil
+                            openMenu({
+                                {menu = "character", label = Lang:t("menu.features"), selected = true},
+                            })
+                        end,
+                        icon = "fas fa-scalpel",
+                        label = Lang:t("store.surgeon"),
+                    }
+                end
+
+                exports['qb-target']:AddBoxZone(v.shopType .. k, v.coords, v.length, v.width, {
+                    name = v.shopType .. k,
+                    debugPoly = false,
+                    minZ = v.coords.z-1,
+                    maxZ = v.coords.z+1,
+                }, {
+                    options = {
+                        {
+                            type = "client",
+                            action = opts.action,
+                            icon = opts.icon,
+                            label = opts.label,
+                        },
+                    },
+                    distance = 3
+                })
             end
+            for k, v in pairs(Config.ClothingRooms) do
+                local action
+                if v.isGang then
+                    action = function()
+                        customCamLocation = v.cameraLocation
+                        local gradeLevel = PlayerData.gang.grade.level
+                        getOutfits(gradeLevel, Config.Outfits[v.requiredJob])
+                    end
+                elseif not QBCore.Shared.QBJobsStatus then
+                    action = function()
+                        customCamLocation = v.cameraLocation
+                        local gradeLevel = PlayerData.job.grade.level
+                        getOutfits(gradeLevel, Config.Outfits[v.requiredJob])
+                    end
+                else break end --this break is important if QBJobsStatus is true then the reste of the code in this loop does not need to run.
 
-            exports['qb-target']:AddBoxZone(v.shopType .. k, v.coords, v.length, v.width, {
-                name = v.shopType .. k,
-                debugPoly = false,
-                minZ = v.coords.z-1,
-                maxZ = v.coords.z+1,
-            }, {
-                options = {
-                    {
-                        type = "client",
-                        action = opts.action,
-                        icon = opts.icon,
-                        label = opts.label,
+                exports['qb-target']:AddBoxZone('clothing_' .. v.requiredJob .. k, v.coords, v.length, v.width, {
+                    name = 'clothing_' .. v.requiredJob .. k,
+                    debugPoly = false,
+                    minZ = v.coords.z - 2,
+                    maxZ = v.coords.z + 2,
+                }, {
+                    options = {
+                        {
+                            type = "client",
+                            action = action,
+                            icon = "fas fa-sign-in-alt",
+                            label = Lang:t("menu.character"),
+                            job = v.requiredJob
+                        },
                     },
-                },
-                distance = 3
-            })
-        end
-        for k, v in pairs(Config.ClothingRooms) do
-            local action
-            if v.isGang then
-                action = function()
-                    customCamLocation = v.cameraLocation
-                    local gradeLevel = PlayerData.gang.grade.level
-                    getOutfits(gradeLevel, Config.ClothingRooms[v.requiredJob])
-                end
-            elseif not QBCore.Shared.QBJobsStatus then
-                action = function()
-                    customCamLocation = v.cameraLocation
-                    local gradeLevel = PlayerData.job.grade.level
-                    getOutfits(gradeLevel, Config.ClothingRooms[v.requiredJob])
-                end
-            else break end --this break is important if QBJobsStatus is true then the reste of the code in this loop does not need to run.
-
-            exports['qb-target']:AddBoxZone('clothing_' .. v.requiredJob .. k, v.coords, v.length, v.width, {
-                name = 'clothing_' .. v.requiredJob .. k,
-                debugPoly = false,
-                minZ = v.coords.z - 2,
-                maxZ = v.coords.z + 2,
-            }, {
-                options = {
-                    {
-                        type = "client",
-                        action = action,
-                        icon = "fas fa-sign-in-alt",
-                        label = "Clothing",
-                        job = v.requiredJob
-                    },
-                },
-                distance = 3
-            })
-        end
-    end)
-else
-    CreateThread(function()
-        local zones = {}
-        for _, v in pairs(Config.Stores) do
-            zones[#zones+1] = BoxZone:Create(
-                v.coords, v.length, v.width, {
-                name = v.shopType,
-                minZ = v.coords.z - 2,
-                maxZ = v.coords.z + 2,
-                debugPoly = false,
-            })
-        end
-
-        local clothingCombo = ComboZone:Create(zones, {name = "clothingCombo", debugPoly = false})
-        clothingCombo:onPlayerInOut(function(isPointInside, _, zone)
-            if isPointInside then
-                zoneName = zone.name
-                inZone = true
-                if zoneName == 'surgeon' then
-                    exports['qb-core']:DrawText('[E] - Plastic Surgery', 'left')
-                elseif zoneName == 'clothing' then
-                    exports['qb-core']:DrawText('[E] - Clothing Shop', 'left')
-                elseif zoneName == 'barber' then
-                    exports['qb-core']:DrawText('[E] - Barber', 'left')
-                end
-            else
-                inZone = false
-                exports['qb-core']:HideText()
+                    distance = 3
+                })
             end
         end)
-        if PlayerData.gang and PlayerData.gang.name then
+    else
+        CreateThread(function()
+            local zones = {}
             local roomZones = {}
+            for _, v in pairs(Config.Stores) do
+                zones[#zones+1] = BoxZone:Create(
+                    v.coords, v.length, v.width, {
+                    name = v.shopType,
+                    minZ = v.coords.z - 2,
+                    maxZ = v.coords.z + 2,
+                    debugPoly = false,
+                })
+            end
+
+            for _, v in pairs(Config.OutfitChangers) do
+                zones[#zones+1] = BoxZone:Create(
+                    v.coords, v.length, v.width, {
+                    name = v.shopType,
+                    minZ = v.coords.z - 2,
+                    maxZ = v.coords.z + 2,
+                    debugPoly = false,
+                })
+            end
+
             for k,v in pairs(Config.ClothingRooms) do
                 roomZones[#roomZones+1] = BoxZone:Create(
                     v.coords, v.length, v.width, {
@@ -1978,63 +1748,90 @@ else
                     debugPoly = false,
                 })
             end
-            local clothingRoomsCombo = ComboZone:Create(roomZones, {name = "clothingRoomsCombo", debugPoly = false})
-            clothingRoomsCombo:onPlayerInOut(function(isPointInside, _, zone)
+
+            local clothingCombo = ComboZone:Create(zones, {name = "clothingCombo", debugPoly = false})
+            clothingCombo:onPlayerInOut(function(isPointInside, _, zone)
                 if isPointInside then
-                    local zoneID = tonumber(QBCore.Shared.SplitStr(zone.name, "_")[2])
-                    local job = Config.ClothingRooms[zoneID].isGang and PlayerData.gang.name or (not QBCore.Shared.QBJobsStatus and PlayerData.job.name)
-                    if (job == Config.ClothingRooms[zoneID].requiredJob) then
-                        zoneName = zoneID
-                        inZone = true
-                        exports['qb-core']:DrawText('[E] - Clothing Shop', 'left')
+                    zoneName = zone.name
+                    inZone = true
+                    if zoneName == 'surgeon' then
+                        exports['qb-core']:DrawText('[E] - '..Lang:t("store.surgeon"), 'left')
+                    elseif zoneName == 'clothing' then
+                        exports['qb-core']:DrawText('[E] - '..Lang:t("store.clothing"), 'left')
+                    elseif zoneName == 'barber' then
+                        exports['qb-core']:DrawText('[E] - '..Lang:t("store.barber"), 'left')
+                    elseif zoneName == 'outfit' then
+                        exports['qb-core']:DrawText('[E] - '..Lang:t("store.outfitchanger"), 'left')
                     end
                 else
                     inZone = false
                     exports['qb-core']:HideText()
                 end
             end)
-        end
-    end)
-    -- Clothing Thread
-    CreateThread(function ()
-        Wait(1000)
-        while true do
-            local sleep = 1000
-            if inZone then
-                sleep = 5
-                if zoneName == 'surgeon' then
-                    if IsControlJustReleased(0, 38) then
-                        customCamLocation = nil
-                        openMenu({
-                            {menu = "clothing", label = "Features", selected = true},
-                        })
+                    if PlayerData.gang and PlayerData.gang.name or (not QBCore.Shared.QBJobsStatus and PlayerData.job.name) then
+                        local clothingRoomsCombo = ComboZone:Create(roomZones, {name = "clothingRoomsCombo", debugPoly = false})
+                        clothingRoomsCombo:onPlayerInOut(function(isPointInside, _, zone)
+                            if isPointInside then
+                                local zoneID = tonumber(QBCore.Shared.SplitStr(zone.name, "_")[2])
+                                local job = Config.ClothingRooms[zoneID].isGang and PlayerData.gang.name or (not QBCore.Shared.QBJobsStatus and PlayerData.job.name)
+                                if (job == Config.ClothingRooms[zoneID].requiredJob) then
+                                    zoneName = zoneID
+                                    inZone = true
+                                    exports['qb-core']:DrawText('[E] - '..Lang:t("store.clothing"), 'left')
+                                end
+                            else
+                                inZone = false
+                                exports['qb-core']:HideText()
+                            end
+                        end)
                     end
-                elseif zoneName == 'clothing' then
-                    if IsControlJustReleased(0, 38) then
-                        customCamLocation = nil
-                        openMenu({
-                            {menu = "character", label = "Clothing", selected = true},
-                            {menu = "accessoires", label = "Accessories", selected = false}
-                        })
-                    end
-                elseif zoneName == 'barber' then
-                    if IsControlJustReleased(0, 38) then
-                        customCamLocation = nil
-                        openMenu({
-                            {menu = "clothing", label = "Hair", selected = true},
-                        })
-                    end
-                elseif not QBCore.Shared.QBJobsStatus then
-                    if IsControlJustReleased(0, 38) then
-                        local clothingRoom = Config.ClothingRooms[zoneName]
-                        customCamLocation = clothingRoom.cameraLocation
+        end)
+        -- Clothing Thread
+        CreateThread(function ()
+            Wait(1000)
+            while true do
+                local sleep = 1000
+                if inZone then
+                    sleep = 5
+                    if zoneName == 'surgeon' then
+                        if IsControlJustReleased(0, 38) then
+                            customCamLocation = nil
+                            openMenu({
+                                {menu = "character", label = Lang:t("menu.features"), selected = true},
+                            })
+                        end
+                    elseif zoneName == 'clothing' then
+                        if IsControlJustReleased(0, 38) then
+                            customCamLocation = nil
+                            openMenu({
+                                {menu = "clothing", label = Lang:t("menu.character"), selected = true},
+                                {menu = "accessoires", label = Lang:t("menu.accessoires"), selected = false}
+                            })
+                        end
+                    elseif zoneName == 'barber' then
+                        if IsControlJustReleased(0, 38) then
+                            customCamLocation = nil
+                            openMenu({
+                                {menu = "hair", label = Lang:t("menu.hair"), selected = true},
+                            })
+                        end
+                    elseif zoneName == 'outfit' then
+                        if IsControlJustReleased(0, 38) then
+                            customCamLocation = nil
+                            TriggerEvent('qb-clothing:client:openOutfitMenu')
+                        end
+                    elseif not QBCore.Shared.QBJobsStatus then
+                        if IsControlJustReleased(0, 38) then
+                            local clothingRoom = Config.ClothingRooms[zoneName]
+                            customCamLocation = clothingRoom.cameraLocation
 
-                        local gradeLevel = clothingRoom.isGang and PlayerData.gang.grade.level or (not QBCore.Shared.QBJobsStatus and PlayerData.job.grade.level)
-                        getOutfits(gradeLevel, Config.Outfits[clothingRoom.requiredJob])
+                            local gradeLevel = clothingRoom.isGang and PlayerData.gang.grade.level or (not QBCore.Shared.QBJobsStatus and PlayerData.job.grade.level)
+                            getOutfits(gradeLevel, Config.Outfits[clothingRoom.requiredJob])
+                        end
                     end
                 end
+                Wait(sleep)
             end
-            Wait(sleep)
-        end
-    end)
+        end)
+    end
 end

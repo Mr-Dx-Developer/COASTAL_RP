@@ -2,8 +2,8 @@
 -- If you have multiple custom list files they MUST be added between AnimationList.lua and Emote.lua in fxmanifest.lua!
 -- Don't change 'CustomDP' it is local to this file!
 
--- Remove the } from the = {} then enter your own animation code
--- Don't forget to close the tables. See https://docs.rpemotes.com/for-developers/important-note/custom-emotes-and-props
+-- Remove the } from the = {} then enter your own animation code ---
+-- Don't forget to close the tables.
 
 local CustomDP = {}
 
@@ -20,15 +20,14 @@ CustomDP.PropEmotes = {}
 --| I don't think you should change the code below unless you know what you are doing |--
 -----------------------------------------------------------------------------------------
 
--- Add the custom emotes to RPEmotes main array
-for arrayName, array in pairs(CustomDP) do
-    if RP[arrayName] then
-        for emoteName, emoteData in pairs(array) do
-            RP[arrayName][emoteName] = emoteData
+function LoadAddonEmotes()
+    for arrayName, array in pairs(CustomDP) do
+        if RP[arrayName] then
+            for emoteName, emoteData in pairs(array) do
+                RP[arrayName][emoteName] = emoteData
+            end
         end
     end
     -- Free memory
-    CustomDP[arrayName] = nil
+    CustomDP = nil
 end
--- Free memory
-CustomDP = nil

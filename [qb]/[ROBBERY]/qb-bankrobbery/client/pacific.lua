@@ -5,6 +5,13 @@ local copsCalled = false
 
 -- Functions
 
+--- This will be triggered once the hack in the pacific bank is done
+---// @param success boolean
+---// @return nil
+--[[local function OnHackPacificDone(success)
+    Config.OnHackDone(success, "pacific")
+end]]--
+
 --- This will load an animation dictionary so you can play an animation in that dictionary
 --- @param dict string
 --- @return nil
@@ -80,10 +87,16 @@ RegisterNetEvent('electronickit:UseElectronickit', function()
                         }, {}, {}, {}, function() -- Done
                             TriggerServerEvent('qb-bankrobbery:server:removeElectronicKit')
                             StopAnimTask(ped, "anim@gangops@facility@servers@", "hotwire", 1.0)
-                            local success = exports['qb-minigames']:Hacking(5, 30) -- code block size & seconds to solve
-                            if success then
-                                TriggerServerEvent('qb-bankrobbery:server:setBankState', 'pacific')
-                            end
+                           ----- TriggerEvent("mhacking:show")
+                          --  TriggerEvent("mhacking:start", math.random(5, 9), math.random(10, 15), OnHackPacificDone)
+                          exports['hacking']:OpenHackingGame(Config.PacificTime, Config.PacificBlocks, Config.PacificRepeat, 
+                          function(Success)
+                              if Success then
+                                  TriggerServerEvent('qb-bankrobbery:server:setBankState', "pacific", true)
+                              else
+                                  QBCore.Functions.Notify("You Failed To Hack The Bank!", "error")
+                              end
+                          end)
                             if copsCalled or not Config.BigBanks["pacific"]["alarm"] then return end
                             TriggerServerEvent("qb-bankrobbery:server:callCops", "pacific", 0, pos)
                             copsCalled = true
@@ -186,6 +199,28 @@ CreateThread(function()
             }, true)
         else
             if currentThermiteGate == Config.BigBanks["pacific"]["thermite"][2]["doorId"] then
+                currentThermiteGate = 0
+                Config.ShowRequiredItems({
+                    [1] = {name = QBCore.Shared.Items["thermite"]["name"], image = QBCore.Shared.Items["thermite"]["image"]},
+                }, false)
+            end
+        end
+    end)
+    local thermite3Zone = BoxZone:Create(Config.BigBanks["pacific"]["thermite"][3]["coords"], 1.0, 1.0, {
+        name = 'pacific_coords_thermite_2',
+        heading = Config.BigBanks["pacific"]["heading"].closed,
+        minZ = Config.BigBanks["pacific"]["thermite"][3]["coords"].z - 1,
+        maxZ = Config.BigBanks["pacific"]["thermite"][3]["coords"].z + 1,
+        debugPoly = false
+    })
+    thermite3Zone:onPlayerInOut(function(inside)
+        if inside and not Config.BigBanks["pacific"]["thermite"][3]["isOpened"] then
+            currentThermiteGate = Config.BigBanks["pacific"]["thermite"][3]["doorId"]
+            Config.ShowRequiredItems({
+                [1] = {name = QBCore.Shared.Items["thermite"]["name"], image = QBCore.Shared.Items["thermite"]["image"]},
+            }, true)
+        else
+            if currentThermiteGate == Config.BigBanks["pacific"]["thermite"][3]["doorId"] then
                 currentThermiteGate = 0
                 Config.ShowRequiredItems({
                     [1] = {name = QBCore.Shared.Items["thermite"]["name"], image = QBCore.Shared.Items["thermite"]["image"]},

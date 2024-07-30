@@ -19,5 +19,5 @@ end
 
 -- change also in server/config.lua -> line 12
 function OpenCrate()
-    return Airdrop:hasItem('wrench')
+    return Airdrop:hasItem('drill')
 end

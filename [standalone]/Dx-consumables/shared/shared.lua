@@ -88,40 +88,72 @@ end
 
 --Screen Effects
 local alienEffect = false
+-- function AlienEffect()
+--     if alienEffect then return else alienEffect = true end
+--     if Config.Debug then print("^5Debug^7: ^3AlienEffect^7() ^2activated") end
+--     AnimpostfxPlay("DrugsMichaelAliensFightIn", 3.0, 0)
+--     Wait(math.random(5000, 8000))
+--     local Ped = PlayerPedId()
+--     local animDict = "MOVE_M@DRUNK@VERYDRUNK"
+--     loadAnimDict(animDict)
+--     SetPedCanRagdoll(Ped, true)
+--     ShakeGameplayCam('DRUNK_SHAKE', 2.80)
+--     SetTimecycleModifier("Drunk")
+--     SetPedMovementClipset(Ped, animDict, 1)
+--     SetPedMotionBlur(Ped, true)
+--     SetPedIsDrunk(Ped, true)
+--     Wait(1500)
+--     SetPedToRagdoll(Ped, 5000, 1000, 1, 0, 0, 0)
+--     Wait(13500)
+--     SetPedToRagdoll(Ped, 5000, 1000, 1, 0, 0, 0)
+--     Wait(120500)
+--     ClearTimecycleModifier()
+--     ResetScenarioTypesEnabled()
+--     ResetPedMovementClipset(Ped, 0)
+--     SetPedIsDrunk(Ped, false)
+--     SetPedMotionBlur(Ped, false)
+--     AnimpostfxStopAll()
+--     ShakeGameplayCam('DRUNK_SHAKE', 0.0)
+--     AnimpostfxPlay("DrugsMichaelAliensFight", 3.0, 0)
+--     Wait(math.random(45000, 60000))
+--     AnimpostfxPlay("DrugsMichaelAliensFightOut", 3.0, 0)
+--     AnimpostfxStop("DrugsMichaelAliensFightIn")
+--     AnimpostfxStop("DrugsMichaelAliensFight")
+--     AnimpostfxStop("DrugsMichaelAliensFightOut")
+--     alienEffect = false
+--     if Config.Debug then print("^5Debug^7: ^3AlienEffect^7() ^2stopped") end
+-- end
 function AlienEffect()
-    if alienEffect then return else alienEffect = true end
-    if Config.Debug then print("^5Debug^7: ^3AlienEffect^7() ^2activated") end
-    AnimpostfxPlay("DrugsMichaelAliensFightIn", 3.0, 0)
+    StartScreenEffect("DrugsMichaelAliensFightIn", 3.0, 0)
     Wait(math.random(5000, 8000))
-    local Ped = PlayerPedId()
-    local animDict = "MOVE_M@DRUNK@VERYDRUNK"
-    loadAnimDict(animDict)
-    SetPedCanRagdoll(Ped, true)
+    local ped = PlayerPedId()
+    RequestAnimSet("MOVE_M@DRUNK@VERYDRUNK")
+    while not HasAnimSetLoaded("MOVE_M@DRUNK@VERYDRUNK") do Citizen.Wait(0) end
+    SetPedCanRagdoll( ped, true )
     ShakeGameplayCam('DRUNK_SHAKE', 2.80)
     SetTimecycleModifier("Drunk")
-    SetPedMovementClipset(Ped, animDict, 1)
-    SetPedMotionBlur(Ped, true)
-    SetPedIsDrunk(Ped, true)
+    SetPedMovementClipset(ped, "MOVE_M@DRUNK@VERYDRUNK", true)
+    SetPedMotionBlur(ped, true)
+    SetPedIsDrunk(ped, true)
     Wait(1500)
-    SetPedToRagdoll(Ped, 5000, 1000, 1, 0, 0, 0)
+    SetPedToRagdoll(ped, 5000, 1000, 1, false, false, false )
     Wait(13500)
-    SetPedToRagdoll(Ped, 5000, 1000, 1, 0, 0, 0)
+    SetPedToRagdoll(ped, 5000, 1000, 1, false, false, false )
     Wait(120500)
     ClearTimecycleModifier()
     ResetScenarioTypesEnabled()
-    ResetPedMovementClipset(Ped, 0)
-    SetPedIsDrunk(Ped, false)
-    SetPedMotionBlur(Ped, false)
+    ResetPedMovementClipset(ped, 0)
+    SetPedIsDrunk(ped, false)
+    SetPedMotionBlur(ped, false)
     AnimpostfxStopAll()
     ShakeGameplayCam('DRUNK_SHAKE', 0.0)
-    AnimpostfxPlay("DrugsMichaelAliensFight", 3.0, 0)
+    StartScreenEffect("DrugsMichaelAliensFight", 3.0, 0)
     Wait(math.random(45000, 60000))
-    AnimpostfxPlay("DrugsMichaelAliensFightOut", 3.0, 0)
-    AnimpostfxStop("DrugsMichaelAliensFightIn")
-    AnimpostfxStop("DrugsMichaelAliensFight")
-    AnimpostfxStop("DrugsMichaelAliensFightOut")
+    StartScreenEffect("DrugsMichaelAliensFightOut", 3.0, 0)
+    StopScreenEffect("DrugsMichaelAliensFightIn")
+    StopScreenEffect("DrugsMichaelAliensFight")
+    StopScreenEffect("DrugsMichaelAliensFightOut")
     alienEffect = false
-    if Config.Debug then print("^5Debug^7: ^3AlienEffect^7() ^2stopped") end
 end
 local weedEffect = false
 function WeedEffect()

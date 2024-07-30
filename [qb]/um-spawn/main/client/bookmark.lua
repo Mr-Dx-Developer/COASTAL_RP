@@ -13,14 +13,14 @@ end
 local function getLocation()
     local ped = cache.ped
     local coords = GetEntityCoords(ped)
-    return { x = coords.x, y = coords.y, z = coords.z, h = GetEntityHeading(ped)}
+    return { x = coords.x, y = coords.y, z = coords.z, h = GetEntityHeading(ped) }
 end
 
 
 RegisterCommand('addbookmark', function()
     local input = lib.inputDialog(lng.input.title, {
-        {type = 'input', label = lng.input.first.name, description = lng.input.first.desc, icon = 'pencil', required = true, min = 4, max = 16},
-        {type = 'input', label = lng.input.second.name, description = lng.input.second.desc, icon = 'image', min = 10, required = true},
+        { type = 'input', label = lng.input.first.name,  description = lng.input.first.desc,  icon = 'pencil', required = true, min = 4,        max = 16 },
+        { type = 'input', label = lng.input.second.name, description = lng.input.second.desc, icon = 'image',  min = 10,        required = true },
     })
 
     local location = getLocation()
@@ -31,7 +31,6 @@ RegisterCommand('addbookmark', function()
     -- if not checkURL(input[2]) then return lib.notify({title = lng.error.title,description = lng.error.link,type = 'error'}) end
 
     if not um.main.bookmark.money.free then
-
         local alert = lib.alertDialog({
             header = lng.dialog.header,
             content = string.format(lng.dialog.content, moneyAmount),
@@ -41,11 +40,11 @@ RegisterCommand('addbookmark', function()
 
 
         if alert == 'confirm' then
-        local pMoney = lib.callback.await('um-spawn:server:bookmark:getMoney')
+            local pMoney = lib.callback.await('um-spawn:server:bookmark:getMoney')
             if pMoney >= moneyAmount then
                 TriggerServerEvent('um-spawn:server:bookmark:addBookmark', input, moneyAmount, location)
             else
-                lib.notify({title = lng.error.title,description = lng.error.money,type = 'error'})
+                lib.notify({ title = lng.error.title, description = lng.error.money, type = 'error' })
             end
         end
     else
@@ -54,7 +53,9 @@ RegisterCommand('addbookmark', function()
 end)
 
 
-RegisterNUICallback('deleteBookmark', function(name,cb)
-    TriggerServerEvent('um-spawn:server:bookmark:deleteBookmark', name)
-    cb(1 or 'ok')
+RegisterNUICallback('deleteBookmark', function(name, cb)
+    if not name then return cb(false) end
+    local bookmarkAwait = lib.callback.await('um-spawn:server:bookmark:deleteBookmark', false, name)
+    if not bookmarkAwait then return cb(false) end
+    cb(true)
 end)

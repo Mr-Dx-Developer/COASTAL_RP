@@ -24,25 +24,12 @@ function WSB.showContextMenu(data)
     -- (Basically follow the same as ox_lib menu system and transfer the options to your own menu system)]
 
     -- Remove below this if you are using your own menu system / want to use ox_lib
-    Wait(300)
-    for _, option in ipairs(data.options) do
-        if option.icon then
-            option.icon = NormalizeFontAwesomeIcon(option.icon)
-        end
-    end
 
-    SendNUIMessage({
-        component = 'contextMenu',
-        title = data.title,
-        color = data.color or false,
-        options = data.options,
-        onExit = data.onExit or false
-    })
-    SetNuiFocus(true, true)
-    local sentNUI = true
-    if sentNUI then return end
+    ShowContextMenu(data)
+
     -- Remove above this if you are using your own menu system / want to use ox_lib
 
+    --[[
     local oxLib = GetResourceState('ox_lib')
     if oxLib ~= 'started' and oxLib ~= 'starting' then
         print(
@@ -50,7 +37,7 @@ function WSB.showContextMenu(data)
         return
     end
     exports.ox_lib:registerContext(data)
-    exports.ox_lib:showContext(data.id)
+    exports.ox_lib:showContext(data.id)]]
 end
 
 -- Regular Menu
@@ -59,28 +46,10 @@ function WSB.showMenu(data)
     -- data: the same as data is for wsb.showContextMenu
 
     -- Remove below this if you are using your own menu system / want to use ox_lib
-    Wait(300)
-    for _, option in ipairs(data.options) do
-        if option.icon then
-            option.icon = NormalizeFontAwesomeIcon(option.icon)
-        end
-    end
-
-    SendNUIMessage({
-        component = 'menu',
-        title = data.title,
-        color = data.color or false,
-        position = data.position or false,
-        options = data.options,
-        onExit = data.onExit or false
-    })
-
-    SetNuiFocus(true, false)
-    SetNuiFocusKeepInput(true)
-    local sentNUI = true
-    if sentNUI then return end
+    ShowMenu(data)
     -- Remove above this if you are using your own menu system / want to use ox_lib
 
+    --[[
     local oxLib = GetResourceState('ox_lib')
     if oxLib ~= 'started' and oxLib ~= 'starting' then
         print(
@@ -100,5 +69,5 @@ function WSB.showMenu(data)
         end
     end)
 
-    exports.ox_lib:showMenu(data.id)
+    exports.ox_lib:showMenu(data.id) ]]
 end

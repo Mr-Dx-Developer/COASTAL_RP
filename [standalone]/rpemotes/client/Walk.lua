@@ -1,8 +1,3 @@
-
-
-
-
-
 local canChange = true
 local unable_message = "You are unable to change your walking style right now."
 
@@ -61,38 +56,41 @@ end
 --- I've added QBCore and ESX support so hopefully people quit crying about it. derchico  ---
 
 if Config.WalkingStylesEnabled and Config.PersistentWalk then
+    -- Function to check if walkstyle is available to prevent exploiting
+    local function walkstyleExists(kvp)
+        for _, v in pairs(RP.Walks) do
+            if v[1] == kvp then
+                return true
+            end
+        end
+        return false
+    end
+
+    local function handleWalkstyle()
+        local kvp = GetResourceKvpString("walkstyle")
+
+        if kvp ~= nil then
+            if walkstyleExists(kvp) then
+                WalkMenuStart(kvp)
+            else
+                ResetPedMovementClipset(PlayerPedId(), 0.0)
+                DeleteResourceKvp("walkstyle")
+            end
+        end
+    end
+
     -- Basic Event for Standalone
-    AddEventHandler('playerSpawned', function()
-        local kvp = GetResourceKvpString("walkstyle")
-
-        if kvp ~= nil then
-            WalkMenuStart(kvp)
-        end
-    end)
+    AddEventHandler('playerSpawned', handleWalkstyle)
     -- Event for QB-Core Users.
-    RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
-        Wait(5000)
-        local kvp = GetResourceKvpString("walkstyle")
-
-        if kvp ~= nil then
-            WalkMenuStart(kvp)
-        end
-    end)
+    RegisterNetEvent('QBCore:Client:OnPlayerLoaded', handleWalkstyle)
     -- Event for ESX Users.
     RegisterNetEvent('esx:playerLoaded')
-    AddEventHandler('esx:playerLoaded', function()
-        Wait(5000)
-        local kvp = GetResourceKvpString("walkstyle")
-
-        if kvp ~= nil then
-            WalkMenuStart(kvp)
-        end
-    end)
+    AddEventHandler('esx:playerLoaded', handleWalkstyle)
 end
 
 if Config.WalkingStylesEnabled then
     RegisterCommand('walks', function() WalksOnCommand() end, false)
-    RegisterCommand('walk', function(source, args, raw) WalkCommandStart(tostring(args[1])) end, false)
+    RegisterCommand('walk', function(_, args, _) WalkCommandStart(tostring(args[1])) end, false)
     TriggerEvent('chat:addSuggestion', '/walk', 'Set your walkingstyle.', { { name = "style", help = "/walks for a list of valid styles" } })
     TriggerEvent('chat:addSuggestion', '/walks', 'List available walking styles.')
 end
@@ -105,3 +103,7 @@ function toggleWalkstyle(bool, message)
 end
 
 exports('toggleWalkstyle', toggleWalkstyle)
+
+exports('getWalkstyle', function()
+    return GetResourceKvpString("walkstyle")
+end)

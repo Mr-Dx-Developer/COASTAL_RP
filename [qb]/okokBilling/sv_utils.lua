@@ -1,6 +1,6 @@
 QBCore = exports["qb-core"]:GetCoreObject()
 
-Webhook = 'https://discord.com/api/webhooks/1255888238330118256/0o04OREtLI4n8zehOLirr9dL96jjDc0YMtq38lc_gm5zWd84aaooc_pPyr2Bz0042dtT'
+Webhook = ''
 
 QBCore.Functions.CreateCallback(Config.EventPrefix..":getPlayerGroup", function(source, cb)
     local isAdmin = false
@@ -156,7 +156,7 @@ AddEventHandler(Config.EventPrefix..":createInvoiceSociety", function(data)
 			local author_name = tostring(getName(authorPlayer.PlayerData.citizenid))
 			local receiver_id = tostring(receiverPlayer.PlayerData.citizenid)
 			local receiver_name = tostring(getName(receiverPlayer.PlayerData.citizenid))
-			MySQLinsert('INSERT INTO '..Config.DatabaseTable..' (ref_id, fees_amount, receiver_identifier, receiver_name, author_identifier, author_name, society, society_name, item, invoice_value, status, notes, sent_date, limit_pay_date) VALUES (CONCAT("OK", UPPER(LEFT(UUID(), 8))), 0, @receiver_identifier, @receiver_name, @author_identifier, @author_name, @society, @society_name, @item, @invoice_value, @status, @notes, CURRENT_TIMESTAMP(), DATE_ADD(CURRENT_DATE, INTERVAL '..Config.DefaultLimitDate..' DAY))', {
+			MySQLinsert('INSERT INTO '..Config.DatabaseTable..' (ref_id, fees_amount, receiver_identifier, receiver_name, author_identifier, author_name, society, society_name, item, invoice_value, status, notes, sent_date, limit_pay_date) VALUES (CONCAT("'..Config.ReferencePrefix..'", UPPER(LEFT(UUID(), 8))), 0, @receiver_identifier, @receiver_name, @author_identifier, @author_name, @society, @society_name, @item, @invoice_value, @status, @notes, CURRENT_TIMESTAMP(), DATE_ADD(CURRENT_DATE, INTERVAL '..Config.DefaultLimitDate..' DAY))', {
 				['@receiver_identifier'] = receiver_id,
 				['@receiver_name'] = receiver_name,
 				['@author_identifier'] = author_id,
@@ -207,7 +207,7 @@ AddEventHandler(Config.EventPrefix..":createInvoicePlayer", function(data)
 	local author_name = tostring(getName(authorPlayer.PlayerData.citizenid))
 	local receiver_name = tostring(getName(receiverPlayer.PlayerData.citizenid))
 
-	MySQLinsert('INSERT INTO '..Config.DatabaseTable..' (ref_id, fees_amount, receiver_identifier, receiver_name, author_identifier, author_name, society, society_name, item, invoice_value, status, notes, sent_date, limit_pay_date) VALUES (CONCAT("OK", UPPER(LEFT(UUID(), 8))), 0, @receiver_identifier, @receiver_name, @author_identifier, @author_name, @society, @society_name, @item, @invoice_value, @status, @notes, CURRENT_TIMESTAMP(), DATE_ADD(CURRENT_DATE, INTERVAL '..Config.DefaultLimitDate..' DAY))', {
+	MySQLinsert('INSERT INTO '..Config.DatabaseTable..' (ref_id, fees_amount, receiver_identifier, receiver_name, author_identifier, author_name, society, society_name, item, invoice_value, status, notes, sent_date, limit_pay_date) VALUES (CONCAT("'..Config.ReferencePrefix..'", UPPER(LEFT(UUID(), 8))), 0, @receiver_identifier, @receiver_name, @author_identifier, @author_name, @society, @society_name, @item, @invoice_value, @status, @notes, CURRENT_TIMESTAMP(), DATE_ADD(CURRENT_DATE, INTERVAL '..Config.DefaultLimitDate..' DAY))', {
 		['@receiver_identifier'] = tostring(receiverPlayer.PlayerData.citizenid),
 		['@receiver_name'] = tostring(getName(receiverPlayer.PlayerData.citizenid)),
 		['@author_identifier'] = tostring(authorPlayer.PlayerData.citizenid),

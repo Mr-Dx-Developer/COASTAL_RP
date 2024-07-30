@@ -85,9 +85,11 @@ Config.Hookers = {
         vec4(-128.95, 68.84, 70.1, 27.38),
     },
     Header = "Pimp",
-    Location = vec4(120.761, -1328.953, 28.365, 36.762),
+    --Location = vec4(120.761, -1328.953, 28.365, 36.762),
+    Location = vec4(0.0, 0.0, 0.0, 0.0),
     Ped = {
-        { model = "csb_vagspeak", coords = vec4(120.761, -1328.953, 28.365, 36.762), scenario = "WORLD_HUMAN_SMOKING" },
+       -- { model = "csb_vagspeak", coords = vec4(120.761, -1328.953, 28.365, 36.762), scenario = "WORLD_HUMAN_SMOKING" },
+        { model = "csb_vagspeak", coords = vec4(0.0, 0.0, 0.0, 0.0), scenario = "WORLD_HUMAN_SMOKING" },
     },
 }
 

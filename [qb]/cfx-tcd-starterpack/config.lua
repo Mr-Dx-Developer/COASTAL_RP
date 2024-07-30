@@ -20,15 +20,15 @@ Config.Target = {
     ped = 'a_m_y_business_03',            -- https://docs.fivem.net/docs/game-references/ped-models/
     label = 'Get your starter pack',
     receiving_radius = 20.0,              -- radius to receive the starter pack
-    coords = vec4(-1040.479126, -2731.582520, 20.164062, 238.110229),
+    coords = vec4(-1038.788, -2729.27, 20.169, 333.179),
     distance = 2.0,
 }
 
 Config.StarterPackItems = { -- items that will be given to player
-    { item = 'bread',    amount = 5 },
-    { item = 'water',    amount = 5 },
+    { item = 'sandwich',    amount = 5 },
+    { item = 'water_bottle',    amount = 5 },
     { item = 'phone',    amount = 1 },
-    { item = 'advancedlockpick', amount = 1 },
+    { item = 'lockpick', amount = 1 },
    -- { item = 'money',    amount = 5000 },
 }
 
@@ -48,7 +48,7 @@ Config.StarterVehicle = {
 
 Config.EnableAlertDialog = true -- if you want to use alert dialog to give a short message to the player
 Config.Dialog = {
-    title = 'Bangladesh Roleplay Server',
+    title = 'Coastal Roleplay Server',
     message = 'Welcome to the server, I hope you enjoy your stay. make sure to read the **rules** and have fun! \n\nDo you want to receive the starter pack?',
 }
 

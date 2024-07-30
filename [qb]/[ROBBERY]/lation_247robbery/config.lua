@@ -67,16 +67,16 @@ Config.Registers = {
     inputs = { 'W', 'A', 'S', 'D' },
     -- After a successful register robbery, what item do you want to reward
     -- And how much of it? Set the item = 'name' below and min/max quantites
-    reward = { item = 'cash', min = 1000, max = 1000 },
+    reward = { item = 'cash', min = 1000, max = 3000 },
     -- If a player fails to successfully lockpick the register
     -- There is a chance that their lockpick will break. In percentage,
     -- What chance do you want their lockpick to break? To never break, set 0
     -- To break every time, set 100
-    breakChange = 50,
+    breakChange = 0,
     -- After a player succesfully robs a register, there is this "noteChance" they
     -- "Find" the safe's PIN "under the register" and can skip the computer hacking
     -- Step if found. In percentage, what chance do they have to find this note?
-    noteChance = 10
+    noteChance = 100
 }
 
 Config.Computers = {

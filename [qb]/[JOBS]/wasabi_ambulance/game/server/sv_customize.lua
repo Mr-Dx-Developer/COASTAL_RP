@@ -119,7 +119,6 @@ end
 
 RegisterNetEvent('wasabi_ambulance:removeItemsOnDeath', function()
     local identifier = wsb.getIdentifier(source)
-    if not player then return end
     if not wsb.inventorySystem then
         if GetResourceState('mf-inventory') == 'started' then
             exports['mf-inventory']:clearInventory(identifier)

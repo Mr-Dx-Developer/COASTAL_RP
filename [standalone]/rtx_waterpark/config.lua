@@ -29,7 +29,9 @@ Config.WaterSlideBuyDistance = 3.5 -- max distance for buy entry
 
 Config.Target = false -- enable this if you want use target
 
-Config.Targettype = "qtarget" -- types - qtarget, qbtarget, oxtarget
+Config.Targettype = "oxtarget" -- types - qtarget, qbtarget, oxtarget
+
+Config.TargetSystemsNames = {qtarget = "qtarget", qbtarget = "qb-target", oxtarget = "ox_target"}
 
 Config.TargetIcons = {buyicon = "fa-solid fa-cart-shopping", slideicon = "fa-solid fa-water"} 
 
@@ -68,8 +70,8 @@ Config.WaterParkBlip = {
 }
 
 function Notify(text)
-	--exports["rtx_notify"]:Notify("Water Park", text, 5000, "info") -- if you get error in this line its because you dont use our notify system buy it here https://rtx.tebex.io/package/5402098 or you can use some other notify system just replace this notify line with your notify system
-	exports["ox_lib"]:SendAlert("inform", text, 5000)
+	exports["rtx_notify"]:Notify("Water Park", text, 5000, "info") -- if you get error in this line its because you dont use our notify system buy it here https://rtx.tebex.io/package/5402098 or you can use some other notify system just replace this notify line with your notify system
+	--exports["mythic_notify"]:SendAlert("inform", text, 5000)
 end
 
 function DrawText3D(x, y, z, text)

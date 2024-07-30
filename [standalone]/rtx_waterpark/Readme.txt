@@ -23,6 +23,12 @@ Install instructions (ESX):
 4. Put rtx_waterpark to the server.cfg
 5. If you want use waterpass system, upload sql sql_ESX.sql file to your mysql database.
 
+Common issues:
+
+-----------------------------
+
+If you use an anticheat, put an object named "prop_cs_box_clothes" in the whitelist
+
 License agreement / Terms of Service
 1. Any purchase is non-refundable.
 2. Each product is to be used on a singular server, with the exception of a test server.

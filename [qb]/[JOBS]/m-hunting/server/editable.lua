@@ -65,7 +65,7 @@ Editable.GetUserItemList = function(source)
                 }
             end
         end
-    elseif Config.Inventory == "codem_inventory" then
+    elseif Config.Inventory == "codem-inventory" then
         if Config.Framework == "new-qb" or Config.Framework == "old-qb" then
             for _, v in pairs(user.PlayerData.items) do
                 if (Config.ItemPrices[v.name] ~= nil) then
@@ -92,7 +92,6 @@ Editable.GetUserItemList = function(source)
     end
     return ItemList
 end
-
 
 Editable.AddItem = function(source, item, amount)
     local src = source
@@ -126,13 +125,13 @@ Editable.AddItem = function(source, item, amount)
             return
         end
         exports.ox_inventory:AddItem(source, item, amount)
-    elseif Config.Inventory == "codem_inventory" then
+    elseif Config.Inventory == "codem-inventory" then
         if item == Config.WeaponHash then
             exports['codem-inventory']:AddItem(source, item, amount)
             exports['codem-inventory']:AddItem(source, Config.AmmoItem.name, tonumber(Config.AmmoItem.count))
             return
         end
-        user.Functions.AddItem(item, amount)
+        exports['codem-inventory']:AddItem(source, item, amount)
     end
 end
 
@@ -146,7 +145,7 @@ Editable.RemoveItem = function(source, item, amount)
         user.removeInventoryItem(Config.AmmoItem.name, Config.AmmoItem.count)
     elseif Config.Inventory == "ox_inventory" then
         exports.ox_inventory:RemoveItem(source, item, amount)
-    elseif Config.Inventory == "codem_inventory" then
+    elseif Config.Inventory == "codem-inventory" then
         exports['codem-inventory']:RemoveItem(source, item, amount)
     end
     if Config.PedWeaponDeleted then

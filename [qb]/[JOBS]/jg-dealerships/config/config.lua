@@ -97,19 +97,19 @@ Config.DealershipLocations = {
   ["pdm"] = {
     type = "owned", -- or "owned", "self-service"
     openShowroom = {
-      coords = vector3(-56.522, -1096.897, 26.422),
+      coords = vector3(-32.962, -1097.61, 27.274),
       size = 5
     },
     openManagement = {
-      coords = vector3(-31.902, -1113.817, 26.422),
+      coords = vector3(-25.576, -1104.549, 27.274),
       size = 5
     },
     sellVehicle = {
-      coords = vector3(-27.89, -1082.1, 26.64),
+      coords = vector3(-23.694, -1094.53, 27.305),
       size = 5
     },
-    purchaseSpawn = vector4(-13.954, -1092.197, 26.672, 163.603),
-    testDriveSpawn = vector4(-13.954, -1092.197, 26.672, 163.603),
+    purchaseSpawn = vector4(-15.004, -1093.535, 27.027, 162.189),
+    testDriveSpawn = vector4(-15.004, -1093.535, 27.027, 162.189),
     camera = {
       name = "Car",
       coords = vector4(-146.6166, -596.6301, 166.0, 270.0),
@@ -197,7 +197,7 @@ Config.DealershipLocations = {
       positions = {7.5, 12.0, 15.0, 12.0}
     },
     categories = {"boats"},
-    enableSellVehicle = true, -- Allow players to sell vehicles back to dealer
+    enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
     sellVehiclePercent = 0.6,  -- 60% of current sale price
     enableTestDrive = false,
     hideBlip = false,
@@ -214,7 +214,7 @@ Config.DealershipLocations = {
     societyPurchaseGangWhitelist = {},
   },
   ["air"] = {
-    type = "self-service", -- or "owned", "self-service"
+    type = "owned", -- or "owned", "self-service"
     openShowroom = {
       coords = vector3(-1623.0, -3151.56, 13.99),
       size = 5
@@ -235,7 +235,7 @@ Config.DealershipLocations = {
       positions = {12.0, 15.0, 20.0, 15.0}
     },
     categories = {"planes", "helicopters"},
-    enableSellVehicle = true, -- Allow players to sell vehicles back to dealer
+    enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
     sellVehiclePercent = 0.6,  -- 60% of current sale price
     enableTestDrive = false,
     hideBlip = false,

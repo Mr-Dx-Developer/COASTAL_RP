@@ -3,7 +3,7 @@ Config = {}
 Config.Debug = false
 --SERVER SETTINGS
 Config.Framework = "qbcore" -- Set your framework! qbcore, ESX, standalone
-Config.NewESX = true -- if you use esx 1.1 version set this to false
+Config.NewESX = false -- if you use esx 1.1 version set this to false
 Config.InteractionType = "target" -- target or textui or 3dtext | which type of interaction you want
 Config.Target = "qb-target" -- Which Target system do u use? qb-target, qtarget
 Config.Dispatch = { enabled = true, script = "ps-disptach" } -- cd_dispatch, linden_outlawalert, ps-disptach
@@ -169,7 +169,7 @@ Config.ComicShop = {
     Header = "Comic Shop",
     Items = {
         { label = 'Action Figure', item = 'coke_figureempty', description = "Buy Action Figure for: $", price = 240,
-            MinAmount = 1, MaxAmount = 2 },
+            MinAmount = 1, MaxAmount = 25 },
     },
     Ped = {
         { model = "u_m_y_imporage", coords = vec4(-143.52, 229.53, 93.94, 1.4), scenario = "WORLD_HUMAN_MUSCLE_FLEX" },
@@ -441,7 +441,7 @@ Config.Crack = {
         RequiredItems = {
             { item = "coke_pure", count = 2, remove = true },
             { item = "baking_soda", count = 1, remove = true },
-            { item = "water", count = 1, remove = true },
+            { item = "water_bottle", count = 1, remove = true },
         },
         AddItems = {
             { item = "crack", count = 1 },

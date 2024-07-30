@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field
 if GetResourceState('myCustomCore') == 'missing' then return end 
 
 --MyCore = Load Your Core
@@ -224,7 +225,7 @@ inventory.setNewMetadata = function(self, playerSource, item, slot, metadataKey,
     end
 end
 
--- Used by [mk_garage] [mk_usedvehicles]
+-- Used by [mk_garage] [mk_usedvehicles] [mk_vehicleshop]
 ---@param data { shared: true|nil (true if a shared vehicle), userData: table|nil (owners row from the players database or nil if shared vehicle), modelString: string (vehicle model name), 
 ---@param data      modelHash: number (vehicle model number), mods: table (vehicle mods), plate: string (vehicle plate), vin: string|nil (vehicle vin number), garage: string (garage name),
 ---@param data      state: number (0 - out 1 - garaged 2 - impounded), fuelLevel: number (vehicle fuel amount), engineHealth: number (vehicle engine health), bodyHealth: number (vehicle body health),
@@ -355,7 +356,7 @@ database.impoundVehicle = function(self, data, cb)
     }, cb)
 end
 
--- Used by [mk_garage]
+-- Used by [mk_garage] [mk_vehicleshop]
 ---@param playerSource number Player server id
 ---@param playerIdentifier string Player identifier
 ---@return string|boolean player firstname, player lastname or false, false
@@ -367,7 +368,7 @@ framework.getPlayerName = function(self, playerSource, playerIdentifier)
     end
 end
 
--- Used by [mk_garage] [mk_plates]
+-- Used by [mk_garage] [mk_plates] [mk_vehicleshop]
 ---@param playerSource number Player server id
 ---@return string|boolean player job name, player job grade or false, false
 framework.getJob = function(self, playerSource)
@@ -381,7 +382,7 @@ framework.getPlayerSourceByIdentifier = function(self, playerIdentifier)
 
 end
 
--- Used by [mk_garage] [mk_mining] [mk_usedvehicles] [mk_garbage] [mk_vehiclekeys]
+-- Used by [mk_garage] [mk_mining] [mk_usedvehicles] [mk_garbage] [mk_vehiclekeys] [mk_vehicleshop]
 ---@param playerSource number Player server id
 ---@param moneyType string 'cash'|'bank' Account to check
 ---@return number Account balance or 0
@@ -389,7 +390,7 @@ framework.checkMoney = function(self, playerSource, moneyType)
 
 end
 
--- Used by [mk_garage] [mk_mining] [mk_usedvehicles] [mk_garbage] [mk_vehiclekeys]
+-- Used by [mk_garage] [mk_mining] [mk_usedvehicles] [mk_garbage] [mk_vehiclekeys] [mk_vehicleshop]
 ---@param playerSource number Player server id
 ---@param moneyType string 'cash'|'bank' Account to remove money from
 ---@param amount number Amount to remove
@@ -398,7 +399,7 @@ framework.removeMoney = function(self, playerSource, moneyType, amount)
 
 end
 
--- Used by [mk_garbage] [mk_mining] [mk_usedvehicles]
+-- Used by [mk_garbage] [mk_mining] [mk_usedvehicles] [mk_vehicleshop]
 ---@param playerSource number Player server id
 ---@param moneyType string 'cash'|'bank' Account to add money to
 ---@param amount number Amount to add
@@ -416,7 +417,7 @@ framework.addMoneyToOfflinePlayer = function(self, identifier, moneyType, amount
 
 end
 
--- Used by [mk_garage]
+-- Used by [mk_garage] [mk_vehicleshop]
 ---@param societyType string 'job'|'gang' Job or gang society
 ---@param societyName string Job or gang name
 ---@return number|boolean Account balance or false
@@ -424,12 +425,45 @@ society.getBalance = function(self, societyType, societyName)
 
 end
 
--- Used by [mk_garage]
+-- Used by [mk_garage] [mk_vehicleshop]
 ---@param deposit boolean true if depositing money. false if withdrawing
 ---@param societyType string 'job'|'gang' Job or gang society
 ---@param societyName string Job or gang name
 ---@param amount number Amount to add or remove from society account
 ---@return number|boolean New balance amount or false
-society.updateBalance = function(self, deposit, societyType, societyName, amount)
+society.updateBalance = function(self, playerSource, deposit, societyType, societyName, amount)
 
+end
+
+--Used by [mk_vehicleshop]
+---@param shopName string Vehicle shop name from [mk_vehicleshop] locations.lua
+framework.getShopVehicles = function(self, shopName)
+    --[[
+        return vehicles for this shop in the following table format
+        {
+            [categories] = {
+                name = category name (example compacts)
+                categoryLabel = category label (example Compacts)
+            },
+            [category] = { --(example compacts)
+                {
+                    name = Vehicle Name (example Club)
+                    model = string vehicle spawn code (example club)
+                    price = vehicle price  example (5000)
+                },
+                {
+                    name = Vehicle Name (example Blista Kanjo)
+                    model = string vehicle spawn code (example kanjo)
+                    price = vehicle price  example (12000)
+                }
+            }
+        }
+    ]]
+end
+
+--Used by [mk_vehicleshop]
+---@param playerSource number Player server id
+---@param bool boolean On Duty boolean
+framework.setjobDuty = function(self, playerSource, bool)
+    --Set framework job duty if your framework supports this
 end

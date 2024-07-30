@@ -11,11 +11,11 @@ um.forceApartmentStart = false
 um.property = {
     apartments = {
         status = false, -- If you want to show the apartment system, set it to true.
-        script = 'qb', -- qb, qbx , ps
+        script = 'qb', -- qb, qbx (for old qbx_apartments), ps, qbx_properties, bcs
     },
     houses = {
         status = true, -- If you want to show the house system, set it to true.
-        script = 'qs', -- qb, qbx , ps , qs , nolag, bcs
+        script = 'qb', -- qb, qbx , ps , qs , nolag, bcs
     }
 }
 
@@ -26,24 +26,29 @@ um.xmas = {
 }
 
 um.main = {
+    onlyLastLocation = false,        -- If you want to only last location set true.
+    forceDeadPedLastLocation = true, -- If you want force injured ped last location set true.
     camera = {
-        radius = 2.0, -- Camera distance from the character
-        angle = 50, -- Camera angle
-        point = 0.1, -- Camera point
-        turning = true, -- If you want to turn the camera, set it to true.
-        skyspawnPos = -20, -- -100 vertical, -20 horizontal
+        radius = 2.0,                -- Camera distance from the character
+        angle = 50,                  -- Camera angle
+        point = 0.1,                 -- Camera point
+        turning = true,              -- If you want to turn the camera, set it to true.
+        skyspawnPos = -20,           -- -100 vertical, -20 horizontal
+    },
+    spawn = {
+        type = 'gtaVNative', -- playerFromSky (um), gtaVNative
+        cutScene = true,     -- If you want to show the cutscene, set it to true.
     },
     ped = {
         status = false, -- Make it true if you want your character to see and walk the path
     },
     bookmark = {
-        status = true, -- If you want to show the bookmark system, set it to true.
+        status = true,    -- If you want to show the bookmark system, set it to true.
         money = {
             free = false, -- If you want to bookmark the free money, set it to true.
             amount = math.random(1000, 10000) or 500
         }
     },
-    map = true, -- If you want to show other locations [paleto etc], set it to true.
 }
 
 --[[
@@ -62,10 +67,10 @@ um.hud = function(bool)
 end
 
 um.weather = {
-    sync = false, -- If you want to sync the weather, set it to true.
-    sc = 'qb', -- cd , qb
+    sync = false,  -- If you want to sync the weather, set it to true.
+    sc = 'qb',     -- cd , qb
     type = 'XMAS', -- https://docs.fivem.net/docs/game-references/weather-types/
-    time = 23, -- 0 - 23
+    time = 23,     -- 0 - 23
 }
 
 um.coords = {
@@ -75,12 +80,12 @@ um.coords = {
         text = 'Motel St'
     },
     ['hospital'] = {
-        coords = vector4(273.409, -1429.227, 29.527, 28.527),
+        coords = vector4(286.42, -602.82, 43.19, 128.92),
         street = 'Elgin Ave Del Perro Fwy',
         text = 'Hospital Ave'
     },
     ['police'] = {
-        coords = vector4(384.065, -963.95, 29.436, 277.908),
+        coords = vector4(400.46, -979.54, 29.39, 270.35),
         street = 'Sinner St Atlee St',
         text = 'Police Station'
     },

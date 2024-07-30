@@ -4,8 +4,8 @@ var MainAngle = 0;
 var MainCounter = 0;
 // # of digits, reach 0 => win
 var MainDigits = 5;
-var RotationTime = 15000; // time ms
-var RotationDegree = 3180*(RotationTime/15000);
+var RotationTime = 150000; // time ms
+var RotationDegree = 3180*(RotationTime/150000);
 var HitDistance = 25; // hit distance in px
 var killTimeout;
 var active = false;

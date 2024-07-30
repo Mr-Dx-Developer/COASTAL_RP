@@ -165,22 +165,22 @@ return {
 		}
 	},
 
-	-- ['water'] = {
-	-- 	label = 'Water',
-	-- 	weight = 500,
-	-- 	client = {
-	-- 		status = { thirst = 200000 },
-	-- 		anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
-	-- 		prop = { model = `prop_ld_flow_bottle`, pos = vec3(0.03, 0.03, 0.02), rot = vec3(0.0, 0.0, -1.5) },
-	-- 		usetime = 2500,
-	-- 		cancel = true,
-	-- 		notification = 'You drank some refreshing water'
-	-- 	}
-	-- },
+	['water'] = {
+	 	label = 'Water',
+	 	weight = 500,
+	 	client = {
+	 		status = { thirst = 200000 },
+	 		anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
+	 		prop = { model = `prop_ld_flow_bottle`, pos = vec3(0.03, 0.03, 0.02), rot = vec3(0.0, 0.0, -1.5) },
+	 		usetime = 2500,
+	 		cancel = true,
+	 		notification = 'You drank some refreshing water'
+	 	}
+	 },
 
 	['radio'] = {
 		label = 'Radio',
-		weight = 1000,
+		weight = 10,
 		stack = false,
 		allowArmed = true
 	},
@@ -229,7 +229,7 @@ return {
 		}
 	},
 
-	["coffee"] = {
+	--[[ ["coffee"] = {
 		label = "Coffee",
 		weight = 200,
 		stack = true,
@@ -238,7 +238,7 @@ return {
 		client = {
 			image = "coffee.png",
 		}
-	},
+	}, ]]
 
 	["veh_exterior"] = {
 		label = "Exterior",
@@ -845,6 +845,8 @@ return {
 		}
 	},
 
+    
+
 	["grip_attachment"] = {
 		label = "Grip",
 		weight = 1000,
@@ -1408,7 +1410,7 @@ return {
 	},
 
 	["trojan_usb"] = {
-		label = "Trojan USB",
+		label = "Hack USB",
 		weight = 0,
 		stack = true,
 		close = true,
@@ -1441,7 +1443,7 @@ return {
 	},
 
 	["electronickit"] = {
-		label = "Electronic Kit",
+		label = "Raspberry Pi",
 		weight = 100,
 		stack = true,
 		close = true,
@@ -1956,7 +1958,17 @@ return {
 			image = "police_stormram.png",
 		}
 	},
-
+	["weapon_nightstick"] = {
+		label = "Night Stick",
+		weight = 180,
+		stack = true,
+		close = true,
+		description = "A police officer\'s club or billy",
+		client = {
+			image = "weapon_nightstick.png",
+		}
+	},
+	
 	['forceps'] = {
 		label = 'forceps',
 		description = "",
@@ -2879,7 +2891,57 @@ return {
 			image = "usb_grey.png",
 		}
 	},
+	["pacific_key1"] = {
+		label = "Bank Data Key",
+		weight = 2500,
+		stack = false,
+		close = true,
+		description = "Bank Data Key",
+		client = {
+			image = "pacific_key1.png",
+		}
+	},
+	["pacific_key2"] = {
+		label = "Bank Data Key",
+		weight = 2500,
+		stack = false,
+		close = true,
+		description = "Bank Data Key",
+		client = {
+			image = "pacific_key2.png",
+		}
+	},
+	["pacific_key3"] = {
+		label = "Bank Data Key",
+		weight = 2500,
+		stack = false,
+		close = true,
+		description = "Bank Data Key",
+		client = {
+			image = "pacific_key3.png",
+		}
+	},
+	["pacific_key4"] = {
+		label = "Bank Data Key",
+		weight = 2500,
+		stack = false,
+		close = true,
+		description = "Bank Data Key",
+		client = {
+			image = "pacific_key4.png",
+		}
+	},
 
+	["fleeca_bankcard"] = {
+		label = "Bank Keycard",
+		weight = 2500,
+		stack = false,
+		close = true,
+		description = "Bank Keycard",
+		client = {
+			image = "fleeca_bankcard.png",
+		}
+	},
 	["laptop_blue"] = {
 		label = "Laptop",
 		weight = 2500,
@@ -8482,15 +8544,117 @@ return {
 		}
 	},
 
-	["ecola_light"] = {
-		label = "Ecola light",
-		weight = 0,
-		stack = true,
-		close = true,
-		description = "Sprunk",
+	['ecola_light'] = {
+		name = 'sludgie',
+		label = 'Sludgie',
+		weight = 350,
 		client = {
-			image = "ecola_light.png",
+			status = { thirst = 200000 },
+			anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
+			prop = { model = 'prop_ld_can_01', pos = vec3(0.01, 0.01, 0.06), rot = vec3(5.0, 5.0, -180.5) },
+			usetime = 2500,
+			notification = 'You quenched your thirst with a Coffee'
 		}
+	},
+	['ecola_light'] = {
+		name = 'ecola_light',
+		label = 'Ecola light',
+		weight = 350,
+		client = {
+			status = { thirst = 200000 },
+			anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
+			prop = { model = 'prop_ld_can_01', pos = vec3(0.01, 0.01, 0.06), rot = vec3(5.0, 5.0, -180.5) },
+			usetime = 2500,
+			notification = 'You quenched your thirst with a Coffee'
+		}
+	},
+	['ecola'] = {
+		name = 'ecola',
+		label = 'Ecola',
+		weight = 350,
+		client = {
+			status = { thirst = 200000 },
+			anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
+			prop = { model = 'prop_ld_can_01', pos = vec3(0.01, 0.01, 0.06), rot = vec3(5.0, 5.0, -180.5) },
+			usetime = 2500,
+			notification = 'You quenched your thirst with a Coffee'
+		}
+	},
+	['coffee'] = {
+		name = 'coffee',
+		label = 'Coffee',
+		weight = 350,
+		client = {
+			status = { thirst = 200000 },
+			anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
+			prop = { model = 'prop_ld_can_01', pos = vec3(0.01, 0.01, 0.06), rot = vec3(5.0, 5.0, -180.5) },
+			usetime = 2500,
+			notification = 'You quenched your thirst with a Coffee'
+		}
+	},
+	['fries'] = {
+		name = 'fries',
+		label = 'Fries',
+		weight = 350,
+		client = {
+			status = { hunger = 200000 },
+			anim = { dict = 'mp_player_inteat@burger', clip = 'mp_player_int_eat_burger_fp' },
+			prop = { model = 'prop_food_cb_chips', pos = vec3(0.02, 0.02, -0.02), rot = vec3(0.0, 0.0, 0.0) },
+			usetime = 2500,
+			notification = 'You eat Fries'
+		}
+	},
+	['pizza_ham'] = {
+		name = 'pizza_ham',
+		label = 'Pizza Ham',
+		weight = 350,
+		client = {
+			status = { hunger = 200000 },
+			anim = { dict = 'mp_player_inteat@burger', clip = 'mp_player_int_eat_burger_fp' },
+			prop = { model = 'prop_food_cb_chips', pos = vec3(0.02, 0.02, -0.02), rot = vec3(0.0, 0.0, 0.0) },
+			usetime = 2500,
+			notification = 'You eat Fries'
+		}
+	},
+	['chips'] = {
+		name = 'chips',
+		label = 'Chips',
+		weight = 350,
+		client = {
+			status = { hunger = 200000 },
+			anim = { dict = 'mp_player_inteat@burger', clip = 'mp_player_int_eat_burger_fp' },
+			prop = { model = 'prop_food_cb_chips', pos = vec3(0.02, 0.02, -0.02), rot = vec3(0.0, 0.0, 0.0) },
+			usetime = 2500,
+			notification = 'You eat Chips'
+		}
+	},
+	['donut'] = {
+		name = 'donut',
+		label = 'Donut',
+		weight = 350,
+		client = {
+			status = { hunger = 200000 },
+			anim = { dict = 'mp_player_inteat@burger', clip = 'mp_player_int_eat_burger_fp' },
+			prop = { model = 'prop_amb_donut', pos = vec3(0.02, 0.02, -0.02), rot = vec3(0.0, 0.0, 0.0) },
+			usetime = 2500,
+			notification = 'You eat Donut'
+		}
+	},
+	['wire_cutter'] = {
+		name = 'wire_cutter',
+		label = 'cutter',
+		weight = 100,
+		stack = true,
+		consume = 0,
+		close = true,
+	},
+	['cigarrete'] = {
+		name = 'cigarrete',
+		label = 'Cigarrete',
+		weight = 100,
+		stack = true,
+		consume = 0,
+		close = true,
 	},
 
 	["cigs_69brand"] = {
@@ -10857,6 +11021,16 @@ return {
 			image = "ecstasy1.png",
 		}
 	},
+	["ecstasy"] = {
+		label = "Ectasy",
+		weight = 10,
+		stack = true,
+		close = false,
+		description = "Explore a new universe!",
+		client = {
+			image = "ecstasy1.png",
+		}
+	},
 
 	["koidrod"] = {
 		label = "koidrod",
@@ -11023,17 +11197,5 @@ return {
 		}
 	},
 
-	["donut"] = {
-		label = "Neko Donut",
-		weight = 100,
-		stack = true,
-		close = true,
-		description = "",
-		client = {
-			status = {
-				hunger = 41,
-			},
-			image = "catdonut.png",
-		}
-	},
+	
 }

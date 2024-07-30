@@ -1,10 +1,6 @@
--- ALL custom animations added to this repository were added with express permission from the creators and does not contain any paid content --
--- If an emote does not work, you may be on an older gamebuild. --
+-- ALL custom animations added to this repository were added with express permission from the creators and do not contain any paid content --
+-- If an emote does not work, you may be on an older gamebuild --
 -- To get a higher gamebuild, see ReadMe on github repository --
-
-
-
-
 
 RP = {}
 
@@ -2948,6 +2944,15 @@ RP.Dances = {
             EmoteLoop = true
         }
     },
+    ["dancedrill"] = {
+        "sdrill@animation",
+        "sdrill_clip",
+        "Drill Dance",
+        AnimationOptions = {
+            EmoteLoop = true,
+			EmoteMoving = false
+        }
+    },
     ["dancepride"] = {
         "anim@amb@nightclub@lazlow@hi_railing@",
         "ambclub_09_mi_hi_bellydancer_laz",
@@ -3327,7 +3332,7 @@ RP.AnimalEmotes = {
                 180.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+            PtfxInfo = Translate('poop'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -3378,7 +3383,7 @@ RP.AnimalEmotes = {
                 180.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -3401,7 +3406,7 @@ RP.AnimalEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -3744,7 +3749,7 @@ RP.AnimalEmotes = {
                 0.0,
                 0.6
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['firework'],
+            PtfxInfo = Translate('firework'),
             PtfxWait = 200
         }
     },
@@ -4457,7 +4462,7 @@ RP.AnimalEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['stun'],
+            PtfxInfo = Translate('stun'),
             PtfxWait = 200
         }
     },
@@ -5084,7 +5089,7 @@ RP.AnimalEmotes = {
                 140.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -5109,7 +5114,7 @@ RP.AnimalEmotes = {
                 0.0,
                 0.5
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+            PtfxInfo = Translate('poop'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -5143,7 +5148,7 @@ RP.AnimalEmotes = {
                 0.0,
                 0.6
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['firework'],
+            PtfxInfo = Translate('firework'),
             PtfxWait = 200
         }
     },
@@ -5160,7 +5165,7 @@ RP.AnimalEmotes = {
                 0.0000,
               -90.0000,
               120.0000,
-                0.000,  
+                0.000,
             },
             EmoteLoop = true,
             EmoteMoving = true
@@ -5471,7 +5476,7 @@ RP.Emotes = {
         "WORLD_HUMAN_DRUG_DEALER",
         "Smoke Weed (Male)"
     },
-    --Female
+    -- Female
     ["smokeweed2"] = {
         "Scenario",
         "WORLD_HUMAN_SMOKING_POT",
@@ -5498,7 +5503,7 @@ RP.Emotes = {
         "WORLD_HUMAN_YOGA",
         "Yoga"
     },
-    
+
 ---------- END OF SCENARIOS --------------
 
     ["dispenser"] = {
@@ -5785,7 +5790,8 @@ RP.Emotes = {
         AnimationOptions = {
 			StartDelay = 600,
             EmoteLoop = true,
-            EmoteMoving = true
+            EmoteMoving = true,
+            NotInVehicle = true
         },
     AdultAnimation = true
     },
@@ -5948,41 +5954,41 @@ RP.Emotes = {
         }
     },
     ["argue3"] = {
-        "missheistdockssetup1leadinoutig_1", 
-        "lsdh_ig_1_argue_wade", 
-        "Argue 3", 
+        "missheistdockssetup1leadinoutig_1",
+        "lsdh_ig_1_argue_wade",
+        "Argue 3",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-    }, 
+    },
     ["argue4"] = {
-        "car_2_mcs_1-6", 
-        "cs_devin_dual-6", 
-        "Argue 4", 
-        AnimationOptions = {            
+        "car_2_mcs_1-6",
+        "cs_devin_dual-6",
+        "Argue 4",
+        AnimationOptions = {
             EmoteDuration = 6000,
             EmoteMoving = true
         }
-    }, 
+    },
     ["argue5"] = {
-        "anim@amb@casino@brawl@fights@argue@", 
-        "arguement_loop_mp_m_brawler_01", 
-        "Argue Angry 1", 
+        "anim@amb@casino@brawl@fights@argue@",
+        "arguement_loop_mp_m_brawler_01",
+        "Argue Angry 1",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-    }, 
+    },
     ["argue6"] = {
-        "anim@amb@casino@brawl@fights@argue@", 
-        "arguement_loop_mp_m_brawler_02", 
-        "Argue Angry 2", 
+        "anim@amb@casino@brawl@fights@argue@",
+        "arguement_loop_mp_m_brawler_02",
+        "Argue Angry 2",
         AnimationOptions = {
             EmoteLoop = true,
             EmoteMoving = true
         }
-    },  
+    },
     ["bartender"] = {
         "anim@amb@clubhouse@bar@drink@idle_a",
         "idle_a_bartender",
@@ -6549,7 +6555,7 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
-    ["kneelbored"] = { --- Custom Emote By Chocoholic Animations 
+    ["kneelbored"] = { --- Custom Emote By Chocoholic Animations
         "chocoholic@duo17",
         "duo17_clip",
         "Kneel Bored Pose",
@@ -6560,7 +6566,7 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
-    ["kneelpeace"] = { --- Custom Emote By Chocoholic Animations 
+    ["kneelpeace"] = { --- Custom Emote By Chocoholic Animations
         "chocoholic@duo18",
         "duo18_clip",
         "Kneel Peace Sign Pose",
@@ -7208,7 +7214,7 @@ RP.Emotes = {
             EmoteLoop = true
         }
     },
-    ["elbow2"] = { -- Custom Emote By Chocoholic Animations 
+    ["elbow2"] = { -- Custom Emote By Chocoholic Animations
         "chocoholic@single47",
         "single47_clip",
         "Window Elbow 2",
@@ -7396,7 +7402,7 @@ RP.Emotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -7440,7 +7446,7 @@ RP.Emotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -8555,7 +8561,8 @@ RP.Emotes = {
         "F Sex Pose 2",
         AnimationOptions = {
             EmoteMoving = false,
-            EmoteLoop = true
+            EmoteLoop = true,
+            NotInVehicle = true
         },
         AdultAnimation = true
     },
@@ -8840,7 +8847,7 @@ RP.Emotes = {
                 90.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true,
         },
@@ -8865,7 +8872,7 @@ RP.Emotes = {
                 90.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true,
         },
@@ -8890,7 +8897,7 @@ RP.Emotes = {
                 90.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['pee'],
+            PtfxInfo = Translate('pee'),
             PtfxWait = 0,
             PtfxCanHold = true,
         },
@@ -9015,18 +9022,18 @@ RP.Emotes = {
         }
     },
     ["snot"] = {
-        "move_p_m_two_idles@generic", 
-        "fidget_blow_snot", 
-        "Blow Snot", 
+        "move_p_m_two_idles@generic",
+        "fidget_blow_snot",
+        "Blow Snot",
         AnimationOptions = {
             EmoteMoving = true,
             EmoteDuration = 4500,
         }
-    }, 
+    },
     ["scratch"] = {
-        "move_p_m_two_idles@generic", 
-        "fidget_scratch_balls", 
-        "Scratch Balls", 
+        "move_p_m_two_idles@generic",
+        "fidget_scratch_balls",
+        "Scratch Balls",
         AnimationOptions = {
             EmoteMoving = false,
             EmoteDuration = 4000,
@@ -9269,11 +9276,11 @@ RP.Emotes = {
             ExitEmoteType = "Exits"
         }
     },
-    
-    
+
+
     -- CASINO DLC EMOTES (Requires gamebuild 2060 or higher)
-    
-    
+
+
     ["karate"] = {
         "anim@mp_player_intcelebrationfemale@karate_chops",
         "karate_chops",
@@ -9815,9 +9822,9 @@ RP.Emotes = {
             EmoteDuration = 1480
         }
     },
-    ["hidegun"] = { -- CREDIT TO DARKS ANIMATIONS FOR THIS EXCLUSIVE RPEMOTES ANIMATION 
-        "pistol_b_b@dark", -- CREDIT TO DARKS ANIMATIONS FOR THIS EXCLUSIVE RPEMOTES ANIMATION 
-        "pistol_b_b_clip", -- CREDIT TO DARKS ANIMATIONS FOR THIS EXCLUSIVE RPEMOTES ANIMATION 
+    ["hidegun"] = { -- CREDIT TO DARKS ANIMATIONS FOR THIS EXCLUSIVE RPEMOTES ANIMATION
+        "pistol_b_b@dark", -- CREDIT TO DARKS ANIMATIONS FOR THIS EXCLUSIVE RPEMOTES ANIMATION
+        "pistol_b_b_clip", -- CREDIT TO DARKS ANIMATIONS FOR THIS EXCLUSIVE RPEMOTES ANIMATION
         "Hide a gun",
         AnimationOptions = {
             EmoteMoving = true,
@@ -10321,68 +10328,12 @@ RP.Emotes = {
         EmoteMoving = true,
         }
     },
-    
-    
+
+
 }
 
 --- PROP EMOTES GO HERE. CURRENTLY SUPPORTS UP TO ONE OR TWO PROPS  ---
 RP.PropEmotes = {
-    ["bsdrink"] = {
-        "amb@world_human_drinking@coffee@male@idle_a", 
-        "idle_c", 
-        "BS Drink",
-        AnimationOptions = {
-            Prop = 'prop_food_bs_juice02',
-            PropBone = 28422,
-            PropPlacement = {
-                0.02,
-                0.0,
-                -0.10,
-                0.0,
-                0.0,
-                -0.50
-            },
-            EmoteLoop = true,
-            EmoteMoving = true,
-        } 
-   },
-    ["fries"] = {
-        "mp_player_inteat@burger", 
-        "mp_player_int_eat_burger",
-        "Fries", 
-        AnimationOptions = {
-            Prop = 'prop_food_bs_chips',
-            PropBone = 60309,
-            PropPlacement = {
-                -0.0100, 
-                0.0200, 
-                -0.0100, 
-                -175.1935, 
-                97.6975, 
-                13.9598
-            },
-            EmoteMoving = true,
-        }
-    },
-    ["fbbq"] = {
-        "amb@prop_human_bbq@male@idle_a",
-        "idle_b", 
-        "fbbq", 
-        AnimationOptions = {
-            Prop = "prop_fish_slice_01",
-            PropBone = 28422,
-            PropPlacement = {
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0
-            },
-            EmoteLoop = true,
-            EmoteMoving = false,
-        }
-    },
     ["umbrella"] = {
         "amb@world_human_drinking@coffee@male@base",
         "base",
@@ -10586,9 +10537,9 @@ RP.PropEmotes = {
                 180.0,
                 1.1
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['cut'],
+            PtfxInfo = Translate('cut'),
             PtfxWait = 0.8,
-            PtfxCanHold = false -- we set this to false, but yet it allows us to hold, which is the OPPOSITE of what it claims to do!? HUH!?? AVANOX!! 
+            PtfxCanHold = false -- we set this to false, but yet it allows us to hold, which is the OPPOSITE of what it claims to do!? HUH!?? AVANOX!!
         }
     },
 	["carryextinguisher"] = {
@@ -11012,7 +10963,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11046,7 +10997,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11080,7 +11031,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11114,7 +11065,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11149,7 +11100,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11184,7 +11135,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 1.8,
             PtfxCanHold = true
         }
@@ -11219,7 +11170,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11254,7 +11205,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11290,7 +11241,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11326,7 +11277,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxInfo = Translate('vape'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -11360,7 +11311,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.5,
             PtfxCanHold = true
         }
@@ -11416,6 +11367,54 @@ RP.PropEmotes = {
                 0.0,
                 0.0,
                 0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
+    ["icefishing"] = { -- Custom Emote By EP
+        "timetable@ron@ig_3_couch",
+        "base",
+        "Ice Fishing",
+        AnimationOptions = {
+            Prop = 'pprp_icefishing_box_02',
+            PropBone = 0,
+            PropPlacement = {
+                -0.05,
+                0.0,
+                -0.63,
+                7.0,
+                0.0,
+                180.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = false
+        }
+    },
+    ["icefishing2"] = { -- Custom Emote By EP
+        "move_weapon@jerrycan@generic",
+        "idle",
+        "Ice Fishing 2",
+        AnimationOptions = {
+            Prop = 'pprp_icefishing_box_01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.8,
+                0.03,
+                0.04,
+                0.0,
+                -90.0,
+                100.0
+            },
+            SecondProp = 'pprp_icefishing_augur',
+            SecondPropBone = 24818,
+            SecondPropPlacement = {
+                -0.8,
+                -0.2,
+                0.0,
+                0.0,
+                90.0,
                 0.0
             },
             EmoteLoop = true,
@@ -11726,6 +11725,44 @@ RP.PropEmotes = {
             PropBone = 28422,
             PropPlacement = {
                 0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["coffeecall"] = {
+        "switch@michael@coffee_w_dave",
+        "002291_02_fbi_3_coffee_w_dave_idle_dave",
+        "Coffee Phone Call",
+        AnimationOptions = {
+            Prop = 'p_ing_coffeecup_01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+               -0.0140,
+                0.0,
+                0.0,
+			   90.0
+            },
+            SecondProp = 'prop_phone_taymckenzienz',
+			PropTextureVariations = {
+                {Name = "<font color=\"#00A0F4\">Blue", Value = 0},
+                {Name = "<font color=\"#1AA20E\">Green", Value = 1},
+                {Name = "<font color=\"#800B0B\">Dark Red", Value = 2},
+                {Name = "<font color=\"#FF7B00\">Orange", Value = 3},
+                {Name = "<font color=\"#5F5F5F\">Grey", Value = 4},
+                {Name = "<font color=\"#a356fa\">Purple", Value = 5},
+                {Name = "<font color=\"#FF0099\">Pink", Value = 6},
+                {Name = "Black", Value = 7},
+            },
+            SecondPropBone = 60309,
+            SecondPropPlacement = {
                 0.0,
                 0.0,
                 0.0,
@@ -13019,6 +13056,63 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["boba"] = {
+        "amb@world_human_drinking@coffee@male@idle_a",
+        "idle_c",
+        "Boba",
+        AnimationOptions = {
+            Prop = 'scully_boba',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["boba2"] = {
+        "amb@world_human_drinking@coffee@male@idle_a",
+        "idle_c",
+        "Boba 2",
+        AnimationOptions = {
+            Prop = 'scully_boba2',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["boba3"] = {
+        "amb@world_human_drinking@coffee@male@idle_a",
+        "idle_c",
+        "Boba 3",
+        AnimationOptions = {
+            Prop = 'scully_boba3',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["sipsoda"] = {
         "smo@milkshake_idle",
         "milkshake_idle_clip",
@@ -13272,7 +13366,7 @@ RP.PropEmotes = {
     ["mshake"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Bubblegum",
+        "Milkshake - Bubblegum",
         AnimationOptions = {
             Prop = 'brum_cherryshake_bubblegum',
             PropBone = 28422,
@@ -13291,7 +13385,7 @@ RP.PropEmotes = {
     ["mshakeb"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Cherry",
+        "Milkshake - Cherry",
         AnimationOptions = {
             Prop = 'brum_cherryshake_cherry',
             PropBone = 28422,
@@ -13310,7 +13404,7 @@ RP.PropEmotes = {
     ["mshakec"] = {
        "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Chocolate",
+        "Milkshake - Chocolate",
         AnimationOptions = {
             Prop = 'brum_cherryshake_chocolate',
             PropBone = 28422,
@@ -13329,7 +13423,7 @@ RP.PropEmotes = {
     ["mshaked"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Coffee",
+        "Milkshake - Coffee",
         AnimationOptions = {
             Prop = 'brum_cherryshake_coffee',
             PropBone = 28422,
@@ -13348,7 +13442,7 @@ RP.PropEmotes = {
     ["mshakee"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Double Chocolate",
+        "Milkshake - Double Chocolate",
         AnimationOptions = {
             Prop = 'brum_cherryshake_doublechocolate',
             PropBone = 28422,
@@ -13367,7 +13461,7 @@ RP.PropEmotes = {
     ["mshakef"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Frappe",
+        "Milkshake - Frappe",
         AnimationOptions = {
             Prop = 'brum_cherryshake_frappe',
             PropBone = 28422,
@@ -13386,7 +13480,7 @@ RP.PropEmotes = {
     ["mshakeg"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Lemon",
+        "Milkshake - Lemon",
         AnimationOptions = {
             Prop = 'brum_cherryshake_lemon',
             PropBone = 28422,
@@ -13405,7 +13499,7 @@ RP.PropEmotes = {
     ["mshakeh"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Mint",
+        "Milkshake - Mint",
         AnimationOptions = {
             Prop = 'brum_cherryshake_mint',
             PropBone = 28422,
@@ -13424,7 +13518,7 @@ RP.PropEmotes = {
     ["mshakei"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Strawberry",
+        "Milkshake - Strawberry",
         AnimationOptions = {
             Prop = 'brum_cherryshake_strawberry',
             PropBone = 28422,
@@ -13443,7 +13537,7 @@ RP.PropEmotes = {
     ["mshakej"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Raspberry",
+        "Milkshake - Raspberry",
         AnimationOptions = {
             Prop = 'brum_cherryshake_raspberry',
             PropBone = 28422,
@@ -13462,7 +13556,7 @@ RP.PropEmotes = {
     ["mshakek"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Salted",
+        "Milkshake - Salted",
         AnimationOptions = {
             Prop = 'brum_cherryshake_salted',
             PropBone = 28422,
@@ -13481,7 +13575,7 @@ RP.PropEmotes = {
     ["mshakel"] = {
         "amb@code_human_wander_drinking@female@base",
         "static",
-        "Milshake - Vanilla",
+        "Milkshake - Vanilla",
         AnimationOptions = {
             Prop = 'brum_cherryshake_vanilla',
             PropBone = 28422,
@@ -14272,7 +14366,7 @@ RP.PropEmotes = {
                 0.0,
                 1.3
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -14307,7 +14401,7 @@ RP.PropEmotes = {
                 0.0,
                 1.5
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -15255,7 +15349,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['makeitrain'],
+            PtfxInfo = Translate('makeitrain'),
             PtfxWait = 500,
             PtfxCanHold = true
         }
@@ -15288,7 +15382,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -15320,7 +15414,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -15352,7 +15446,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -15384,7 +15478,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
      },
@@ -15416,7 +15510,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
      },
@@ -15466,7 +15560,7 @@ RP.PropEmotes = {
                 0.0,
                 0.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['spraychamp'],
+            PtfxInfo = Translate('spraychamp'),
             PtfxWait = 500,
             PtfxCanHold = true
         }
@@ -15500,7 +15594,7 @@ RP.PropEmotes = {
                 0.0,
                 1.3
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -15535,7 +15629,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -15630,7 +15724,7 @@ RP.PropEmotes = {
                 0.0,
                 0.0,
                 0.0,
-                0.0,
+                -90.0,
                 0.0
             },
             EmoteLoop = true,
@@ -15848,44 +15942,63 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    -- ["binoculars"] = {
-    --     "amb@world_human_binoculars@male@idle_b",
-    --     "idle_f",
-    --     "Binoculars",
-    --     AnimationOptions = {
-    --         Prop = "prop_binoc_01",
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true
-    --     }
-    -- },
-    -- ["binoculars2"] = {
-    --     "amb@world_human_binoculars@male@idle_a",
-    --     "idle_c",
-    --     "Binoculars 2",
-    --     AnimationOptions = {
-    --         Prop = "prop_binoc_01",
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true
-    --     }
-    -- },
+    ["protest3"] = {
+        "rcmnigel1d",
+        "base_club_shoulder",
+        "Protest 3 - BLM",
+        AnimationOptions = {
+            Prop = "scully_blm",
+            PropBone = 57005,
+            PropPlacement = {
+                0.1820,
+                0.2400,
+                0.0600,
+                -69.3774235,
+                5.914205,
+                -13.957235
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["binoculars"] = {
+        "amb@world_human_binoculars@male@idle_b",
+        "idle_f",
+        "Binoculars",
+        AnimationOptions = {
+            Prop = "prop_binoc_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
+    ["binoculars2"] = {
+        "amb@world_human_binoculars@male@idle_a",
+        "idle_c",
+        "Binoculars 2",
+        AnimationOptions = {
+            Prop = "prop_binoc_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["tennisplay"] = {
         "move_weapon@jerrycan@generic",
         "idle",
@@ -16656,6 +16769,35 @@ RP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true
         }
+   },
+    ["mnc"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Milk & Cookies",
+        AnimationOptions = {
+            Prop = "m23_2_prop_m32_milkncookies_01a",
+            PropBone = 57005, --- Right Wrist
+            PropPlacement = {
+                0.2150,
+                0.1140,
+                0.0240,
+              -81.9185,
+             -176.2526,
+              -28.4674
+            },
+            SecondProp = 'm23_2_prop_m32_milkncookies_01a',
+            SecondPropBone = 18905, -- Left Wrist
+            SecondPropPlacement = {
+                0.2700,
+                0.1100,
+                0.0350,
+              -90.0000,
+             -180.0000,
+               30.0000
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
     },
     ["carrypizza"] = {
         "anim@heists@box_carry@",
@@ -16876,6 +17018,35 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
+    ["pho"] = {
+        "anim@scripted@island@special_peds@pavel@hs4_pavel_ig5_caviar_p1",
+        "base_idle",
+        "Pho",
+        AnimationOptions = {
+            Prop = "scully_pho",
+            PropBone = 60309,
+            PropPlacement = {
+                0.0,
+                0.0300,
+                0.0100,
+                0.0,
+                0.0,
+                0.0
+            },
+            SecondProp = 'scully_spoon_pho',
+            SecondPropBone = 28422,
+            SecondPropPlacement = {
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["dinner"] = {
         "anim@scripted@island@special_peds@pavel@hs4_pavel_ig5_caviar_p1",
         "base_idle",
@@ -16904,25 +17075,25 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    -- ["newscam"] = {
-    --     "missfinale_c2mcs_1",
-    --     "fin_c2_mcs_1_camman",
-    --     "News Camera",
-    --     AnimationOptions = {
-    --         Prop = "prop_v_cam_01",
-    --         PropBone = 28422,
-    --         PropPlacement = {
-    --             0.0,
-    --             0.0300,
-    --             0.0100,
-    --             0.0,
-    --             0.0,
-    --             0.0
-    --         },
-    --         EmoteLoop = true,
-    --         EmoteMoving = true
-    --     }
-    -- },
+    ["newscam"] = {
+        "missfinale_c2mcs_1",
+        "fin_c2_mcs_1_camman",
+        "News Camera",
+        AnimationOptions = {
+            Prop = "prop_v_cam_01",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                0.0300,
+                0.0100,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["newsmic"] = {
         "anim@heists@humane_labs@finale@keycards",
         "ped_a_enter_loop",
@@ -17179,7 +17350,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['useleafblower'],
+            PtfxInfo = Translate('useleafblower'),
             PtfxWait = 2000,
             PtfxCanHold = true
         }
@@ -17564,7 +17735,7 @@ RP.PropEmotes = {
                 0.0,
                 1.3
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+            PtfxInfo = Translate('poop'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -17600,7 +17771,7 @@ RP.PropEmotes = {
                 0.0,
                 1.4
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['poop'],
+            PtfxInfo = Translate('poop'),
             PtfxWait = 0,
             PtfxCanHold = true
         }
@@ -17625,7 +17796,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
+            PtfxInfo = Translate('puke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         },
@@ -17650,7 +17821,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
+            PtfxInfo = Translate('puke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         },
@@ -17674,7 +17845,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
+            PtfxInfo = Translate('puke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         },
@@ -17698,7 +17869,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['puke'],
+            PtfxInfo = Translate('puke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         },
@@ -17741,7 +17912,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -17783,7 +17954,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -17825,7 +17996,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -17867,7 +18038,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -17909,7 +18080,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -17951,7 +18122,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -17993,7 +18164,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18035,7 +18206,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18077,7 +18248,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18119,7 +18290,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18163,7 +18334,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18205,7 +18376,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18247,7 +18418,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18289,7 +18460,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18331,7 +18502,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
 
         },
@@ -18404,11 +18575,11 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
-    ["selfiesit3"] = { -- Emote by Chocoholic Animations 
+    ["selfiesit3"] = { -- Emote by Chocoholic Animations
         "chocoholic@single77",
         "single77_clip",
         "Selfie Sitting 3",
@@ -18448,7 +18619,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18490,7 +18661,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18534,7 +18705,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18576,7 +18747,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18620,7 +18791,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18664,7 +18835,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18708,7 +18879,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18758,7 +18929,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200,
             EmoteLoop = true,
             ExitEmote = "getup",
@@ -18803,7 +18974,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18845,7 +19016,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18887,7 +19058,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18929,7 +19100,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -18971,7 +19142,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19013,7 +19184,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19055,7 +19226,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19097,7 +19268,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19139,7 +19310,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19181,7 +19352,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19223,7 +19394,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19275,7 +19446,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19317,7 +19488,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19359,7 +19530,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19413,7 +19584,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200,
         },
         AdultAnimation = true
@@ -19456,11 +19627,11 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
-    ["selfiemeh"] = { -- Custom Animation By Chocoholic Animations 
+    ["selfiemeh"] = { -- Custom Animation By Chocoholic Animations
         "chocoholic@single81",
         "single81_clip",
         "Selfie Meh",
@@ -19497,7 +19668,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19549,7 +19720,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -19591,7 +19762,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19633,7 +19804,7 @@ RP.PropEmotes = {
         0.0,
         1.0
     },
-    PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+    PtfxInfo = Translate('camera'),
     PtfxWait = 200
         }
     },
@@ -19665,7 +19836,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19707,7 +19878,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19749,7 +19920,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19793,7 +19964,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19835,7 +20006,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -19877,7 +20048,7 @@ RP.PropEmotes = {
             0.0,
             1.0
         },
-        PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+        PtfxInfo = Translate('camera'),
         PtfxWait = 200
         }
     },
@@ -20363,7 +20534,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200,
             EmoteLoop = true,
             EmoteMoving = true
@@ -20389,7 +20560,7 @@ RP.PropEmotes = {
         }
     },
     ["idcard"] = {
-        "cop_badge_1@dad", --- Custom Animation by Darks Animations 
+        "cop_badge_1@dad", --- Custom Animation by Darks Animations
         "cop_badge_1_clip",
         "ID Card 1",
         AnimationOptions = {
@@ -20429,7 +20600,7 @@ RP.PropEmotes = {
         }
     },
     ["idcardc"] = {
-        "cop_badge_1@dad", --- Custom Animation by Darks Animations 
+        "cop_badge_1@dad", --- Custom Animation by Darks Animations
         "cop_badge_1_clip",
         "ID Card 3",
         AnimationOptions = {
@@ -20449,7 +20620,7 @@ RP.PropEmotes = {
         }
     },
     ["idcardd"] = {
-        "cop_badge_1@dad", --- Custom Animation by Darks Animations 
+        "cop_badge_1@dad", --- Custom Animation by Darks Animations
         "cop_badge_1_clip",
         "ID Card 4",
         AnimationOptions = {
@@ -20469,7 +20640,7 @@ RP.PropEmotes = {
         }
     },
     ["idcarde"] = {
-        "cop_badge_1@dad", --- Custom Animation by Darks Animations 
+        "cop_badge_1@dad", --- Custom Animation by Darks Animations
         "cop_badge_1_clip",
         "ID Card 5",
         AnimationOptions = {
@@ -20489,7 +20660,7 @@ RP.PropEmotes = {
         }
     },
     ["idcardf"] = {
-        "cop_badge_1@dad", --- Custom Animation by Darks Animations 
+        "cop_badge_1@dad", --- Custom Animation by Darks Animations
         "cop_badge_1_clip",
         "ID Card 6",
         AnimationOptions = {
@@ -20509,7 +20680,7 @@ RP.PropEmotes = {
         }
     },
     ["idcardg"] = {
-        "cop_badge_1@dad", --- Custom Animation by Darks Animations 
+        "cop_badge_1@dad", --- Custom Animation by Darks Animations
         "cop_badge_1_clip",
         "ID Card 7",
         AnimationOptions = {
@@ -20529,7 +20700,7 @@ RP.PropEmotes = {
         }
     },
     ["idcardh"] = {
-        "cop_badge_1@dad", --- Custom Animation by Darks Animations 
+        "cop_badge_1@dad", --- Custom Animation by Darks Animations
         "cop_badge_1_clip",
         "ID Card 8 - Cop Badge",
         AnimationOptions = {
@@ -20637,7 +20808,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -20681,7 +20852,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -20725,7 +20896,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -20769,7 +20940,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -20813,7 +20984,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -20857,7 +21028,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -21552,7 +21723,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200,
             EmoteLoop = true,
             EmoteMoving = true
@@ -21616,7 +21787,7 @@ RP.PropEmotes = {
                 0.0,
                 1.5
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
        }
@@ -21662,7 +21833,7 @@ RP.PropEmotes = {
                 0.0,
                 1.5
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
        }
@@ -21985,7 +22156,7 @@ RP.PropEmotes = {
             EmoteMoving = true
         }
     },
-    ["airportbag2"] = { -- Custom Emote By Dark Animations exclusive to RPEmotes 
+    ["airportbag2"] = { -- Custom Emote By Dark Animations exclusive to RPEmotes
         "suitcase_phone@dark",
         "suitcase_phone_clip",
         "Airport Bag 2 - Phone",
@@ -22033,7 +22204,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200
         }
     },
@@ -22387,7 +22558,7 @@ RP.PropEmotes = {
               -79.5760,
             },
             EmoteLoop = true,
-             ExitEmote = "getup",
+            ExitEmote = "getup",
             ExitEmoteType = "Exits"
         }
     },
@@ -22503,7 +22674,7 @@ RP.PropEmotes = {
                 0.0,
                 0.6
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['firework'],
+            PtfxInfo = Translate('firework'),
             PtfxWait = 200
         }
     },
@@ -23048,7 +23219,7 @@ RP.PropEmotes = {
                 0.0,
                 1.5
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['smoke'],
+            PtfxInfo = Translate('smoke'),
             PtfxWait = 0.8,
             PtfxCanHold = true
         }
@@ -23565,7 +23736,7 @@ RP.PropEmotes = {
                 0.0,
                 1.0
             },
-            PtfxInfo = Config.Languages[Config.MenuLanguage]['camera'],
+            PtfxInfo = Translate('camera'),
             PtfxWait = 200,
             EmoteLoop = true,
         }
@@ -23627,7 +23798,7 @@ RP.PropEmotes = {
         EmoteMoving = true
         },
    },
-    ["raiseglass"] = { -- Custom Animation by Chocoholic Animations 
+    ["raiseglass"] = { -- Custom Animation by Chocoholic Animations
     "chocoholic@duo32",
     "duo32_clip",
     "Raise Your Glass",
@@ -23646,7 +23817,7 @@ RP.PropEmotes = {
         EmoteMoving = true
         },
     },
-    ["raiseglass2"] = { -- Custom Animation by Chocoholic Animations 
+    ["raiseglass2"] = { -- Custom Animation by Chocoholic Animations
     "chocoholic@duo34",
     "duo34_clip",
     "Raise Your Glass 2",

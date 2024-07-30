@@ -8,7 +8,7 @@ function AddRadialItems()
 	if wsb.hasGroup(Config.ambulanceJobs or Config.ambulanceJob) then
 		if wsb.framework == 'qb' then
 			if wsb.playerData.job.onduty then
-				lib.addRadialItem({
+				exports.ox_lib:addRadialItem({
 					{
 						id = 'ems_general',
 						label = 'EMS',
@@ -17,10 +17,10 @@ function AddRadialItems()
 					},
 				})
 			else
-				lib.removeRadialItem('ems_general')
+				exports.ox_lib:removeRadialItem('ems_general')
 			end
 		else
-			lib.addRadialItem({
+			exports.ox_lib:addRadialItem({
 				{
 					id = 'ems_general',
 					label = 'EMS',
@@ -30,11 +30,11 @@ function AddRadialItems()
 			})
 		end
 	else
-		lib.removeRadialItem('ems_general')
+		exports.ox_lib:removeRadialItem('ems_general')
 	end
 end
 
-lib.registerRadial({ -- EMS menu
+exports.ox_lib:registerRadial({ -- EMS menu
 	id = 'ems_menu',
 	items = {
 		{

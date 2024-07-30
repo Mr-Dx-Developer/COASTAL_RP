@@ -6,7 +6,6 @@ QBX = exports.qbx_core
 
 -- Server
 if IsDuplicityVersion() then
-
     function GetPlayer(src)
         local attempts = 10
         local delay = 1000
@@ -27,11 +26,9 @@ if IsDuplicityVersion() then
         return player
     end
 
-
     function GetCitizenID(player)
         return player.PlayerData.citizenid or Debug('Failed to get CitizenID')
     end
-
 end
 
 -- Client
@@ -65,12 +62,14 @@ function InsideHouseorApartments()
     if meta.house ~= nil then
         local houseId = meta.house
         TriggerEvent('qb-houses:client:LastLocationHouse', houseId)
+        TriggerServerEvent('qbx_properties:server:enterProperty', tonumber(houseId))
         Debug('Player Inside House | ' .. '| ' .. houseId)
     elseif meta.apartment.apartmentType ~= nil or meta.apartment.apartmentId ~= nil then
         local apartmentType = meta.apartment.apartmentType
         local apartmentId = meta.apartment.apartmentId
         Debug('Player Inside Apartment | ' .. '| ' .. apartmentType .. ' | ' .. apartmentId)
         TriggerEvent('qb-apartments:client:LastLocationHouse', apartmentType, apartmentId)
+        TriggerServerEvent('qbx_properties:server:enterProperty', tonumber(apartmentId))
     elseif meta.property_id ~= nil then
         TriggerServerEvent('ps-housing:server:resetMetaData')
     end

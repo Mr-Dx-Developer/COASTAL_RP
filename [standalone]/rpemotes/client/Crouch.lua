@@ -1,15 +1,9 @@
-
-
-
-
-
 IsProne = false
 local isCrouched = false
 local isCrawling = false
 local inAction = false
 local proneType = "onfront"
 local lastKeyPress = 0
-
 
 -- Crouching --
 local function ResetCrouch()
@@ -404,7 +398,7 @@ local function CrawlKeyPressed()
         Pointing = false
     end
 
-    if inHandsup then
+    if InHandsup then
         return
     end
 
@@ -449,7 +443,7 @@ end
 -- Commands & KeyMapping --
 if Config.CrouchEnabled then
     if Config.CrouchKeybindEnabled then
-        RegisterKeyMapping('+crouch', "Crouch", "keyboard", Config.CrouchKeybind)
+        RegisterKeyMapping('+crouch', Translate('register_crouch'), "keyboard", Config.CrouchKeybind)
         RegisterCommand('+crouch', function() CrouchKeyPressed() end, false)
         RegisterCommand('-crouch', function() end, false) -- This needs to be here to prevent errors/warnings
     end
@@ -461,19 +455,19 @@ if Config.CrouchEnabled then
 
         AttemptCrouch(PlayerPedId())
     end, false)
-    TriggerEvent('chat:addSuggestion', '/crouch', 'Crouch')
+    TriggerEvent('chat:addSuggestion', '/crouch', Translate('crouch'))
 end
 
 if Config.CrawlEnabled then
     if Config.CrawlKeybindEnabled then
-        RegisterKeyMapping('crawl', "Crawl", "keyboard", Config.CrawlKeybind)
+        RegisterKeyMapping('crawl', Translate('register_crawl'), "keyboard", Config.CrawlKeybind)
     end
     RegisterCommand('crawl', function() CrawlKeyPressed() end, false)
 end
 
 
 -- Exports --
--- Returns weather or not the player is crouched
+-- Returns whether or not the player is crouched
 local function IsPlayerCrouched()
 	return isCrouched
 end

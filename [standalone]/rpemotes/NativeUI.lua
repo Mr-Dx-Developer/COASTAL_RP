@@ -1856,10 +1856,6 @@ end
     Panels
 --]]
 
-UIMenuGridPanel = setmetatable({}, UIMenuGridPanel)
-UIMenuGridPanel.__index = UIMenuGridPanel
-UIMenuGridPanel.__call = function() return "UIMenuPanel", "UIMenuGridPanel" end
-
 function UIMenuGridPanel.New(TopText, LeftText, RightText, BottomText)
     _UIMenuGridPanel = {
         Data = {
@@ -2005,10 +2001,6 @@ end
     UIMenuColourPanel.lua
     Panels
 --]]
-
-UIMenuColourPanel = setmetatable({}, UIMenuColourPanel)
-UIMenuColourPanel.__index = UIMenuColourPanel
-UIMenuColourPanel.__call = function() return "UIMenuPanel", "UIMenuColourPanel" end
 
 function UIMenuColourPanel.New(Title, Colours)
     _UIMenuColourPanel = {
@@ -2240,10 +2232,6 @@ end
     Panels
 --]]
 
-UIMenuPercentagePanel = setmetatable({}, UIMenuPercentagePanel)
-UIMenuPercentagePanel.__index = UIMenuPercentagePanel
-UIMenuPercentagePanel.__call = function() return "UIMenuPanel", "UIMenuPercentagePanel" end
-
 function UIMenuPercentagePanel.New(MinText, MaxText)
     _UIMenuPercentagePanel = {
         Data = {
@@ -2396,7 +2384,7 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
     local _UIMenu = {
         Logo = Sprite.New(TxtDictionary, TxtName, 0 + X, 0 + Y, 431, 107),
         Banner = nil,
-        Title = UIResText.New(Title, 215 + X, 20 + Y, 1.15, 255, 255, 255, 255, 1, 1),
+        Title = UIResText.New(Title, 215 + X, 20 + Y, 1.15, Config.TitleColour.R, Config.TitleColour.G, Config.TitleColour.B, Config.TitleColour.A, Config.MenuFont, 1, nil, Config.TitleOutline),
         Subtitle = { ExtraY = 0 },
         WidthOffset = 0,
         Position = { X = X, Y = Y },
@@ -2456,7 +2444,7 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
             ResetCursorOnOpen = false,
             MouseControlsEnabled = false,
             MouseEdgeEnabled = false,
-            ControlDisablingEnabled = false,
+            ControlDisablingEnabled = Config.DisableControls,
             Audio = {
                 Library = "HUD_FRONTEND_DEFAULT_SOUNDSET",
                 UpDown = "NAV_UP_DOWN",
@@ -2494,7 +2482,7 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
                     { 0, 30 }, -- Move Left and Right
                     { 0, 31 }, -- Move Up and Down
                     { 0, 47 }, -- G
-                    { 0, 59 }, -- Move Vehicle Left and Right
+                    -- { 0, 59 }, -- Move Vehicle Left and Right
                     { 0, 71 }, -- Accelerate Vehicle
                     { 0, 72 }, -- Vehicle Brake
                     { 0, 73 }, -- X
@@ -2646,7 +2634,6 @@ function UIMenu:CurrentSelection(value)
         if #self.Items == 0 then
             self.ActiveItem = 0
         end
-
         self.Items[self:CurrentSelection()]:Selected(false)
         self.ActiveItem = 1000000 - (1000000 % #self.Items) + tonumber(value)
 
@@ -3010,6 +2997,7 @@ function UIMenu:ProcessControl()
         self:SelectItem()
     end
 end
+
 
 function UIMenu:GoUpOverflow()
     if self:CurrentSelection() < 10 then
@@ -3621,14 +3609,14 @@ function UIMenu:UpdateScaleform()
     PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
     PushScaleformMovieFunctionParameterInt(0)
     PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 176, 0))
-    PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_select'])
+    PushScaleformMovieFunctionParameterString(Translate('btn_select'))
     PopScaleformMovieFunction()
 
     if self.Controls.Back.Enabled then
         PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
         PushScaleformMovieFunctionParameterInt(1)
         PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 177, 0))
-        PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_back'])
+        PushScaleformMovieFunctionParameterString(Translate('btn_back'))
         PopScaleformMovieFunction()
     end
 
@@ -3637,7 +3625,7 @@ function UIMenu:UpdateScaleform()
         PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
         PushScaleformMovieFunctionParameterInt(3)
         PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 19, 0))
-        PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_increment']..(paginationValue and ': '..paginationValue or ": "..paginationValue))
+        PushScaleformMovieFunctionParameterString(Translate('btn_increment')..(paginationValue and ': '..paginationValue or ": "..paginationValue))
         PopScaleformMovieFunction()
     end
 
@@ -3646,7 +3634,7 @@ function UIMenu:UpdateScaleform()
         PushScaleformMovieFunction(self.InstructionalScaleform, "SET_DATA_SLOT")
         PushScaleformMovieFunctionParameterInt(3)
         PushScaleformMovieFunctionParameterString(GetControlInstructionalButton(2, 199, 0))
-        PushScaleformMovieFunctionParameterString(Config.Languages[lang]['btn_increment']..(paginationValue and ': '..paginationValue or ": "..paginationValue))
+        PushScaleformMovieFunctionParameterString(Translate('btn_increment')..(paginationValue and ': '..paginationValue or ": "..paginationValue))
         PopScaleformMovieFunction()
     end
 
