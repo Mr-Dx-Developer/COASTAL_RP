@@ -1,31 +1,63 @@
-# qb-jewelery
-Jewelry Robbery For QB-Core
+MADE FOR QBCORE ONLY!
 
-# Server.cfg Convar Update
-- Global DrawTextUi Option
-```
-setr UseTarget false
-``` 
+Edit Made By NotRandz [https://discord.gg/JAGcF9XmcS]
 
-- Global Target Option
-```
-setr UseTarget true
-```
+For The Images just drag em to your inventory scipt!
 
-# License
+### Items ### copy and paste this in qb-core/shared/item.lua
+["stethascope"] = {
+    ["name"] = "stethascope",
+    ["label"] = "Stetha Scope",
+    ["weight"] = 100,
+    ["type"] = "item",
+    ["image"] = "stethascope.png",
+    ["unique"] = false,
+    ['useable'] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "Doctor Equipment."
+},
+["specialwatch"] = {
+    ["name"] = "specialwatch",
+    ["label"] = "Special Watch",
+    ["weight"] = 100,
+    ["type"] = "item",
+    ["image"] = "specialwatch.png",
+    ["unique"] = false,
+    ['useable'] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "Nice Watch. Must Be Rare"
+},
+["blueusb"] = {
+    ["name"] = "blueusb",
+    ["label"] = "Blue usb Device",
+    ["weight"] = 100,
+    ["type"] = "item",
+    ["image"] = "blueusb.png",
+    ["unique"] = false,
+    ['useable'] = true,
+    ["shouldClose"] = true,
+    ["combinable"] = nil,
+    ["description"] = "Good To Store Data on"
+},
 
-    QBCore Framework
-    Copyright (C) 2021 Joshua Eger
+Original Creator [https://github.com/Lionh34rt/-QB-Jewellery] i just made it my version of it :)
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+Install
+Drag and drop the 2 files in the doorlocks folder into qb-doorlock/configs and then your set 
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+Required for the script!
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>
+boii-chiphack - [https://github.com/boiidevelopment/boii-chiphack]
+qb-target [Comes with basic qb]
+qb-inventory [comes with basic qb]
+qb-doorlock [comes with basic qb]
+qb-core 
+ps-ui [https://github.com/Project-Sloth/ps-ui]
+memory game [https://github.com/pushkart2/memorygame]
+ps-dispatch [https://github.com/Project-Sloth/ps-dispatch]
+
+Plus!
+
+Any Bugs or issues contact me @ https://discord.gg/JAGcF9XmcS!
