@@ -1,5 +1,5 @@
 function PhoneNotify()
-    TriggerServerEvent('qb-phone:server:sendNewMail', {
+    TriggerServerEvent('lb-phone:server:sendNewMail', {
         sender = 'Dark Web',
         subject = 'Alert!!!',
         message = 'A Supply Drop has been spotted on the map! Go get it before someone else does!',
