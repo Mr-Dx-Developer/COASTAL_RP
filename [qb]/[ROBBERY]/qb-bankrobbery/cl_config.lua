@@ -3,8 +3,8 @@ Config = Config or {}
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
 
 ------ / Hack The Fleeca Bank (Main Door) / Laptop Minigame
-Config.FleecaTime = 20
-Config.FleecaBlocks = 4
+Config.FleecaTime = 22
+Config.FleecaBlocks = 5
 Config.FleecaRepeat = 2
 
 ------ / Hack The Pacific Bank (Main Door) / Laptop Minigame
