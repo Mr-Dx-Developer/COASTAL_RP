@@ -32,7 +32,7 @@ Config = {
 
     Framework = Framework.AUTO_DETECT,            -- [ND Framework - ND_Core | ESX - es_extended, QBCore - qb-core, QBOX - qbx_core, Standalone - standalone]
     Inventory = Inventories.AUTO_DETECT,          -- [OX - ox_inventory, QB - qb-inventory, QS - qs-sinventory, MF - mf-inventory, PS - ps-inventory, LJ - lj-inventory, CORE = core_inventory]
-    Target = Target.ox_target,                         -- [NONE - none [pressing E], OX - ox_target, QB - qb-target, Q - qtarget]
+    Target = Target.OX,                         -- [NONE - none [pressing E], OX - ox_target, QB - qb-target, Q - qtarget]
     Database = Database.AUTO_DETECT,              -- [OX - ox_mysql, MYSQL_ASYNC - mysql-async, GHMATTI - ghmattimysql]
 
     -- Other script settings
@@ -42,7 +42,7 @@ Config = {
     Notify = Notifies.AUTO_DETECT,                -- [NONE - Native, NATIVE - GTA:V Notify, OX - ox_lib, QBCORE - qb-core, OKOK - okok_notify, ESX - esx_notify, MYTHIC - mythic_notify, PNOTIFY - pNotify, BRUTAL - brutal_notify]
     TextUI = TextUI.AUTO_DETECT,                  -- [NONE - RCore, ESX - esx_textui, OX - ox_lib, QBCORE - qb-core]
     Menus = MenuList.RCORE,                       -- [RCORE - RCore, ESX_CONTEXT - esx_context, ESX_MENU - es_extended, OX - ox_menu, QB - qb-core]
-    Dispatch = DispatchList.ps_dispatch,                 -- [NONE - Standalone, RCORE - rcore_dispatch, PS - ps_dispatch, QS - qs_dispatch, CORE - core_dispatch, CD - cd_dispatch] 
+    Dispatch = DispatchList.PS,                 -- [NONE - Standalone, RCORE - rcore_dispatch, PS - ps_dispatch, QS - qs_dispatch, CORE - core_dispatch, CD - cd_dispatch] 
     
 
     ---------------------------------------------------------------------------------------------------------------
