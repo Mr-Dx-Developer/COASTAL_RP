@@ -248,7 +248,6 @@ end)
 RegisterNetEvent('qb-bankrobbery:server:LockerReward', function(bank, index)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    
     if not Player or not Shared.Banks[bank] or not Shared.Banks[bank].lockers[index] then return end
     if #(GetEntityCoords(GetPlayerPed(src)) - Shared.Banks[bank].lockers[index].coords.xyz) > 10 then return end
     if Shared.Banks[bank].lockers[index].taken then return end
@@ -258,20 +257,19 @@ RegisterNetEvent('qb-bankrobbery:server:LockerReward', function(bank, index)
 
     local bankType = Shared.Banks[bank].type
 
-    if math.random(100) < Rewards.Lockers[bankType].rareChancrareIteme then -- Rare item loot
-        local randomItem = Rewards.Lockers[bankType].rareItem[math.random(#Rewards.Lockers[bankType].rareItem)]
+    if math.random(100) < Rewards.Lockers[bankType].rareChance then -- Rare item loot
         if Shared.Inventory == 'ox_inventory' then
-            if exports['ox_inventory']:CanCarryItem(src, randomItem, 1) then
-                exports['ox_inventory']:AddItem(src, randomItem, 1)
+            if exports['ox_inventory']:CanCarryItem(src, Rewards.Lockers[bankType].rareItem, 1) then
+                exports['ox_inventory']:AddItem(src, Rewards.Lockers[bankType].rareItem, 1)
             else
                 exports['ox_inventory']:CustomDrop('Bank Locker', {
-                    { randomItem, 1 }
+                    { Rewards.Lockers[bankType].rareItem, 1 }
                 }, GetEntityCoords(GetPlayerPed(src)))
                 Utils.Notify(src, Locales['notify_invent_desc'], 'error', 5000)
             end
         elseif Shared.Inventory == 'qb' then
-            Player.Functions.AddItem(randomItem, 1, false)
-            TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[randomItem], 'add', 1)
+            Player.Functions.AddItem(Rewards.Lockers[bankType].rareItem, 1, false)
+            TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[Rewards.Lockers[bankType].rareItem], 'add', 1)
         end 
     else
         local randomItem = Rewards.Lockers[bankType].items[math.random(#Rewards.Lockers[bankType].items)]

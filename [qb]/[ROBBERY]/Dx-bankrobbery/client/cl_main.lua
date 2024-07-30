@@ -421,11 +421,11 @@ RegisterNetEvent('qb-bankrobbery:client:LootLocker', function(data)
     end
 
     -- Lights out minigame
-    --[[ local result = exports['lightsout']:StartLightsOut(Shared.MinigameSettings.lightsOut.grid, Shared.MinigameSettings.lightsOut.maxClicks)
+    local result = exports['lightsout']:StartLightsOut(Shared.MinigameSettings.lightsOut.grid, Shared.MinigameSettings.lightsOut.maxClicks)
     if not result then
         Utils.Notify(Locales['minigame_failed'], 'error', 3000)
         return
-    end ]]
+    end
 
     -- Set Busy
     TriggerServerEvent('qb-bankrobbery:server:SetLockerBusy', data.bank, data.locker)
