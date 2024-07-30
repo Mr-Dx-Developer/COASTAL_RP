@@ -35,7 +35,7 @@ Config.UIColor = '#e61f09' -- Can be 'red', 'blue', or a hex '#FF0000'
 
 -- Which style do you want to use for death UI?(Current options: 1, 2, 3, 4, 5)
 -- Check docs for examples of all types! https://docs.wasabiscripts.com
-Config.DeathScreenType = 3
+Config.DeathScreenType = 1
 -- If you want to use the previous death screen(Draw text, not recommended) see docs
 
 Config.ShowEMSCountOnDeath = true -- Show active ambulance count in death UI? (Gives count in death screen of all jobs active from Config.ambulanceJobs)
@@ -282,11 +282,11 @@ Config.jobMenu = 'F6'               -- Default job menu key
 Config.billingSystem = 'okok'        -- Current options: 'esx' (For esx_billing) / 'qb' (For qbcore users) 'okok' (For okokBilling) / 'pefcl' (For NPWD billing system) (Easy to add more in editable client - SET TO false IF UNDESIRED) or of course false to disable
 Config.targetSystem = true          -- Target system for targetting players, medbags, and stretcher(If disabled with replace with menus/3D text) (Compatible out of the box with qTarget, qb-target, and ox_target)
 
-Config.RespawnTimer = 3 * minutes   -- Time before optional respawn
-Config.BleedoutTimer = 10 * minutes -- Time before it forces respawn
+Config.RespawnTimer = 5 * minutes   -- Time before optional respawn
+Config.BleedoutTimer = 45 * minutes -- Time before it forces respawn
 Config.ChargeForRevive = {
     enabled = true,                -- Charge players to revive after the timer expires when they hold E to revive?
-    cost = 200,                     -- Cost to revive if enabled
+    cost = 800,                     -- Cost to revive if enabled
     payAccount = 'bank',            -- Account to pay from
     allowNegativeBalance = false    -- QB ONLY: Allow negative balance if player does not have enough money?
 }
