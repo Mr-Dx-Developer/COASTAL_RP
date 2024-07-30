@@ -33,7 +33,7 @@ Config = {
 		Peds = true, -- Set to true if you want Shops to have Peds
 		Limit = false, -- Enable this to add Stash features, This adds limits to items and gets refilled at each restart
 
-		ApGov = true, -- Add support for AP-Goverment Tax
+		ApGov = false, -- Add support for AP-Goverment Tax
 
 		MaxSlots = 41, -- Set this to your player inventory slot count, this is default "41"
 		BlackMarket = false, -- enable to add blackmarket locations (defined at the bottom of this file)
