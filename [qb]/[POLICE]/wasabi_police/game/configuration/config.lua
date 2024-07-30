@@ -42,7 +42,7 @@ Config.UseRadialMenu = false -- Enable use of radial menu built in to ox_lib? (R
 
 Config.customCarlock = false -- If you use wasabi_carlock OR qb-carlock set to true(Add your own carlock system in wasabi_bridge/customize/client/carlock.lua)
 Config.billingSystem =
-'default'                    -- Current options: false (Disabled) / 'default' (For built-in System)/'esx' (For esx_billing) / 'qb' (QBCore) / 'okok' (For okokBilling) (Easy to add more/fully customize in client/cl_customize.lua)
+'okok'                    -- Current options: false (Disabled) / 'default' (For built-in System)/'esx' (For esx_billing) / 'qb' (QBCore) / 'okok' (For okokBilling) (Easy to add more/fully customize in client/cl_customize.lua)
 
 --ONLY IF USING 'default' BILLING SYSTEM
 Config.billingData = {
