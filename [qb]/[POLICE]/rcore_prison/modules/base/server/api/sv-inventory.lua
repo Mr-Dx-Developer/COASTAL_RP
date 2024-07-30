@@ -24,7 +24,22 @@ Inventory.DoesItemExist = function(itemName, playerId)
     local isValidItem = false
     local error_message = nil
 
-    if Bridge.Framework == Framework.ESX then
+    if Bridge.Inventory == Inventories.OX then
+        local retval, state = pcall(function()
+            local itemList = exports[Bridge.Inventory]:Items(itemName)
+
+            dbg.debugInventory('DoesItemExist: Checking ox_inventory item named [%s] registered item state: %s', itemName, itemList and 'REGISTERED' or 'NOT_REGISTERED')
+
+            if itemList then
+                return true
+            else
+                return false
+            end
+        end)
+
+        isValidItem = state
+        error_message = error_message
+    elseif Bridge.Framework == Framework.ESX then
         if Bridge.Inventory == Inventories.QS then
             local retval, state = pcall(function()
                 local itemList = LoadScriptData('shared/items', Inventories.QS, 'ItemList')
@@ -54,19 +69,6 @@ Inventory.DoesItemExist = function(itemName, playerId)
             isValidItem = state
             error_message = error_message
         end
-    elseif Bridge.Inventory == Inventories.OX then
-        local retval, state = pcall(function()
-            local itemList = exports[Bridge.Inventory]:Items(itemName)
-
-            if itemList then
-                return true
-            else
-                return false
-            end
-        end)
-
-        isValidItem = state
-        error_message = error_message
     elseif Bridge.Framework == Framework.QBCore then
         if Bridge.Inventory == Inventories.QS then
             local retval, state = pcall(function()
@@ -108,6 +110,20 @@ Inventory.DoesItemExist = function(itemName, playerId)
 
     if playerId then
         dbg.debugInventory('DoesItemExist: Item [%s] registered item state: %s | Error: %s -> request by citizen: %s (%s)', itemName, not isValidItem and 'NOT_REGISTERED' or 'REGISTERED', error_message, GetPlayerName(playerId), playerId)
+    end
+
+    if Bridge.Framework == Framework.ESX and (Bridge.Inventory == Inventories.ESX or Bridge.Inventory == Inventories.CORE or Bridge.Inventory == Inventories.CHEEZA) then
+        local retval, state = pcall(function()
+            local itemList = Framework.object and Framework.object.Items and Framework.object.Items
+
+            if itemList and not next(itemList) then
+                dbg.bridge('Failed to find any cached items in ESX.Items from - items not proparly cached running inventory named (%s) with Framework (%s), skipping check', Bridge.Inventory, Bridge.Framework)
+
+                if not isValidItem then
+                    isValidItem, error_message = true, 'OK'
+                end
+            end
+        end)
     end
 
     if Bridge.Inventory == Inventories.QS then
@@ -173,6 +189,10 @@ Inventory.ClearPlayerInventory = function(playerId)
     end
 
     local retval = false
+
+    if Bridge.Inventory == Inventories.CORE then
+        retval = Framework.clearInventory(playerId)
+    end
     
     if Bridge.Inventory == Inventories.NONE then
         retval = Framework.clearInventory(playerId)
@@ -202,73 +222,11 @@ Inventory.HandleOpenState = function(playerId, state)
 end
 
 Inventory.SaveVirtualMoney = function(playerId, charId)
-    -- if not playerId then
-    --     return dbg.debugInventory("Cannot save vritual money - no playerId was passed into the function!")
-    -- end
-
-    -- if not charId then
-    --     return dbg.debugInventory("Cannot save vritual money - no charId was passed into the function! %s: (%s)", GetPlayerName(playerId), playerId)
-    -- end
-
-    -- if Bridge.Inventory == Inventories.OX then
-    --     return -- If ox_inventory is loaded, we don't want to save virtual money, since there is item-based money system
-    -- end
-
-    -- if Bridge.Inventory == Inventories.QS then
-    --     local itemList = LoadScriptData('shared/items', Inventories.QS, 'ItemList')
-
-    --     if itemList and (itemList['money'] or itemList['cash']) then
-    --         return dbg.debugInventory("Cannot save virtual money - QS inventory is loaded and has defined money as item for %s: (%s)", GetPlayerName(playerId), playerId)
-    --     end
-    -- end
-
-    -- local amount = Framework.getMoney(playerId)
-
-    -- if amount <= 0 then
-    --     return dbg.debugInventory("Cannot SaveVirtualMoney - no money to save return for %s: (%s)", GetPlayerName(playerId), playerId)
-    -- end
-
-    -- local kvpKey = ('%s_%s_%s'):format(GetCurrentResourceName(), charId, 'money')
-
-    -- SetResourceKvpFloat(kvpKey, amount)
-    -- dbg.debugInventory("Saved virtual money for %s: (%s) with amount: %s into KVP storage.", GetPlayerName(playerId), playerId, amount)
-    -- Framework.removeMoney(playerId, amount)
-    -- Framework.sendNotification(playerId, _U('STASH.VIRTUAL_MONEY_SAVED', amount), 'success')
 end
 
 
 Inventory.ReturnVirtualMoney = function(playerId, charId)
-    -- if not playerId then
-    --     return dbg.debugInventory("Cannot return virtual money - no playerId was passed into the function!")
-    -- end
 
-    -- if not charId then
-    --     return dbg.debugInventory("Cannot return virtual money - no charId was passed into the function! %s: (%s)", GetPlayerName(playerId), playerId)
-    -- end
-
-    -- if Bridge.Inventory == Inventories.OX then
-    --     return -- If ox_inventory is loaded, we don't want to save virtual money, since there is item-based money system
-    -- end
-
-    -- if Bridge.Inventory == Inventories.QS then
-    --     local itemList = LoadScriptData('shared/items', Inventories.QS, 'ItemList')
-
-    --     if itemList and (itemList['money'] or itemList['cash']) then
-    --         return dbg.debugInventory("Cannot return virtual money - QS inventory is loaded and has defined money as item for %s: (%s)", GetPlayerName(playerId), playerId)
-    --     end
-    -- end
-
-    -- local amount = Inventory.GetStashedVirtualMoney(charId)
-    -- local kvpKey = ('%s_%s_%s'):format(GetCurrentResourceName(), charId, 'money')
-
-    -- if amount <= 0 then
-    --     return dbg.debugInventory("Cannot return virtual money - no money to return for %s: (%s)", GetPlayerName(playerId), playerId)
-    -- end
-
-    -- DeleteResourceKvp(kvpKey)
-
-    -- Framework.addMoney(playerId, math.floor(amount))
-    -- Framework.sendNotification(playerId, _U('STASH.VIRTUAL_MONEY_RETURNED', amount), 'success')
 end
 
 Inventory.GetStashedVirtualMoney = function(charId)

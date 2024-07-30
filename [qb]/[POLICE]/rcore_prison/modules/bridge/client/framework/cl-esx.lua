@@ -20,6 +20,15 @@ CreateThread(function()
             ESX.ShowNotification(message, type)
         end
 
+        function Inventory.HandleInventoryOpenState(state)
+            local ply = LocalPlayer
+        
+            if not ply then
+                return
+            end
+        end
+
+
         RegisterNetEvent(Config.FrameworkEvents['esx:playerLoaded'])
         AddEventHandler(Config.FrameworkEvents['esx:playerLoaded'], function(data)
             Framework.setJob({

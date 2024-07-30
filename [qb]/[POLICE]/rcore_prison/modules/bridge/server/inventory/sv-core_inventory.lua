@@ -71,7 +71,7 @@ CreateThread(function()
             if match then
                 item = item:lower()
             end
-    
+
             if isBridgeLoaded('Framework', Framework.ESX) then
                 player.addInventoryItem(item, amount, data)
             elseif isBridgeLoaded('Framework', Framework.QBCore) then
@@ -140,10 +140,18 @@ CreateThread(function()
     
             return {}
         end
+
     
-    
-        Inventory.clearInventory = function(name)
-            exports[Bridge.Inventory]:clearInventory(name:gsub(':', ''))
+        Inventory.clearInventory = function(playerId)
+            local state, error_message = pcall(function()
+                if Config.Stash.KeepItems and Inventory.KeepSessionItems and #Inventory.KeepSessionItems > 0 then
+                    dbg.debugInventory('Clear inventory with stash items is not supported, clearing all items and stashing them into prisn stash: for player named %s (%s)', playerId, GetPlayerName)
+                    return exports[Bridge.Inventory]:clearInventory(playerId:gsub(':', ''))
+                else
+                    return exports[Bridge.Inventory]:clearInventory(playerId:gsub(':', ''))
+                end
+            end)
+
             return true
         end
     end    

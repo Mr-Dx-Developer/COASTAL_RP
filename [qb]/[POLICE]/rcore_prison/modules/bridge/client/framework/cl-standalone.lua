@@ -11,6 +11,16 @@ CreateThread(function()
             end
         end)
     
+
+        function Inventory.HandleInventoryOpenState(state)
+            local ply = LocalPlayer
+        
+            if not ply then
+                return
+            end
+        end
+
+
         function Framework.showHelpNotification(text)
             DisplayHelpTextThisFrame(text, false)
             BeginTextCommandDisplayHelp(text)

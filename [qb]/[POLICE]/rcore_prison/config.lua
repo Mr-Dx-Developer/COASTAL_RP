@@ -38,9 +38,9 @@ Config = {
     -- Other script settings
 
     Clothing = Clothing.AUTO_DETECT,              -- [NONE - None, ESX - skin_changer, QB - qb-clothing, FAPPEARANCE - fivem-appearance, IAPPEARANCE - illennium-appearance, TGIANN - tgiann-clothing]
-    Phone = Phones.AUTO_DETECT,                   -- [NONE - None, QB_PHONE - qb_phone, LB - lb_phone]
+    Phone = Phones.AUTO_DETECT,                   -- [NONE - None, QB_PHONE - qb_phone, LB_PHONE - lb_phone]
     Notify = Notifies.AUTO_DETECT,                -- [NONE - Native, NATIVE - GTA:V Notify, OX - ox_lib, QBCORE - qb-core, OKOK - okok_notify, ESX - esx_notify, MYTHIC - mythic_notify, PNOTIFY - pNotify, BRUTAL - brutal_notify]
-    TextUI = TextUI.AUTO_DETECT,                         -- [NONE - RCore, ESX - esx_textui, OX - ox_lib, QBCORE - qb-core]
+    TextUI = TextUI.AUTO_DETECT,                  -- [NONE - RCore, ESX - esx_textui, OX - ox_lib, QBCORE - qb-core]
     Menus = MenuList.RCORE,                       -- [RCORE - RCore, ESX_CONTEXT - esx_context, ESX_MENU - es_extended, OX - ox_menu, QB - qb-core]
     Dispatch = DispatchList.ps_dispatch,                 -- [NONE - Standalone, RCORE - rcore_dispatch, PS - ps_dispatch, QS - qs_dispatch, CORE - core_dispatch, CD - cd_dispatch] 
     
@@ -108,6 +108,7 @@ Config = {
         SolitaryTime = 5, -- This is the time for solitary (default in min) - when prisoner is escaping and get caughh when AutoCatch enabled.
         DisableBugEscape = true, -- This is used for disabling bug escape system || Player are only allowed to escape through included Prison break system!
         BugEscapeCycleTime = 1, -- This is the time for checking if prisoner is in area (default in minutes)
+        ViewNPCDistance = 30, -- This is the distance for viewing NPC
         RepairWallTime = 10, -- This is the time for repairing the wall (default in seconds)
         RepairWallKey = 'E',
         ResetTime = 30, -- This is the time for resetting the escape (default in min)
@@ -383,10 +384,10 @@ Config = {
 
     ImagePath = {
         [Inventories.OX] = 'nui://ox_inventory/web/images',
-        --[Inventories.QB] = 'nui://qb-inventory/html/images',
-        --[Inventories.LJ] = 'nui://lj-inventory/html/images',
-        --[Inventories.QS] = 'nui://qs-inventory/html/images',
-        --[Inventories.TGIANN] = 'nui://inventory_images/images',
+       -- [Inventories.QB] = 'nui://qb-inventory/html/images',
+       -- [Inventories.LJ] = 'nui://lj-inventory/html/images',
+       -- [Inventories.QS] = 'nui://qs-inventory/html/images',
+       -- [Inventories.TGIANN] = 'nui://inventory_images/images',
         --[Inventories.ESX] = '', -- When running es_extended the images are being loaded from rcore_prison/modules/nui/web/build/images/items
     }, 
 

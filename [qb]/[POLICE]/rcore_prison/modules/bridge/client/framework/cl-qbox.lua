@@ -27,6 +27,7 @@ CreateThread(function()
         function Framework.sendNotification(message, type)
             TriggerEvent('QBCore:Notify', message, type, 5000)
         end
+        
 
         function Framework.isInJob()
             if Framework.job and Config.Jobs[Framework.job.name] then
