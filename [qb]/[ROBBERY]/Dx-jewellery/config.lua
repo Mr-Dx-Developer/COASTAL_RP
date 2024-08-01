@@ -4,9 +4,23 @@ Config.OneStore = false -- Set to true if using just the main Vangelico's Jewell
 Config.Cooldown = 5 * (60 * 2000) -- where x is minutes ie. x * (60 * 2000) \\ For door auto lock function
 Config.Timeout = 5 * (60 * 2000) -- where x is minutes ie. x * (60 * 2000) \\ For case smashing cooldown
 Config.AutoLock = true -- Set to false if you don't want the doors to auto lock/lock at all
-Config.RequiredCops = 0
+Config.RequiredCops = 5
 
 Config.VangelicoHours = { -- Store Hours
+  range = { -- Set both to 0 if you want the store to be robbed 24/7
+    open = 0, -- When the doors unlock // Default 6am
+    close = 0 -- When they lock for the night // Default 6pm
+  },
+  alertnight = {
+    start = 15, -- The start of higher chance alerts in the evening // Default 6pm
+    fin = 24 -- The end of higher chance alerts in the evening // Default 8pm
+  },
+  alertmorn = {
+    start = 4, -- The start of higher chance alerts in the morning // Default 4am
+    fin = 6 -- The end of higher chance alerts in the morning // Default 6am
+  }
+}
+--[[ Config.VangelicoHours = { -- Store Hours
   range = { -- Set both to 0 if you want the store to be robbed 24/7
     open = 6, -- When the doors unlock // Default 6am
     close = 18 -- When they lock for the night // Default 6pm
@@ -19,7 +33,7 @@ Config.VangelicoHours = { -- Store Hours
     start = 4, -- The start of higher chance alerts in the morning // Default 4am
     fin = 6 -- The end of higher chance alerts in the morning // Default 6am
   }
-}
+} ]]
 
 Config.Dispatch = 'ps' -- Police Dispatch System 
 --[[ 
@@ -162,21 +176,21 @@ Config.WhitelistedWeapons = {
 
 Config.VitrineRewards = {
   [1] = {
-    item = 'rolex',
+    item = 'rolex1',
     ['Amounts'] = {
       min = 1, 
       max = 4
     }
   },
   [2] = {
-    item = 'diamond_ring',
+    item = 'diamond_ring1',
     ['Amounts'] = {
       min = 1,
       max = 4
     }
   },
   [3] = {
-    item = 'goldchain',
+    item = 'goldchain1',
     ['Amounts'] = {
       min = 1,
       max = 4

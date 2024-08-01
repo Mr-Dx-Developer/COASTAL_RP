@@ -2,9 +2,9 @@ Rewards = {}
 
 Rewards.Trollys = {
     ['money'] = { -- Amount of bags rewarded when a player loots a trolly, minWorth and maxWorth decide the item.info.worth of the markedbills
-        fleeca = { minAmount = 2, maxAmount = 2, minWorth = 7000, maxWorth = 9000 },
+        fleeca = { minAmount = 2, maxAmount = 2, minWorth = 5000, maxWorth = 6500 },
         maze = { minAmount = 3, maxAmount = 4, minWorth = 10000, maxWorth = 14000 },
-        paleto = { minAmount = 15, maxAmount = 15, minWorth = 19000, maxWorth = 21000 },
+        paleto = { minAmount = 15, maxAmount = 15, minWorth = 7000, maxWorth = 8000 },
         pacific = { minAmount = 5, maxAmount = 6, minWorth = 10000, maxWorth = 14000 },
         vault = { minAmount = 6, maxAmount = 7, minWorth = 10000, maxWorth = 14000 }
     },
@@ -20,7 +20,7 @@ Rewards.Trollys = {
 Rewards.Lockers = {
     ['fleeca'] = {
         items = {'goldbar', }, -- Every time a player unlocks a locker, a random item from this array will be drawn, you can add more items
-        amount = { minAmount = 2, maxAmount = 2 },
+        amount = { minAmount = 1, maxAmount = 2 },
         rareChance = 20,
         rareItem = 'usb_blue',
     },
@@ -32,7 +32,7 @@ Rewards.Lockers = {
     },
     ['paleto'] = {
         items = {'goldbar', },
-        amount = { minAmount = 4, maxAmount = 4 },
+        amount = { minAmount = 1, maxAmount = 4 },
         rareChance = 20,
         rareItem = {'usb_red', 'pistolblueprint', 'smgblueprint' }
     },

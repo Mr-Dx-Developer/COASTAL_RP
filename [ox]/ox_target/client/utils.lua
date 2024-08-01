@@ -28,7 +28,7 @@ function utils.raycastFromCamera(flag)
 end
 
 function utils.getTexture()
-    return lib.requestStreamedTextureDict('shared'), 'emptydot_32'
+    return lib.requestStreamedTextureDict('4.0_inspired'), 'Point-Green'
 end
 
 -- SetDrawOrigin is limited to 32 calls per frame. Set as 0 to disable.
@@ -36,8 +36,10 @@ local drawZoneSprites = GetConvarInt('ox_target:drawSprite', 24)
 local SetDrawOrigin = SetDrawOrigin
 local DrawSprite = DrawSprite
 local ClearDrawOrigin = ClearDrawOrigin
-local colour = vector(155, 155, 155, 175)
-local hover = vector(98, 135, 236, 255)
+-- local colour = vector(155, 155, 155, 175)
+-- local hover = vector(98, 135, 236, 255)
+local colour = 'Point-Green'
+local hover = 'Selected'
 local currentZones = {}
 local previousZones = {}
 local drawZones = {}
@@ -100,17 +102,19 @@ function utils.getNearbyZones(coords)
     return currentZones, false
 end
 
-function utils.drawZoneSprites(dict, texture)
+function utils.drawZoneSprites(dict, defaultTexture)
     if drawN == 0 then return end
-
     for i = 1, drawN do
         local zone = drawZones[i]
-        local spriteColour = zone.colour or colour
-
-        if zone.drawSprite ~= false then
+        -- local spriteColour = zone.colour or colour
+        -- print(spriteColour)
+        local texture = zone.colour and hover or defaultTexture
+        -- print(texture)
+        if zone.texture ~= false then
             SetDrawOrigin(zone.coords.x, zone.coords.y, zone.coords.z)
-            DrawSprite(dict, texture, 0, 0, width, height, 0, spriteColour.r, spriteColour.g, spriteColour.b,
-                spriteColour.a)
+            -- DrawSprite(dict, texture, 0, 0, width, height, 0, spriteColour.r, spriteColour.g, spriteColour.b,
+            --     spriteColour.a)
+            DrawSprite(dict, texture, 0, 0, width, height, 0, 255, 255, 255, 255)
         end
     end
 
@@ -191,14 +195,12 @@ SetTimeout(0, function()
         end)
     end
 
-    if utils.hasExport('ox_core.GetPlayer') then
+    if utils.hasExport('ox_core.GetPlayerData') then
         require 'client.framework.ox'
     elseif utils.hasExport('es_extended.getSharedObject') then
         require 'client.framework.esx'
     elseif utils.hasExport('qb-core.GetCoreObject') then
         require 'client.framework.qb'
-    elseif utils.hasExport('ND_Core.getPlayer') then
-        require 'client.framework.nd'
     end
 end)
 

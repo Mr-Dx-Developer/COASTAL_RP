@@ -443,7 +443,7 @@ RegisterNetEvent('qb-bankrobbery:client:LootLocker', function(data)
     CreateThread(function()
         while isDrilling do
             Wait(10000)
-            TriggerServerEvent('hud:server:GainStress', math.random(4, 8))
+            TriggerServerEvent('hud:server:GainStress', math.random(1, 2))
         end
     end)
 

@@ -459,6 +459,16 @@ return {
 			image = "diamond_ring.png",
 		}
 	},
+    ["diamond_ring1"] = {
+		label = "Black Diamond Ring",
+		weight = 1500,
+		stack = true,
+		close = true,
+		description = "A diamond ring seems like the jackpot to me!",
+		client = {
+			image = "diamond_ring.png",
+		}
+	},
 
 	["weed_amnesia"] = {
 		label = "Amnesia 2g",
@@ -713,6 +723,16 @@ return {
 
 	["rolex"] = {
 		label = "Golden Watch",
+		weight = 1000,
+		stack = true,
+		close = true,
+		description = "A golden watch seems like the jackpot to me!",
+		client = {
+			image = "rolex.png",
+		}
+	},
+    ["rolex1"] = {
+		label = "Black Golden Watch",
 		weight = 1000,
 		stack = true,
 		close = true,
@@ -1798,6 +1818,16 @@ return {
 
 	["goldchain"] = {
 		label = "Golden Chain",
+		weight = 1000,
+		stack = true,
+		close = true,
+		description = "A golden chain seems like the jackpot to me!",
+		client = {
+			image = "goldchain.png",
+		}
+	},
+    ["goldchain1"] = {
+		label = "Black Golden Chain",
 		weight = 1000,
 		stack = true,
 		close = true,
@@ -5678,6 +5708,36 @@ return {
 		description = "",
 		client = {
 			image = "pickaxe.png",
+		}
+	},
+	["tree_lumber"] = {
+		label = "Lumber",
+		weight = 20,
+		stack = true,
+		close = false,
+		description = "",
+		client = {
+			image = "lumber.png",
+		}
+	},
+	["tree_bark"] = {
+		label = "Tree Bark",
+		weight = 20,
+		stack = true,
+		close = false,
+		description = "",
+		client = {
+			image = "treebark.png",
+		}
+	},
+	["wood_plank"] = {
+		label = "Wood Plank",
+		weight = 10,
+		stack = true,
+		close = false,
+		description = "",
+		client = {
+			image = "woodplank.png",
 		}
 	},
 
