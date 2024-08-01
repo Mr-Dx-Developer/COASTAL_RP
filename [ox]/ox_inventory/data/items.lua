@@ -11052,7 +11052,7 @@ return {
 		}
 	},
 
-	["carkey"] = {
+	--[[ ["carkey"] = {
 		label = "Vehicle Keys",
 		weight = 100,
 		stack = false,
@@ -11061,6 +11061,16 @@ return {
 		client = {
 			image = "carkey.png",
 		}
+	}, ]]
+	['carkey'] = {
+		label = 'Vehicle Keys',
+		weight = 1,
+		consume = 0,
+		stack = false,
+		close = true,
+		server = {
+			export = 'mk_vehiclekeys.usevehkey'
+		},
 	},
 
 	["coke_box"] = {
