@@ -1305,7 +1305,7 @@ Config.market_categories = {
 		['items'] = {
 			['ammo-50'] = {
 				['name'] = ".50 AE",
-				['price_to_customer'] = 200,
+				['price_to_customer'] = 20,
 				['price_to_customer_min'] = 125,
 				['price_to_customer_max'] = 500,
 				['price_to_export'] = 200,
@@ -1317,7 +1317,7 @@ Config.market_categories = {
 			},
 			['ammo-44'] = {
 				['name'] = ".44 Magnum",
-				['price_to_customer'] = 250,
+				['price_to_customer'] = 25,
 				['price_to_customer_min'] = 175,
 				['price_to_customer_max'] = 700,
 				['price_to_export'] = 300,
