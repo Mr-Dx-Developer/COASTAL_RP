@@ -8,10 +8,10 @@ Config = {
 
 	Lan = "en", -- Pick your language here
 
-	JimShops = false, 		-- Set this to true if using jim-shops
+	JimShops = true, 		-- Set this to true if using jim-shops
 
 	Inv = "ox",				--"qb" or "ox"
-	Menu = "qb",			--"qb" or "ox"
+	Menu = "ox",			--"qb" or "ox"
 	ProgressBar = "ox",		--"qb" or "ox"
 	Notify = "qb",			--"qb" or "ox"
 
@@ -66,6 +66,7 @@ Config = {
 		"stone",
 		"silverore",
 		"bottle",
+		"metal",
 	},
 
 ------------------------------------------------------------
@@ -80,74 +81,70 @@ Config = {
 	},
 
 	SellingPrices = { -- Selling Prices
-	['copperore'] = 200,
-	['goldore'] = 500,
-	['silverore'] = 200,
-	['ironore'] = 200,
-	['carbon'] = 200,
+		['copperore'] = 200,
+		['goldore'] = 500,
+		['silverore'] = 200,
+		['ironore'] = 200,
+		['carbon'] = 200,
 
-	['goldingot'] = 200,
-	['silveringot'] = 150,
+		['goldingot'] = 200,
+		['silveringot'] = 150,
 
-	['uncut_emerald'] = 200,
-	['uncut_ruby'] = 200,
-	['uncut_diamond'] = 200,
-	['uncut_sapphire'] = 200,
+		['uncut_emerald'] = 200,
+		['uncut_ruby'] = 200,
+		['uncut_diamond'] = 200,
+		['uncut_sapphire'] = 200,
 
-	['emerald'] = 500,
-	['ruby'] = 1500,
-	['diamond'] = 300,
-	['sapphire'] = 200,
+		['emerald'] = 500,
+		['ruby'] = 1500,
+		['diamond'] = 300,
+		['sapphire'] = 200,
 
-	['diamond_ring'] = 1500,
-	['emerald_ring'] = 1000	,
-	['ruby_ring'] = 3000,
-	['sapphire_ring'] = 700,
-	['diamond_ring_silver'] = 1700,
-	['emerald_ring_silver'] = 1200,
-	['ruby_ring_silver'] = 3200,
-	['sapphire_ring_silver'] = 900,
+		['diamond_ring'] = 1500,
+		['emerald_ring'] = 1000	,
+		['ruby_ring'] = 3000,
+		['sapphire_ring'] = 700,
+		['diamond_ring_silver'] = 1700,
+		['emerald_ring_silver'] = 1200,
+		['ruby_ring_silver'] = 3200,
+		['sapphire_ring_silver'] = 900,
 
-	['diamond_necklace'] = 1500,
-	['emerald_necklace'] = 1000,
-	['ruby_necklace'] = 3000,
-	['sapphire_necklace'] = 700,
-	['diamond_necklace_silver'] = 1700,
-	['emerald_necklace_silver'] = 1200,
-	['ruby_necklace_silver'] = 3200,
-	['sapphire_necklace_silver'] = 900,
+		['diamond_necklace'] = 1500,
+		['emerald_necklace'] = 1000,
+		['ruby_necklace'] = 3000,
+		['sapphire_necklace'] = 700,
+		['diamond_necklace_silver'] = 1700,
+		['emerald_necklace_silver'] = 1200,
+		['ruby_necklace_silver'] = 3200,
+		['sapphire_necklace_silver'] = 900,
 
-	['diamond_earring'] = 1500,
-	['emerald_earring'] = 1000,
-	['ruby_earring'] = 3000,
-	['sapphire_earring'] = 700,
-	['diamond_earring_silver'] = 1700,
-	['emerald_earring_silver'] = 1200,
-	['ruby_earring_silver'] = 3200,
-	['sapphire_earring_silver'] = 900,
+		['diamond_earring'] = 1500,
+		['emerald_earring'] = 1000,
+		['ruby_earring'] = 3000,
+		['sapphire_earring'] = 700,
+		['diamond_earring_silver'] = 1700,
+		['emerald_earring_silver'] = 1200,
+		['ruby_earring_silver'] = 3200,
+		['sapphire_earring_silver'] = 900,
 
-	['gold_ring'] = 700,
-	['goldchain'] = 700,
-	['goldearring'] = 700,
-	['silver_ring'] = 200,
-	['silverchain'] = 200,
-	['silverearring'] = 200,
+		['gold_ring'] = 700,
+		['goldchain'] = 700,
+		['goldearring'] = 700,
+		['silver_ring'] = 200,
+		['silverchain'] = 200,
+		['silverearring'] = 200,
 
 	},
 ------------------------------------------------------------
 --Mining Store Items
 	Items = {
-		label = "Mining Store",  slots = 9,
+		label = "Mining Store",  slots = 5,
 		items = {
-			{ name = "water_bottle", price = 0, amount = 100, info = {}, type = "item", slot = 1, },
-			{ name = "sandwich", price = 0, amount = 250, info = {}, type = "item", slot = 2, },
-			{ name = "bandage", price = 0, amount = 100, info = {}, type = "item", slot = 3, },
-			{ name = "weapon_flashlight", price = 0, amount = 100, info = {}, type = "item", slot = 4, },
-			{ name = "goldpan", price = 0, amount = 100, info = {}, type = "item", slot = 5, },
-			{ name = "pickaxe",	price = 100, amount = 100, info = {}, type = "item", slot = 6, },
-			{ name = "miningdrill",	price = 10000, amount = 50, info = {}, type = "item", slot = 7, },
-			{ name = "mininglaser",	price = 60000, amount = 5, info = {}, type = "item", slot = 8, },
-			{ name = "drillbit", price = 0, amount = 100, info = {}, type = "item", slot = 9, },
+			{ name = "goldpan", price = 2500, amount = 100, info = {}, type = "item", slot = 1, },
+			{ name = "pickaxe",	price = 5000, amount = 100, info = {}, type = "item", slot = 2, },
+			{ name = "miningdrill",	price = 30000, amount = 50, info = {}, type = "item", slot = 3, },
+			{ name = "mininglaser",	price = 90000, amount = 5, info = {}, type = "item", slot = 4, },
+			{ name = "drillbit", price = 1000, amount = 100, info = {}, type = "item", slot = 5, },
 		},
 	},
 }
