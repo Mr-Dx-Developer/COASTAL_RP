@@ -30,9 +30,9 @@ Config.Permissions = {
     ["discord:811436286006657025"] = "god", -- dx
     ["discord:770558357014183976"] = "god",   -- Muradhasan
     ["discord:777552373560115211"] = "god",   -- habib
-    ["discord:1268965871775383702"] = "god",   -- SyroX
-    ["discord:914556948442128504"] = "god",   -- SyroX
-
+  --  ["discord:1268965871775383702"] = "god",   -- SyroX
+    ["discord:914556948442128504"] = "god",   -- : bishalroy#0
+    ["discord:849340844178669628"] = "god",   --  lord8byte#0
   
     ["YJR13040"] = "admin",   --- tutulahmed  --- discord:721696179754238004
     ["MUP67229"] = "admin",   --- sketch_01   --- discord:1012310576975843380
