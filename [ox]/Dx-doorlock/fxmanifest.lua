@@ -1,5 +1,3 @@
-shared_script "@GM_AntiDump/shared/clientloader.lua"
-
 fx_version 'cerulean'
 game 'gta5'
 
