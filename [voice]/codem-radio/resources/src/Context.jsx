@@ -4,7 +4,7 @@ const MainContext = createContext()
 const ClientMessage = (msg, send, iscb, callback) => {
     new Promise(function () {
         const https = new XMLHttpRequest();
-        https.open("POST", `https://xRadio/` + msg);
+        https.open("POST", `https://codem-radio/` + msg);
         https.send(send);
         if (iscb) {
             https.onload = function() {

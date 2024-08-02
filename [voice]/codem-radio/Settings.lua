@@ -1,5 +1,5 @@
 Settings = {
-    Framework = "QBCore", -- Esx or NewESX and QBCore or OldQBCore
+    Framework = "NewESX", -- Esx or NewESX and QBCore or OldQBCore
     Voice = "pma-voice", --  pma-voice & saltychat & mumble-voip
     MaxFrequency = 500, --  Max Frequency
     ResetCommad = "radioreset",
@@ -27,24 +27,18 @@ Settings = {
         },
         [3] = {
             RadioCode = 3, 
-            Jobs = {"police"},
+            Jobs = {"ambulance"},
         },
         [4] = {
             RadioCode = 4, 
-            Jobs = {"ambulance"},
+            Jobs = {"police"},
         },    
         [5] = {
             RadioCode = 5, 
-            Jobs = {"ambulance"},
+            Jobs = {"sheriff"},
         }, 
-        [6] = {
-            RadioCode = 6, 
-            Jobs = {"ambulance"},
-        },
     },
 }
-
-
 
 GetFramework = function()
     local Get = nil
@@ -76,7 +70,6 @@ ClientNotification = function(message, type) -- You can change notification even
        TriggerEvent('QBCore:Notify', message, type, 1500)
     end
 end
-
 
 ConnectRadio = function(data) 
     TriggerServerEvent("setRadioChannel", data)
@@ -110,4 +103,3 @@ setVolume = function(data)
         exports["saltychat"]:SetRadioVolume(tonumber(data)) 
     end 
 end
-

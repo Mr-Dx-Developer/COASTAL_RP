@@ -63,7 +63,7 @@ end
 
 -- Event
 
-RegisterNetEvent("xRadio:OpenClose", function(data)
+RegisterNetEvent("codem-radio:OpenClose", function(data)
     if data then 
         Open()
     else 
@@ -84,7 +84,7 @@ end)
 -- NuiCallback 
 
 RegisterNuiCallback("Close", function()
-    TriggerEvent("xRadio:OpenClose", false)
+    TriggerEvent("codem-radio:OpenClose", false)
 end)
 
 RegisterNuiCallback("RadioLeave", function()
@@ -135,8 +135,8 @@ end)
 
 -- Exports
 
-exports('openxRadio', Open)
-exports('closexRadio', Close)
+exports('opencodem-radio', Open)
+exports('closecodem-radio', Close)
 isDead = false
 Citizen.CreateThread(function()
     while true do

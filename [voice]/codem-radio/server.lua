@@ -42,13 +42,11 @@ CreateThread(function()
     
      if Settings.Framework == "ESX" or Settings.Framework == "NewESX" then
         Framework.RegisterUsableItem('radio', function(source)
-            TriggerClientEvent("xRadio:OpenClose", source, true)
+            TriggerClientEvent("codem-radio:OpenClose", source, true)
         end)
     else 
         Framework.Functions.CreateUseableItem('radio', function(source)
-            TriggerClientEvent("xRadio:OpenClose", source, true)
+            TriggerClientEvent("codem-radio:OpenClose", source, true)
         end)
     end
 end)
-
-

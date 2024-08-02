@@ -1,8 +1,8 @@
 fx_version "cerulean"
 
-description "codem store"
-author "CODEM"
-version "1.4.1"
+description "CodeM - X Series Radio"
+author "CodeM"
+version "1.4.2"
 
 lua54 "yes"
 
@@ -22,10 +22,9 @@ files {
   "resources/build/**/*"
 }
 
-escrow_ignore { "Settings.lua",
- "client.lua",
- "server.lua",
-
-
+escrow_ignore { 
+  "Settings.lua",
+  "client.lua",
+  "server.lua",
 }
 dependency '/assetpacks'
