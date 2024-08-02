@@ -79,6 +79,24 @@ function GetEmployees(job)
     return employees
 end
 
+---@param job string
+---@return { firstname: string, lastname: string, grade: string, number: string }[] employees
+function GetAllEmployees(job)
+    local numberTable = Config.Item.Unique and "phone_last_phone" or "phone_phones"
+
+    return MySQL.query.await(([[
+        SELECT
+            JSON_UNQUOTE(JSON_EXTRACT(u.charinfo, '$.firstname')) AS firstname,
+            JSON_UNQUOTE(JSON_EXTRACT(u.charinfo, '$.lastname')) AS lastname,
+            JSON_UNQUOTE(JSON_EXTRACT(u.job, '$.grade.level')) AS grade,
+            JSON_UNQUOTE(JSON_EXTRACT(u.job, '$.grade.name')) AS gradeLabel,
+            p.phone_number AS `number`
+        FROM players u
+        LEFT JOIN %s p ON u.citizenid = p.id COLLATE UTF8MB4_GENERAL_CI
+        WHERE JSON_UNQUOTE(JSON_EXTRACT(u.job, '$.name')) = ?
+    ]]):format(numberTable), { job })
+end
+
 ---Get the bank balance of a player
 ---@param source any
 ---@return integer
@@ -266,11 +284,11 @@ end, "admin")
 QB.Commands.Add("changepassword", "Change a user's password", {
     {
         name = "app",
-        help = "The app: trendy, instapic, birdy or mail"
+        help = "trendy, instapic, birdy, mail or darkchat"
     },
     {
         name = "username",
-        help = "The profile username"
+        help = "The username/address"
     },
     {
         name = "password",
@@ -278,26 +296,24 @@ QB.Commands.Add("changepassword", "Change a user's password", {
     }
 }, true, function(_, args)
     local app, username, password = args[1], args[2], args[3]
-
     local allowedApps = {
+        -- old app names
         ["twitter"] = true,
         ["instagram"] = true,
         ["tiktok"] = true,
+
         ["birdy"] = true,
         ["trendy"] = true,
         ["instapic"] = true,
-        ["mail"] = true
+        ["mail"] = true,
+        ["darkchat"] = true
     }
 
     if not allowedApps[app:lower()] then
         return
-    end
-
-    if not username then
+    elseif not username then
         return
-    end
-
-    if not password then
+    elseif not password then
         return
     end
 

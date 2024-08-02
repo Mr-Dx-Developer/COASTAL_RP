@@ -114,13 +114,13 @@ local function log(app, source, type, title, message, avatar, image)
         },
 		footer = {
 			text = "LB Phone",
-			icon_url = "https://docs.lbphone.com/img/favicon.png"
+			icon_url = "https://docs.lbscripts.com/images/icons/icon.png"
 		}
 	}
 
 	PerformHttpRequest(discordWebhook, function() end, "POST", json.encode({
 		username = app,
-		avatar_url = "https://docs.lbphone.com/img/favicon.png",
+		avatar_url = "https://docs.lbscripts.com/images/icons/icon.png",
 		embeds = {
             embed
         }
@@ -158,6 +158,38 @@ function GetTimestampISO()
     local currentTime = os.time(os.date("!*t")) -- Get the current time in UTC
 
     return os.date("%Y-%m-%dT%H:%M:%S.000Z", currentTime)
+end
+
+local anyExternalAllowed = false
+
+for _, v in pairs(Config.AllowExternal) do
+    if v then
+        anyExternalAllowed = true
+    end
+end
+
+function IsMediaLinkAllowed(link)
+    if not Config.UploadWhitelistedDomains or #Config.UploadWhitelistedDomains == 0 then
+        return true
+    end
+
+    if anyExternalAllowed and #Config.ExternalWhitelistedDomains == 0 and #Config.ExternalBlacklistedDomains == 0 then
+        return true
+    end
+
+    local domain = link:match("[%w%.]*%.(%w+%.%w+)")
+
+    if not anyExternalAllowed then
+        return contains(Config.UploadWhitelistedDomains, domain)
+    end
+
+    if #Config.ExternalBlacklistedDomains > 0 and contains(Config.ExternalBlacklistedDomains, domain) then
+        return false
+    elseif #Config.ExternalWhitelistedDomains > 0 and not contains(Config.ExternalWhitelistedDomains, domain) then
+        return false
+    end
+
+    return true
 end
 
 AddEventHandler("playerDropped", function()

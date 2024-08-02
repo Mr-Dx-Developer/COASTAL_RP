@@ -642,7 +642,7 @@
             }
         },
         "TINDER": {
-            "TITLE": "Tinder",
+            "TITLE": "Spark",
 
             "LIKES_YOU_TOO": "vindt jou ook leuk!",
             "KEEP_SWIPING": "Blijf swipen",
@@ -681,7 +681,7 @@
             "SEARCH_MATCHES": "In matches zoeken"
         },
         "INSTAGRAM": {
-            "TITLE": "Instagram",
+            "TITLE": "InstaPic",
 
             "SEND": "Versturen",
             "POST": "Bericht",
@@ -775,7 +775,7 @@
             "SEND_A_MESSAGE": "Chatbericht sturen.."
         },
         "TWITTER": {
-            "TITLE": "Twitter",
+            "TITLE": "Birdy",
 
             "SEARCH_FOR": "Zoeken naar '{search}'",
             "START_SEARCHING": "Start met zoeken om Twitter te ontdekken",
@@ -788,7 +788,7 @@
             "MEDIA": "Media",
             "LIKES": "Vind-ik-leuks",
             "CANCEL": "Annuleer",
-            "TWEET": "Tweet",
+            "TWEET": "Post",
             "TWEET_REPLY": "Tweet je antwoord",
             "TWEET_GENERAL": "Wat houdt je bezig?",
 

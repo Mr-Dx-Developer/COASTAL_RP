@@ -30,7 +30,9 @@ RegisterNetEvent("esx:playerLoaded", function(playerData)
     isFirst = false
 end)
 
-RegisterNetEvent("esx:onPlayerLogout", LogOut)
+RegisterNetEvent("esx:onPlayerLogout", function()
+    LogOut()
+end)
 
 while not ESX.PlayerLoaded do
     Wait(500)
@@ -38,6 +40,14 @@ end
 
 RegisterNetEvent("esx:setJob", function(job)
     ESX.PlayerData.job = job
+end)
+
+RegisterNetEvent("esx:setAccountMoney", function(account)
+    if account.name ~= "bank" then
+        return
+    end
+
+    SendReactMessage("wallet:setBalance", math.floor(account.money))
 end)
 
 debugprint("ESX loaded")

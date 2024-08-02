@@ -11,68 +11,66 @@ lib.RegisterCallback("phone:services:getOnline", function(_, cb)
     cb(Config.Companies.Services)
 end)
 
+local allowedCompanies = {}
+
+for i = 1, #Config.Companies.Services do
+    allowedCompanies[Config.Companies.Services[i].job] = true
+end
+
 -- Messages
-local function GetChannel(company, phoneNumber)
-    local channel = MySQL.Sync.fetchScalar("SELECT id FROM phone_services_channels WHERE company = @company AND phone_number = @phoneNumber", {
-        ["@company"] = company,
-        ["@phoneNumber"] = phoneNumber
-    })
+local function getChannel(company, phoneNumber)
+    local channel = MySQL.scalar.await("SELECT id FROM phone_services_channels WHERE company = ? AND phone_number = ?", { company, phoneNumber })
 
     if channel then
         return channel
     end
 
     local id = GenerateId("phone_services_channels", "id")
-    MySQL.Sync.execute("INSERT INTO phone_services_channels (id, company, phone_number) VALUES (@id, @company, @phoneNumber)", {
-        ["@id"] = id,
-        ["@company"] = company,
-        ["@phoneNumber"] = phoneNumber
-    })
+
+    MySQL.update.await("INSERT INTO phone_services_channels (id, company, phone_number) VALUES (?, ?, ?)", { id, company, phoneNumber })
+
     return id
 end
 
-lib.RegisterCallback("phone:services:getChannelId", function(source, cb, job)
-    local phoneNumber = GetEquippedPhoneNumber(source)
-    if not phoneNumber then
-        return
-    end
-
-    local channelId = GetChannel(job, phoneNumber)
-    cb(channelId)
+---@param job string
+BaseCallback("services:getChannelId", function (source, phoneNumber, job)
+    return getChannel(job, phoneNumber)
 end)
 
-lib.RegisterCallback("phone:services:sendMessage", function(source, cb, channelId, company, message, anonymous)
-    local phoneNumber = GetEquippedPhoneNumber(source)
-    if not phoneNumber then
+---@param channelId string
+---@param company string
+---@param message string
+---@param anonymous? boolean
+BaseCallback("services:sendMessage", function(source, phoneNumber, channelId, company, message, anonymous)
+    if not company or not allowedCompanies[company] then
+        debugprint("company not allowed", company, allowedCompanies)
         return
     end
 
     if anonymous then
         phoneNumber = L("BACKEND.SERVICES.ANONYMOUS")
-        channelId = GetChannel(company, phoneNumber)
+        channelId = getChannel(company, phoneNumber)
     end
 
     debugprint("phone:services:sendMessage, company:", company, " message:", message)
 
     if not channelId then
-        channelId = GetChannel(company, phoneNumber)
+        channelId = getChannel(company, phoneNumber)
     end
 
-    local contacter = MySQL.Sync.fetchScalar("SELECT phone_number FROM phone_services_channels WHERE id = @channelId", {
-        ["@company"] = company,
-        ["@channelId"] = channelId
-    })
+    local contacter = MySQL.scalar.await("SELECT phone_number FROM phone_services_channels WHERE id = ?", { channelId })
     local isContacter = contacter == phoneNumber
-
     local x, y
+
     if isContacter then
         local coords = GetEntityCoords(GetPlayerPed(source))
+
         x = coords.x
         y = coords.y
     end
 
     local messageId = GenerateId("phone_services_messages", "id")
-    MySQL.Async.execute([[
+    MySQL.update.await([[
         INSERT INTO phone_services_messages (id, channel_id, sender, message, x_pos, y_pos)
         VALUES (@id, @channelId, @sender, @message, @xPos, @yPos)
     ]], {
@@ -82,96 +80,116 @@ lib.RegisterCallback("phone:services:sendMessage", function(source, cb, channelI
         ["@message"] = message,
         ["@xPos"] = x,
         ["@yPos"] = y
-    }, function()
-        TriggerClientEvent("phone:services:newMessage", -1, {
-            channelId = channelId,
-            id = messageId,
-            sender = phoneNumber,
-            content = message,
-            x = x,
-            y = y
-        })
+    })
 
-        if isContacter then -- if it was sent by the original contacter
-            -- alert all online employees
-            local employees = GetEmployees(company)
-            for i = 1, #employees do
-                local employeeNumber = GetEquippedPhoneNumber(employees[i])
-                if not employeeNumber then
-                    goto continue
-                end
+    TriggerClientEvent("phone:services:newMessage", -1, {
+        channelId = channelId,
+        id = messageId,
+        sender = phoneNumber,
+        content = message,
+        x = x,
+        y = y
+    })
 
-                SendNotification(employeeNumber, {
-                    source = employees[i],
+    if isContacter then -- if it was sent by the original contacter, alert all employees
+        local employees = GetEmployees(company)
 
-                    app = "Services",
-                    title = L("BACKEND.SERVICES.NEW_MESSAGE"),
-                    content = message
-                })
+        for i = 1, #employees do
+            local employeeNumber = GetEquippedPhoneNumber(employees[i])
 
-                ::continue::
+            if not employeeNumber then
+                goto continue
             end
-        else
-            -- alert the contacter
-            SendNotification(contacter, {
+
+            SendNotification(employeeNumber, {
+                source = employees[i],
+
                 app = "Services",
                 title = L("BACKEND.SERVICES.NEW_MESSAGE"),
                 content = message
             })
+
+            ::continue::
         end
-
-        Log("Services", source, "info", L("BACKEND.LOGS.NEW_SERVICE_TITLE"), L("BACKEND.LOGS.NEW_SERVICE_CONTENT", {
-            sender = FormatNumber(phoneNumber),
-            channel = company,
-            message = message
-        }))
-
-        cb(messageId)
-    end)
-
-    MySQL.Async.execute("UPDATE phone_services_channels SET last_message = SUBSTRING(@message, 1, 50) WHERE id = @id", {
-        ["@id"] = channelId,
-        ["@message"] = message
-    })
-end)
-
-lib.RegisterCallback("phone:services:getRecentMessages", function(source, cb, page)
-    local phoneNumber = GetEquippedPhoneNumber(source)
-    if not phoneNumber then
-        return
+    else
+        -- alert the contacter
+        SendNotification(contacter, {
+            app = "Services",
+            title = L("BACKEND.SERVICES.NEW_MESSAGE"),
+            content = message
+        })
     end
 
-    MySQL.Async.fetchAll([[
+    Log("Services", source, "info", L("BACKEND.LOGS.NEW_SERVICE_TITLE"), L("BACKEND.LOGS.NEW_SERVICE_CONTENT", {
+        sender = FormatNumber(phoneNumber),
+        channel = company,
+        message = message
+    }))
+
+    MySQL.update("UPDATE phone_services_channels SET last_message = SUBSTRING(?, 1, 50) WHERE id = ?", { message, channelId })
+
+    return messageId
+end)
+
+---@param page? number
+BaseCallback("services:getRecentMessages", function(source, phoneNumber, page)
+    return MySQL.query.await([[
         SELECT id, phone_number, company, company, last_message, `timestamp`
         FROM phone_services_channels
-        WHERE
-            phone_number = @phoneNumber
-            OR company = @company
+        WHERE phone_number = ? OR company = ?
         ORDER BY `timestamp` DESC
-        LIMIT @page, @perPage
-    ]], {
-        ["@phoneNumber"] = phoneNumber,
-        ["@company"] = GetJob(source),
-        ["@page"] = (page or 0) * 25,
-        ["@perPage"] = 25
-    }, cb)
+        LIMIT ?, ?
+    ]], { phoneNumber, GetJob(source), (page or 0) * 25, 25 })
 end)
 
-lib.RegisterCallback("phone:services:getMessages", function(source, cb, channelId, page)
-    local phoneNumber = GetEquippedPhoneNumber(source)
-    if not phoneNumber then
-        return
-    end
-
-    MySQL.Async.fetchAll([[
+---@param channelId string
+---@param page? number
+BaseCallback("services:getMessages", function(source, phoneNumber, channelId, page)
+    return MySQL.query.await([[
         SELECT id, sender, message, x_pos, y_pos, `timestamp`
         FROM phone_services_messages
-        WHERE channel_id = @channelId
+        WHERE channel_id = ?
         ORDER BY `timestamp` DESC
-        LIMIT @page, @perPage
-    ]], {
-        ["@channelId"] = channelId,
-        ["@page"] = (page or 0) * 25,
-        ["@perPage"] = 25
-    }, cb)
+        LIMIT ?, ?
+    ]], { channelId, (page or 0) * 25, 25 })
 end)
+
+---@param channelId string
+BaseCallback("services:deleteChannel", function(source, phoneNumber, channelId)
+    if not Config.Companies.DeleteConversations then
+        return false
+    end
+
+    local success = MySQL.update.await("DELETE FROM phone_services_channels WHERE id = ? AND company = ?", { channelId, GetJob(source) }) > 0
+
+    if not success then
+        return false
+    end
+
+    TriggerClientEvent("phone:services:channelDeleted", -1, channelId)
+
+    return true
+end, false)
+
+---@param company string
+---@return { firstname: string, lastname: string, grade: string, number?: string, online: boolean }[] employees
+BaseCallback("services:getEmployees", function(source,eNumber, company)
+    if not Config.Companies.SeeEmployees or Config.Companies.SeeEmployees == "none" or not allowedCompanies[company] or not GetAllEmployees then
+        return {}
+    end
+
+    if Config.Companies.SeeEmployees == "employees" and GetJob(source) ~= company then
+        return {}
+    end
+
+    ---@type { firstname: string, lastname: string, grade: string, number?: string, online: boolean }[]
+    local employees = GetAllEmployees(company)
+
+    for i = 1, #employees do
+        local employee = employees[i]
+
+        employee.online = employee.number and GetSourceFromNumber(employee.number) ~= nil or false
+    end
+
+    return employees
+end, {})

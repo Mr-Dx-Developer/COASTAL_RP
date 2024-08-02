@@ -88,6 +88,8 @@ RegisterNUICallback("Services", function(data, cb)
         if jobData?.onCustomIconClick then
             jobData.onCustomIconClick()
         end
+    elseif action == "getEmployees" then
+        lib.TriggerCallback("phone:services:getEmployees", cb, data.company)
     end
 
     if action == "sendMessage" then
@@ -103,6 +105,8 @@ RegisterNUICallback("Services", function(data, cb)
         lib.TriggerCallback("phone:services:getMessages", function(messages)
             cb(FormatMessages(messages))
         end, data.id, data.page)
+    elseif action == "deleteChannel" then
+        lib.TriggerCallback("phone:services:deleteChannel", cb, data.id)
     end
 
     if Config.Framework == "qb" then
@@ -144,4 +148,8 @@ exports("SendCompanyCoords", function(company, coords, anonymous)
 
     debugprint("SendCompanyCoords triggered")
     return lib.TriggerCallbackSync("phone:services:sendMessage", nil, company, ("<!SENT-LOCATION-X=%.2fY=%.2f!>"):format(coords.x, coords.y), anonymous == true)
+end)
+
+RegisterNetEvent("phone:services:channelDeleted", function(channelId)
+    SendReactMessage("services:channelDeleted", channelId)
 end)

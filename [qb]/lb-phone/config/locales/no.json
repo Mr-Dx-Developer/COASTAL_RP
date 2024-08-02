@@ -596,7 +596,7 @@
             }
         },
         "TINDER": {
-            "TITLE": "Tinder",
+            "TITLE": "Spark",
             "LIKES_YOU_TOO": "liker deg også!",
             "KEEP_SWIPING": "Fortsett å sveipe",
             "SAY_SOMETHING_NICE": "Si noe hyggelig",
@@ -631,7 +631,7 @@
             "SEARCH_MATCHES": "Søk Matches"
         },
         "INSTAGRAM": {
-            "TITLE": "Instagram",
+            "TITLE": "InstaPic",
             "SEND": "Send",
             "POST": "Post",
             "MESSAGE_PLACEHOLDER": "Melding...",
@@ -716,7 +716,7 @@
             "SEND_A_MESSAGE": "Send en melding..."
         },
         "TWITTER": {
-            "TITLE": "Twitter",
+            "TITLE": "Birdy",
             "SEARCH_FOR": "Søk etter '{search}'",
             "START_SEARCHING": "Begynn å søke for å utforske Twitter",
             "TRENDING_HASHTAGS": "Trending hashtags",
@@ -727,7 +727,7 @@
             "MEDIA": "Media",
             "LIKES": "Likes",
             "CANCEL": "Avbryt",
-            "TWEET": "Tweet",
+            "TWEET": "Post",
             "TWEET_REPLY": "Tweet svaret ditt",
             "TWEET_GENERAL": "Hva skjer?",
             "EDIT_PROFILE": "Rediger profil",

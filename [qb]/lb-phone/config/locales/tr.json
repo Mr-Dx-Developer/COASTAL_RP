@@ -629,7 +629,7 @@
             }
         },
         "TINDER": {
-            "TITLE": "Tinder",
+            "TITLE": "Spark",
             "LIKES_YOU_TOO": "'da seni beğeniyor!",
             "KEEP_SWIPING": "Kaydırmaya devam et",
             "SAY_SOMETHING_NICE": "Güzel bir şey söyle",
@@ -664,7 +664,7 @@
             "SEARCH_MATCHES": "Eşleşme Ara"
         },
         "INSTAGRAM": {
-            "TITLE": "Instagram",
+            "TITLE": "InstaPic",
             "SEND": "Gönder",
             "POST": "Paylaş",
             "MESSAGE_PLACEHOLDER": "Mesaj...",
@@ -757,7 +757,7 @@
             "SEEN_BY": "{count} Kişi Gördü"
         },
         "TWITTER": {
-            "TITLE": "Twitter",
+            "TITLE": "Birdy",
             "SEARCH_FOR": "Ara: '{search}'",
             "START_SEARCHING": "Twitter'ı keşfetmek için aramaya başla",
             "TRENDING_HASHTAGS": "Trend hashtag'ler",
@@ -768,7 +768,7 @@
             "MEDIA": "Medya",
             "LIKES": "Beğeniler",
             "CANCEL": "İptal",
-            "TWEET": "Tweet",
+            "TWEET": "Post",
             "TWEET_REPLY": "Cevabını tweet at",
             "TWEET_GENERAL": "Neler oluyor?",
             "EDIT_PROFILE": "Profili Düzenle",
@@ -905,7 +905,7 @@
         }
     },
     "TIKTOK": {
-        "TITLE": "TikTok",
+        "TITLE": "Trendy",
         "HOME": "Anasayfa",
         "DISCOVER": "Keşfet",
         "INBOX": "Gelen Kutusu",

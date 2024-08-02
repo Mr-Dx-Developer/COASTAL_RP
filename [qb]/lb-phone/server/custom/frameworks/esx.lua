@@ -116,6 +116,24 @@ function GetEmployees(job)
     return employees
 end
 
+---@param job string
+---@return { firstname: string, lastname: string, grade: string, number: string }[] employees
+function GetAllEmployees(job)
+    local numberTable = Config.Item.Unique and "phone_last_phone" or "phone_phones"
+
+    return MySQL.query.await(([[
+        SELECT
+            u.firstname, u.lastname,
+            u.job_grade AS grade,
+            p.phone_number AS `number`,
+            j.label AS gradeLabel
+        FROM users u
+        LEFT JOIN %s p ON u.identifier = p.id COLLATE UTF8MB4_GENERAL_CI
+        JOIN job_grades j ON u.job = j.job_name AND u.job_grade = j.grade
+        WHERE u.job = ?
+    ]]):format(numberTable), { job })
+end
+
 ---Get the bank balance of a player
 ---@param source any
 ---@return integer
@@ -349,41 +367,46 @@ if ESX.RegisterCommand then
 
     ESX.RegisterCommand("changepassword", "admin", function(xPlayer, args, showError)
         local app, username, password = args.app:lower(), args.username, args.password
-
         local allowedApps = {
+            -- old app names
             ["twitter"] = true,
             ["instagram"] = true,
             ["tiktok"] = true,
+
             ["birdy"] = true,
             ["trendy"] = true,
             ["instapic"] = true,
-            ["mail"] = true
+            ["mail"] = true,
+            ["darkchat"] = true
         }
 
         if not allowedApps[app] then
             return showError("No such app " .. tostring(app))
-        end
-
-        if not username then
+        elseif not username then
             return showError("No username provided")
-        end
-
-        if not password then
+        elseif not password then
             return showError("No password provided")
         end
 
-        ChangePassword(app, username, password)
+        if not ChangePassword(app, username, password) then
+            return showError("Failed to change password")
+        end
+
+        TriggerClientEvent("chat:addMessage", xPlayer.source, {
+            color = { 0, 255, 0 },
+            args = { "Success", "Password changed for " .. username}
+        })
     end, false, {
         help = "Change a user's password",
         arguments = {
             {
                 name = "app",
-                help = "The app: trendy, instapic, birdy or mail",
+                help = "Trendy, instapic, birdy, mail or darkchat",
                 type = "any"
             },
             {
                 name = "username",
-                help = "The profile username",
+                help = "The username/address",
                 type = "any"
             },
             {

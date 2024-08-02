@@ -1,7 +1,10 @@
 RegisterNUICallback("Wallet", function(data, cb)
     local action = data.action
-    if action == "getData" then
-        lib.TriggerCallback("phone:wallet:getData", cb)
+
+    if action == "getBalance" then
+        lib.TriggerCallback("phone:wallet:getBalance", cb)
+    elseif action == "getTransactions" then
+        lib.TriggerCallback("phone:wallet:getTransactions", cb, data.page, data.recent)
     elseif action == "doesNumberExist" then
         lib.TriggerCallback("phone:wallet:doesNumberExist", cb, data.number)
     elseif action == "sendPayment" then
@@ -13,5 +16,7 @@ RegisterNUICallback("Wallet", function(data, cb)
 end)
 
 RegisterNetEvent("phone:wallet:addTransaction", function(transaction)
+    debugprint("phone:wallet:addTransaction:", transaction)
+
     SendReactMessage("wallet:addTransaction", transaction)
 end)

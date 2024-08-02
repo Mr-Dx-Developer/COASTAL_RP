@@ -741,7 +741,7 @@
             }
         },
         "TINDER": {
-            "TITLE": "Tinder",
+            "TITLE": "Spark",
             "LIKES_YOU_TOO": "t'a liké aussi!",
             "KEEP_SWIPING": "Continue de swipe",
             "SAY_SOMETHING_NICE": "Dis-lui quelque chose...",
@@ -776,7 +776,7 @@
             "SEARCH_MATCHES": "Rechercher les matchs"
         },
         "INSTAGRAM": {
-            "TITLE": "Instagram",
+            "TITLE": "InstaPic",
             "SEND": "Envoyer",
             "POST": "Publier",
             "MESSAGE_PLACEHOLDER": "Envoyer un Message...",

@@ -627,7 +627,7 @@
             }
         },
         "TINDER": {
-            "TITLE": "Tinder",
+            "TITLE": "Spark",
             "LIKES_YOU_TOO": "gli piaci anche tu!",
             "KEEP_SWIPING": "Continua a swipare",
             "SAY_SOMETHING_NICE": "Di qualcosa di bello",
@@ -662,7 +662,7 @@
             "SEARCH_MATCHES": "Cerca Match"
         },
         "INSTAGRAM": {
-            "TITLE": "Instagram",
+            "TITLE": "InstaPic",
             "SEND": "Invia",
             "POST": "Post",
             "MESSAGE_PLACEHOLDER": "Messaggio...",
@@ -755,7 +755,7 @@
             "SEEN_BY": "Visto da {count}"
         },
         "TWITTER": {
-            "TITLE": "Twitter",
+            "TITLE": "Birdy",
             "SEARCH_FOR": "Cerca per '{search}'",
             "START_SEARCHING": "Inizia a cercare per esplorare",
             "TRENDING_HASHTAGS": "Hashtag di tendenza",
@@ -766,7 +766,7 @@
             "MEDIA": "Media",
             "LIKES": "Like",
             "CANCEL": "Annulla",
-            "TWEET": "Tweet",
+            "TWEET": "Post",
             "TWEET_REPLY": "Tweeta una risposta",
             "TWEET_GENERAL": "Cosa succede?",
             "EDIT_PROFILE": "Modifica Profilo",
@@ -934,7 +934,7 @@
             }
         },
         "TIKTOK": {
-            "TITLE": "TikTok",
+            "TITLE": "Trendy",
             "HOME": "Home",
             "DISCOVER": "Scopri",
             "INBOX": "In entrata",

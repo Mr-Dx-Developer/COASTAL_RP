@@ -123,15 +123,6 @@ CREATE TABLE IF NOT EXISTS `phone_twitter_accounts` (
     FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS `phone_twitter_loggedin` (
-    `phone_number` VARCHAR(15) NOT NULL,
-    `username` VARCHAR(20) NOT NULL,
-
-    PRIMARY KEY (`phone_number`),
-    FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (`username`) REFERENCES `phone_twitter_accounts`(`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
 CREATE TABLE IF NOT EXISTS `phone_twitter_follows` (
     `followed` VARCHAR(20) NOT NULL,
     `follower` VARCHAR(20) NOT NULL,
@@ -311,15 +302,6 @@ CREATE TABLE IF NOT EXISTS `phone_instagram_accounts` (
     FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS `phone_instagram_loggedin` (
-    `phone_number` VARCHAR(15) NOT NULL,
-    `username` VARCHAR(20) NOT NULL,
-
-    PRIMARY KEY (`phone_number`),
-    FOREIGN KEY (`username`) REFERENCES `phone_instagram_accounts`(`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
 CREATE TABLE IF NOT EXISTS `phone_instagram_follows` (
     `followed` VARCHAR(20) NOT NULL, -- the person followed, matches to `username` in phone_instagram_accounts
     `follower` VARCHAR(20) NOT NULL, -- the person following, matches to `username` in phone_instagram_accounts
@@ -462,6 +444,7 @@ CREATE TABLE IF NOT EXISTS `phone_tinder_accounts` (
     `is_male` BOOLEAN NOT NULL,
     `interested_men` BOOLEAN NOT NULL,
     `interested_women` BOOLEAN NOT NULL,
+    `active` BOOLEAN NOT NULL DEFAULT TRUE,
 
     PRIMARY KEY (`phone_number`),
     FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -491,7 +474,7 @@ CREATE TABLE IF NOT EXISTS `phone_tinder_matches` (
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `phone_tinder_messages` (
-    `id` VARCHAR(10) NOT NULL, -- the message id
+    `id` INT NOT NULL AUTO_INCREMENT, -- the message id
 
     `sender` VARCHAR(15) NOT NULL, -- the phone number of the person who sent the message
     `recipient` VARCHAR(15) NOT NULL, -- the phone number of the person who received the message
@@ -548,6 +531,7 @@ CREATE TABLE IF NOT EXISTS `phone_message_messages` (
 CREATE TABLE IF NOT EXISTS `phone_darkchat_accounts` (
     `phone_number` VARCHAR(15) NOT NULL,
     `username` VARCHAR(20) NOT NULL,
+    `password` VARCHAR(100) NOT NULL,
 
     PRIMARY KEY (`username`),
     FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -555,8 +539,6 @@ CREATE TABLE IF NOT EXISTS `phone_darkchat_accounts` (
 
 CREATE TABLE IF NOT EXISTS `phone_darkchat_channels` (
     `name` VARCHAR(50) NOT NULL,
-    `last_message` VARCHAR(50) NOT NULL DEFAULT "",
-    `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
     PRIMARY KEY (`name`)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -565,7 +547,9 @@ CREATE TABLE IF NOT EXISTS `phone_darkchat_members` (
     `channel_name` VARCHAR(50) NOT NULL,
     `username` VARCHAR(20) NOT NULL,
 
-    PRIMARY KEY (`channel_name`, `username`)
+    PRIMARY KEY (`channel_name`, `username`),
+    FOREIGN KEY (`channel_name`) REFERENCES `phone_darkchat_channels`(`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (`username`) REFERENCES `phone_darkchat_accounts`(`username`) ON DELETE CASCADE ON UPDATE CASCADE
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `phone_darkchat_messages` (
@@ -575,7 +559,9 @@ CREATE TABLE IF NOT EXISTS `phone_darkchat_messages` (
     `content` VARCHAR(1000),
     `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`channel`) REFERENCES `phone_darkchat_channels`(`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (`sender`) REFERENCES `phone_darkchat_accounts`(`username`) ON DELETE CASCADE ON UPDATE CASCADE
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- WALLET
@@ -619,7 +605,7 @@ CREATE TABLE IF NOT EXISTS `phone_backups` (
 
 -- MARKETPLACE
 CREATE TABLE IF NOT EXISTS `phone_marketplace_posts` (
-    `id` VARCHAR(10) NOT NULL,
+    `id` INT NOT NULL AUTO_INCREMENT,
     `phone_number` VARCHAR(15) NOT NULL,
 
     `title` VARCHAR(50) NOT NULL,
@@ -629,7 +615,8 @@ CREATE TABLE IF NOT EXISTS `phone_marketplace_posts` (
 
     `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- MUSIC
@@ -667,15 +654,6 @@ CREATE TABLE IF NOT EXISTS `phone_mail_accounts` (
     `password` VARCHAR(100) NOT NULL,
 
     PRIMARY KEY (`address`)
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
-CREATE TABLE IF NOT EXISTS `phone_mail_loggedin` (
-    `address` VARCHAR(100) NOT NULL,
-    `phone_number` VARCHAR(15) NOT NULL,
-
-    PRIMARY KEY (`phone_number`),
-    FOREIGN KEY (`address`) REFERENCES `phone_mail_accounts`(`address`) ON DELETE CASCADE,
-    FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `phone_mail_messages` (
@@ -762,6 +740,7 @@ CREATE TABLE IF NOT EXISTS `phone_logged_in_accounts` (
     `phone_number` VARCHAR(15) NOT NULL,
     `app` VARCHAR(50) NOT NULL,
     `username` VARCHAR(100) NOT NULL,
+    `active` BOOLEAN NOT NULL DEFAULT FALSE,
 
     PRIMARY KEY (`phone_number`, `app`, `username`),
     FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -792,15 +771,6 @@ CREATE TABLE IF NOT EXISTS `phone_tiktok_accounts` (
     `date_joined` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     PRIMARY KEY (`username`),
-    FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
-CREATE TABLE IF NOT EXISTS `phone_tiktok_loggedin` (
-    `username` VARCHAR(20) NOT NULL,
-    `phone_number` VARCHAR(15) NOT NULL,
-
-    PRIMARY KEY (`phone_number`),
-    FOREIGN KEY (`username`) REFERENCES `phone_tiktok_accounts`(`username`) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -960,7 +930,7 @@ CREATE TABLE IF NOT EXISTS `phone_tiktok_unread_messages` (
 
 -- VOICE MEMOS
 CREATE TABLE IF NOT EXISTS `phone_voice_memos_recordings` (
-    `id` VARCHAR(10) NOT NULL,
+    `id` INT NOT NULL AUTO_INCREMENT,
     `phone_number` VARCHAR(15) NOT NULL,
 
     `file_name` VARCHAR(50) NOT NULL,

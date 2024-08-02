@@ -1,4 +1,4 @@
----Adds a transaction to a phone number, doesn't return anything
+---Adds a transaction to the wallet app and sends a notification
 ---@param phoneNumber string
 ---@param amount number
 ---@param company string
@@ -9,7 +9,7 @@ function AddTransaction(phoneNumber, amount, company, logo)
         return
     end
 
-    MySQL.Sync.execute("INSERT INTO phone_wallet_transactions (phone_number, amount, company, logo) VALUES (@phoneNumber, @amount, @company, @logo)", {
+    MySQL.insert.await("INSERT INTO phone_wallet_transactions (phone_number, amount, company, logo) VALUES (@phoneNumber, @amount, @company, @logo)", {
         ["@phoneNumber"] = phoneNumber,
         ["@amount"] = amount,
         ["@company"] = company,
@@ -19,17 +19,16 @@ function AddTransaction(phoneNumber, amount, company, logo)
     local source = GetSourceFromNumber(phoneNumber)
     local content = (amount < 0 and "-" or "") .. Config.CurrencyFormat:format(SeperateNumber(math.abs(amount)))
 
-    if not source then
-        return
-    end
-
     SendNotification(phoneNumber, {
         app = "Wallet",
         title = company,
         content = content,
-        thumbnail = logo,
-        source = source
+        thumbnail = logo
     })
+
+    if not source then
+        return
+    end
 
     TriggerClientEvent("phone:wallet:addTransaction", source, {
         amount = amount,
@@ -47,129 +46,99 @@ function AddTransaction(phoneNumber, amount, company, logo)
     TriggerEvent("lb-phone:onAddTransaction", amount > 0 and "received" or "paid", phoneNumber, amount, company, logo)
 end
 
----Get recent transactions from a phone number given page & transactions per page
 ---@param phoneNumber string
----@param page number
----@param perPage number
----@param cb function
-local function GetRecentTransactions(phoneNumber, page, perPage, cb)
-    MySQL.Async.fetchAll([[
-        SELECT
-            amount, company, logo, `timestamp`
+---@param page? number
+---@param perPage? number
+local function getTransactions(phoneNumber, page, perPage)
+    page = math.max(page or 0, 0)
+    perPage = math.max(perPage or 5, 1)
+
+    return MySQL.query.await([[
+        SELECT amount, company, logo, `timestamp`
         FROM phone_wallet_transactions
-        WHERE phone_number=@phoneNumber
+        WHERE phone_number = ?
 
         ORDER BY `timestamp` DESC
 
-        LIMIT @page, @perPage
-    ]], {
-        ["@phoneNumber"] = phoneNumber,
-        ["@page"] = page or 0,
-        ["@perPage"] = perPage or 3
-    }, cb)
+        LIMIT ?, ?
+    ]], { phoneNumber, (page or 0) * perPage, perPage })
 end
 
---- Callback to get recent transactions
-lib.RegisterCallback("phone:wallet:getData", function(source, cb)
-    local phoneNumber = GetEquippedPhoneNumber(source)
-    if not phoneNumber then
-        return cb({
-            balance = GetBalance(source),
-            transactions = {}
-        })
-    end
-
-    GetRecentTransactions(phoneNumber, 0, 5, function(transactions)
-        cb({
-            balance = GetBalance(source),
-            transactions = transactions
-        })
-    end)
+BaseCallback("wallet:getBalance", function(source, phoneNumber)
+    return GetBalance(source)
 end)
 
-lib.RegisterCallback("phone:wallet:doesNumberExist", function(_, cb, number)
-    cb(GetSourceFromNumber(number) ~= false)
+---@param page number
+---@param recent? true
+BaseCallback("wallet:getTransactions", function(source, phoneNumber, page, recent)
+    return getTransactions(phoneNumber, page, recent and 5 or 25)
 end)
 
-lib.RegisterCallback("phone:wallet:sendPayment", function(source, cb, sendTo)
-    local phoneNumber = GetEquippedPhoneNumber(source)
-    local amount = tonumber(sendTo.amount)
+BaseCallback("wallet:doesNumberExist", function(source, phoneNumber, number)
+    return GetSourceFromNumber(number) ~= false
+end, false)
 
-    if not phoneNumber then
-        return cb({
-            success = false,
-            reason = "Failed to send money (no phone equipped)"
-        })
-    end
+---@param data { amount: number, phoneNumber: string }
+BaseCallback("wallet:sendPayment", function(source, phoneNumber, data)
+    amount = tonumber(data.amount)
 
     if not amount or amount <= 0 then
-        return cb({
-            success = false,
-            reason = "invalid_amount"
-        })
+        return { success = false, reason = "INVALID_AMOUNT" }
     end
 
     if GetBalance(source) < amount then
-        return cb({
-            success = false,
-            reason = L("APPS.WALLET.NOT_ENOUGH_MONEY")
-        })
+        return { success = false, reason = "INSUFFICIENT_FUNDS" }
     end
 
-    if Config.TransferLimits?.Daily then
+    if type(Config.TransferLimits.Daily) == "number" and Config.TransferLimits.Daily > 0 then
         local spentToday = MySQL.scalar.await("SELECT -SUM(amount) FROM phone_wallet_transactions WHERE phone_number = ? AND amount < 0 AND `timestamp` > DATE_SUB(NOW(), INTERVAL 1 DAY)", { phoneNumber }) or 0
 
         if spentToday + amount > Config.TransferLimits.Daily then
-            return cb({
-                success = false,
-                reason = L("APPS.WALLET.EXCEED_DAILY")
-            })
+            return { success = false, reason = "EXCEED_DAILY" }
         end
+    elseif Config.TransferLimits?.Daily then
+        infoprint("error", "TransferLimits.Daily must be a number and greater than 0, or false.")
     end
 
-    if Config.TransferLimits?.Weekly then
+    if type(Config.TransferLimits.Weekly) == "number" and Config.TransferLimits.Weekly > 0 then
         local spentWeek = MySQL.scalar.await("SELECT -SUM(amount) FROM phone_wallet_transactions WHERE phone_number = ? AND amount < 0 AND `timestamp` > DATE_SUB(NOW(), INTERVAL 7 DAY)", { phoneNumber }) or 0
 
         if spentWeek + amount > Config.TransferLimits.Weekly then
-            return cb({
-                success = false,
-                reason = L("APPS.WALLET.EXCEED_WEEKLY")
-            })
+            return { success = false, reason = "EXCEED_WEEKLY" }
         end
+    elseif Config.TransferLimits?.Weekly then
+        infoprint("error", "TransferLimits.Weekly must be a number and greater than 0, or false.")
     end
 
-    local sendToSource = GetSourceFromNumber(sendTo.phoneNumber)
+    local sendToSource = GetSourceFromNumber(data.phoneNumber)
     local added = AddMoney(sendToSource, amount)
 
     if not added then
-        return cb({
-            success = false,
-            reason = L("APPS.WALLET.FAILED_ADD")
-        })
+        return { success = false, reason = "FAILED_ADD" }
     end
 
     RemoveMoney(source, amount)
-    SendMessage(phoneNumber, sendTo.phoneNumber, "<!SENT-PAYMENT-" .. amount .. "!>")
+    SendMessage(phoneNumber, data.phoneNumber, "<!SENT-PAYMENT-" .. amount .. "!>")
 
-    cb({ success = true })
-
-    GetContact(sendTo.phoneNumber, phoneNumber, function(contact)
+    GetContact(data.phoneNumber, phoneNumber, function(contact)
         contact = contact?[1]
 
         if contact then
             AddTransaction(phoneNumber, -amount, contact.name, contact.profile_image)
         else
-            AddTransaction(phoneNumber, -amount, sendTo.phoneNumber)
+            AddTransaction(phoneNumber, -amount, data.phoneNumber)
         end
     end)
 
-    GetContact(phoneNumber, sendTo.phoneNumber, function(contact)
+    GetContact(phoneNumber, data.phoneNumber, function(contact)
         contact = contact?[1]
 
         if contact then
-            AddTransaction(sendTo.phoneNumber, amount, contact.name, contact.profile_image)
+            AddTransaction(data.phoneNumber, amount, contact.name, contact.profile_image)
         else
-            AddTransaction(sendTo.phoneNumber, amount, phoneNumber)
+            AddTransaction(data.phoneNumber, amount, phoneNumber)
         end
     end)
+
+    return { success = true }
 end)

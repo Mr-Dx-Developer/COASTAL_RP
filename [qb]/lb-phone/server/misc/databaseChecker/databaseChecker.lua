@@ -27,7 +27,7 @@ local function fetchTables()
 	table.wipe(tables)
 
 	local rows = MySQL.query.await("SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, COLLATION_NAME, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE, COLUMN_DEFAULT, COLUMN_KEY FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME LIKE ?", {
-		shouldGenerateTables and "vanilla" or database, "phone_%"
+		shouldGenerateTables and "generate_lb" or database, "phone_%"
 	})
 
 	for i = 1, #rows do
@@ -51,7 +51,8 @@ local function fetchTables()
 			allowNull = isNullable == "YES",
 			default = default,
 			length = characterMaximumLength,
-			isKey = isKey
+			isKey = isKey,
+			keyType = row.COLUMN_KEY:upper()
 		}
 	end
 
@@ -331,11 +332,150 @@ local function validateMessageForeignKeyNumbers()
 	end
 end
 
+-- V2 update
+local function validateV2()
+	if tables.phone_marketplace_posts.id.type ~= "INT" then
+		MySQL.rawExecute.await([[
+			ALTER TABLE `phone_marketplace_posts`
+			DROP PRIMARY KEY,
+			DROP COLUMN `id`
+		]])
+
+		MySQL.rawExecute.await([[
+			ALTER TABLE `phone_marketplace_posts`
+			ADD COLUMN `id` INT NOT NULL AUTO_INCREMENT FIRST,
+			ADD PRIMARY KEY (`id`),
+			ADD FOREIGN KEY (`phone_number`) REFERENCES `phone_phones`(`phone_number`) ON DELETE CASCADE ON UPDATE CASCADE
+		]])
+
+		updateChanges = true
+	end
+
+	if not tables.phone_logged_in_accounts.active then
+		MySQL.rawExecute.await("ALTER TABLE phone_logged_in_accounts ADD COLUMN `active` BOOLEAN NOT NULL DEFAULT FALSE")
+
+		MySQL.rawExecute.await([[
+			UPDATE phone_logged_in_accounts la
+			INNER JOIN phone_twitter_loggedin tl
+			ON la.username = tl.username AND la.phone_number = tl.phone_number
+			SET la.`active` = 1
+			WHERE la.app = "Twitter"
+		]])
+
+		MySQL.rawExecute.await([[
+			UPDATE phone_logged_in_accounts la
+			INNER JOIN phone_instagram_loggedin il
+			ON la.username = il.username AND la.phone_number = il.phone_number
+			SET la.`active` = 1
+			WHERE la.app = "Instagram"
+		]])
+
+		MySQL.rawExecute.await([[
+			UPDATE phone_logged_in_accounts la
+			INNER JOIN phone_mail_loggedin ml
+			ON la.username = ml.address AND la.phone_number = ml.phone_number
+			SET la.`active` = 1
+			WHERE la.app = "Mail"
+		]])
+
+		MySQL.rawExecute.await([[
+			UPDATE phone_logged_in_accounts la
+			INNER JOIN phone_tiktok_loggedin tt
+			ON la.username = tt.username AND la.phone_number = tt.phone_number
+			SET la.`active` = 1
+			WHERE la.app = "TikTok"
+		]])
+
+		MySQL.rawExecute.await([[
+			INSERT INTO phone_logged_in_accounts (phone_number, app, username, `active`)
+			SELECT phone_number, "DarkChat", username, 1
+			FROM phone_darkchat_accounts
+		]])
+
+		updateChanges = true
+	end
+
+	if tables.phone_darkchat_channels.last_message then
+		MySQL.rawExecute.await([[
+			ALTER TABLE `phone_darkchat_channels`
+			DROP COLUMN `last_message`,
+			DROP COLUMN `timestamp`
+		]])
+
+		MySQL.rawExecute.await([[
+			ALTER TABLE `phone_darkchat_members`
+			ADD FOREIGN KEY (`channel_name`) REFERENCES `phone_darkchat_channels`(`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+			ADD FOREIGN KEY (`username`) REFERENCES `phone_darkchat_accounts`(`username`) ON DELETE CASCADE ON UPDATE CASCADE
+		]])
+
+		MySQL.rawExecute.await([[
+			ALTER TABLE `phone_darkchat_messages`
+			ADD FOREIGN KEY (`channel`) REFERENCES `phone_darkchat_channels`(`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+			ADD FOREIGN KEY (`sender`) REFERENCES `phone_darkchat_accounts`(`username`) ON DELETE CASCADE ON UPDATE CASCADE
+		]])
+
+		updateChanges = true
+	end
+
+	if not tables.phone_darkchat_accounts.password then
+		MySQL.rawExecute.await("ALTER TABLE phone_darkchat_accounts ADD COLUMN password VARCHAR(100)")
+
+		updateChanges = true
+	end
+
+	if not tables.phone_tinder_accounts.active then
+		MySQL.rawExecute.await("ALTER TABLE phone_tinder_accounts ADD COLUMN `active` BOOLEAN NOT NULL DEFAULT TRUE")
+
+		updateChanges = true
+	end
+
+	if tables.phone_tinder_messages.id.type ~= "INT" then
+		MySQL.rawExecute.await([[
+			ALTER TABLE phone_tinder_messages
+			RENAME COLUMN `id` TO `old_id`,
+			DROP PRIMARY KEY,
+			ADD UNIQUE KEY `id` (`id`),
+			ADD COLUMN `id` INT NOT NULL AUTO_INCREMENT FIRST,
+			ADD PRIMARY KEY (`id`)
+		]])
+
+		MySQL.rawExecute.await("ALTER TABLE phone_tinder_messages DROP COLUMN `old_id`")
+
+		updateChanges = true
+	end
+
+	if tables.phone_backups.phone_number.keyType ~= "PRI" then
+		MySQL.rawExecute.await([[
+			ALTER TABLE phone_backups
+			DROP PRIMARY KEY,
+			ADD PRIMARY KEY (`id`, `phone_number`)
+		]])
+
+		updateChanges = true
+	end
+
+	if tables.phone_voice_memos_recordings.id.type ~= "INT" then
+		MySQL.rawExecute.await([[
+			ALTER TABLE phone_voice_memos_recordings
+			RENAME COLUMN `id` TO `old_id`,
+			DROP PRIMARY KEY,
+			ADD UNIQUE KEY `id` (`id`),
+			ADD COLUMN `id` INT NOT NULL AUTO_INCREMENT FIRST,
+			ADD PRIMARY KEY (`id`)
+		]])
+
+		MySQL.rawExecute.await("ALTER TABLE phone_voice_memos_recordings DROP COLUMN `old_id`")
+
+		updateChanges = true
+	end
+end
+
 validatePhotoAlbums()
 validateNotificationsId()
 validateMessages()
 validateDeleteMail()
 validateMessageForeignKeyNumbers()
+validateV2()
 
 if updateChanges then
 	fetchTables()

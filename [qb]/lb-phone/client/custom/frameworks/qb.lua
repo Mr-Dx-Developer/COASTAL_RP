@@ -6,6 +6,7 @@ end
 debugprint("Loading QB")
 QB = exports["qb-core"]:GetCoreObject()
 local PlayerJob = {}
+local PlayerData = {}
 
 while not LocalPlayer.state.isLoggedIn do
     Wait(500)
@@ -15,12 +16,34 @@ debugprint("QB loaded")
 loaded = true
 
 PlayerJob = QB.Functions.GetPlayerData().job
+PlayerData = QB.Functions.GetPlayerData()
 
-RegisterNetEvent("QBCore:Client:OnPlayerUnload", LogOut)
-RegisterNetEvent("QBCore:Client:OnPlayerLoaded", FetchPhone)
+RegisterNetEvent("QBCore:Client:OnPlayerUnload", function()
+    PlayerData = {}
+
+    LogOut()
+end)
+
+RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
+    PlayerData = QB.Functions.GetPlayerData()
+
+    FetchPhone()
+end)
+
+RegisterNetEvent("QBCore:Player:SetPlayerData", function(newData)
+    PlayerData = newData
+end)
 
 RegisterNetEvent("QBCore:Client:OnJobUpdate", function(jobInfo)
     PlayerJob = jobInfo
+end)
+
+RegisterNetEvent("QBCore:Client:OnMoneyChange", function(moneyType)
+    if moneyType ~= "bank" then
+        return
+    end
+
+    SendReactMessage("wallet:setBalance", math.floor(PlayerData.money.bank))
 end)
 
 ---Check if a player has a phone

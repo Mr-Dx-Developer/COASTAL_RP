@@ -741,7 +741,7 @@
             }
         },
         "TINDER": {
-            "TITLE": "Tinder",
+            "TITLE": "Spark",
             "LIKES_YOU_TOO": "mag dich auch!",
             "KEEP_SWIPING": "Weiter swipen",
             "SAY_SOMETHING_NICE": "Sag etwas nettes",
@@ -776,7 +776,7 @@
             "SEARCH_MATCHES": "Matches durchsuchen"
         },
         "INSTAGRAM": {
-            "TITLE": "Instagram",
+            "TITLE": "InstaPic",
             "SEND": "Senden",
             "POST": "Posten",
             "MESSAGE_PLACEHOLDER": "Nachricht...",
@@ -909,7 +909,7 @@
             "MEDIA": "Medien",
             "LIKES": "Likes",
             "CANCEL": "Abbrechen",
-            "TWEET": "Tweet",
+            "TWEET": "Post",
             "TWEET_REPLY": "Tweete deine Antwort",
             "TWEET_GENERAL": "Was passiert?",
             "EDIT_PROFILE": "Profil bearbeiten",

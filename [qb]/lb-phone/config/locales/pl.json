@@ -601,7 +601,7 @@
             }
         },
         "TINDER": {
-            "TITLE": "Tinder",
+            "TITLE": "Spark",
             "LIKES_YOU_TOO": "też cię lubi!",
             "KEEP_SWIPING": "Przesuwaj dalej",
             "SAY_SOMETHING_NICE": "Napisz coś miłego",
@@ -636,7 +636,7 @@
             "SEARCH_MATCHES": "Szukaj w dopasowaniach"
         },
         "INSTAGRAM": {
-            "TITLE": "Instagram",
+            "TITLE": "InstaPic",
             "SEND": "Wyślij",
             "POST": "Posty",
             "MESSAGE_PLACEHOLDER": "Wiadomość...",
@@ -721,7 +721,7 @@
             "SEND_A_MESSAGE": "Wyślij wiadomość..."
         },
         "TWITTER": {
-            "TITLE": "Twitter",
+            "TITLE": "Birdy",
             "SEARCH_FOR": "Szukaj '{search}'",
             "START_SEARCHING": "Rozpocznij wyszukiwanie aby odkrywać Twitter",
             "TRENDING_HASHTAGS": "Najpopularniejsze hashtagi",

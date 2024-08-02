@@ -25,11 +25,15 @@ registerDebugCommand("getstacks", function()
 end)
 
 registerDebugCommand("testnotification", function(src, args)
-    TriggerEvent("phone:sendNotification", {
-        app = args[1] or "Wallet",
-        title = "Test Notification",
-        -- content = "This is a test notification.",
+    exports["lb-phone"]:SendNotification({
+        title = "test",
     })
+
+    -- TriggerEvent("phone:sendNotification", {
+    --     app = args[1] or "Wallet",
+    --     title = "Test Notification",
+    --     -- content = "This is a test notification.",
+    -- })
 end)
 
 registerDebugCommand("testamberalert", function()

@@ -2,6 +2,12 @@ if not Config.Debug then
     return
 end
 
+RegisterCommand("servernotification", function(source)
+    exports["lb-phone"]:SendNotification(source, {
+        title = "Test"
+    })
+end, false)
+
 RegisterCommand("notifyeveryone", function()
     Wait(0) -- make debug prints show on the server console instead of client
 
@@ -117,12 +123,11 @@ RegisterCommand("testamberexport", function(source)
 end, false)
 
 RegisterCommand("customCrypto", function()
-    -- https://lbphone.com/assets/logo2.png
     exports["lb-phone"]:AddCustomCoin(
         "lb-coin",
         "LB Coin",
         "lbc",
-        "https://lbphone.com/assets/logo2.png",
+        "https://docs.lbscripts.com/images/icons/icon.png",
         18.5723523,
         {
             15.45253,

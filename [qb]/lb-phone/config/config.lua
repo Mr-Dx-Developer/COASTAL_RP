@@ -24,7 +24,7 @@ Config.Item = {}
 Config.Item.Require = true -- require a phone item to use the phone
 Config.Item.Name = "phone" -- name of the phone item
 
-Config.Item.Unique = false -- should each phone be unique? https://docs.lbphone.com/phone/configuration#unique-phones
+Config.Item.Unique = false -- should each phone be unique? https://docs.lbscripts.com/phone/configuration/#unique-phones
 Config.Item.Inventory = "auto" --[[
     The inventory you use, IGNORE IF YOU HAVE Config.Item.Unique DISABLED.
     Supported:
@@ -61,10 +61,30 @@ Config.BlacklistApps = {
     -- ["DarkChat"] = {"police"}
 }
 
+Config.ChangePassword = {
+    ["Trendy"] = true,
+    ["InstaPic"] = true,
+    ["Birdy"] = true,
+    ["DarkChat"] = true,
+    ["Mail"] = true,
+}
+
+Config.DeleteAccount = {
+    ["Trendy"] = false,
+    ["InstaPic"] = false,
+    ["Birdy"] = false,
+    ["DarkChat"] = false,
+    ["Mail"] = false,
+    ["Spark"] = false,
+}
+
 Config.Companies = {}
 Config.Companies.Enabled = true -- allow players to call companies?
 Config.Companies.MessageOffline = true -- if true, players can message companies even if no one in the company is online
-Config.Companies.DefaultCallsDisabled = false -- should calles be disabled by default?
+Config.Companies.DefaultCallsDisabled = false -- should receiving company calls be disabled by default?
+Config.Companies.AllowAnonymous = false -- allow players to call companies with "hide caller id" enabled?
+Config.Companies.SeeEmployees = "everyone" -- who should be able to see employees? they will see name, online status & phone number. options are: "everyone", "employees" or "none"
+Config.Companies.DeleteConversations = true -- allow employees to delete conversations?
 Config.Companies.Services = {
     {
         job = "police",
@@ -151,7 +171,7 @@ Config.Companies.Management = {
     Promote = true, -- if true, the boss can promote employees
 }
 
-Config.CustomApps = {} -- https://docs.lbphone.com/phone/custom-apps
+Config.CustomApps = {} -- https://docs.lbscripts.com/phone/custom-apps/
 
 Config.Valet = {}
 Config.Valet.Enabled = true -- allow players to get their vehicles from the phone
@@ -192,7 +212,6 @@ Config.Voice.HearNearby = true --[[
 
     This feature is a work in progress and may not work as intended. It may have an impact on performance.
 ]]
-
 
 Config.Voice.RecordNearby = true --[[
     Should video recordings include nearby players?
@@ -346,7 +365,7 @@ Config.AllowExternal = { -- allow people to upload external images? (note: this 
     MarketPlace = false,
     Mail = false,
     Messages = false,
-    Other = true, -- other apps that don't have a specific setting (ex: setting a profile picture for a contact, backgrounds for the phone etc)
+    Other = false, -- other apps that don't have a specific setting (ex: setting a profile picture for a contact, backgrounds for the phone etc)
 }
 
 -- Blacklisted domains for external images. You will not be able to upload from these domains.
@@ -359,6 +378,12 @@ Config.ExternalBlacklistedDomains = {
 -- Whitelisted domains for external images. If this is not empty/nil/false, you will only be able to upload images from these domains.
 Config.ExternalWhitelistedDomains = {
     -- "fivemanage.com"
+}
+
+-- Set to false/empty to disable
+Config.UploadWhitelistedDomains = { -- domains that are allowed to upload images to the phone (prevent using devtools to upload images)
+    "fivemanage.com",
+    "cfx.re" -- lb-upload
 }
 
 Config.WordBlacklist = {}
@@ -379,7 +404,7 @@ Config.WordBlacklist.Words = {
 }
 
 Config.AutoFollow = {}
-Config.AutoFollow.Enabled = true
+Config.AutoFollow.Enabled = false
 
 Config.AutoFollow.Birdy = {}
 Config.AutoFollow.Birdy.Enabled = true
