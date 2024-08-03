@@ -15,6 +15,6 @@ Exports = {
 
     QBMenuExport = "qb-menu",
 
-  --  QBTargetExport = "qb-target",
+    QBTargetExport = "qb-target",
     OXTargetExport = "ox_target"
 }
