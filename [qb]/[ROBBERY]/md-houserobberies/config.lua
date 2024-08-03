@@ -1,8 +1,8 @@
 Config = {}
 
 ---------------------------------- BRIDGE 
-Config.progressbartype = 'qb' -- either 'qb', 'oxcir', 'oxbar'
-Config.minigametype = 'ox' -- either 'ps' or 'ox'
+Config.progressbartype = 'oxbar' -- either 'qb', 'oxcir', 'oxbar'
+Config.minigametype = 'ps' -- either 'ps' or 'ox'
 Config.Notify = 'qb' -- -- either 'qb' or 'ox' or 'okok'
 Config.Dispatch = 'ps' -- either ps/aty/qs/core/cd
 ------------------------
