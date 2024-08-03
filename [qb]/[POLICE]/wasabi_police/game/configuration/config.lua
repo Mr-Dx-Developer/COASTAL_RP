@@ -181,7 +181,7 @@ Config.seizeCash = {  -- ONLY FOR QBCORE WITHOUT CASH AS ITEM
 }
 
 Config.handcuff = {                             -- Config in regards to cuffing
-    defaultCuff = 'hard',                       -- Default cuff type (Options: 'soft' / 'hard') Changing this will be the default hotkey cuff type
+    defaultCuff = 'soft',                       -- Default cuff type (Options: 'soft' / 'hard') Changing this will be the default hotkey cuff type
     persistentCuff = true,                      -- Verify player's cuffed status during login (Install '_EXTRA_ESX_INSTALL/ESX_PERSISTENT_CUFF.sql' if using ESX)
     timer = 20 * minutes,                       -- Time before player is automatically unrestrained(Set to false if not desired)
     hotkey = 'J',                               -- What key to press to handcuff people(Set to false for no hotkey)
@@ -195,7 +195,7 @@ Config.handcuff = {                             -- Config in regards to cuffing
         item = 'handcuffs'                      -- Item name (DONT FORGET to make sure its in your items)
     },
     lockpicking = {                             -- Lockpicking someone else out of handcuffs
-        enabled = false,                        -- Enable handcuffs to be able to be lockpicked off(MUST HAVE LOCKPICK ITEM IN ITEMS)
+        enabled = true,                        -- Enable handcuffs to be able to be lockpicked off(MUST HAVE LOCKPICK ITEM IN ITEMS)
         item = 'bobby_pin',
         breakChance = 50,                       -- Chance of lockpick breaking if failed (Set to 100 for 100% or 0 for never breaking)
         difficulty = { 'easy', 'easy', 'easy' } -- Options: 'easy' / 'medium' / 'hard' (Can be stringed along as they are in config)
@@ -429,11 +429,6 @@ Config.Locations = {
 
                 },
                 [3] = {    ----  Sergeant
-                    ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
-                    ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
-                    ['radio'] = { label = 'Radio', multiple = false, price = 100 },
-
-
                     ['heavyarmor'] = { label = 'Bulletproof Vest', multiple = false, price = 25 },
                     ['handcuffs'] = { label = 'Handcuffs', multiple = false, price = 80 },
                     ['radio'] = { label = 'Radio', multiple = false, price = 100 },
