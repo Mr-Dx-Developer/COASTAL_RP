@@ -8409,6 +8409,15 @@ RP.Emotes = {
             EmoteMoving = true
         }
     },
+    ["uncuff"] = {
+        "mp_arresting",
+        "a_uncuff",
+        "Uncuff",
+        AnimationOptions = {
+            EmoteLoop = true,
+            EmoteMoving = true
+        }
+    },
     ["namaste"] = {
         "timetable@amanda@ig_4",
         "ig_4_base",
