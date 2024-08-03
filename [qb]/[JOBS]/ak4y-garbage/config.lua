@@ -13,6 +13,7 @@ AK4Y.Vehicle = "trash2" --Spawn trash vehicle name.
 AK4Y.RandomItemChange = 5 --% item change for random items.
 AK4Y.RandomItems = {
     "water_bottle",
+    "laptop_green",
     "bread"
 }
 
