@@ -137,9 +137,8 @@ function Framework.Client.VehicleSetFuel(vehicle, fuel)
   if (Config.FuelSystem == "LegacyFuel" or Config.FuelSystem == "ps-fuel" or Config.FuelSystem == "lj-fuel" or Config.FuelSystem == "cdn-fuel" or Config.FuelSystem == "hyon_gas_station" or Config.FuelSystem == "okokGasStation" or Config.FuelSystem == "nd_fuel" or Config.FuelSystem == "myFuel") then
     exports[Config.FuelSystem]:SetFuel(vehicle, fuel)
   elseif Config.FuelSystem == "ti_fuel" then
-    Framework.Client.TriggerCallback("jg-dealerships:server:get-ti-fuel-type", function(type)
-      exports["ti_fuel"]:setFuel(vehicle, fuel, type or nil)
-    end, Framework.Client.GetPlate(vehicle))
+    local fuelType = lib.callback.await("jg-dealerships:server:get-ti-fuel-type", false, Framework.Client.GetPlate(vehicle))
+    exports["ti_fuel"]:setFuel(vehicle, fuel, fuelType or nil)
   elseif Config.FuelSystem == "ox_fuel" then
     Entity(vehicle).state.fuel = fuel
   else

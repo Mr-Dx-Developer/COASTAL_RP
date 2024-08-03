@@ -66,8 +66,8 @@ local function createDealershipZonesAndBlips()
       if isShowroomAccessAllowed(dealer.name) or (dealer.type == "owned" and dealer.managementAccess) then
         -- Showroom location
         createLocation(
-          dealer.config.openShowroom.coords,
-          dealer.config.openShowroom.size,
+          dealer.config.openShowroom?.coords or dealer.config.openShowroom,
+          dealer.config.openShowroom?.size or 5,
           not dealer.config.hideMarkers and dealer.config.markers or false,
           function() Framework.Client.ShowTextUI(Config.OpenShowroomPrompt) end,
           function() Framework.Client.HideTextUI() end,
@@ -81,8 +81,8 @@ local function createDealershipZonesAndBlips()
         -- Sell vehicle location (if enabled)
         if dealer.config.enableSellVehicle then
           createLocation(
-            dealer.config.sellVehicle.coords,
-            dealer.config.sellVehicle.size,
+            dealer.config.sellVehicle?.coords or dealer.config.sellVehicle,
+            dealer.config.sellVehicle?.size or 5,
             not dealer.config.hideMarkers and dealer.config.markers or false,
             function() Framework.Client.ShowTextUI(Config.SellVehiclePrompt) end,
             function() Framework.Client.HideTextUI() end,
@@ -97,7 +97,14 @@ local function createDealershipZonesAndBlips()
         -- Blip
         if not dealer.config.hideBlip then
           local blipName = Locale.dealership .. ": " .. dealer.label
-          local blip = createBlip(blipName, dealer.config.openShowroom.coords, dealer.config.blip.id, dealer.config.blip.color, dealer.config.blip.scale)
+          local blip = createBlip(
+            blipName,
+            dealer.config.openShowroom?.coords or dealer.config.openShowroom,
+            dealer.config.blip.id,
+            dealer.config.blip.color,
+            dealer.config.blip.scale
+          )
+          
           blips[#blips + 1] = blip
         end
       end
@@ -105,8 +112,8 @@ local function createDealershipZonesAndBlips()
       -- Management location
       if dealer.type == "owned" and dealer.managementAccess then
         createLocation(
-          dealer.config.openManagement.coords,
-          dealer.config.openManagement.size,
+          dealer.config.openManagement?.coords or dealer.config.openManagement,
+          dealer.config.openManagement?.size or 5,
           not dealer.config.hideMarkers and dealer.config.markers or false,
           function() Framework.Client.ShowTextUI(Config.OpenManagementPrompt) end,
           function() Framework.Client.HideTextUI() end,

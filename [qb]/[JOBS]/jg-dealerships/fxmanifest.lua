@@ -3,8 +3,15 @@ game "gta5"
 lua54 "yes"
 
 description "For support or other queries: discord.gg/jgscripts"
-version 'v1.2'
+version 'v1.2.3'
 author "JG Scripts"
+
+dependencies {
+  "oxmysql",
+  "ox_lib",
+  "/server:7290",
+  "/onesync",
+}
 
 shared_scripts {
   "@ox_lib/init.lua",
@@ -46,4 +53,5 @@ escrow_ignore {
   "client/cl-purchase.lua",
   "server/sv-purchase.lua"
 }
+
 dependency '/assetpacks'

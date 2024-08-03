@@ -89,15 +89,15 @@ end
 ---@return integer|nil vehicleId
 function Framework.Server.SaveVehicleToGarage(src, purchaseType, society, societyType, model, plate, financed, financeData)
   local vehicleId = nil
+  local props = json.encode({
+    model = convertModelToHash(model),
+    plate = plate
+  })
 
   if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
     local playerData = Framework.Server.GetPlayer(src).PlayerData
     local license = playerData.license
     local citizenid = playerData.citizenid
-    local props = json.encode({
-      model = convertModelToHash(model),
-      plate = plate
-    })
 
     if purchaseType == "society" then
       vehicleId = MySQL.insert.await(
@@ -408,7 +408,7 @@ function Framework.Server.GetPlayers()
   end
 
   for id, player in pairs(players) do
-    if Config.Framework == "QBCore" then
+    if Config.Framework == "QBCore" or Config.Framework == "Qbox" then
       players[id].player_id = player.PlayerData.source
     elseif Config.Framework == "ESX" then
       players[id].player_id = player.source
@@ -439,5 +439,5 @@ end)
 
 lib.callback.register("jg-dealerships:server:get-ti-fuel-type", function(src, plate)
   MySQL.query.await("ALTER TABLE " .. Framework.VehiclesTable .. " ADD COLUMN IF NOT EXISTS `ti_fuel_type` VARCHAR(100) DEFAULT '';")
-  return MySQL.scalar.await("SELECT ti_fuel_type FROM  " .. Framework.VehiclesTable .. " WHERE plate = ?", {plate})
+  return MySQL.scalar.await("SELECT ti_fuel_type FROM  " .. Framework.VehiclesTable .. " WHERE plate = ?", {plate}) or false
 end)

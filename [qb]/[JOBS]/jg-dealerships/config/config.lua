@@ -89,13 +89,12 @@ Config.Categories = {
   suvs = "SUVs",
   commercial = "Commercial",
   cycles = "Cycles",
-  custom = "Custom",
   industrial = "Industrial"
 }
 
 Config.DealershipLocations = {
   ["pdm"] = {
-    type = "owned", -- or "owned", "self-service"
+    type = "self-service", -- or "owned", "self-service"
     openShowroom = {
       coords = vector3(-32.962, -1097.61, 27.274),
       size = 5
@@ -197,7 +196,7 @@ Config.DealershipLocations = {
       positions = {7.5, 12.0, 15.0, 12.0}
     },
     categories = {"boats"},
-    enableSellVehicle = false, -- Allow players to sell vehicles back to dealer
+    enableSellVehicle = true, -- Allow players to sell vehicles back to dealer
     sellVehiclePercent = 0.6,  -- 60% of current sale price
     enableTestDrive = false,
     hideBlip = false,
@@ -251,7 +250,7 @@ Config.DealershipLocations = {
     societyPurchaseJobWhitelist = {},
     societyPurchaseGangWhitelist = {},
   },
- --[[  ["truck"] = {
+  --[[ ["truck"] = {
     type = "self-service", -- or "owned", "self-service"
     openShowroom = {
       coords = vector3(1214.37, -3204.53, 6.03),
