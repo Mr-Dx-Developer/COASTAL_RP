@@ -114,7 +114,7 @@ Config.DealershipLocations = {
       coords = vector4(-146.6166, -596.6301, 166.0, 270.0),
       positions = {5.0, 8.0, 12.0, 8.0}
     },
-    categories = {"sedans", "compacts", "motorcycles", "offroad", "coupes", "muscle", "suvs", "sportsclassics", "super", "sports"},
+    categories = {"sedans", "compacts", "motorcycles", "offroad", "coupes", "muscle", "suvs", "sportsclassics", "super", "sports", "vans", "commercial", "industrial", "cycles"},
     enableTestDrive = true,
     hideBlip = false,
     blip = {
