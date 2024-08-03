@@ -1378,7 +1378,7 @@ Config.market_categories = {
 			}, ]]
 			['parachute'] = {
 				['name'] = "Parachute",
-				['price_to_customer'] = 2500,
+				['price_to_customer'] = 250,
 				['price_to_customer_min'] = 1250,
 				['price_to_customer_max'] = 5000,
 				['price_to_export'] = 2500,
@@ -1389,14 +1389,36 @@ Config.market_categories = {
 			},
 			['armor'] = {
 				['name'] = "Armor",
-				['price_to_customer'] = 5500,
-				['price_to_customer_min'] = 2750,
-				['price_to_customer_max'] = 11000,
+				['price_to_customer'] = 550,
+				['price_to_customer_min'] = 275,
+				['price_to_customer_max'] = 700,
 				['price_to_export'] = 4500,
 				['price_to_owner'] = 4125,
 				['amount_to_owner'] = 2,
 				['amount_to_delivery'] = 2,
 				['img'] = 'armor.png',
+			},
+			['handcuffs'] = {
+				['name'] = "Handcuffs",
+				['price_to_customer'] = 1000,
+				['price_to_customer_min'] = 275,
+				['price_to_customer_max'] = 700,
+				['price_to_export'] = 4500,
+				['price_to_owner'] = 4125,
+				['amount_to_owner'] = 2,
+				['amount_to_delivery'] = 2,
+				['img'] = 'handcuffs.png',
+			},
+			['bobby_pin'] = {
+				['name'] = "Pin",
+				['price_to_customer'] = 50,
+				['price_to_customer_min'] = 275,
+				['price_to_customer_max'] = 700,
+				['price_to_export'] = 4500,
+				['price_to_owner'] = 4125,
+				['amount_to_owner'] = 2,
+				['amount_to_delivery'] = 2,
+				['img'] = 'bobby_pin.png',
 			}
 		}
 	},

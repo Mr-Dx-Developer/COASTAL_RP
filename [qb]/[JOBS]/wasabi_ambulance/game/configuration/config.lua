@@ -145,8 +145,8 @@ Config.GPSBlips = {  -- Warning: May experience high usage when at high player c
     refreshrate = 1, -- In Seconds Note: it could impact the server performance
     item = false,    -- Item required? Note: You have to use it then
     blip = {
-        sprite = 1,
-        color = 1,
+        sprite = 0,
+        color = 2,
         scale = 1.0,
         short = false,
     }
@@ -653,6 +653,8 @@ Config.Locations = {
                 { item = 'vic10',      label = 'Vicodin 10MG',  price = 30 },
                 { item = 'vic5',       label = 'Vicodin 5MG',   price = 15 },
                 { item = 'bandage',      label = 'Bandage',  price = 30 },
+                { item = 'bobby_pin',      label = 'Pin',  price = 30 },
+                { item = 'handcuffs',      label = 'Handcuffs',  price = 30 },
             }
         },
 

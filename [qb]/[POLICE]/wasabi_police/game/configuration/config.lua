@@ -171,7 +171,7 @@ Config.GSR = {                 -- Gunshot residue settings
 
 Config.tackle = {
     enabled = true,    -- Enable tackle?
-    policeOnly = true, -- Police jobs only use tackle?
+    policeOnly = false, -- Police jobs only use tackle?
     hotkey = 'G'       -- What key to press while sprinting to start tackle of target
 }
 
@@ -197,7 +197,7 @@ Config.handcuff = {                             -- Config in regards to cuffing
     lockpicking = {                             -- Lockpicking someone else out of handcuffs
         enabled = true,                        -- Enable handcuffs to be able to be lockpicked off(MUST HAVE LOCKPICK ITEM IN ITEMS)
         item = 'bobby_pin',
-        breakChance = 50,                       -- Chance of lockpick breaking if failed (Set to 100 for 100% or 0 for never breaking)
+        breakChance = 0,                       -- Chance of lockpick breaking if failed (Set to 100 for 100% or 0 for never breaking)
         difficulty = { 'easy', 'easy', 'easy' } -- Options: 'easy' / 'medium' / 'hard' (Can be stringed along as they are in config)
     }
 }
@@ -212,7 +212,7 @@ Config.GPSBlips = {  -- Warning: May experience high usage when at high player c
     refreshrate = 1, -- In Seconds Note: it could impact the server performance
     item = false,    -- Item required? Note: You have to use it then
     blip = {
-        sprite = 1,
+        sprite = 0,
         color = 1,
         scale = 1.0,
         short = false,
