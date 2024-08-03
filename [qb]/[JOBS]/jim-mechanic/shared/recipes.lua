@@ -266,8 +266,8 @@ Stores = {
 	NosItems = {
 		label = Loc[Config.Lan]["stores"].nos,
 		items = {
-			{ name = "nos", price = 0, amount = 50, info = {}, type = "item", },
-			{ name = "noscolour", price = 0, amount = 50, info = {}, type = "item", },
+		--	{ name = "nos", price = 0, amount = 50, info = {}, type = "item", },
+		--	{ name = "noscolour", price = 0, amount = 50, info = {}, type = "item", },
 		},
 	},
 	RepairItems = {
@@ -314,7 +314,7 @@ Stores = {
 			{ name = "suspension3", price = 0, amount = 50, info = {}, type = "item", },
 			{ name = "suspension4", price = 0, amount = 50, info = {}, type = "item", },
 			{ name = "suspension5", price = 0, amount = 50, info = {}, type = "item", },
-			{ name = "bprooftires", price = 0, amount = 50, info = {}, type = "item", },
+		--	{ name = "bprooftires", price = 0, amount = 50, info = {}, type = "item", },
 			{ name = "drifttires", price = 0, amount = 50, info = {}, type = "item", },
 
 			{ name = "oilp1", price = 0, amount = 50, info = {}, type = "item", },
