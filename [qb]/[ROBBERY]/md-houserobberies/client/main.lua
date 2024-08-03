@@ -60,7 +60,7 @@ local function enterRobberyHouse(house)
 					action = function()
                         TriggerServerEvent('md-houserobbery:server:setlootstatebusy', house, v.num, true)
                        if not progressbar("Stealing", math.random(Config.MinRobTime, Config.MaxRobTIme), 'uncuff') then return end
-                        if not minigame(3,6) then 
+                        if not minigame(0,1) then 
                             Notify("Dude You Cant Even Do This, C'mon", "error")
                             TriggerServerEvent('md-houserobbery:server:setlootstatebusy', house, v.num, false)
                             return end
@@ -208,7 +208,7 @@ CreateThread(function()
 		        if not GetCops(Config.MinCops) then	return end						
                     if Config.Houses[k]['tier'] <= 4  then
                         if not ItemCheck('lockpick') then return end
-                        if not minigame(2,6) then return end
+                        if not minigame(0,1) then return end
                            TriggerServerEvent('md-houserobbery:server:enterHouse', k)
                            SpawnHomeowner(k)
                             PoliceCall(Config.AlertPolice)
@@ -298,7 +298,7 @@ CreateThread(function()
                     if not GetCops(Config.MinCops) then	return end						
                     if Config.Houses[k]['tier'] <= 4  then
                         if not ItemCheck('lockpick') then return end
-                        if not minigame(2,6) then return end
+                        if not minigame(0,1) then return end
                            TriggerServerEvent('md-houserobbery:server:enterHouse', k)
                            SpawnHomeowner(k)
                             PoliceCall(Config.AlertPolice)
