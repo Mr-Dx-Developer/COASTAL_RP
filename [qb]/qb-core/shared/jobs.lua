@@ -102,7 +102,7 @@ QBShared.Jobs = {
 			['4'] = { name = 'Manager', isboss = true, payment = 150 },
 		},
 	},
-	mechanic2 = {
+	--[[ mechanic2 = {
 		label = 'LS Customs',
 		type = 'mechanic',
 		defaultDuty = true,
@@ -127,7 +127,7 @@ QBShared.Jobs = {
 			['3'] = { name = 'Advanced', payment = 125 },
 			['4'] = { name = 'Manager', isboss = true, payment = 150 },
 		},
-	},
+	}, ]]
 	beeker = {
 		label = 'Beeker\'s Garage',
 		type = 'mechanic',
