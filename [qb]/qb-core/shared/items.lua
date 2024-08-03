@@ -698,7 +698,8 @@ ghostcam = { name = 'ghostcam', label = 'Ghost Camera', weight = 100, type = 'it
 ["emp_flower_box"] 		 	 	 = {["name"] = "emp_flower_box", 			["label"] = "Empty Flower Box", 			["weight"] = 70, 		["type"] = "item", 		["image"] = "flower_emp_box.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A Empty Flowers Box."},
 ["emp_bucket"] 		 	 	 	 = {["name"] = "emp_bucket", 				["label"] = "Bucket", 					["weight"] = 70, 		["type"] = "item", 		["image"] = "emp_bucket.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "A Empty Bucket."},
 
-
+["houselaptop"] 		 	 	 = {["name"] = "houselaptop",        		   	["label"] = "House Hacking Laptop",	 				["weight"] = 2500, 		["type"] = "item", 		["image"] = "houselaptop.png", 			["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = ""},
+["mansionlaptop"] 		 	 	 = {["name"] = "mansionlaptop",        		   	["label"] = "Mansion Hacking Laptop",	 				["weight"] = 2500, 		["type"] = "item", 		["image"] = "mansionlaptop.png", 			["unique"] = false, 		["useable"] = true, 	["shouldClose"] = true,   	["combinable"] = nil,   ["description"] = ""},
 -- Add to qb-core/shared/items.lua
 ['fishingrod'] 		 			 = {['name'] = 'fishingrod', 					['label'] = 'Fishing Rod', 				['weight'] = 250, 		['type'] = 'item', 		['image'] = 'fishingrod.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Use this with bait to catch fish.'},
 ['fishbait'] 		 			 = {['name'] = 'fishbait', 					['label'] = 'Fishing Bait', 				['weight'] = 5, 		['type'] = 'item', 		['image'] = 'fishbait.png', 			['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = true,   ['description'] = 'With a fishing rod this can catch some fish.'},
