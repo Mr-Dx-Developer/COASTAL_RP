@@ -19,34 +19,34 @@ Rewards.Trollys = {
 
 Rewards.Lockers = {
     ['fleeca'] = {
-        items = {'goldbar', }, -- Every time a player unlocks a locker, a random item from this array will be drawn, you can add more items
+        items = {'goldbar1', }, -- Every time a player unlocks a locker, a random item from this array will be drawn, you can add more items
         amount = { minAmount = 1, maxAmount = 2 },
         rareChance = 20,
         rareItem = 'usb_blue',
     },
     ['maze'] = {
-        items = {'goldbar', },
+        items = {'goldbar1', },
         amount = { minAmount = 10, maxAmount = 12 },
         rareChance = 30,
         rareItem = 'usb_blue',
     },
     ['paleto'] = {
-        items = {'goldbar', },
+        items = {'goldbar1', },
         amount = { minAmount = 1, maxAmount = 4 },
         rareChance = 20,
         rareItem = {'usb_red', 'pistolblueprint', 'smgblueprint' }
     },
     ['pacific'] = {
-        items = {'goldbar', },
+        items = {'goldbar1', },
         amount = { minAmount = 10, maxAmount = 14 },
         rareChance = 20,
         rareItem = {'usb_gold', 'rifleblueprint'}
     },
     ['vault'] = {
-        items = {'goldbar', },
+        items = {'goldbar1', },
         amount = { minAmount = 10, maxAmount = 14 },
         rareChance = 20,
-        rareItem = 'goldbar', -- You could use the vault to drop a rare item used in another heist!
+        rareItem = 'goldbar1', -- You could use the vault to drop a rare item used in another heist!
     }
 }
 

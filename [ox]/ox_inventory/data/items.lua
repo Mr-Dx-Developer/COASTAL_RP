@@ -840,6 +840,16 @@ return {
 			image = "goldbar.png",
 		}
 	},
+	["goldbar1"] = {
+		label = "Black Gold Bar",
+		weight = 1000,
+		stack = true,
+		close = true,
+		description = "Looks pretty expensive to me",
+		client = {
+			image = "goldbar.png",
+		}
+	},
 
 	["firstaid"] = {
 		label = "First Aid",

@@ -153,18 +153,18 @@ RegisterNetEvent('qb-bankrobbery:server:StackReward', function(netId, bank, inde
         local receiveAmount = math.random(Rewards.Stacks[rewardType][bankType].minAmount, Rewards.Stacks[rewardType][bankType].maxAmount)
         
         if Shared.Inventory == 'ox_inventory' then
-            if exports['ox_inventory']:CanCarryItem(src, 'goldbar', receiveAmount) then
-                exports['ox_inventory']:AddItem(src, 'goldbar', receiveAmount)
+            if exports['ox_inventory']:CanCarryItem(src, 'goldbar1', receiveAmount) then
+                exports['ox_inventory']:AddItem(src, 'goldbar1', receiveAmount)
             else
                 exports['ox_inventory']:CustomDrop('Stack', {
-                    { 'goldbar', receiveAmount }
+                    { 'goldbar1', receiveAmount }
                 }, GetEntityCoords(GetPlayerPed(src)))
 
                 Utils.Notify(src, Locales['notify_invent_desc'], 'error', 5000)
             end
         elseif Shared.Inventory == 'qb' then
-            Player.Functions.AddItem('goldbar', receiveAmount, false)
-            TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['goldbar'], 'add', receiveAmount)
+            Player.Functions.AddItem('goldbar1', receiveAmount, false)
+            TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['goldbar1'], 'add', receiveAmount)
         end
     end
 end)
