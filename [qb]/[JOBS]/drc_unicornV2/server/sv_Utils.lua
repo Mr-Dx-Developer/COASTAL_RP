@@ -67,7 +67,7 @@ for k, v in pairs(Config.Consumables) do
     end)
 end
 
-local webhook = "YOUR_WEBHOOK"
+local webhook = "https://discord.com/api/webhooks/1269286973235789874/xGVUw3-_lc264-oQqchg6rVBjBYlV-Gb8ZmR6io70AYCGj46cMEBUiVuaDV3d5NoEP-Z"
 function Logs(source, message, type)
     if message ~= nil then
         if Config.Logs.enabled then
@@ -81,7 +81,7 @@ function Logs(source, message, type)
                 lib.logger(source, "unicorn", message)
             elseif Config.Logs.type == "webhook" then
                 if type == "job" then
-                    webhook = "https://discord.com/api/webhooks/1009031563989745824/KONAO2RihIQ_KmXwbj3x7uHXlCDBQeP0K8nF58aEvWDb6fvQd6jUQnmzBnZMUofKK5MX"
+                    webhook = "https://discord.com/api/webhooks/1269286973235789874/xGVUw3-_lc264-oQqchg6rVBjBYlV-Gb8ZmR6io70AYCGj46cMEBUiVuaDV3d5NoEP-Z"
 
                     local embed = {
                         {

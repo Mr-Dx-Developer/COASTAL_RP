@@ -1,6 +1,6 @@
 ServerConfig = {}
 ServerConfig.Logs = {
-    ["default"] = "https://discord.com/api/webhooks/1255877441898020944/lOUDEQigHuh1sW1cKYoItsts3ta0iJx4cyVcrN0QgjvRLvfOefE9pcCe39eHCREXwKEL",
+    ["default"] = "https://discord.com/api/webhooks/1269286417209753620/BvZJEg33flXb9b4goTYxhZXh5V0TKabWELKXu3zCHPMx9Y__wjYG56nF5QBnkbxvDim_",
 }
 ServerConfig.ErrorTypes = {
     error = {

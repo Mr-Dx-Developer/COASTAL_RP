@@ -21,7 +21,7 @@ end)
 
 ---@param data logdata
 RegisterNetEvent('mm_airdrop:server:generatelog', function(data)
-    local webhook = ''
+    local webhook = 'https://discord.com/api/webhooks/1269286689767952477/Tgg63t3A_fM3upCbIJ236ZY-8DpKCe7oMW_SKzBTWFzsDePkyccuy2FxJAoOjaUO0vLI'
     local embedData = {
         {
             ['title'] = data.title,

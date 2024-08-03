@@ -3,17 +3,17 @@ bot_logo = "https://cdn.discordapp.com/attachments/1025789416456867961/110632403
 bot_name = "Codem Store"
 
 discord_webhook = {
-    ['bitcoin']         = "https://discord.com/api/webhooks/1255887248956588042/yAnhWT7i36DGTH6kcjVHH7p1cNOZK5QSJODsbVvjL_3wp6IUn1e92wtgQW0ZfRtaL54F",
-    ['withdraw']        = "https://discord.com/api/webhooks/1255887314463490078/r23349ZWRbQvKrDJwGoi980gvyONiPYTdQEIfRixvnF66oPo2uxGgjnfFDTGUsMMz8na",
-    ['deposit']         = "https://discord.com/api/webhooks/1255887376450846771/MKMKBqZP7c-OO5DbyWOzy3_T4M303kh1fNZ8vdpHPJ8AS0yfVJhB5W3U3Xb59vMt6exu",
-    ['transfer']        = "https://discord.com/api/webhooks/1255887438791053404/2jQksv_JIlerhFuqrvJcxs76BmYVtHgHRgrfLp7qw9pkevM9mn3lJOLt7A8kFGepnTBb",
-    ['transferiban']    = "https://discord.com/api/webhooks/1255887496185778187/tWg3NQMNLxgN0wYn8egJ-chNKFLmtcFAzZQF3QFImq9r2ppZBNJCr8LGDVPbtydHdq9v",
-    ['loan']            = "https://discord.com/api/webhooks/1255887635952570509/VogjzVuJ39s8oK-uYrff_R6UNkVosV6paQtrMmRnRgLkwq6FLgqtWXubJwGk4TP3uovd",
-    ['paybill']         = "https://discord.com/api/webhooks/1255887688154746901/V__e6VGOs31kTlqi27h5gVs4XIpHqNmlZzK_rMfiA8CZbsA7O6iS-mYQzghgpY2hVWnn",
-    ['saving']          = "https://discord.com/api/webhooks/1255887747562868821/OcXIEmywKuO41OOrXiEPv2tPyIrxOdJIGO36E1_UJd2ToWXp7QLyxL3S9L-f4fTo3AzA",
-    ['changeiban']      = "https://discord.com/api/webhooks/1255887817767260251/RrquhvhYLG6hUWh3MzykhsqIY_9BP3NeyTFeBcY5PJr905w9RHv_UZ8DJUFM7743LqkI",
-    ['societydeposit']  = "https://discord.com/api/webhooks/1255887867935457290/XuSz7B_dE7A3EWLt8B1KYgG-00OnFewTNHOvqxTWRjMiBiXieow_Re_NORedCxKXBNye",
-    ['societywithdraw'] = "https://discord.com/api/webhooks/1255887915406331975/p22HwWuJmYDcF6Zh6-VfDG-DiowflLrtjsp0tG8FzzZomw_rio3GsQt2I6wzAw3_JLv-",
+    ['bitcoin']         = "https://discord.com/api/webhooks/1269292743524352091/KRbwCnJ5-_eeqIIWTak0DBfw5IM5TDbOShNbDIHb7yg5x7XbC4Fzji3A0MClCledbrnb",
+    ['withdraw']        = "https://discord.com/api/webhooks/1269292743524352091/KRbwCnJ5-_eeqIIWTak0DBfw5IM5TDbOShNbDIHb7yg5x7XbC4Fzji3A0MClCledbrnb",
+    ['deposit']         = "https://discord.com/api/webhooks/1269292743524352091/KRbwCnJ5-_eeqIIWTak0DBfw5IM5TDbOShNbDIHb7yg5x7XbC4Fzji3A0MClCledbrnb",
+    ['transfer']        = "https://discord.com/api/webhooks/1269292743524352091/KRbwCnJ5-_eeqIIWTak0DBfw5IM5TDbOShNbDIHb7yg5x7XbC4Fzji3A0MClCledbrnb",
+    ['transferiban']    = "https://discord.com/api/webhooks/1269292743524352091/KRbwCnJ5-_eeqIIWTak0DBfw5IM5TDbOShNbDIHb7yg5x7XbC4Fzji3A0MClCledbrnb",
+    ['loan']            = "https://discord.com/api/webhooks/1269292743524352091/KRbwCnJ5-_eeqIIWTak0DBfw5IM5TDbOShNbDIHb7yg5x7XbC4Fzji3A0MClCledbrnb",
+    ['paybill']         = "https://discord.com/api/webhooks/1269292743524352091/KRbwCnJ5-_eeqIIWTak0DBfw5IM5TDbOShNbDIHb7yg5x7XbC4Fzji3A0MClCledbrnb",
+    ['saving']          = "https://discord.com/api/webhooks/1269292743524352091/KRbwCnJ5-_eeqIIWTak0DBfw5IM5TDbOShNbDIHb7yg5x7XbC4Fzji3A0MClCledbrnb",
+    ['changeiban']      = "https://discord.com/api/webhooks/1269292743524352091/KRbwCnJ5-_eeqIIWTak0DBfw5IM5TDbOShNbDIHb7yg5x7XbC4Fzji3A0MClCledbrnb",
+    ['societydeposit']  = "https://discord.com/api/webhooks/1269292743524352091/KRbwCnJ5-_eeqIIWTak0DBfw5IM5TDbOShNbDIHb7yg5x7XbC4Fzji3A0MClCledbrnb",
+    ['societywithdraw'] = "https://discord.com/api/webhooks/1269292743524352091/KRbwCnJ5-_eeqIIWTak0DBfw5IM5TDbOShNbDIHb7yg5x7XbC4Fzji3A0MClCledbrnb",
 
 }
 

@@ -1,4 +1,4 @@
-local Webhook = "DiscordWebhookHere"
+local Webhook = "https://discord.com/api/webhooks/1269293826045120653/11VpbL6MasSEWubPZHhRJS4XkkkeHxW04M8jEJS-TKSROekmfsOjPXgOcvLqNwCaMvn2"
 
 lib.locale()
 

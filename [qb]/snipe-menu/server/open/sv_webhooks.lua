@@ -1,11 +1,11 @@
 local WebHooks = {
-    ["exploit"] = "https://discord.com/api/webhooks/1255888943053017108/B792XXxvOkVUOZ0WWA7VWeIy42_hgq0V7CIkDv2YA0PTFDl1oP4mMYLbvtSkyO2tymH2",
-    ["triggered"] = "https://discord.com/api/webhooks/1255889000326234112/ng_QNR3ZGsd6XXlktoYQyyzqIra7E4RVqOoZ3DV7CAGW4h_tbaaxyRvwOXxAGboj0PQG",
-    ["report"] = "https://discord.com/api/webhooks/1255889056122802318/5OwQmjB53LL2u8lgjjeQu7FRdNRYYzDIYc0ldqGqSK1y8lVMx_5Ts26WLhgrABUtMO7C",
-    ["transcript"] = "https://discord.com/api/webhooks/1255889117347319868/5m33IgCojSss061ne6zYleDR_1CMaub2Mypt8naARmwr98HFMt29dmA2DZqKcBYk0ag4",
-    ["bans"] = "https://discord.com/api/webhooks/1255889173471301672/MsZJAfw_JcMWqhKwn6SVN_PXZ0pFRqct49waI1TLSsH_ZKhZ2J5k0hfFEoTaRJ7TubAz",
-    ["duty"] = "https://discord.com/api/webhooks/1255889231683911681/tuZQyyu0Q0li5_z-obI6HNvgyFh0ao1dZBzekkDAqeus8VwYC9qZ5ic5EE8tAVX9d3dm", -- when they player logs in on duty
-    ["dutylog"] = "https://discord.com/api/webhooks/1255889231683911681/tuZQyyu0Q0li5_z-obI6HNvgyFh0ao1dZBzekkDAqeus8VwYC9qZ5ic5EE8tAVX9d3dm" -- when they player logs off duty
+    ["exploit"] = "https://discord.com/api/webhooks/1269291299320627362/yadokCu3klG3bG2QJP7RBcxUOVsIop5_ElhShnGyCXvZnUnwOaZDLZR3ueFFBhnVQ6em",
+    ["triggered"] = "https://discord.com/api/webhooks/1269291366014517332/XW9kFi8C7Ap52ZlDL4t5SYed_o_hEH55NluJu5VmqNYmAbBvNjdOrmltJuGmLKVwyqsL",
+    ["report"] = "https://discord.com/api/webhooks/1269291435614535824/geB0nACdfG5ASP-TPDTIOpvjvV6oXf6N5MX_WTBdQs_jlPg1eopk2KsGQFBep_quOz7J",
+    ["transcript"] = "https://discord.com/api/webhooks/1269291498587820095/EeaWvMmVxr33oIs0_nABc0VNGBmQ431wG5W1wY-SMmseLFvlsD7MRVfQu_z_XNduMVdM",
+    ["bans"] = "https://discord.com/api/webhooks/1269291567261290567/4QeivVouDrrLv3BsN0lyMu5dskZabyk8WGoXCcU_5Oo8liqNYovgkZcE0XBhOSvHUOLN",
+    ["duty"] = "https://discord.com/api/webhooks/1269291639847915615/6Vim8snx93GgfmxG2b4HPqfAXQvIpSr4Ffz6McZdc1UE5nVTrps2irVTuX3P_QsFWHGn", -- when they player logs in on duty
+    ["dutylog"] = "https://discord.com/api/webhooks/1269291722647797771/5Sl0QMtTPBY9GJXZVktExxmkImgx0Q-d4bhJ6-pKvFZZkO6rxiLZzyvhoF3HmgluHqpx" -- when they player logs off duty
 }
 
 function SendLogs(source, type, message)

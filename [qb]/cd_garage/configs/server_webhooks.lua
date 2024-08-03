@@ -4,11 +4,11 @@
 
 
 --These are disabled by default, until you enter your discord webhooks.
-local ExploitLogWebhook = 'https://discord.com/api/webhooks/1255886687834476554/_Qw3sp5UJ2kOQeDqWUhOaj_BXSDJhV55YPy9W58Oy0VaLuo3W5BqEtiSVlEIcsaGgUo4' --If a player is found using cheat engine to change the hash of a vehicle, this will send a message on discord and kick them from the game.
-local ImpoundLogWebhook = 'https://discord.com/api/webhooks/1255886760274169978/epvmyTYh-AmrJkz2IJbTbS8ZVpkLkvbCMFdy7Ah2dMOx23bBgb9TY9A1zvBgIg_SLwKR' --When a player impounds/unimpounds a vehicle.
-local TransferVehicleLogWebhook = 'https://discord.com/api/webhooks/1255886826447704064/n-knuu9HfvKSEY4yqHcvB5syX_S_R_aGhgAAP_-Iwgn8kBQdoQctyLaEnDl6QHMoKIEa' --When a player transfers a vehicle to another player.
-local VehicleManagementLogWebhook = 'https://discord.com/api/webhooks/1255886902737895434/hogVDQ3ubneG6G87Eq-rYIguk5ckH2NrQE5NnYqg36b90yS6-t9i5JNNehx27oQHWv3b' --When a staff member uses the vehicle managment commands.
-local GarageSpaceLogWebhook = 'https://discord.com/api/webhooks/1255886974926061619/VFKVTN5zxIFlqAscVR_XA4Yb8vDMSOiLqBhYvcMapbJW-sYCjryX-bavXf-5TgneFwm6' --When a player sells a garage slot.
+local ExploitLogWebhook = 'https://discord.com/api/webhooks/1269293112014934087/uVN1IpO67jV83THi0hXGVCUuWT9EVIL0G0P7M6qOKu0B3IfOdBhk2EC2OA1VG2TuuyV7' --If a player is found using cheat engine to change the hash of a vehicle, this will send a message on discord and kick them from the game.
+local ImpoundLogWebhook = 'https://discord.com/api/webhooks/1269293112014934087/uVN1IpO67jV83THi0hXGVCUuWT9EVIL0G0P7M6qOKu0B3IfOdBhk2EC2OA1VG2TuuyV7' --When a player impounds/unimpounds a vehicle.
+local TransferVehicleLogWebhook = 'https://discord.com/api/webhooks/1269293112014934087/uVN1IpO67jV83THi0hXGVCUuWT9EVIL0G0P7M6qOKu0B3IfOdBhk2EC2OA1VG2TuuyV7' --When a player transfers a vehicle to another player.
+local VehicleManagementLogWebhook = 'https://discord.com/api/webhooks/1269293112014934087/uVN1IpO67jV83THi0hXGVCUuWT9EVIL0G0P7M6qOKu0B3IfOdBhk2EC2OA1VG2TuuyV7' --When a staff member uses the vehicle managment commands.
+local GarageSpaceLogWebhook = 'https://discord.com/api/webhooks/1269293112014934087/uVN1IpO67jV83THi0hXGVCUuWT9EVIL0G0P7M6qOKu0B3IfOdBhk2EC2OA1VG2TuuyV7' --When a player sells a garage slot.
 
 
 ------------------------------------------------------------------------------------------------------

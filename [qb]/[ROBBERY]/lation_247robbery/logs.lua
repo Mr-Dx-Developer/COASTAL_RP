@@ -7,11 +7,11 @@ Logs.Footer = 'https://i.ibb.co/xg69C7Z/ILTkWBh.png' -- Footer image for the web
 
 Logs.Types = {
     robbery = {
-        enabled = false, -- Enable this log?
-        webhook = '' -- Webhook link
+        enabled = true, -- Enable this log?
+        webhook = 'https://discord.com/api/webhooks/1269293562038583449/YhNhScBZoaPjYu5vexhGSgb_j9NqPOesADRcSwH0xevrVgeA7N0955RnGcCwUGV91j5_' -- Webhook link
     },
     cooldown = {
-        enabled = false,
-        webhook = ''
+        enabled = true,
+        webhook = 'https://discord.com/api/webhooks/1269293631022436382/khFq1UODMU_UuIjA9Qh97R-CTXENbdlp7fbRRVF0AVN_nL0I5W-7qJmq0YaJRPKP413T'
     }
 }

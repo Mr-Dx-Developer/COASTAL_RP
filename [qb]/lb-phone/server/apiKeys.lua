@@ -1,23 +1,23 @@
 -- Webhook for instapic posts, recommended to be a public channel
-INSTAPIC_WEBHOOK = "https://discord.com/api/webhooks/1154124535398924298/sZoByl52O5GhqTRAjmn1AjakMdIGJi0G1hsQKF8uF62CUi8jCfZbHvXxnGA-i01cUHZA"
+INSTAPIC_WEBHOOK = "https://discord.com/api/webhooks/1269292268184145982/QC11SDuuJ71EtSt7fKKjsMg44dgZbWXxVZug7gGURagZwn2iYWzO8gxAFPuC2rpkUtWf"
 -- Webhook for birdy posts, recommended to be a public channel
-BIRDY_WEBHOOK = "https://discord.com/api/webhooks/1154124472794755124/bxAvABaXii9VzXW3AemgP9NWKIKC-whPP5vZmsYGgAHQWP9j8rF4BgAQuBRfFNqfcGOs"
+BIRDY_WEBHOOK = "https://discord.com/api/webhooks/1269292346353254491/6qrEkvtSBp6TQrAsbmMU-6DOCJfM7Bp9frQobZQUQoTZVyDSjMnr3stXznoTpcKl4739"
 
 -- Discord webhook for server logs
 LOGS = {
-    Calls = "https://discord.com/api/webhooks/1255863344456400966/6IAAoAZdf9IcjRxU6vw-qB63vzFjMgejDqpDCWMEsdzNzPO9kgyY-V_p6SwjdcOknMNx", -- set to false to disable
-    Messages = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4",
-    InstaPic = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4",
-    Birdy = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4",
-    YellowPages = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4",
-    Marketplace = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4",
-    Mail = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4",
-    Wallet = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4",
-    DarkChat = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4",
-    Services = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4",
-    Crypto = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4",
-    Trendy = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4",
-    Uploads = "https://discord.com/api/webhooks/1255863410592321598/Y-0ZK0RuR9VPLyJAqWK6A0-_Q-EgwHbAg-OWdUNYiGBTc19772rtMuaBbz-nFomdrxZ4" -- all camera uploads will go here
+    Calls = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ", -- set to false to disable
+    Messages = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ",
+    InstaPic = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ",
+    Birdy = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ",
+    YellowPages = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ",
+    Marketplace = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ",
+    Mail = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ",
+    Wallet = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ",
+    DarkChat = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ",
+    Services = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ",
+    Crypto = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ",
+    Trendy = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ",
+    Uploads = "https://discord.com/api/webhooks/1269292468374077563/HNv_Y0ex_vHgzqNt87N-QEU12VssLw4_8j6hD9golGmMbsTXAGh_N7ODmcUlIbq1fINJ" -- all camera uploads will go here
 }
 
 -- Set your API keys for uploading media here.

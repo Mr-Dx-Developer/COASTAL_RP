@@ -3,7 +3,7 @@
 
 QB = {
     allowedJob = { 'police' },
-    webhook = "https://discord.com/api/webhooks/1257555712381550713/SdU1xIOp0eZPvyoLbNWJAZfE4tcz7l82gSPCSpNYuMzA2N_rEk-TxPufbnZWZdgb2khY",
+    webhook = "https://discord.com/api/webhooks/1269294341549981788/4g_PbCBliRJxKe3uuC9AA3c7rjNNMwOaF9g-pKdYro87GXE-04TOSzLSKwABJh37vFYy",
     Framework = "qb",
     Footer = "You can see the records of bodycam in this page.",
     Header = "LOS SANTOS POLICE DEPARTMENT BODYCAM RECORDS",
