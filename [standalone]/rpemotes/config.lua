@@ -53,21 +53,21 @@ Config = {
     PersistentEmoteAfterHandsup = true, -- If true, you will play the emote you were playing previously after you stop handsup.
 
     -- Pointing Options
-    PointingEnabled = true, -- You can disable the finger pointing here / change the keybind. It is currently set to B
+    PointingEnabled = false, -- You can disable the finger pointing here / change the keybind. It is currently set to B
     PointingKeybindEnabled = true,
     PointingKeybind = 'B', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     PointingKeybindInCarEnabled = false,
     PersistentEmoteAfterPointing = true, -- If true, you will play the emote you were playing previously after you stop pointing.
 
     -- Crouching Options
-    CrouchEnabled = true, -- If crouching should be enabled.
+    CrouchEnabled = false, -- If crouching should be enabled.
     CrouchKeybindEnabled = true, -- If true, crouching will use keybinds.
     CrouchKeybind = 'lcontrol', -- The default crouch keybind, get the button string here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     CrouchOverride = false, -- If true, you won't enter stealth mode even if the crouch key and the 'duck' key are the same.
     FpsMode = false, -- set this to true if you have first-person shooting to disable the ability to crouch and shoot in third-person
 
     -- Crawling Options
-    CrawlEnabled = true, -- If crawling should be enabled.
+    CrawlEnabled = false, -- If crawling should be enabled.
     CrawlKeybindEnabled = true, -- If true, crawling will use keybinds.
     CrawlKeybind = 'rcontrol', -- The default crawl keybind, get the button string here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
 
