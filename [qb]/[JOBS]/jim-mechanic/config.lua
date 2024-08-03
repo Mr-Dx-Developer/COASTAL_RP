@@ -167,7 +167,7 @@ Config = {
 
 	Previews = {
 		oldOxLibMenu = true,		-- Enable this to use default context menu for previews when using ox_lib
-		PreviewPhone = true, 		-- Enable this is preview menu generates an email, False if you want to give an item
+		PreviewPhone = false, 		-- Enable this is preview menu generates an email, False if you want to give an item
 		PreviewJob = false, 		-- Enable this if you want /preview to require a Job Role
 		PreviewLocation = false, 	-- Enable this if you want to lock /preview to a job location (ignored if LocationRequired is false)
 
