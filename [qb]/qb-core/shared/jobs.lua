@@ -95,11 +95,11 @@ QBShared.Jobs = {
 		defaultDuty = true,
 		offDutyPay = false,
 		grades = {
-			['0'] = { name = 'Recruit', payment = 50 },
-			['1'] = { name = 'Novice', payment = 75 },
-			['2'] = { name = 'Experienced', payment = 100 },
-			['3'] = { name = 'Advanced', payment = 125 },
-			['4'] = { name = 'Manager', isboss = true, payment = 150 },
+			['0'] = { name = 'Recruit', payment = 3000 },
+			['1'] = { name = 'Novice', payment = 3200 },
+			['2'] = { name = 'Experienced', payment = 3400 },
+			['3'] = { name = 'Advanced', payment = 3600 },
+			['4'] = { name = 'Manager', isboss = true, payment = 3800 },
 		},
 	},
 	--[[ mechanic2 = {
@@ -128,7 +128,7 @@ QBShared.Jobs = {
 			['4'] = { name = 'Manager', isboss = true, payment = 150 },
 		},
 	}, ]]
-	beeker = {
+	--[[ beeker = {
 		label = 'Beeker\'s Garage',
 		type = 'mechanic',
 		defaultDuty = true,
@@ -153,7 +153,7 @@ QBShared.Jobs = {
 			['3'] = { name = 'Advanced', payment = 125 },
 			['4'] = { name = 'Manager', isboss = true, payment = 150 },
 		},
-	},
+	}, ]]
 	unicorn = {
 		label = 'unicorn Mamas',
 		type = 'unicorn',
