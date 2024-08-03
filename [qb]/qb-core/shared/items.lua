@@ -758,7 +758,7 @@ ghostcam = { name = 'ghostcam', label = 'Ghost Camera', weight = 100, type = 'it
     ['combinable'] = nil,
     ['description'] = 'Did we just go back in time?'
 },
-
+['newspaper'] = {['name'] = 'newspaper', ['label'] = 'Newspaper', ['weight'] = 10, ['type'] = 'item', ['image'] = 'newspaper.png', ['unique'] = false , ['useable'] = true, ['shouldClose'] = true, ['combinable'] = nil, ['description'] = 'Los Santos Newspaper'},
 ['polaroid'] = {
     ['name'] = 'polaroid',
     ['label'] = 'Polaroid image',
