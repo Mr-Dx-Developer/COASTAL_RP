@@ -181,7 +181,7 @@ Config.seizeCash = {  -- ONLY FOR QBCORE WITHOUT CASH AS ITEM
 }
 
 Config.handcuff = {                             -- Config in regards to cuffing
-    defaultCuff = 'soft',                       -- Default cuff type (Options: 'soft' / 'hard') Changing this will be the default hotkey cuff type
+    defaultCuff = 'hard',                       -- Default cuff type (Options: 'soft' / 'hard') Changing this will be the default hotkey cuff type
     persistentCuff = true,                      -- Verify player's cuffed status during login (Install '_EXTRA_ESX_INSTALL/ESX_PERSISTENT_CUFF.sql' if using ESX)
     timer = 20 * minutes,                       -- Time before player is automatically unrestrained(Set to false if not desired)
     hotkey = 'J',                               -- What key to press to handcuff people(Set to false for no hotkey)
