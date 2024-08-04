@@ -288,7 +288,7 @@ Stores = {
 			{ name = "ducttape", price = 1000, amount = 100, info = {}, type = "item", },
 			{ name = "paintcan", price = 3000, amount = 50, info = {}, type = "item", },
 			{ name = "tint_supplies", price = 1000, amount = 50, info = {}, type = "item", },
-			{ name = "underglow_controller", price = 500, amount = 50, info = {}, type = "item", },
+			{ name = "underglow_controller", price = 4000, amount = 50, info = {}, type = "item", },
 			{ name = "cleaningkit", price = 500, amount = 100, info = {}, type = "item", },
 		},
 	},
