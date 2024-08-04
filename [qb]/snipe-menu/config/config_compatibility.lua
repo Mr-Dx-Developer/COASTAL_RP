@@ -11,7 +11,7 @@ Config.Inventory = "ox" -- qb or qs or ox or qsv2
 -- use fivem-appearance if you use fivem-appearance
 -- use esx_skin if you use esx_skin
 -- use illenium-appearance if you use illenium-appearance
-Config.Skin = "qb-clothing" -- qb-clothing || fivem-appearance || esx_skin || other
+Config.Skin = "illenium-appearance" -- qb-clothing || fivem-appearance || esx_skin || other
 
 -- use none if you dont use any of the mentioned phones (also set to none if you use quasar phone)
 -- lb is for lb-phone

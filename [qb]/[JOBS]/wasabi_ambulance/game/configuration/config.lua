@@ -148,7 +148,7 @@ Config.GPSBlips = {  -- Warning: May experience high usage when at high player c
         sprite = 0,
         color = 2,
         scale = 1.0,
-        short = false,
+        short = true,
     }
 }
 
