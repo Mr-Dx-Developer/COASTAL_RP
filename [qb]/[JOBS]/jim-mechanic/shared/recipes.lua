@@ -307,7 +307,7 @@ Stores = {
 			{ name = "transmission4", price = 18000, amount = 50, info = {}, type = "item", },
 			{ name = "brakes1", price = 10000, amount = 50, info = {}, type = "item", },
 			{ name = "brakes2", price = 13000, amount = 50, info = {}, type = "item", },
-			{ name = "brakes3", price = 150000, amount = 50, info = {}, type = "item", },
+			{ name = "brakes3", price = 15000, amount = 50, info = {}, type = "item", },
 			{ name = "car_armor", price = 50000, amount = 50, info = {}, type = "item", },
 			{ name = "suspension1", price = 10000, amount = 50, info = {}, type = "item", },
 			{ name = "suspension2", price = 13000, amount = 50, info = {}, type = "item", },

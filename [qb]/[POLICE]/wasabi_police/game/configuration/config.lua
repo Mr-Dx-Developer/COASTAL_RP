@@ -69,7 +69,7 @@ Config.Jail = {
 -- NOTE: If using qb-prison, you must make one small change to qb-prison.
 -- SEE https://docs.wasabiscripts.com/scripts/wasabi_police/customizations#qb-prison-integration
 
-Config.searchPlayers = true     -- Allow police jobs to search players for items (Must have inventory in bridge or one already supported in cl_customize.lua - or add your own!)
+Config.searchPlayers = false     -- Allow police jobs to search players for items (Must have inventory in bridge or one already supported in cl_customize.lua - or add your own!)
 Config.weaponsAsItems = true     -- (If you're unsure leave as true!)This is typically for older ESX and inventories that still use weapons as weapons and not items
 
 Config.spikeStripsEnabled = true -- Enable functionality of spike strips (Disable if you use difference script for spike strips)
@@ -90,7 +90,7 @@ Config.AllowedJobs = { -- THIS HAS NOTHING TO DO with Config.policeJobs, only wi
 }
 
 Config.GrantWeaponLicenses = {
-    enabled = true,          -- If you want police to have option to grant/revoke weapons licenses
+    enabled = false,          -- If you want police to have option to grant/revoke weapons licenses
     license_name = 'weapon', -- Name of license
     minGrade = 0,            -- Min grade to use this function
     menuPosition =
@@ -116,7 +116,7 @@ Config.RadarPosts = {      -- Radar posts for speed detection
 
     },
 
-    chargeAccount = 'bank',       -- Cash or bank (The default method to charge player
+    chargeAccount = 'bank',       -- Cash or bank (The default method to charge player)
     allowNegativeBalance = false, -- Allow players to go into negative balance? (If false, player must have enough money to pay fine)
 
     -- Deposit fines into LEO's society account? (If set to false, fines will just be taken from player)
@@ -164,14 +164,14 @@ Config.RadarPosts = {      -- Radar posts for speed detection
 Config.GSR = {                 -- Gunshot residue settings
     enabled = true,           -- Enabled?
     cleanInWater = true,       -- Can clean GSR while in water?
-    timeToClean = 1 * seconds, -- How long to clean GSR in water if enabled
+    timeToClean = 5 * seconds, -- How long to clean GSR in water if enabled
     autoClean = 600,           -- (IN SECONDS)How long before residue clears itself? Set to false if undesired to auto clean GSR
     command = 'gsr'            -- Command for testing for GSR? Set to false if undesired
 }
 
 Config.tackle = {
-    enabled = true,    -- Enable tackle?
-    policeOnly = false, -- Police jobs only use tackle?
+    enabled = false,    -- Enable tackle?
+    policeOnly = true, -- Police jobs only use tackle?
     hotkey = 'G'       -- What key to press while sprinting to start tackle of target
 }
 
@@ -197,7 +197,7 @@ Config.handcuff = {                             -- Config in regards to cuffing
     lockpicking = {                             -- Lockpicking someone else out of handcuffs
         enabled = true,                        -- Enable handcuffs to be able to be lockpicked off(MUST HAVE LOCKPICK ITEM IN ITEMS)
         item = 'bobby_pin',
-        breakChance = 0,                       -- Chance of lockpick breaking if failed (Set to 100 for 100% or 0 for never breaking)
+        breakChance = 50,                       -- Chance of lockpick breaking if failed (Set to 100 for 100% or 0 for never breaking)
         difficulty = { 'easy', 'easy', 'easy' } -- Options: 'easy' / 'medium' / 'hard' (Can be stringed along as they are in config)
     }
 }
@@ -212,10 +212,10 @@ Config.GPSBlips = {  -- Warning: May experience high usage when at high player c
     refreshrate = 1, -- In Seconds Note: it could impact the server performance
     item = false,    -- Item required? Note: You have to use it then
     blip = {
-        sprite = 0,
+        sprite = 1,
         color = 1,
         scale = 1.0,
-        short = true,
+        short = false,
     }
 }
 
@@ -284,12 +284,13 @@ Config.Locations = {
             target = {
                 enabled = false,                   -- If enabled, the location and distance above will be obsolete
                 label = 'Go On/Off Duty',
-                coords = vec3(442.517, -986.257, 30.724),
-                heading = 4.31,
+                coords = vec3(464.87, -977.37, 30.69),
+                heading = 91.06,
+                distance = 2.5,
                 width = 2.0,
                 length = 1.0,
-                minZ = 30.02 - 0.9,
-                maxZ = 30.80 + 0.9
+                minZ = 30.69 - 0.9,
+                maxZ = 30.69 + 0.9
             }
         },
 
@@ -302,12 +303,13 @@ Config.Locations = {
             target = {
                 enabled = false,                   -- If enabled, the location and distance above will be obsolete
                 label = 'Access Boss Menu',
-                coords = vec3(440.535, -975.958, 35.062),
-                heading = 269.1,
+                coords = vec3(460.64, -985.64, 30.73),
+                heading = 269.85,
+                distance = 2.0,
                 width = 2.0,
                 length = 1.0,
-                minZ = 30.02 - 0.9,
-                maxZ = 30.85 + 0.9
+                minZ = 30.73 - 0.9,
+                maxZ = 30.73 + 0.9
             }
         },
 
@@ -910,12 +912,13 @@ Config.Locations = {
             target = {
                 enabled = false, -- If enabled, the location above will be obsolete
                 label = 'Access Personal Locker',
-                coords = vec3(467.481, -990.263, 35.062),
-                heading = 89.8,
+                coords = vec3(462.64, -995.88, 30.69),
+                heading = 354.94,
+                distance = 2.5,
                 width = 2.0,
                 length = 1.0,
-                minZ = 30.02 - 0.9,
-                maxZ = 30.85 + 0.9
+                minZ = 30.69 - 0.9,
+                maxZ = 30.69 + 0.9
             }
         },
 
@@ -928,12 +931,13 @@ Config.Locations = {
             target = {
                 enabled = false, -- If enabled, the location above will be obsolete
                 label = 'Access Evidence Locker',
-                coords = vec3(465.022, -1001.598, 30.463),
-                heading = 267.0,
+                coords = vec3(472.5, -991.21, 26.27),
+                heading = 266.23,
+                distance = 2.5,
                 width = 2.0,
                 length = 1.0,
-                minZ = 26.02 - 0.9,
-                maxZ = 26.38 + 0.9
+                minZ = 26.27 - 0.9,
+                maxZ = 26.27 + 0.9
             }
         },
 

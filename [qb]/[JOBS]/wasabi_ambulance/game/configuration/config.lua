@@ -145,10 +145,10 @@ Config.GPSBlips = {  -- Warning: May experience high usage when at high player c
     refreshrate = 1, -- In Seconds Note: it could impact the server performance
     item = false,    -- Item required? Note: You have to use it then
     blip = {
-        sprite = 0,
-        color = 2,
+        sprite = 1,
+        color = 3,
         scale = 1.0,
-        short = true,
+        short = false,
     }
 }
 
@@ -279,14 +279,14 @@ Config.AdvancedParking = false      -- If you use AdvancedParking (Deletes vehic
 Config.FuelSystem = false           -- 'legacy' (LegacyFuel) / 'ox' (ox_fuel) / 'default'
 
 Config.jobMenu = 'F6'               -- Default job menu key
-Config.billingSystem = 'okok'        -- Current options: 'esx' (For esx_billing) / 'qb' (For qbcore users) 'okok' (For okokBilling) / 'pefcl' (For NPWD billing system) (Easy to add more in editable client - SET TO false IF UNDESIRED) or of course false to disable
+Config.billingSystem = true        -- Current options: 'esx' (For esx_billing) / 'qb' (For qbcore users) 'okok' (For okokBilling) / 'pefcl' (For NPWD billing system) (Easy to add more in editable client - SET TO false IF UNDESIRED) or of course false to disable
 Config.targetSystem = true          -- Target system for targetting players, medbags, and stretcher(If disabled with replace with menus/3D text) (Compatible out of the box with qTarget, qb-target, and ox_target)
 
 Config.RespawnTimer = 5 * minutes   -- Time before optional respawn
 Config.BleedoutTimer = 45 * minutes -- Time before it forces respawn
 Config.ChargeForRevive = {
     enabled = true,                -- Charge players to revive after the timer expires when they hold E to revive?
-    cost = 800,                     -- Cost to revive if enabled
+    cost = 200,                     -- Cost to revive if enabled
     payAccount = 'bank',            -- Account to pay from
     allowNegativeBalance = false    -- QB ONLY: Allow negative balance if player does not have enough money?
 }
@@ -317,10 +317,10 @@ Config.CompleteDeath = { --DOES NOT APPLY TO QBCORE --  When enabled players can
 }
 
 Config.Bandages = {
-    enabled = true,       -- Useable bandages? (Leave false if ox_inventory because they're built in)
+    enabled = false,       -- Useable bandages? (Leave false if ox_inventory because they're built in)
     item = 'bandage',      -- YOU MUST ADD THIS ITEM TO YOUR ITEMS, IT DOES NOT COME IN INSTALLATION(COMES WITH QBCORE BY DEFAULT AS ITEM)
     hpRegen = 30,          -- Percentage of health it replenishes (30% by default)
-    healBleed = true,     -- Heal bleed that is inflicted by injury system? (Requires injury system enabled)
+    healBleed = false,     -- Heal bleed that is inflicted by injury system? (Requires injury system enabled)
     duration = 7 * seconds -- Time to use
 }
 
@@ -333,7 +333,7 @@ Config.EMSItems = {
         item = 'medikit',       -- Item used for healing
         duration = 5 * seconds, -- Time to use
         healBleed = true,       -- Heal bleed?
-        remove = true           -- Remove item when using?
+        remove = false           -- Remove item when using?
     },
     sedate = {
         item = 'sedative',      -- Item used to sedate players temporarily
@@ -725,7 +725,6 @@ Config.Locations = {
         },
     },
 }
-
 --[[ IMPORTANT THIS COULD BREAK SOMETHING ]]
 --
 Config.DisableDeathAnimation = false -- Really, really, REALLY do not recommend setting this to true and it was added per request

@@ -94,8 +94,8 @@ function OpenPersonalStash(station)
 
     wsb.inventory.openStash({
         name = station,
-        maxWeight = 85000,
-        slots = 50
+        maxWeight = 50000,
+        slots = 30
     })
 end
 
