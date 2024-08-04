@@ -8414,7 +8414,6 @@ return {
 			image = "jewellery.png",
 		}
 	},
-
 	["mechanic_tools"] = {
 		label = "Mechanic tools", weight = 0, stack = false, close = true, description = "Needed for vehicle repairs",
 		client = { image = "mechanic_tools.png", event = "jim-mechanic:client:Repair:Check" }
@@ -8703,7 +8702,6 @@ return {
 		label = "Internal Cosmetics", weight = 0, stack = false, close = true, description = "",
 		client = { image = "internals.png", event = "jim-mechanic:client:Cosmetic:Check", },
 	},
-
 	["externals"] = {
 		label = "Exterior Cosmetics", weight = 0, stack = false, close = true, description = "",
 		client = { image = "mirror.png", event = "jim-mechanic:client:Cosmetic:Check", },
@@ -8713,22 +8711,18 @@ return {
 		label = "Car Oil", weight = 0, stack = false, close = true, description = "",
 		client = { image = "caroil.png", },
 	},
-
 	["sparkplugs"] = {
 		label = "Spark Plugs", weight = 0, stack = false, close = true, description = "",
 		client = { image = "sparkplugs.png", },
 	},
-
 	["carbattery"] = {
 		label = "Car Battery", weight = 0, stack = false, close = true, description = "",
 		client = { image = "carbattery.png", },
 	},
-
 	["axleparts"] = {
 		label = "Axle Parts", weight = 0, stack = false, close = true, description = "",
 		client = { image = "axleparts.png", },
 	},
-
 	["sparetire"] = {
 		label = "Spare Tire", weight = 0, stack = false, close = true, description = "",
 		client = { image = "sparetire.png", },
@@ -8738,17 +8732,25 @@ return {
 		label = "Race Harness", weight = 0, stack = true, close = true, description = "Racing Harness so no matter what you stay in the car",
 		client = { image = "harness.png", event = "jim-mechanic:client:applyHarness", remove = false },
 	},
-
+	
+	["manual"] = {
+		label = "Manual Transmission", weight = 0, stack = true, close = true, description = "Manual Transmission change for vehicles",
+		client = { image = "manual.png", event = "jim-mechanic:client:applyManual", remove = false },
+	},
+	
+	["underglow"] = {
+		label = "Underglow LEDS", weight = 0, stack = true, close = true, description = "Underglow addition for vehicles",
+		client = { image = "underglow.png", event = "jim-mechanic:client:applyUnderglow", remove = false },
+	},
+	
 	["cleaningkit"] = {
 		label = "Cleaning Kit", weight = 0, stack = true, close = true, description = "A microfiber cloth with some soap will let your car sparkle again!",
 		client = { image = "cleaningkit.png", event = "jim-mechanic:client:cleanVehicle"},
 	},
-
 	["repairkit"] = {
 		label = "Repairkit", weight = 0, stack = true, close = true, description = "A nice toolbox with stuff to repair your vehicle",
 		client = { image = "repairkit.png", event = "jim-mechanic:vehFailure:RepairVehicle", item = "repairkit", full = false },
 	},
-	
 	["advancedrepairkit"] = {
 		label = "Advanced Repairkit", weight = 0, stack = true, close = true, description = "A nice toolbox with stuff to repair your vehicle",
 		client = { image = "advancedkit.png", event = "jim-mechanic:vehFailure:RepairVehicle", item = "advancedrepairkit", full = true },
@@ -9307,16 +9309,7 @@ return {
 		}
 	},
 
-	["manual"] = {
-		label = "Manual Transmission",
-		weight = 0,
-		stack = false,
-		close = true,
-		description = "Manual Transmission change for vehicles",
-		client = {
-			image = "manual.png",
-		}
-	},
+	
 
 	["coke_pure"] = {
 		label = "Pure Coke",
@@ -10297,16 +10290,7 @@ return {
 		}
 	},
 
-	["underglow"] = {
-		label = "Underglow LEDS",
-		weight = 0,
-		stack = false,
-		close = true,
-		description = "Underglow addition for vehicles",
-		client = {
-			image = "underglow.png",
-		}
-	},
+	
 
 	["jeans"] = {
 		label = "Jeans",
