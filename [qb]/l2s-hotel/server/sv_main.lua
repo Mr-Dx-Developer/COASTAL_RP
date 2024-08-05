@@ -24,7 +24,7 @@ RegisterServerEvent("qb-clothing:server:openOutfitMenu", function(shopType)
     TriggerClientEvent("qb-clothing:client:openOutfitMenu", src)
 end)
 
---[[ QBCore.Functions.CreateUseableItem("hotel_card", function(source, item)
+QBCore.Functions.CreateUseableItem("hotel_card", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     if Player then
@@ -36,4 +36,4 @@ end)
             end
 		end
     end
-end) ]]
+end)

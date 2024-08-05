@@ -1,4 +1,4 @@
---[[ local QBCore = exports[Shared.Exports.core]:GetCoreObject()
+local QBCore = exports[Shared.Exports.core]:GetCoreObject()
 local PlayerData = QBCore.Functions.GetPlayerData()
 local isLoggedIn = LocalPlayer.state['isLoggedIn']
 local DoorsConfig = DoorsConfig
@@ -179,4 +179,4 @@ CreateThread(function()
 		end
 		Wait(sleep)
 	end
-end) ]]
+end)

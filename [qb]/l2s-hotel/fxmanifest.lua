@@ -32,6 +32,7 @@ server_scripts {
 ui_page "ui/index.html"
 files {
 	'ui/index.html',
+	'ui/imgs/*.png',
 	'ui/css/style.css',
 	'ui/js/ui.js',
 }

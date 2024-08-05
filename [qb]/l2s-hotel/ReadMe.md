@@ -16,7 +16,8 @@
 
 -<2> Start the script
 
--<3> download l2s-password script : https://cdn.discordapp.com/attachments/1028307243948572714/1060314093053030651/l2s-password.zip
+-<3> download l2s-password script :  
+https://www.mediafire.com/file_premium/8e4n285poeiwhek/l2s-password.zip/file
 
 -<4> Put l2s-password script inside resource and start it
 
