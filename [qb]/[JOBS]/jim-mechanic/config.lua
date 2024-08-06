@@ -53,7 +53,7 @@ Config = {
 	},
 
 	Crafting = {
-		craftCam = true,
+		craftCam = false,
 		MultiCraft = true,
 		MultiCraftAmounts = { [1], [2], [3], [4], [5], [6], [7], [8], [9], [10] },
 		showItemBox = true,			-- toggle itemBox for adding/removing items, helpful if using custom item change events
@@ -186,7 +186,7 @@ Config = {
 	},
 
 	StoreCraft = {
-		Crafting = true, 				-- Set true to turn on crafting features
+		Crafting = false, 				-- Set true to turn on crafting features
 		StashCraft = false,  			-- Set true to grab materials from mechaincs stash for crafting
 		Stores = true, 					-- Set true to turn on shop store features
 	},
