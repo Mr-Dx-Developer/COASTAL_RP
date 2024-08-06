@@ -75,7 +75,7 @@ Config.Jail = {
 -- NOTE: If using qb-prison, you must make one small change to qb-prison.
 -- SEE https://docs.wasabiscripts.com/scripts/wasabi_police/customizations#qb-prison-integration
 
-Config.searchPlayers = false     -- Allow police jobs to search players for items (Must have inventory in bridge or one already supported in cl_customize.lua - or add your own!)
+Config.searchPlayers = true     -- Allow police jobs to search players for items (Must have inventory in bridge or one already supported in cl_customize.lua - or add your own!)
 Config.weaponsAsItems = true     -- (If you're unsure leave as true!)This is typically for older ESX and inventories that still use weapons as weapons and not items
 
 Config.spikeStripsEnabled = true -- Enable functionality of spike strips (Disable if you use difference script for spike strips)
