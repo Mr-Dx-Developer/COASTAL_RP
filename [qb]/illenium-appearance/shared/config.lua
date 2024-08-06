@@ -576,15 +576,29 @@ Config.ClothingRooms = {
     },
     {
         job = "police",
-        coords = vector4(-443.32, -311.22, 34.91, 197.64),
+        coords = vector4(461.37, -998.06, 31.2, 321.31),
         size = vector3(6, 6, 6),
         rotation = 45,
         usePoly = false,
         points = {
-            vector3(-445.11, -309.76, 35.35),
-            vector3(-442.83, -308.84, 35.35),
-            vector3(-440.93, -313.23, 34.91),
-            vector3(-443.38, -314.24, 34.91)
+            vector3(457.67, -999.76, 30.69),
+            vector3(458.82, -995.42, 30.69),
+            vector3(463.9, -995.93, 30.69),
+            vector3(463.9, -999.65, 30.93)
+            
+        }
+    },
+    {
+        job = "mechanic",
+        coords = vector4(-348.23, -131.09, 42.04, 340.85),
+        size = vector3(6, 6, 6),
+        rotation = 45,
+        usePoly = false,
+        points = {
+            vector3(-346.88, -133.39, 42.04),
+            vector3(-350.75, -131.88, 42.04),
+            vector3(-349.43, -126.99, 42.04),
+            vector3(-344.96, -128.4, 42.04)
             
         }
     }
