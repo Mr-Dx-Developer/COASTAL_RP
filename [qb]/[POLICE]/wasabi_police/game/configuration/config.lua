@@ -46,9 +46,15 @@ Config.billingSystem =
 
 --ONLY IF USING 'default' BILLING SYSTEM
 Config.billingData = {
-    chargeAccount = 'bank', --Cash or bank (The defaukt method to charge player)
-    societyName = 'police', --Name of the society to deposit the charge amount
-    fines = {               --Fine presets
+    chargeAccount = 'bank', --Cash or bank (The default method to charge player)
+
+    -- Credit police society for fines?
+    -- (If true, fines will be credited to whichever police job sent the fine)
+    -- (If false, fines will be deducted from the player but credited to no where)
+    -- (Set to string of specific account if you wish for a singular account to receive all fine recoveries)
+    creditSociety = true,
+
+    fines = { --Fine presets
         { label = 'Attempt Robbery of Shop', amount = 1200 },
         { label = 'Attempt Robbery of Bank', amount = 2400 },
         { label = 'On-Duty Crime',           amount = 10000 },
@@ -90,24 +96,26 @@ Config.AllowedJobs = { -- THIS HAS NOTHING TO DO with Config.policeJobs, only wi
 }
 
 Config.GrantWeaponLicenses = {
-    enabled = false,          -- If you want police to have option to grant/revoke weapons licenses
+    enabled = true,          -- If you want police to have option to grant/revoke weapons licenses
     license_name = 'weapon', -- Name of license
     minGrade = 0,            -- Min grade to use this function
     menuPosition =
     'bottom-right'           -- Choose where menu of player select is positioned. Options : 'top-left' or 'top-right' or 'bottom-left' or 'bottom-right'
 }
 
-Config.RadarPosts = {      -- Radar posts for speed detection
+Config.RadarPosts = {           -- Radar posts for speed detection
 
-    enabled = true,        -- Enable radar posts (Shows option in job menu for approved jobs)?
-    saveToDatabase = true, -- Save radar data to database? (If false, data will be stored in server memory/reset on server restarts)
+    enabled = true,             -- Enable radar posts (Shows option in job menu for approved jobs)?
+    saveToDatabase = true,      -- Save radar data to database? (If false, data will be stored in server memory/reset on server restarts)
 
-    measurement = 'mph',   -- Measurement of speed (Options: 'mph' / 'kmh')
+    disableCameraFlash = false, -- Disable camera flash effect when player is caught speeding?
 
-    jobs = {               -- Jobs & minimum ranks that can add/modify/delete radar posts
+    measurement = 'mph',        -- Measurement of speed (Options: 'mph' / 'kmh')
+
+    jobs = {                    -- Jobs & minimum ranks that can add/modify/delete radar posts
         -- Must be in Config.policeJobs as well
-        police = 0,        -- Job 'police' with minimum rank 0
-        sheriff = 2,       -- Job 'sheriff' with minimum rank 2
+        police = 0,             -- Job 'police' with minimum rank 0
+        sheriff = 2,            -- Job 'sheriff' with minimum rank 2
     },
 
     whitelistJobs = { -- Jobs that do not get fined for speeding
@@ -116,12 +124,14 @@ Config.RadarPosts = {      -- Radar posts for speed detection
 
     },
 
-    chargeAccount = 'bank',       -- Cash or bank (The default method to charge player)
+    chargeAccount = 'bank',       -- Cash or bank (The default method to charge player
     allowNegativeBalance = false, -- Allow players to go into negative balance? (If false, player must have enough money to pay fine)
 
-    -- Deposit fines into LEO's society account? (If set to false, fines will just be taken from player)
-    -- If desired to deposit into one specific LEO society(set as 'police' for example), set as string of society name
-    creditSociety = 'police',
+    -- Credit police society for fines?
+    -- (If true, fines will be credited to whichever police job placed the radar post that detected speeding)
+    -- (If false, fines will be deducted from the speeder but credited to no where)
+    -- (Set to string of specific account if you wish for a singular account to receive all fine recoveries)
+    creditSociety = true,
 
     thresholds = {   -- Speed thresholds for fines
         [5] = 50,    -- 5 over = $50 fine
@@ -205,17 +215,25 @@ Config.handcuff = {                             -- Config in regards to cuffing
 Config.policeJobs = { -- Police jobs
     'police',
     --    'sheriff'
+    'reporter'
 }
 
-Config.GPSBlips = {  -- Warning: May experience high usage when at high player count. Possibly turn up refreshrate as remedy!
-    enabled = true, -- Enabled?
-    refreshrate = 1, -- In Seconds Note: it could impact the server performance
-    item = false,    -- Item required? Note: You have to use it then
-    blip = {
-        sprite = 1,
-        color = 1,
-        scale = 1.0,
+Config.GPSBlips = {
+    enabled = true,     -- Enabled?
+    item = false,        -- Item required? Note: You have to use it then
+    sprites = {
+        none = 1,        -- Blip for when not in a vehicle
+        car = 56,        -- Blip for when in vehicles
+        bike = 226,      -- Blip for when on bikes
+        boat = 427,      -- Blip for when in boats
+        helicopter = 43, -- Blip for when in helicopters
+        plane = 307,     -- Blip for when in planes
+    },
+    settings = {
+        color = 3,
+        scale = 0.75,
         short = false,
+        category = 7
     }
 }
 
