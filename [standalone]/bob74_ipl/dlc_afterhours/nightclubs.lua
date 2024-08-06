@@ -325,316 +325,316 @@ AfterHoursNightclubs = {
         }
     },
 
-    -- -- 760, -1337, 27
-    -- Mesa = {
-    --     id = 0,
+    -- 760, -1337, 27
+    Mesa = {
+        id = 0,
 
-    --     Barrier = {
-    --         Enable = function(state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+        Barrier = {
+            Enable = function(state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Mesa.id, state)
-    --         end
-    --     },
-    --     Posters = {
-    --         Enable = function(poster, state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+                AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Mesa.id, state)
+            end
+        },
+        Posters = {
+            Enable = function(poster, state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Mesa.id, poster, state)
-    --         end,
-    --         Clear = function()
-    --             AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Mesa.id)
-    --         end
-    --     }
-    -- },
+                AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Mesa.id, poster, state)
+            end,
+            Clear = function()
+                AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Mesa.id)
+            end
+        }
+    },
 
-    -- -- 348, -979, 30
-    -- MissionRow = {
-    --     id = 1,
+    -- 348, -979, 30
+    MissionRow = {
+        id = 1,
 
-    --     Barrier = {
-    --         Enable = function(state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+        Barrier = {
+            Enable = function(state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.MissionRow.id, state)
-    --         end
-    --     },
-    --     Posters = {
-    --         Enable = function(poster, state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+                AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.MissionRow.id, state)
+            end
+        },
+        Posters = {
+            Enable = function(poster, state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.MissionRow.id, poster, state)
-    --         end,
-    --         Clear = function()
-    --             AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.MissionRow.id)
-    --         end
-    --     }
-    -- },
+                AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.MissionRow.id, poster, state)
+            end,
+            Clear = function()
+                AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.MissionRow.id)
+            end
+        }
+    },
 
-    -- -- -118, -1260, 30
-    -- Strawberry = {
-    --     id = 2,
+    -- -118, -1260, 30
+    Strawberry = {
+        id = 2,
 
-    --     Barrier = {
-    --         Enable = function(state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+        Barrier = {
+            Enable = function(state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Strawberry.id, state)
-    --         end
-    --     },
-    --     Posters = {
-    --         Enable = function(poster, state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+                AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Strawberry.id, state)
+            end
+        },
+        Posters = {
+            Enable = function(poster, state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Strawberry.id, poster, state)
-    --         end,
-    --         Clear = function()
-    --             AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Strawberry.id)
-    --         end
-    --     }
-    -- },
+                AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Strawberry.id, poster, state)
+            end,
+            Clear = function()
+                AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Strawberry.id)
+            end
+        }
+    },
 
-    -- -- 9, 221, 109
-    -- VinewoodWest = {
-    --     id = 3,
+    -- 9, 221, 109
+    VinewoodWest = {
+        id = 3,
 
-    --     Barrier = {
-    --         Enable = function(state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+        Barrier = {
+            Enable = function(state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.VinewoodWest.id, state)
-    --         end
-    --     },
-    --     Posters = {
-    --         Enable = function(poster, state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+                AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.VinewoodWest.id, state)
+            end
+        },
+        Posters = {
+            Enable = function(poster, state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.VinewoodWest.id, poster, state)
-    --         end,
-    --         Clear = function()
-    --             AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.VinewoodWest.id)
-    --         end
-    --     }
-    -- },
+                AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.VinewoodWest.id, poster, state)
+            end,
+            Clear = function()
+                AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.VinewoodWest.id)
+            end
+        }
+    },
 
-    -- -- 868, -2098, 31
-    -- Cypress = {
-    --     id = 4,
+    -- 868, -2098, 31
+    Cypress = {
+        id = 4,
 
-    --     Barrier = {
-    --         Enable = function(state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+        Barrier = {
+            Enable = function(state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Cypress.id, state)
-    --         end
-    --     },
-    --     Posters = {
-    --         Enable = function(poster, state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+                AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Cypress.id, state)
+            end
+        },
+        Posters = {
+            Enable = function(poster, state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Cypress.id, poster, state)
-    --         end,
-    --         Clear = function()
-    --             AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Cypress.id)
-    --         end
-    --     }
-    -- },
+                AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Cypress.id, poster, state)
+            end,
+            Clear = function()
+                AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Cypress.id)
+            end
+        }
+    },
 
-    -- -- -1287, -647, 27
-    -- DelPerro = {
-    --     id = 5,
+    -- -1287, -647, 27
+    DelPerro = {
+        id = 5,
 
-    --     Barrier = {
-    --         Enable = function(state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+        Barrier = {
+            Enable = function(state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.DelPerro.id, state)
-    --         end
-    --     },
-    --     Posters = {
-    --         Enable = function(poster, state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+                AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.DelPerro.id, state)
+            end
+        },
+        Posters = {
+            Enable = function(poster, state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.DelPerro.id, poster, state)
-    --         end,
-    --         Clear = function()
-    --             AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.DelPerro.id)
-    --         end
-    --     }
-    -- },
+                AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.DelPerro.id, poster, state)
+            end,
+            Clear = function()
+                AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.DelPerro.id)
+            end
+        }
+    },
 
-    -- -- -680, -2461, 14
-    -- Airport = {
-    --     id = 6,
+    -- -680, -2461, 14
+    Airport = {
+        id = 6,
 
-    --     Barrier = {
-    --         Enable = function(state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+        Barrier = {
+            Enable = function(state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Airport.id, state)
-    --         end
-    --     },
-    --     Posters = {
-    --         Enable = function(poster, state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+                AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Airport.id, state)
+            end
+        },
+        Posters = {
+            Enable = function(poster, state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Airport.id, poster, state)
-    --         end,
-    --         Clear = function()
-    --             AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Airport.id)
-    --         end
-    --     }
-    -- },
+                AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Airport.id, poster, state)
+            end,
+            Clear = function()
+                AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Airport.id)
+            end
+        }
+    },
 
-    -- -- 192, -3168, 6
-    -- Elysian = {
-    --     id = 7,
+    -- 192, -3168, 6
+    Elysian = {
+        id = 7,
 
-    --     Barrier = {
-    --         Enable = function(state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+        Barrier = {
+            Enable = function(state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Elysian.id, state)
-    --         end
-    --     },
-    --     Posters = {
-    --         Enable = function(poster, state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+                AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Elysian.id, state)
+            end
+        },
+        Posters = {
+            Enable = function(poster, state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Elysian.id, poster, state)
-    --         end,
-    --         Clear = function()
-    --             AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Elysian.id)
-    --         end
-    --     }
-    -- },
+                AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Elysian.id, poster, state)
+            end,
+            Clear = function()
+                AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Elysian.id)
+            end
+        }
+    },
 
-    -- -- 373, 254, 103
-    -- Vinewood = {
-    --     id = 8,
+    -- 373, 254, 103
+    Vinewood = {
+        id = 8,
 
-    --     Barrier = {
-    --         Enable = function(state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+        Barrier = {
+            Enable = function(state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Vinewood.id, state)
-    --         end
-    --     },
-    --     Posters = {
-    --         Enable = function(poster, state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+                AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Vinewood.id, state)
+            end
+        },
+        Posters = {
+            Enable = function(poster, state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Vinewood.id, poster, state)
-    --         end,
-    --         Clear = function()
-    --             AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Vinewood.id)
-    --         end
-    --     }
-    -- },
+                AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Vinewood.id, poster, state)
+            end,
+            Clear = function()
+                AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Vinewood.id)
+            end
+        }
+    },
 
     -- -1171, -1150, 6
-    -- Vespucci = {
-    --     id = 9,
-    --     Barrier = {
-    --         Enable = function(state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+    Vespucci = {
+        id = 9,
+        Barrier = {
+            Enable = function(state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Vespucci.id, state)
-    --         end
-    --     },
-    --     Posters = {
-    --         Enable = function(poster, state)
-    --             if state == nil then
-    --                 state = true
-    --             end
+                AfterHoursNightclubs.Barrier.Enable(AfterHoursNightclubs.Vespucci.id, state)
+            end
+        },
+        Posters = {
+            Enable = function(poster, state)
+                if state == nil then
+                    state = true
+                end
 
-    --             AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Vespucci.id, poster, state)
-    --         end,
-    --         Clear = function()
-    --             AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Vespucci.id)
-    --         end
-    --     }
-    -- },
+                AfterHoursNightclubs.Posters.Enable(AfterHoursNightclubs.Vespucci.id, poster, state)
+            end,
+            Clear = function()
+                AfterHoursNightclubs.Posters.Clear(AfterHoursNightclubs.Vespucci.id)
+            end
+        }
+    },
 
-    -- Barrier = {
-    --     barrier = "ba_barriers_caseX",
+    Barrier = {
+        barrier = "ba_barriers_caseX",
 
-    --     Enable = function(clubId, state)
-    --         value = AfterHoursNightclubs.Barrier.barrier:gsub("caseX", "case" .. tostring(clubId))
+        Enable = function(clubId, state)
+            value = AfterHoursNightclubs.Barrier.barrier:gsub("caseX", "case" .. tostring(clubId))
 
-    --         EnableIpl(value, state)
-    --     end
-    -- },
-    -- Posters = {
-    --     forSale = "ba_caseX_forsale",
-    --     dixon = "ba_caseX_dixon",
-    --     madonna = "ba_caseX_madonna",
-    --     solomun = "ba_caseX_solomun",
-    --     taleOfUs = "ba_caseX_taleofus",
+            EnableIpl(value, state)
+        end
+    },
+    Posters = {
+        forSale = "ba_caseX_forsale",
+        dixon = "ba_caseX_dixon",
+        madonna = "ba_caseX_madonna",
+        solomun = "ba_caseX_solomun",
+        taleOfUs = "ba_caseX_taleofus",
 
-    --     Enable = function(clubId, poster, state)
-    --         if type(poster) == "table" then
-    --             for key, value in pairs(poster) do
-    --                 if type(value) == "string" then
-    --                     value = value:gsub("caseX", "case" .. tostring(clubId))
+        Enable = function(clubId, poster, state)
+            if type(poster) == "table" then
+                for key, value in pairs(poster) do
+                    if type(value) == "string" then
+                        value = value:gsub("caseX", "case" .. tostring(clubId))
 
-    --                     EnableIpl(value, state)
-    --                 end
-    --             end
-    --         else
-    --             poster = poster:gsub("caseX", "case" .. tostring(clubId))
+                        EnableIpl(value, state)
+                    end
+                end
+            else
+                poster = poster:gsub("caseX", "case" .. tostring(clubId))
 
-    --             EnableIpl(poster, state)
-    --         end
-    --     end,
-    --     Clear = function(clubId)
-    --         for key, value in pairs(AfterHoursNightclubs.Posters) do
-    --             if type(value) == "string" then
-    --                 value = value:gsub("caseX", "case" .. tostring(clubId))
+                EnableIpl(poster, state)
+            end
+        end,
+        Clear = function(clubId)
+            for key, value in pairs(AfterHoursNightclubs.Posters) do
+                if type(value) == "string" then
+                    value = value:gsub("caseX", "case" .. tostring(clubId))
 
-    --                 EnableIpl(value, false)
-    --             end
-    --         end
-    --     end
-    -- },
+                    EnableIpl(value, false)
+                end
+            end
+        end
+    },
 
     LoadDefault = function()
         -- Interior setup
@@ -660,44 +660,44 @@ AfterHoursNightclubs = {
         RefreshInterior(AfterHoursNightclubs.interiorId)
 
         -- Exterior IPL
-        -- AfterHoursNightclubs.Mesa.Barrier.Enable(true)
-        -- AfterHoursNightclubs.Mesa.Posters.Enable(AfterHoursNightclubs.Posters, true)
-        -- AfterHoursNightclubs.Mesa.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
+        AfterHoursNightclubs.Mesa.Barrier.Enable(true)
+        AfterHoursNightclubs.Mesa.Posters.Enable(AfterHoursNightclubs.Posters, true)
+        AfterHoursNightclubs.Mesa.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
 
-        -- AfterHoursNightclubs.MissionRow.Barrier.Enable(true)
-        -- AfterHoursNightclubs.MissionRow.Posters.Enable(AfterHoursNightclubs.Posters, true)
-        -- AfterHoursNightclubs.MissionRow.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
+        AfterHoursNightclubs.MissionRow.Barrier.Enable(true)
+        AfterHoursNightclubs.MissionRow.Posters.Enable(AfterHoursNightclubs.Posters, true)
+        AfterHoursNightclubs.MissionRow.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
 
-        -- AfterHoursNightclubs.Strawberry.Barrier.Enable(true)
-        -- AfterHoursNightclubs.Strawberry.Posters.Enable(AfterHoursNightclubs.Posters, true)
-        -- AfterHoursNightclubs.Strawberry.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
+        AfterHoursNightclubs.Strawberry.Barrier.Enable(true)
+        AfterHoursNightclubs.Strawberry.Posters.Enable(AfterHoursNightclubs.Posters, true)
+        AfterHoursNightclubs.Strawberry.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
 
-        -- AfterHoursNightclubs.VinewoodWest.Barrier.Enable(true)
-        -- AfterHoursNightclubs.VinewoodWest.Posters.Enable(AfterHoursNightclubs.Posters, true)
-        -- AfterHoursNightclubs.VinewoodWest.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
+        AfterHoursNightclubs.VinewoodWest.Barrier.Enable(true)
+        AfterHoursNightclubs.VinewoodWest.Posters.Enable(AfterHoursNightclubs.Posters, true)
+        AfterHoursNightclubs.VinewoodWest.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
 
-        -- AfterHoursNightclubs.Cypress.Barrier.Enable(true)
-        -- AfterHoursNightclubs.Cypress.Posters.Enable(AfterHoursNightclubs.Posters, true)
-        -- AfterHoursNightclubs.Cypress.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
+        AfterHoursNightclubs.Cypress.Barrier.Enable(true)
+        AfterHoursNightclubs.Cypress.Posters.Enable(AfterHoursNightclubs.Posters, true)
+        AfterHoursNightclubs.Cypress.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
 
-        -- AfterHoursNightclubs.DelPerro.Barrier.Enable(true)
-        -- AfterHoursNightclubs.DelPerro.Posters.Enable(AfterHoursNightclubs.Posters, true)
-        -- AfterHoursNightclubs.DelPerro.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
+        AfterHoursNightclubs.DelPerro.Barrier.Enable(true)
+        AfterHoursNightclubs.DelPerro.Posters.Enable(AfterHoursNightclubs.Posters, true)
+        AfterHoursNightclubs.DelPerro.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
 
-        -- AfterHoursNightclubs.Airport.Barrier.Enable(true)
-        -- AfterHoursNightclubs.Airport.Posters.Enable(AfterHoursNightclubs.Posters, true)
-        -- AfterHoursNightclubs.Airport.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
+        AfterHoursNightclubs.Airport.Barrier.Enable(true)
+        AfterHoursNightclubs.Airport.Posters.Enable(AfterHoursNightclubs.Posters, true)
+        AfterHoursNightclubs.Airport.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
 
-        -- AfterHoursNightclubs.Elysian.Barrier.Enable(true)
-        -- AfterHoursNightclubs.Elysian.Posters.Enable(AfterHoursNightclubs.Posters, true)
-        -- AfterHoursNightclubs.Elysian.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
+        AfterHoursNightclubs.Elysian.Barrier.Enable(true)
+        AfterHoursNightclubs.Elysian.Posters.Enable(AfterHoursNightclubs.Posters, true)
+        AfterHoursNightclubs.Elysian.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
 
-        -- AfterHoursNightclubs.Vinewood.Barrier.Enable(true)
-        -- AfterHoursNightclubs.Vinewood.Posters.Enable(AfterHoursNightclubs.Posters, true)
-        -- AfterHoursNightclubs.Vinewood.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
+        AfterHoursNightclubs.Vinewood.Barrier.Enable(true)
+        AfterHoursNightclubs.Vinewood.Posters.Enable(AfterHoursNightclubs.Posters, true)
+        AfterHoursNightclubs.Vinewood.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
 
-        -- AfterHoursNightclubs.Vespucci.Barrier.Enable(true)
-        -- AfterHoursNightclubs.Vespucci.Posters.Enable(AfterHoursNightclubs.Posters, true)
-        -- AfterHoursNightclubs.Vespucci.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
+        AfterHoursNightclubs.Vespucci.Barrier.Enable(true)
+        AfterHoursNightclubs.Vespucci.Posters.Enable(AfterHoursNightclubs.Posters, true)
+        AfterHoursNightclubs.Vespucci.Posters.Enable(AfterHoursNightclubs.Posters.forSale, false)
     end
 }
