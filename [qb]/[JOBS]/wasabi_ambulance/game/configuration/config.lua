@@ -159,6 +159,11 @@ Config.GPSBlips = {  -- Warning: May experience high usage when at high player c
     distress = { x = 0.5, y = 0.86 },
 }]]
 -- This is obsolete now, if you wish to use 3D text while dead still, see https://docs.wasabiscripts.com
+Config.MessagePosition = {
+    respawn = { x = 0.5, y = 0.8 },
+    bleedout = { x = 0.5, y = 0.8 },
+    distress = { x = 0.5, y = 0.86 },
+}
 
 -- Dead animation
 Config.DeathAnimation = {
@@ -182,7 +187,7 @@ Config.LastStandTickTime = 5 * seconds -- Everytime this time passes while in la
 Config.DisableHeadShotKill = false     -- When enabled, a player who is shot in the head will still go into last stand (Recommended to leave false)
 Config.StayInVehicleOnDeath = true
 -- Live injury
-Config.EnableLiveInjury = true                             -- Enable live injury system?
+Config.EnableLiveInjury = false                             -- Enable live injury system?
 
 Config.DamageDetectThreshold = { armour = 5, health = 10 } -- Damage threshold to detect injury (Default: {armour = 5, health = 10})
 
@@ -276,7 +281,7 @@ Config.phoneDistress = false        -- Options: 'gks' (GKS Phone - ESX ONLY) / '
 Config.customCarlock = false        -- If you use wasabi_carlock OR qb-carlock(Or want to add your own key system to wasabi_bridge/customize/cl_customize.lua)
 Config.MythicHospital = false       -- If you use that old injury script by mythic. (Added per request to reset injuries on respawn)
 Config.AdvancedParking = false      -- If you use AdvancedParking (Deletes vehicles with their exports)
-Config.FuelSystem = false           -- 'legacy' (LegacyFuel) / 'ox' (ox_fuel) / 'default'
+Config.FuelSystem = 'legacy'           -- 'legacy' (LegacyFuel) / 'ox' (ox_fuel) / 'default'
 
 Config.jobMenu = 'F6'               -- Default job menu key
 Config.billingSystem = true        -- Current options: 'esx' (For esx_billing) / 'qb' (For qbcore users) 'okok' (For okokBilling) / 'pefcl' (For NPWD billing system) (Easy to add more in editable client - SET TO false IF UNDESIRED) or of course false to disable
@@ -292,7 +297,7 @@ Config.ChargeForRevive = {
 }
 
 Config.removeItemsOnDeath = false -- Must have supported inventory or add function to sv_customize.lua OR add inventory to wasabi_bridge.
---Config.Inventory = 'ox'           -- NOW USES WSB.INVENTORY FUNCTION
+Config.Inventory = 'ox'           -- NOW USES WSB.INVENTORY FUNCTION
 
 Config.keepItemsOnDeath = {
     enabled = false,
@@ -344,14 +349,14 @@ Config.EMSItems = {
 }
 
 Config.ReviveRewards = {
-    enabled = true,           -- Enable cash rewards for reviving
-    paymentAccount = 'money', -- If you have old ESX 1.1 you may need to switch to 'cash'
-    no_injury = 600,         -- If above enabled, how much reward for fully treated patient with no injury in diagnosis
-    burned = 300,            -- How much if player is burned and revived without being treated
-    beat = 250,              -- So on, so forth
-    stabbed = 200,
-    bleedout = 200,          -- NEW
-    shot = 150,
+    enabled = false,           -- Enable cash rewards for reviving
+    paymentAccount = 'cash', -- If you have old ESX 1.1 you may need to switch to 'cash'
+    no_injury = 2000,         -- If above enabled, how much reward for fully treated patient with no injury in diagnosis
+    burned = 1500,            -- How much if player is burned and revived without being treated
+    beat = 1000,              -- So on, so forth
+    stabbed = 500,
+    bleedout = 500,          -- NEW
+    shot = 300,
 }
 
 Config.ReviveHealth = { -- How much health to deduct for those revived without proper treatment
