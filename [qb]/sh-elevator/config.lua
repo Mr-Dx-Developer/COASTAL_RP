@@ -43,6 +43,12 @@ return {
         },
         ['Hospital Lift'] = {
             {
+                number = -1, -- floor
+                name = 'Lift -1', -- or false
+                code = '147', -- restrict floor by password
+                pos = vector3(-419.006, -344.933, 24.231),
+            },
+            {
                 number = 0, -- floor
                 name = 'Lift 0', -- or false
                 code = '147', -- restrict floor by password
