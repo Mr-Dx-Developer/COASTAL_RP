@@ -553,7 +553,7 @@ Config.Locations = {
 
         Cloakroom = {
             Enabled = false,
-            Coords = vec3(300.6, -597.7, 42.1), -- Coords of cloakroom
+            Coords = vec3(-443.101, -310.926, 34.911), -- Coords of cloakroom
             Label = '[E] - Change Clothes',     -- String of text ui of cloakroom
             HotKey = 38,                        -- Default: 38 (E)
             Range = 1.5,                        -- Range away from coords you can use.
