@@ -244,9 +244,8 @@ function GetVehicle(source, plate)
     return vehicle
 end
 
--- todo
 function IsAdmin(source)
-    return IsPlayerAceAllowed(source, "command.lbphone_admin") == 1
+    return QB.Functions.HasPermission(source, "admin") or IsPlayerAceAllowed(source, "command.lbphone_admin") == 1
 end
 
 QB.Commands.Add("toggleverified", "Toggle verified for a user profile", {

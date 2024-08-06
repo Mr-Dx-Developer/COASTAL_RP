@@ -1,5 +1,5 @@
-if (!window.componentsLoaded) {
-    window.componentsLoaded = true;
+if (!globalThis.componentsLoaded) {
+    globalThis.componentsLoaded = true;
 
     function fetchNui(event, data, scriptName) {
         const options = {
@@ -8,7 +8,7 @@ if (!window.componentsLoaded) {
         };
 
         return new Promise((resolve, reject) => {
-            fetch(`https://${scriptName ?? window.resourceName}/${event}`, options)
+            fetch(`https://${scriptName ?? globalThis.resourceName}/${event}`, options)
                 .then((res) => res.json())
                 .then(resolve)
                 .catch((err) => {
@@ -109,7 +109,7 @@ if (!window.componentsLoaded) {
     }
 
     function sendNotification(data) {
-        data.app = window.appName;
+        data.app = globalThis.appName;
         if (!data?.title && !data?.content) return console.log('Invalid notification data');
         fetchNui('SendNotification', data, 'lb-phone');
     }
@@ -122,7 +122,7 @@ if (!window.componentsLoaded) {
         settingListeners.push(cb);
     }
 
-    window.addEventListener('message', (event) => {
+    globalThis.addEventListener('message', (event) => {
         const data = event.data;
         const type = data.type;
 
@@ -161,17 +161,21 @@ if (!window.componentsLoaded) {
 
     observer.observe(document.body, { childList: true, subtree: true });
 
-    window.SetPopUp = setPopUp;
-    window.SetContextMenu = setContextMenu;
-    window.SetContactModal = setContactModal;
-    window.UseComponent = useComponent;
-    window.SelectGallery = selectGallery;
-    window.SelectGIF = selectGIF;
-    window.SelectEmoji = selectEmoji;
-    window.GetSettings = getSettings;
-    window.GetLocale = getLocale;
-    window.SendNotification = sendNotification;
-    window.OnSettingsChange = onSettingsChange;
+    function createCall(data) {
+        fetchNui('CreateCall', data, 'lb-phone');
+    }
 
-    window.postMessage('componentsLoaded', '*');
+    globalThis.SetPopUp = setPopUp;
+    globalThis.SetContextMenu = setContextMenu;
+    globalThis.SetContactModal = setContactModal;
+    globalThis.UseComponent = useComponent;
+    globalThis.SelectGallery = selectGallery;
+    globalThis.SelectGIF = selectGIF;
+    globalThis.SelectEmoji = selectEmoji;
+    globalThis.GetSettings = getSettings;
+    globalThis.GetLocale = getLocale;
+    globalThis.SendNotification = sendNotification;
+    globalThis.OnSettingsChange = onSettingsChange;
+
+    globalThis.postMessage('componentsLoaded', '*');
 }

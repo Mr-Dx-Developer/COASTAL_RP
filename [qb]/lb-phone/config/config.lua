@@ -346,7 +346,7 @@ Config.CityName = "Los Santos" -- The name that's being used in the weather app 
 Config.RealTime = true -- if true, the time will use real life time depending on where the user lives, if false, the time will be the ingame time.
 Config.CustomTime = false -- NOTE: disable Config.RealTime if using this. you can set this to a function that returns custom time, as a table: { hour = 0-24, minute = 0-60 }
 
-Config.EmailDomain = "lbphone.com"
+Config.EmailDomain = "crps.com"
 Config.AutoCreateEmail = false -- should the phone automatically create an email for the player when they set up the phone?
 Config.DeleteMail = true -- allow players to delete mails in the mail app?
 
@@ -398,6 +398,7 @@ Config.WordBlacklist.Apps = { -- apps that should use the word blacklist (if Con
     MarketPlace = true,
     DarkChat = true,
     Mail = true,
+    Other = true,
 }
 Config.WordBlacklist.Words = {
     -- array of blacklisted words, e.g. "badword", "anotherbadword"
