@@ -24,7 +24,7 @@ Config = {
 	Lan = "en",
 
 	Core = "qb-core",
-	Menu = "qb",
+	Menu = "ox",
 	Notify = "qb",
 
 	Fuel = "LegacyFuel", -- Set this to your fuel script folder
@@ -46,11 +46,11 @@ Config = {
 						grade = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					["modelsleo"] = {
 						CustomName = "PD Tesla",
@@ -58,11 +58,11 @@ Config = {
 						grade = 7,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					["nm_avent"] = {
 						CustomName = "PD Lembo",
@@ -70,11 +70,11 @@ Config = {
 						grade = 8, 9,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					["pd_c8"] = {
 						CustomName = "PD C8",
@@ -83,11 +83,11 @@ Config = {
                         grade = 3,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					["polamggtr"] = {
 						CustomName = "PD GTR",
@@ -96,11 +96,11 @@ Config = {
                         grade = 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					
 					 
@@ -112,11 +112,11 @@ Config = {
 						--bulletproof = true,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					--[[ ["rexon_dmp1"] = {
 						CustomName = "PD DMP1",
@@ -136,22 +136,22 @@ Config = {
                         grade = 2,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					["rexon_dmp3"] = {
 						CustomName = "PD DMP3",
 						grade = 0,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					["rexon_dmp4"] = {
 						CustomName = "PD DMP4",
@@ -159,11 +159,11 @@ Config = {
                         grade = 4,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					--[[ ["rexon_dmp5"] = {
 						CustomName = "PD DMP5",
@@ -182,11 +182,11 @@ Config = {
                         grade = 5,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					
 					["rexon_dmp7"] = {
@@ -195,11 +195,11 @@ Config = {
                         grade = 6,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					--[[ ["rexon_dmp8"] = {
 						CustomName = "PD DMP8",
@@ -232,11 +232,11 @@ Config = {
                         grade = 11,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					},
 					--[[ ["police3"] = {
 						CustomName = "PD 3",
@@ -255,11 +255,11 @@ Config = {
                         grade = 7,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					}
 					
 
@@ -287,11 +287,11 @@ Config = {
                         grade = 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
-						trunkItems = {
+						--[[ trunkItems = {
 							
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
-						},
+						}, ]]
 					}
 				},
 			},    
