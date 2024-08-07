@@ -383,8 +383,25 @@ Config.WhitelistedVehicles = { --ANY VEHICLE LISTED BELOW WILL NOT REQUIRE KEYS 
 ------------------------------------------------------VEHICLE WHITELIST-------------------------------------------------------
 Config.JobWhitelistedVehicles = { --ADD A TABLE WITH A JOBNAME AND ANY WHITELISTED VEHICLES THAT JOB WILL GET KEYS TO AUTOMATICALLY WHEN THEY SIT IN THE DRIVER SEAT OR TOGGLE VEHICLE LOCKS.
     ['police'] = {
-        'police2', 
-        'police3' 
+        '17cheyenne2',
+        'modelsleo',
+        'nm_avent',
+        'pd_c8',
+        'polamggtr',
+        'r1200rtp',
+        'rexon_dmp1',
+        'rexon_dmp2',
+        'rexon_dmp3',
+        'rexon_dmp4',
+        'rexon_dmp5',
+        'rexon_dmp6',
+        'rexon_dmp7',
+        'rexon_dmp8',
+        'rexon_dmp9',
+        
+        'rmodgt63police',
+        'yzfr6',
+        'police3'
     },
     ['ambulance'] = {
         'ambulance',

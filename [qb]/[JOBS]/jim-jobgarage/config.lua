@@ -24,7 +24,7 @@ Config = {
 	Lan = "en",
 
 	Core = "qb-core",
-	Menu = "ox",
+	Menu = "qb",
 	Notify = "qb",
 
 	Fuel = "LegacyFuel", -- Set this to your fuel script folder
@@ -41,7 +41,7 @@ Config = {
 				out = vector4(441.35, -974.77, 25.7, 189.43),
 				list = {
 					["17cheyenne2"] = {
-						CustomName = "PD Truck",
+						CustomName = "CONSRABLE",
 						livery = 1,
 						grade = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -53,7 +53,7 @@ Config = {
 						}, ]]
 					},
 					["modelsleo"] = {
-						CustomName = "PD Tesla",
+						CustomName = "SP",
 						livery = 2,
 						grade = 7,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -65,7 +65,7 @@ Config = {
 						}, ]]
 					},
 					["nm_avent"] = {
-						CustomName = "PD Lembo",
+						CustomName = "ADIG / DIG",
 						livery = 1,
 						grade = 8, 9,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -77,7 +77,7 @@ Config = {
 						}, ]]
 					},
 					["pd_c8"] = {
-						CustomName = "PD C8",
+						CustomName = "SURGENT",
 					--	colors = { 255, 255 },
 						livery = 1,
                         grade = 3,
@@ -90,7 +90,7 @@ Config = {
 						}, ]]
 					},
 					["polamggtr"] = {
-						CustomName = "PD GTR",
+						CustomName = "AIGP",
 						colors = { 255, 255 },
 						livery = 1,
                         grade = 10,
@@ -131,7 +131,7 @@ Config = {
 						},
 					}, ]]
 					["rexon_dmp2"] = {
-						CustomName = "pd DMP2",
+						CustomName = "ASI",
 						livery = 1,
                         grade = 2,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -143,7 +143,7 @@ Config = {
 						}, ]]
 					},
 					["rexon_dmp3"] = {
-						CustomName = "PD DMP3",
+						CustomName = "INTERN",
 						grade = 0,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -154,7 +154,7 @@ Config = {
 						}, ]]
 					},
 					["rexon_dmp4"] = {
-						CustomName = "PD DMP4",
+						CustomName = "SUB INSPECTOR",
 						livery = 1,
                         grade = 4,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -177,7 +177,7 @@ Config = {
 						},
 					}, ]]
 					["rexon_dmp6"] = {
-						CustomName = "PD DMP6",
+						CustomName = "INSPECTOR",
 						livery = 1,
                         grade = 5,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -190,7 +190,7 @@ Config = {
 					},
 					
 					["rexon_dmp7"] = {
-						CustomName = "PD DMP7",
+						CustomName = "ASP",
 						livery = 1,
                         grade = 6,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -227,7 +227,7 @@ Config = {
 						},
 					}, ]]
 					["rmodgt63police"] = {
-						CustomName = "PD GT63",
+						CustomName = "IGP",
 						livery = 1,
                         grade = 11,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -250,7 +250,7 @@ Config = {
 						},
 					}, ]]
 					["yzfr6"] = {
-						CustomName = "PD R6",
+						CustomName = "SP",
 						livery = 1,
                         grade = 7,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -284,7 +284,7 @@ Config = {
 					["POLMAV"] = {
 						CustomName = "Heli",
 						livery = 1,
-                        grade = 3, 4, 5, 6, 7, 8, 9, 10,
+                        grade = 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						--[[ trunkItems = {

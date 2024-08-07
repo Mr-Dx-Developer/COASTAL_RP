@@ -181,7 +181,7 @@ Config.GSR = {                 -- Gunshot residue settings
 
 Config.tackle = {
     enabled = false,    -- Enable tackle?
-    policeOnly = true, -- Police jobs only use tackle?
+    policeOnly = false, -- Police jobs only use tackle?
     hotkey = 'G'       -- What key to press while sprinting to start tackle of target
 }
 
@@ -798,22 +798,60 @@ Config.Locations = {
         cloakroom = {
             enabled = false,                        -- WILL NOT SHOW IN QBCORE INSTEAD USE QB-CLOTHING CONFIG! Set to false if you don't want to use (Compatible with esx_skin & wasabi fivem-appearance fork)
             jobLock = 'police',                    -- Allow only one of Config.policeJob listings / Set to false if allow all Config.policeJobs
-            coords = vec3(462.36, -999.62, 30.69), -- Coords of cloakroom
+            coords = vec3(461.37, -998.06, 31.2), -- Coords of cloakroom
             label = '[E] - Change Clothes',        -- String of text ui of cloakroom
             range = 2.0,                           -- Range away from coords you can use.
-            uniforms = {                           -- Uniform choices
-                [1] = {                            -- Order it will display
-                    label = 'Patrol',              -- Name of outfit that will display in menu
+            uniforms = {    
+                [0] = {                            -- Order it will display
+                    label = 'INTERN',              -- Name of outfit that will display in menu
                     minGrade = 0,                  -- Min grade level that can access? Set to 0 or false for everyone to use
                     male = {                       -- Male variation
                         clothing = {
                             -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
                             -- https://docs.fivem.net/natives/?_0xD4F7B05C
-                            { component = 11, drawable = 5,  texture = 2 }, -- Torso
+                            { component = 647, drawable = 0,  texture = 0 }, -- Torso
+                            { component = 148,  drawable = 0, texture = 0 }, -- Shirt
+                            { component = 289,  drawable = 0,  texture = 0 }, -- Pants
+                            { component = 200,  drawable = 0, texture = 0 }, -- Shoes
+                            { component = 3,  drawable = 0,  texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    },
+                    female = {
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 4,  texture = 0 }, -- Torso
                             { component = 8,  drawable = 15, texture = 0 }, -- Shirt
-                            { component = 4,  drawable = 6,  texture = 1 }, -- Pants
-                            { component = 6,  drawable = 16, texture = 7 }, -- Shoes
-                            { component = 3,  drawable = 5,  texture = 0 }, -- Arms
+                            { component = 4,  drawable = 25, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 16, texture = 4 }, -- Shoes
+                            { component = 3,  drawable = 4,  texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    }
+                },                       -- Uniform choices
+                [1] = {                            -- Order it will display
+                    label = 'CONSRABLE',              -- Name of outfit that will display in menu
+                    minGrade = 1,                  -- Min grade level that can access? Set to 0 or false for everyone to use
+                    male = {                       -- Male variation
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 647, drawable = 0,  texture = 0 }, -- Torso
+                            { component = 148,  drawable = 0, texture = 0 }, -- Shirt
+                            { component = 289,  drawable = 0,  texture = 0 }, -- Pants
+                            { component = 200,  drawable = 0, texture = 0 }, -- Shoes
+                            { component = 3,  drawable = 0,  texture = 0 }, -- Arms
                         },
                         props = {
                             -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
@@ -841,6 +879,348 @@ Config.Locations = {
                     }
                 },
                 [2] = {              -- Order it will display
+                    label = 'ASI', -- Name of outfit that will display in menu
+                    minGrade = 2,    -- Min grade level that can access? Set to 0 or false for everyone to use
+                    male = {         -- Male variation
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 15, texture = 0 }, -- Torso
+                            { component = 8,  drawable = 58, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 35, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 24, texture = 0 }, -- Shoes
+                            { component = 3,  drawable = 15, texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    },
+                    female = {
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 4,  texture = 0 }, -- Torso
+                            { component = 8,  drawable = 15, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 25, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 16, texture = 4 }, -- Shoes
+                            { component = 3,  drawable = 4,  texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    }
+                },
+                [3] = {              -- Order it will display
+                    label = 'SUB INSPECTOR', -- Name of outfit that will display in menu
+                    minGrade = 3,    -- Min grade level that can access? Set to 0 or false for everyone to use
+                    male = {         -- Male variation
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 15, texture = 0 }, -- Torso
+                            { component = 8,  drawable = 58, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 35, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 24, texture = 0 }, -- Shoes
+                            { component = 3,  drawable = 15, texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    },
+                    female = {
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 4,  texture = 0 }, -- Torso
+                            { component = 8,  drawable = 15, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 25, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 16, texture = 4 }, -- Shoes
+                            { component = 3,  drawable = 4,  texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    }
+                },
+                [4] = {              -- Order it will display
+                    label = 'INSPECTOR', -- Name of outfit that will display in menu
+                    minGrade = 4,    -- Min grade level that can access? Set to 0 or false for everyone to use
+                    male = {         -- Male variation
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 15, texture = 0 }, -- Torso
+                            { component = 8,  drawable = 58, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 35, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 24, texture = 0 }, -- Shoes
+                            { component = 3,  drawable = 15, texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    },
+                    female = {
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 4,  texture = 0 }, -- Torso
+                            { component = 8,  drawable = 15, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 25, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 16, texture = 4 }, -- Shoes
+                            { component = 3,  drawable = 4,  texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    }
+                },
+                [5] = {              -- Order it will display
+                    label = 'ASP', -- Name of outfit that will display in menu
+                    minGrade = 5,    -- Min grade level that can access? Set to 0 or false for everyone to use
+                    male = {         -- Male variation
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 15, texture = 0 }, -- Torso
+                            { component = 8,  drawable = 58, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 35, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 24, texture = 0 }, -- Shoes
+                            { component = 3,  drawable = 15, texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    },
+                    female = {
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 4,  texture = 0 }, -- Torso
+                            { component = 8,  drawable = 15, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 25, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 16, texture = 4 }, -- Shoes
+                            { component = 3,  drawable = 4,  texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    }
+                },
+                [6] = {              -- Order it will display
+                    label = 'SP', -- Name of outfit that will display in menu
+                    minGrade = 6,    -- Min grade level that can access? Set to 0 or false for everyone to use
+                    male = {         -- Male variation
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 15, texture = 0 }, -- Torso
+                            { component = 8,  drawable = 58, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 35, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 24, texture = 0 }, -- Shoes
+                            { component = 3,  drawable = 15, texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    },
+                    female = {
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 4,  texture = 0 }, -- Torso
+                            { component = 8,  drawable = 15, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 25, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 16, texture = 4 }, -- Shoes
+                            { component = 3,  drawable = 4,  texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    }
+                },
+                [7] = {              -- Order it will display
+                    label = 'ADIG', -- Name of outfit that will display in menu
+                    minGrade = 7,    -- Min grade level that can access? Set to 0 or false for everyone to use
+                    male = {         -- Male variation
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 15, texture = 0 }, -- Torso
+                            { component = 8,  drawable = 58, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 35, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 24, texture = 0 }, -- Shoes
+                            { component = 3,  drawable = 15, texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    },
+                    female = {
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 4,  texture = 0 }, -- Torso
+                            { component = 8,  drawable = 15, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 25, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 16, texture = 4 }, -- Shoes
+                            { component = 3,  drawable = 4,  texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    }
+                },
+                [8] = {              -- Order it will display
+                    label = 'DIG', -- Name of outfit that will display in menu
+                    minGrade = 8,    -- Min grade level that can access? Set to 0 or false for everyone to use
+                    male = {         -- Male variation
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 15, texture = 0 }, -- Torso
+                            { component = 8,  drawable = 58, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 35, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 24, texture = 0 }, -- Shoes
+                            { component = 3,  drawable = 15, texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    },
+                    female = {
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 4,  texture = 0 }, -- Torso
+                            { component = 8,  drawable = 15, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 25, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 16, texture = 4 }, -- Shoes
+                            { component = 3,  drawable = 4,  texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    }
+                },
+                [9] = {              -- Order it will display
+                    label = 'AIGP', -- Name of outfit that will display in menu
+                    minGrade = 9,    -- Min grade level that can access? Set to 0 or false for everyone to use
+                    male = {         -- Male variation
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 15, texture = 0 }, -- Torso
+                            { component = 8,  drawable = 58, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 35, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 24, texture = 0 }, -- Shoes
+                            { component = 3,  drawable = 15, texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    },
+                    female = {
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 4,  texture = 0 }, -- Torso
+                            { component = 8,  drawable = 15, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 25, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 16, texture = 4 }, -- Shoes
+                            { component = 3,  drawable = 4,  texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    }
+                },
+                [10] = {              -- Order it will display
+                    label = 'IGP', -- Name of outfit that will display in menu
+                    minGrade = 10,    -- Min grade level that can access? Set to 0 or false for everyone to use
+                    male = {         -- Male variation
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 15, texture = 0 }, -- Torso
+                            { component = 8,  drawable = 58, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 35, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 24, texture = 0 }, -- Shoes
+                            { component = 3,  drawable = 15, texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    },
+                    female = {
+                        clothing = {
+                            -- Components / 0: Face 1: Mask 2: Hair 3: Torso 4: Leg 5: Parachute / bag 6: Shoes 7: Accessory 8: Undershirt 9: Kevlar 10: Badge 11: Torso 2
+                            -- https://docs.fivem.net/natives/?_0xD4F7B05C
+                            { component = 11, drawable = 4,  texture = 0 }, -- Torso
+                            { component = 8,  drawable = 15, texture = 0 }, -- Shirt
+                            { component = 4,  drawable = 25, texture = 0 }, -- Pants
+                            { component = 6,  drawable = 16, texture = 4 }, -- Shoes
+                            { component = 3,  drawable = 4,  texture = 0 }, -- Arms
+                        },
+                        props = {
+                            -- Components / 0: Hats 1: Glasses 2: Ears 6: Watches 7: Bracelets
+                            -- https://docs.fivem.net/natives/?_0x93376B65A266EB5F
+
+                            --    { component = 0, drawable = 0, texture = 0 }, -- Hats
+                        }
+                    }
+                },
+                [11] = {              -- Order it will display
                     label = 'Chief', -- Name of outfit that will display in menu
                     minGrade = 0,    -- Min grade level that can access? Set to 0 or false for everyone to use
                     male = {         -- Male variation
@@ -878,7 +1258,7 @@ Config.Locations = {
                         }
                     }
                 },
-                [3] = {              -- Order it will display
+                [12] = {              -- Order it will display
                     label = 'Chief', -- Name of outfit that will display in menu
                     minGrade = 0,    -- Min grade level that can access? Set to 0 or false for everyone to use
                     male = {         -- Male variation
@@ -964,77 +1344,241 @@ Config.Locations = {
             enabled = false,                            -- Enable? False if you have you're own way for medics to obtain vehicles.
             jobLock = 'police',                        -- Job lock? or access to all police jobs by using false
             zone = {
-                coords = vec3(463.69, -1019.72, 28.1), -- Area to prompt vehicle garage
+                coords = vec3(435.89, -976.31, 25.7), -- Area to prompt vehicle garage
                 range = 5.5,                           -- Range it will prompt from coords above
                 label = '[E] - Access Garage',
                 return_label = '[E] - Return Vehicle'
             },
             spawn = {
                 land = {
-                    coords = vec3(449.37, -1025.46, 28.59), -- Coords of where land vehicle spawn/return
-                    heading = 3.68
+                    coords = vec3(435.89, -976.31, 25.7), -- Coords of where land vehicle spawn/return
+                    heading = 89.26
                 },
                 air = {
-                    coords = vec3(449.29, -981.76, 43.69), -- Coords of where air vehicles spawn/return
-                    heading = 0.01
+                    coords = vec3(449.108, -981.048, 43.691), -- Coords of where air vehicles spawn/return
+                    heading = 200.379
                 }
             },
             options = {
 
                 [0] = {                    -- Job grade as table name
-                    ['police'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
-                        label = 'Police Cruiser',
+                    ['rexon_dmp3'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP3',
                         category = 'land', -- Options are 'land' and 'air'
                     },
-                    ['police2'] = {        -- Car/Helicopter/Vehicle Spawn Code/Model Name
-                        label = 'Police Cruiser #2',
-                        category = 'land', -- Options are 'land' and 'air'
-                    },
-                    ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                    
+                    --[[ ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
                         label = 'Maverick',
                         category = 'air',  -- Options are 'land' and 'air'
-                    },
+                    }, ]]
                 },
-
                 [1] = {                    -- Job grade as table name
-                    ['police'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
-                        label = 'Police Cruiser',
+                    ['17cheyenne2'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD Truck',
                         category = 'land', -- Options are 'land' and 'air'
                     },
-                    ['police2'] = {        -- Car/Helicopter/Vehicle Spawn Code/Model Name
-                        label = 'Police Cruiser #2',
-                        category = 'land', -- Options are 'land' and 'air'
-                    },
-                    ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                    
+                    --[[ ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
                         label = 'Maverick',
                         category = 'air',  -- Options are 'land' and 'air'
-                    },
+                    }, ]]
                 },
-
                 [2] = {                    -- Job grade as table name
-                    ['police'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
-                        label = 'Police Cruiser',
+                    ['rexon_dmp2'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'pd DMP2',
                         category = 'land', -- Options are 'land' and 'air'
                     },
-                    ['police2'] = {        -- Car/Helicopter/Vehicle Spawn Code/Model Name
-                        label = 'Police Cruiser #2',
+                    
+                    --[[ ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'Maverick',
+                        category = 'air',  -- Options are 'land' and 'air'
+                    }, ]]
+                },
+                [3] = {                    -- Job grade as table name
+                    ['pd_c8'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD C8',
                         category = 'land', -- Options are 'land' and 'air'
                     },
+                    
+                    --[[ ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'Maverick',
+                        category = 'air',  -- Options are 'land' and 'air'
+                    }, ]]
+                },
+                [4] = {                    -- Job grade as table name
+                    ['rexon_dmp4'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP4',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    
+                    ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'Maverick',
+                        category = 'air',  -- Options are 'land' and 'air'
+                    },
+                },
+                [5] = {                    -- Job grade as table name
+                    ['rexon_dmp6'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP6',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['r1200rtp'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD Bike',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    
+                    ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'Maverick',
+                        category = 'air',  -- Options are 'land' and 'air'
+                    },
+                },
+                [6] = {                    -- Job grade as table name
+                    ['rexon_dmp7'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP7',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['r1200rtp'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD Bike',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    
+                    ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'Maverick',
+                        category = 'air',  -- Options are 'land' and 'air'
+                    },
+                },
+                [7] = {                    -- Job grade as table name
+                    ['modelsleo'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD Tesla',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['yzfr6'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD R6',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    
+                    ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'Maverick',
+                        category = 'air',  -- Options are 'land' and 'air'
+                    },
+                },
+                [8] = {                    -- Job grade as table name
+                    ['nm_avent'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD Lembo',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    
                     ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
                         label = 'Maverick',
                         category = 'air',  -- Options are 'land' and 'air'
                     },
                 },
 
-                [3] = {                    -- Job grade as table name
-                    ['police'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
-                        label = 'Police Cruiser',
+                [9] = {   
+                    ['nm_avent'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD Lembo',
                         category = 'land', -- Options are 'land' and 'air'
                     },
-                    ['police2'] = {        -- Car/Helicopter/Vehicle Spawn Code/Model Name
-                        label = 'Police Cruiser #2',
+                    
+                    ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'Maverick',
+                        category = 'air',  -- Options are 'land' and 'air'
+                    },
+                },
+
+                [10] = {                    -- Job grade as table name
+                    ['polamggtr'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD GTR',
                         category = 'land', -- Options are 'land' and 'air'
                     },
+                    
+                    ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'Maverick',
+                        category = 'air',  -- Options are 'land' and 'air'
+                    },
+                },
+
+                [11] = {                    -- Job grade as table name
+                    ['rmodgt63police'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD GT63',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    
+                    ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'Maverick',
+                        category = 'air',  -- Options are 'land' and 'air'
+                    },
+                },
+                [12] = {                    -- Job grade as table name
+                    ['17cheyenne2'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD Truck',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['modelsleo'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD Tesla',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['nm_avent'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD Lembo',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['pd_c8'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD C8',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['polamggtr'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD GTR',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['r1200rtp'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD Bike',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['rexon_dmp1'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP1',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['rexon_dmp2'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP2',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['rexon_dmp3'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP3',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['rexon_dmp4'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP4',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['rexon_dmp5'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP5',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['rexon_dmp6'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP6',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['rexon_dmp7'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP7',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['rexon_dmp8'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP8',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['rexon_dmp9'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD DMP9',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['rmodgt63police'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD GT63',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    ['yzfr6'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
+                        label = 'PD R6',
+                        category = 'land', -- Options are 'land' and 'air'
+                    },
+                    
+                    
                     ['polmav'] = {         -- Car/Helicopter/Vehicle Spawn Code/Model Name
                         label = 'Maverick',
                         category = 'air',  -- Options are 'land' and 'air'

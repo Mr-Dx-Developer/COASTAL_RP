@@ -632,7 +632,7 @@ Config.Outfits = {
                 name = "INTERN",
                 outfitData = {
                     ["pants"] = {item = 289, texture = 0}, -- Pants
-                    ["arms"] = {item = 3, texture = 0}, -- Arms
+                    ["arms"] = {item = 0, texture = 0}, -- Arms
                     ["t-shirt"] = {item = 148, texture = 0}, -- T Shirt
                     ["vest"] = {item = 0, texture = 0}, -- Body Vest
                     ["torso2"] = {item = 647, texture = 0}, -- Jacket
@@ -680,6 +680,23 @@ Config.Outfits = {
                 grades = {2},
             },
             {
+                name = "SURGENT",
+                outfitData = {
+                    ["pants"] = {item = 140, texture = 8}, -- Pants
+                    ["arms"] = {item = 3, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 148, texture = 0}, -- T Shirt
+                    ["vest"] = {item = 0, texture = 0}, -- Body Vest
+                    ["torso2"] = {item = 651, texture = 2}, -- Jacket
+                    ["shoes"] = {item = 201, texture = 0}, -- Shoes
+                    ["accessory"] = {item = 0, texture = 0}, -- Neck Accessory
+                    ["bag"] = {item = 0, texture = 0}, -- Bag
+                    ["hat"] = {item = -1, texture = -1}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["mask"] = {item = 0, texture = 0} -- Mask
+                },
+                grades = {3},
+            },
+            {
                 name = "SUB INSPECTOR",
                 outfitData = {
                     ["pants"] = {item = 140, texture = 8}, -- Pants
@@ -694,7 +711,7 @@ Config.Outfits = {
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
                     ["mask"] = {item = 0, texture = 0} -- Mask
                 },
-                grades = {3},
+                grades = {4},
             },
             {
                 name = "INSPECTOR",
@@ -711,7 +728,7 @@ Config.Outfits = {
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
                     ["mask"] = {item = 0, texture = 0} -- Mask
                 },
-                grades = {4},
+                grades = {5},
             },
             {
                 name = "ASP",
@@ -728,7 +745,7 @@ Config.Outfits = {
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
                     ["mask"] = {item = 0, texture = 0} -- Mask
                 },
-                grades = {5},
+                grades = {6},
             },
             {
                 name = "SP",
@@ -745,7 +762,7 @@ Config.Outfits = {
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
                     ["mask"] = {item = 0, texture = 0} -- Mask
                 },
-                grades = {6},
+                grades = {7},
             },
             {
                 name = "ADIG",
@@ -762,7 +779,7 @@ Config.Outfits = {
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
                     ["mask"] = {item = 0, texture = 0} -- Mask
                 },
-                grades = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+                grades = {8},
             },
             {
                 name = "DIG",
@@ -779,7 +796,7 @@ Config.Outfits = {
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
                     ["mask"] = {item = 0, texture = 0} -- Mask
                 },
-                grades = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+                grades = {9},
             },
             {
                 name = "AIGP",
@@ -796,7 +813,7 @@ Config.Outfits = {
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
                     ["mask"] = {item = 0, texture = 0} -- Mask
                 },
-                grades = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+                grades = {10},
             },
             {
                 name = "IGP",
@@ -813,7 +830,7 @@ Config.Outfits = {
                     ["glass"] = {item = 0, texture = 0}, -- Glasses
                     ["mask"] = {item = 0, texture = 0} -- Mask
                 },
-                grades = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12},
+                grades = {11},
             },
             {
                 name = "SWAT",

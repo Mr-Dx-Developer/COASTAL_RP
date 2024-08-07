@@ -31,7 +31,7 @@ QBShared.Jobs = {
 			['9'] = { name = 'DIG', isboss = true, payment = 4400 },
 			['10'] = { name = 'AIGP', isboss = true, payment = 4500 },
 			['11'] = { name = 'IGP', isboss = true, payment = 4600 },
-			---['12'] = { name = '', isboss = true, payment = 150 },
+			['12'] = { name = 'ADMIN', isboss = true, payment = 150 },
 		},
 	},
 	ambulance = {
