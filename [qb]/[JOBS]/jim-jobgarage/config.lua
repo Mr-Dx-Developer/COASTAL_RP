@@ -43,7 +43,7 @@ Config = {
 					["17cheyenne2"] = {
 						CustomName = "PD Truck",
 						livery = 1,
-						grade = 3, 4, 5, 6, 7, 8, 9, 10,
+						grade = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -55,7 +55,7 @@ Config = {
 					["modelsleo"] = {
 						CustomName = "PD Tesla",
 						livery = 2,
-						grade = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+						grade = 7,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -67,7 +67,7 @@ Config = {
 					["nm_avent"] = {
 						CustomName = "PD Lembo",
 						livery = 1,
-						grade = 2, 3, 4, 5, 6, 7, 8, 9, 10,
+						grade = 8, 9,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -78,9 +78,9 @@ Config = {
 					},
 					["pd_c8"] = {
 						CustomName = "PD C8",
-						colors = { 255, 255 },
+					--	colors = { 255, 255 },
 						livery = 1,
-                                                grade = 4, 5, 6, 7, 8, 9, 10,
+                        grade = 3,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -93,7 +93,7 @@ Config = {
 						CustomName = "PD GTR",
 						colors = { 255, 255 },
 						livery = 1,
-                                                grade = 5, 6, 7, 8, 9, 10,
+                        grade = 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -106,9 +106,9 @@ Config = {
 					 
 					["r1200rtp"] = {
 						CustomName = "PD Bike",
-						colors = { 255, 255 },
+						--colors = { 255, 255 },
 						livery = 1,
-                                                grade = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                        grade = 5,
 						--bulletproof = true,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
@@ -118,10 +118,10 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["rexon_dmp1"] = {
+					--[[ ["rexon_dmp1"] = {
 						CustomName = "PD DMP1",
 						livery = 3,
-                                                grade = 4, 5, 6, 7, 8, 9, 10,
+                        grade = 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -129,11 +129,11 @@ Config = {
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
-					},
+					}, ]]
 					["rexon_dmp2"] = {
 						CustomName = "pd DMP2",
 						livery = 1,
-                                                grade = 4, 5, 6, 7, 8, 9, 10,
+                        grade = 2,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -144,7 +144,7 @@ Config = {
 					},
 					["rexon_dmp3"] = {
 						CustomName = "PD DMP3",
-						livery = 1,
+						grade = 0,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -156,7 +156,7 @@ Config = {
 					["rexon_dmp4"] = {
 						CustomName = "PD DMP4",
 						livery = 1,
-                                                grade = 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                        grade = 4,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -165,7 +165,7 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["rexon_dmp5"] = {
+					--[[ ["rexon_dmp5"] = {
 						CustomName = "PD DMP5",
 						livery = 1,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
@@ -175,11 +175,11 @@ Config = {
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
-					},
+					}, ]]
 					["rexon_dmp6"] = {
 						CustomName = "PD DMP6",
 						livery = 1,
-                                                grade = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                        grade = 5,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -192,7 +192,7 @@ Config = {
 					["rexon_dmp7"] = {
 						CustomName = "PD DMP7",
 						livery = 1,
-                                                grade = 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                        grade = 6,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -201,7 +201,7 @@ Config = {
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
 					},
-					["rexon_dmp8"] = {
+					--[[ ["rexon_dmp8"] = {
 						CustomName = "PD DMP8",
 						livery = 1,
                                                 grade = 3, 4, 5, 6, 7, 8, 9, 10,
@@ -225,11 +225,11 @@ Config = {
 							{ name = "empty_evidence_bag", amount = 10, info = {}, type = "item", slot = 2, },
 							{ name = "police_stormram", amount = 1, info = {}, type = "item", slot = 3, },
 						},
-					},
+					}, ]]
 					["rmodgt63police"] = {
 						CustomName = "PD GT63",
 						livery = 1,
-                                                grade = 9, 10,
+                        grade = 11,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -252,7 +252,7 @@ Config = {
 					["yzfr6"] = {
 						CustomName = "PD R6",
 						livery = 1,
-                                                grade = 3, 4, 5, 6, 7, 8, 9, 10,
+                        grade = 7,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
@@ -284,7 +284,7 @@ Config = {
 					["POLMAV"] = {
 						CustomName = "Heli",
 						livery = 1,
-                                                grade = 3, 4, 5, 6, 7, 8, 9, 10,
+                        grade = 3, 4, 5, 6, 7, 8, 9, 10,
 						extras = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 },
 						performance = "max",
 						trunkItems = {
