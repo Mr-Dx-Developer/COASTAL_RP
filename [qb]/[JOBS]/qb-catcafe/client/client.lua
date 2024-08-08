@@ -334,7 +334,7 @@ function AlienEffect()
 end
 
 RegisterNetEvent('qb-catcafe:client:Drink', function(itemName)
-	exports["wsemotes"]:EmoteCommandStart("coffee", 1)
+	exports["rpemotes"]:EmoteCommandStart("coffee", 1)
 	QBCore.Functions.Progressbar("drink_something", "Drinking "..QBCore.Shared.Items[itemName].label.."..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -342,7 +342,7 @@ RegisterNetEvent('qb-catcafe:client:Drink', function(itemName)
 		disableCombat = true,
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove", 1)
-		exports["wsemotes"]:EmoteCommandStart("c", 1)
+		exports["rpemotes"]:EmoteCommandStart("c", 1)
 		TriggerServerEvent("QBCore:Server:RemoveItem", itemName, 1)
 		if QBCore.Shared.Items[itemName].thirst then TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + QBCore.Shared.Items[itemName].thirst) end
 		if QBCore.Shared.Items[itemName].hunger then TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + QBCore.Shared.Items[itemName].hunger) end
@@ -350,7 +350,7 @@ RegisterNetEvent('qb-catcafe:client:Drink', function(itemName)
 end)
 
 RegisterNetEvent('qb-catcafe:client:Drink', function(itemName)
-	exports["wsemotes"]:EmoteCommandStart("coffee", 1)
+	exports["rpemotes"]:EmoteCommandStart("coffee", 1)
 	QBCore.Functions.Progressbar("drink_something", "Drinking "..QBCore.Shared.Items[itemName].label.."..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -358,7 +358,7 @@ RegisterNetEvent('qb-catcafe:client:Drink', function(itemName)
 		disableCombat = true,
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove", 1)
-		exports["wsemotes"]:EmoteCommandStart("c", 1)
+		exports["rpemotes"]:EmoteCommandStart("c", 1)
 		TriggerServerEvent("QBCore:Server:RemoveItem", itemName, 1)
 		if QBCore.Shared.Items[itemName].thirst then TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + QBCore.Shared.Items[itemName].thirst) end
 		if QBCore.Shared.Items[itemName].hunger then TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + QBCore.Shared.Items[itemName].hunger) end
@@ -366,7 +366,7 @@ RegisterNetEvent('qb-catcafe:client:Drink', function(itemName)
 end)
 
 RegisterNetEvent('qb-catcafe:client:DrinkNeko', function(itemName)
-	exports["wsemotes"]:EmoteCommandStart("coffee", 1)
+	exports["rpemotes"]:EmoteCommandStart("coffee", 1)
 	QBCore.Functions.Progressbar("drink_something", "Drinking "..QBCore.Shared.Items[itemName].label.."..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -374,7 +374,7 @@ RegisterNetEvent('qb-catcafe:client:DrinkNeko', function(itemName)
 		disableCombat = true,
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove", 1)
-		exports["wsemotes"]:EmoteCommandStart("c", 1)
+		exports["rpemotes"]:EmoteCommandStart("c", 1)
 		-- exports['ps-buffs']:StaminaBuffEffect(60000, 1.9)
 		-- exports['ps-buffs']:SwimmingBuffEffect(7200000, 1.5)
 		-- exports['ps-buffs']:StaminaBuffEffect(15000, 1.4)
@@ -402,7 +402,7 @@ RegisterNetEvent('qb-catcafe:client:Eat', function(itemName)
 end)
 
 RegisterNetEvent('qb-catcafe:client:Eat2', function(itemName)
-	exports["wsemotes"]:EmoteCommandStart("xmassf", 1)
+	exports["rpemotes"]:EmoteCommandStart("xmassf", 1)
     QBCore.Functions.Progressbar("eat_something", "Eating "..QBCore.Shared.Items[itemName].label.."..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -411,7 +411,7 @@ RegisterNetEvent('qb-catcafe:client:Eat2', function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove", 1)
 		TriggerServerEvent("QBCore:Server:RemoveItem", itemName, 1)
-        exports["wsemotes"]:EmoteCommandStart("c", 1)
+        exports["rpemotes"]:EmoteCommandStart("c", 1)
 		if QBCore.Shared.Items[itemName].thirst then TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + QBCore.Shared.Items[itemName].thirst) end
 		if QBCore.Shared.Items[itemName].hunger then TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + QBCore.Shared.Items[itemName].hunger) end
         TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
@@ -419,7 +419,7 @@ RegisterNetEvent('qb-catcafe:client:Eat2', function(itemName)
 end)
 
 RegisterNetEvent('qb-catcafe:client:Eat5', function(itemName)
-	exports["wsemotes"]:EmoteCommandStart("xmascc", 1)
+	exports["rpemotes"]:EmoteCommandStart("xmascc", 1)
     QBCore.Functions.Progressbar("eat_something", "Eating "..QBCore.Shared.Items[itemName].label.."..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -428,7 +428,7 @@ RegisterNetEvent('qb-catcafe:client:Eat5', function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove", 1)
 		TriggerServerEvent("QBCore:Server:RemoveItem", itemName, 1)
-        exports["wsemotes"]:EmoteCommandStart("c", 1)
+        exports["rpemotes"]:EmoteCommandStart("c", 1)
 		if QBCore.Shared.Items[itemName].thirst then TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + QBCore.Shared.Items[itemName].thirst) end
 		if QBCore.Shared.Items[itemName].hunger then TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + QBCore.Shared.Items[itemName].hunger) end
         TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
@@ -436,7 +436,7 @@ RegisterNetEvent('qb-catcafe:client:Eat5', function(itemName)
 end)
 
 RegisterNetEvent('qb-catcafe:client:Eat4', function(itemName)
-	exports["wsemotes"]:EmoteCommandStart("gingerbread", 1)
+	exports["rpemotes"]:EmoteCommandStart("gingerbread", 1)
     QBCore.Functions.Progressbar("eat_something", "Eating "..QBCore.Shared.Items[itemName].label.."..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -445,7 +445,7 @@ RegisterNetEvent('qb-catcafe:client:Eat4', function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove", 1)
 		TriggerServerEvent("QBCore:Server:RemoveItem", itemName, 1)
-        exports["wsemotes"]:EmoteCommandStart("c", 1)
+        exports["rpemotes"]:EmoteCommandStart("c", 1)
 		if QBCore.Shared.Items[itemName].thirst then TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + QBCore.Shared.Items[itemName].thirst) end
 		if QBCore.Shared.Items[itemName].hunger then TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + QBCore.Shared.Items[itemName].hunger) end
 		exports['ps-buffs']:AddBuff("hacking", 7200000, 1.4)
@@ -455,7 +455,7 @@ RegisterNetEvent('qb-catcafe:client:Eat4', function(itemName)
 end)
 
 RegisterNetEvent('qb-catcafe:client:Eat6', function(itemName)
-	exports["wsemotes"]:EmoteCommandStart("beans", 1)
+	exports["rpemotes"]:EmoteCommandStart("beans", 1)
     QBCore.Functions.Progressbar("eat_something", "Eating "..QBCore.Shared.Items[itemName].label.."..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -464,7 +464,7 @@ RegisterNetEvent('qb-catcafe:client:Eat6', function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove", 1)
 		TriggerServerEvent("QBCore:Server:RemoveItem", itemName, 1)
-        exports["wsemotes"]:EmoteCommandStart("c", 1)
+        exports["rpemotes"]:EmoteCommandStart("c", 1)
 		if QBCore.Shared.Items[itemName].thirst then TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + QBCore.Shared.Items[itemName].thirst) end
 		if QBCore.Shared.Items[itemName].hunger then TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + QBCore.Shared.Items[itemName].hunger) end
         TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
@@ -472,7 +472,7 @@ RegisterNetEvent('qb-catcafe:client:Eat6', function(itemName)
 end)
 
 RegisterNetEvent('qb-catcafe:client:Eat3', function(itemName)
-	exports["wsemotes"]:EmoteCommandStart("hotdog", 1)
+	exports["rpemotes"]:EmoteCommandStart("hotdog", 1)
     QBCore.Functions.Progressbar("eat_something", "Eating "..QBCore.Shared.Items[itemName].label.."..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -481,7 +481,7 @@ RegisterNetEvent('qb-catcafe:client:Eat3', function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove", 1)
 		TriggerServerEvent("QBCore:Server:RemoveItem", itemName, 1)
-        exports["wsemotes"]:EmoteCommandStart("c", 1)
+        exports["rpemotes"]:EmoteCommandStart("c", 1)
 		if QBCore.Shared.Items[itemName].thirst then TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + QBCore.Shared.Items[itemName].thirst) end
 		if QBCore.Shared.Items[itemName].hunger then TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + QBCore.Shared.Items[itemName].hunger) end
         TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
