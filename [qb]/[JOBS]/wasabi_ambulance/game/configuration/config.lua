@@ -53,9 +53,9 @@ Config.ambulanceJobs = {       -- Jobs that are considered ambulance jobs (If un
 Config.MuteDeadPlayers = false -- If a player is dead, should he be muted?
 
 -- Logs
-Config.DeathLogs = true  -- Enable death logs via Discord webhook?(Set up in configuration/deathlogs.lua)
-Config.ReviveLogs = true -- Enable admin revive logs via Discord webhook? (Linked specifically to admin revives / will not log ALL revives)
-Config.LogIPs = true     -- If Config.DeathLogs/Config.ReviveLogs enabled, do you want to logs IP addresses as well?
+Config.DeathLogs = false  -- Enable death logs via Discord webhook?(Set up in configuration/deathlogs.lua)
+Config.ReviveLogs = false -- Enable admin revive logs via Discord webhook? (Linked specifically to admin revives / will not log ALL revives)
+Config.LogIPs = false     -- If Config.DeathLogs/Config.ReviveLogs enabled, do you want to logs IP addresses as well?
 
 -- Stretcher Settings
 Config.EnableStretcher = true     -- Enable stretcher system?
@@ -140,15 +140,22 @@ Config.AmbulanceOffsets = {
     }
 }
 
-Config.GPSBlips = {  -- Warning: May experience high usage when at high player count. Possibly turn up refreshrate as remedy!
-    enabled = true, -- Enabled?
-    refreshrate = 1, -- In Seconds Note: it could impact the server performance
-    item = false,    -- Item required? Note: You have to use it then
-    blip = {
-        sprite = 1,
+Config.GPSBlips = {
+    enabled = true,     -- Enabled?
+    item = false,        -- Item required? Note: You have to use it then
+    sprites = {
+        none = 1,        -- Blip for when not in a vehicle
+        car = 56,        -- Blip for when in vehicles
+        bike = 226,      -- Blip for when on bikes
+        boat = 427,      -- Blip for when in boats
+        helicopter = 43, -- Blip for when in helicopters
+        plane = 307,     -- Blip for when in planes
+    },
+    settings = {
         color = 3,
-        scale = 1.0,
+        scale = 0.75,
         short = false,
+        category = 7
     }
 }
 
@@ -159,11 +166,6 @@ Config.GPSBlips = {  -- Warning: May experience high usage when at high player c
     distress = { x = 0.5, y = 0.86 },
 }]]
 -- This is obsolete now, if you wish to use 3D text while dead still, see https://docs.wasabiscripts.com
-Config.MessagePosition = {
-    respawn = { x = 0.5, y = 0.8 },
-    bleedout = { x = 0.5, y = 0.8 },
-    distress = { x = 0.5, y = 0.86 },
-}
 
 -- Dead animation
 Config.DeathAnimation = {
@@ -173,7 +175,7 @@ Config.DeathAnimation = {
 
 -- Knockout Feature (If you want players to be knocked out)
 Config.KnockoutFeature = {
-    enabled = true,           -- Enable knockout features? (player's can knock eachother out using fist fighting)
+    enabled = false,           -- Enable knockout features? (player's can knock eachother out using fist fighting)
     healthForKnockout = 150,   -- At what HP will player knockout from fist fighting
     fistDamageModifier = 0.25, -- How much damage will fist cause? (1.0 is default, 0.5 is half as strong, etc)
     duration = 7 * seconds     -- Time to be knocked out when occurs?
@@ -184,10 +186,10 @@ Config.LastStand = true                -- Enable a 2 stage death. Where initiall
 Config.DisableLastStandCrawl = false   -- Disable crawling within last stand
 Config.LastStandTickTime = 5 * seconds -- Everytime this time passes while in last stand,
 ----------------------------------------- a random amount(8-15) amount of health will be deducted to similuate bleeding out
-Config.DisableHeadShotKill = false     -- When enabled, a player who is shot in the head will still go into last stand (Recommended to leave false)
+Config.DisableHeadShotKill = true     -- When enabled, a player who is shot in the head will still go into last stand (Recommended to leave false)
 Config.StayInVehicleOnDeath = true
 -- Live injury
-Config.EnableLiveInjury = false                             -- Enable live injury system?
+Config.EnableLiveInjury = true                             -- Enable live injury system?
 
 Config.DamageDetectThreshold = { armour = 5, health = 10 } -- Damage threshold to detect injury (Default: {armour = 5, health = 10})
 
@@ -277,14 +279,14 @@ Config.mInsurance = {
     checkInDiscount = 500 --The amount to deduct from the configured check-price if player has insurance
 }
 
-Config.phoneDistress = 'lb'        -- Options: 'gks' (GKS Phone - ESX ONLY) / 'qs' (qs-smartphone) / 'd-p' (d-phone) / 'lb' (lb-phone) WILL REPLACE BUILT IN DISPATCH WITH PHONE DISPATCH / Add additonal dispatch in client/cl_customize.lua
+Config.phoneDistress = false        -- Options: 'gks' (GKS Phone - ESX ONLY) / 'qs' (qs-smartphone) / 'd-p' (d-phone) / 'lb' (lb-phone) WILL REPLACE BUILT IN DISPATCH WITH PHONE DISPATCH / Add additonal dispatch in client/cl_customize.lua
 Config.customCarlock = false        -- If you use wasabi_carlock OR qb-carlock(Or want to add your own key system to wasabi_bridge/customize/cl_customize.lua)
 Config.MythicHospital = false       -- If you use that old injury script by mythic. (Added per request to reset injuries on respawn)
 Config.AdvancedParking = false      -- If you use AdvancedParking (Deletes vehicles with their exports)
-Config.FuelSystem = 'legacy'           -- 'legacy' (LegacyFuel) / 'ox' (ox_fuel) / 'default'
+Config.FuelSystem = false           -- 'legacy' (LegacyFuel) / 'ox' (ox_fuel) / 'default'
 
 Config.jobMenu = 'F6'               -- Default job menu key
-Config.billingSystem = true        -- Current options: 'esx' (For esx_billing) / 'qb' (For qbcore users) 'okok' (For okokBilling) / 'pefcl' (For NPWD billing system) (Easy to add more in editable client - SET TO false IF UNDESIRED) or of course false to disable
+Config.billingSystem = false        -- Current options: 'esx' (For esx_billing) / 'qb' (For qbcore users) 'okok' (For okokBilling) / 'pefcl' (For NPWD billing system) (Easy to add more in editable client - SET TO false IF UNDESIRED) or of course false to disable
 Config.targetSystem = true          -- Target system for targetting players, medbags, and stretcher(If disabled with replace with menus/3D text) (Compatible out of the box with qTarget, qb-target, and ox_target)
 
 Config.RespawnTimer = 5 * minutes   -- Time before optional respawn
@@ -297,7 +299,7 @@ Config.ChargeForRevive = {
 }
 
 Config.removeItemsOnDeath = false -- Must have supported inventory or add function to sv_customize.lua OR add inventory to wasabi_bridge.
-Config.Inventory = 'ox'           -- NOW USES WSB.INVENTORY FUNCTION
+--Config.Inventory = 'ox'           -- NOW USES WSB.INVENTORY FUNCTION
 
 Config.keepItemsOnDeath = {
     enabled = false,
@@ -338,7 +340,7 @@ Config.EMSItems = {
         item = 'medikit',       -- Item used for healing
         duration = 5 * seconds, -- Time to use
         healBleed = true,       -- Heal bleed?
-        remove = false           -- Remove item when using?
+        remove = true           -- Remove item when using?
     },
     sedate = {
         item = 'sedative',      -- Item used to sedate players temporarily
@@ -350,13 +352,13 @@ Config.EMSItems = {
 
 Config.ReviveRewards = {
     enabled = false,           -- Enable cash rewards for reviving
-    paymentAccount = 'cash', -- If you have old ESX 1.1 you may need to switch to 'cash'
-    no_injury = 2000,         -- If above enabled, how much reward for fully treated patient with no injury in diagnosis
-    burned = 1500,            -- How much if player is burned and revived without being treated
-    beat = 1000,              -- So on, so forth
-    stabbed = 500,
-    bleedout = 500,          -- NEW
-    shot = 300,
+    paymentAccount = 'money', -- If you have old ESX 1.1 you may need to switch to 'cash'
+    no_injury = 4000,         -- If above enabled, how much reward for fully treated patient with no injury in diagnosis
+    burned = 3000,            -- How much if player is burned and revived without being treated
+    beat = 2500,              -- So on, so forth
+    stabbed = 2000,
+    bleedout = 2000,          -- NEW
+    shot = 1500,
 }
 
 Config.ReviveHealth = { -- How much health to deduct for those revived without proper treatment
@@ -730,6 +732,13 @@ Config.Locations = {
         },
     },
 }
+
 --[[ IMPORTANT THIS COULD BREAK SOMETHING ]]
 --
 Config.DisableDeathAnimation = false -- Really, really, REALLY do not recommend setting this to true and it was added per request
+
+
+-- Don't touch the options between these comments unless there is reason --
+Config.DisableSpawnManagerExecute = false -- If you experience issues with multicharacters or spawning, you can try setting this to true.
+Config.CombatLogCheckWait = 3 * seconds -- If you experience anti combat-log without death NUI, try increasing by a second or two.
+-- Don't touch the options between these comments unless there is reason --
