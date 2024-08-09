@@ -213,9 +213,9 @@ Config.handcuff = {                             -- Config in regards to cuffing
 }
 
 Config.policeJobs = { -- Police jobs
-    'police',
+    'police'
     --    'sheriff'
-    'reporter'
+   -- 'reporter'
 }
 
 Config.GPSBlips = {
