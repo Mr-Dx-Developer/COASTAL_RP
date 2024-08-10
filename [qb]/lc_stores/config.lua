@@ -941,6 +941,17 @@ Config.market_categories = {
 				['amount_to_delivery'] = 2,
 				['img'] = 'radio.png',
 			},
+			['drill'] = {
+				['name'] = "Drill",
+				['price_to_customer'] = 5000,
+				['price_to_customer_min'] = 100,
+				['price_to_customer_max'] = 400,
+				['price_to_export'] = 150,
+				['price_to_owner'] = 100,
+				['amount_to_owner'] = 2,
+				['amount_to_delivery'] = 2,
+				['img'] = 'drill.png',
+			},
 			--[[ ['laptop'] = {
 				['name'] = "Laptop",
 				['price_to_customer'] = 700,
