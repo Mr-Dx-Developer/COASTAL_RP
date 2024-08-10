@@ -43,32 +43,32 @@ return {
         },
         ['Hospital Lift'] = {
             {
-                number = -1, -- floor
-                name = 'Lift -1', -- or false
-                code = '147', -- restrict floor by password
-                pos = vector3(-419.006, -344.933, 24.231),
-            },
-            {
                 number = 0, -- floor
                 name = 'Lift 0', -- or false
                 code = '147', -- restrict floor by password
-                pos = vector3(-452.665, -288.458, 34.949),
+                pos = vector3(-419.006, -344.933, 24.231),
             },
             {
                 number = 1, -- floor
                 name = 'Lift 1', -- or false
                 code = '147', -- restrict floor by password
-                pos = vector3(-493.527, -327.286, 42.307),
+                pos = vector3(-452.665, -288.458, 34.949),
             },
             {
                 number = 2, -- floor
                 name = 'Lift 2', -- or false
                 code = '147', -- restrict floor by password
-                pos = vector3(-490.644, -327.488, 69.505),
+                pos = vector3(-493.527, -327.286, 42.307),
             },
             {
                 number = 3, -- floor
-                name = 'Lift Floor', -- or false
+                name = 'Lift 3', -- or false
+                code = '147', -- restrict floor by password
+                pos = vector3(-490.644, -327.488, 69.505),
+            },
+            {
+                number = 4, -- floor
+                name = 'Lift 4', -- or false
                 code = '147', -- restrict floor by password
                 pos = vector3(-444.056, -332.382, 78.168),
             },
