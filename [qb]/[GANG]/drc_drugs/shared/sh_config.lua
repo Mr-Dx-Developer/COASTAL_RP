@@ -11,7 +11,7 @@ Config.Bob74_ipl = true -- Loads lab interiors
 Config.PoliceJobs = { 'police', 'sheriff' }
 Config.NotificationType = "ox_lib" -- Notifications | types: ESX, ox_lib, qbcore
 Config.Progress = "ox_lib" -- ProgressBar | types: progressBars, ox_lib, qbcore
-Config.Clothing = "custom" -- fivem-appearance, esx_skin, qb-clothing, custom | change in client/cl_Utils.lua | GetSkin = function() | ApplySkin = function()
+Config.Clothing = "illenium-appearance" -- illenium-appearance, esx_skin, qb-clothing, custom | change in client/cl_Utils.lua | GetSkin = function() | ApplySkin = function()
 Config.TextUI = "ox_lib" -- TextUIs | types: esx, ox_lib, luke
 Config.Input = "ox_lib" -- Input | types: ox_lib, qb-input
 Config.Context = "ox_lib" -- Context | types: ox_lib, qbcore

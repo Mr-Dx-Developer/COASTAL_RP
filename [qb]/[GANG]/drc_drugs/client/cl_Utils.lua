@@ -175,8 +175,8 @@ end)
 --Appearance
 local appearance = nil
 GetSkin = function()
-    if Config.Clothing == "fivem-appearance" then
-        appearance = exports['fivem-appearance']:getPedAppearance(PlayerPedId())
+    if Config.Clothing == "illenium-appearance" then
+        appearance = exports['illenium-appearance']:getPedAppearance(PlayerPedId())
     elseif Config.Clothing == "esx_skin" then
         TriggerEvent('skinchanger:getSkin', function(skin)
             appearance = skin
@@ -190,8 +190,8 @@ GetSkin = function()
 end
 
 ApplySkin = function()
-    if Config.Clothing == "fivem-appearance" then
-        exports['fivem-appearance']:setPedAppearance(PlayerPedId(), appearance)
+    if Config.Clothing == "illenium-appearance" then
+        exports['illenium-appearance']:setPedAppearance(PlayerPedId(), appearance)
     elseif Config.Clothing == "esx_skin" then
         TriggerEvent('skinchanger:loadSkin', appearance)
     elseif Config.Clothing == "qb-clothing" then
