@@ -2,7 +2,7 @@ return {
 	Weapons = {
 
 		-- Custom Weapons
-		['WEAPON_AK47'] 		 	= { label = 'AK-47', 		    weight = 1000,	durability = 0.0,	ammoname = 'ammo-rifle',},  
+		
 		['WEAPON_DE'] 					= { label = 'Desert Eagle',	    weight = 1000,	durability = 0.0,	ammoname = 'ammo-45',},     
 		['WEAPON_FNX45'] 			= { label = 'FN FNX-45', 	    weight = 1000,	durability = 0.0,	ammoname = 'ammo-45',},     
 		['WEAPON_GLOCK17'] 		= { label = ' Glock 17',      weight = 1000,	durability = 0.0,	ammoname = 'ammo-45',},     
@@ -10,25 +10,20 @@ return {
 		['WEAPON_M9'] 			= { label = 'Beretta M9A3',     weight = 1000,	durability = 0.0,	ammoname = 'ammo-45',},     
 		['WEAPON_M70'] 				= { label = 'M70', 			    weight = 1000,	durability = 0.0,	ammoname = 'ammo-rifle',},  
 		['WEAPON_M1911'] 			= { label = 'M1911', 		    weight = 1000,	durability = 0.0,	ammoname = 'ammo-45',},     
-		['WEAPON_UZI'] 					= { label = 'UZI', 			    weight = 1000,	durability = 0.0,	ammoname = 'ammo-9',},      
+		
 		['WEAPON_MAC10'] 				= { label = 'MAC-10', 		    weight = 1000,	durability = 0.0,	ammoname = 'ammo-9',},      
 		['WEAPON_MOSSBERG'] 	= { label = 'Mossberg 500',     weight = 1000,	durability = 0.0,	ammoname = 'ammo-shotgun',},
 		['WEAPON_REMINGTON'] 			= { label = 'Remington 870',    weight = 1000,	durability = 0.0,	ammoname = 'ammo-shotgun',},
-		['WEAPON_SCARH'] 		= { label = 'PD SCAR-H', 	    weight = 1000,	durability = 0.0,	ammoname = 'ammo-rifle',},  
+		
 		['WEAPON_SHIV'] 				= { label = 'Shiv', 		    weight = 1000,	durability = 0.0,	},                          
-		['WEAPON_AR15'] 			= { label = 'PD AR-15', 	    weight = 1000,	durability = 0.0,	ammoname = 'ammo-rifle',},  
-		['WEAPON_MK14'] 			= { label = 'PD MK14', 		    weight = 1000,	durability = 0.0,	ammoname = 'ammo-sniper',}, 
-		['WEAPON_HUNTINGRIFLE'] 		 = { label = 'Hunting Rifle',    weight = 1000,	durability = 0.0,	ammoname = 'ammo-sniper',}, 
-		['WEAPON_KATANA'] 			= { label = 'Katana', 		    weight = 1000,	durability = 0.0,	},      		
-		['WEAPON_SLEDGEHAMMER'] 	   = { label = 'Sledge Hammer',    weight = 1000,	durability = 0.0,	},      		
-		['WEAPON_MP9'] 			          	= { label = 'MP9', 				weight = 1000,	durability = 0.0,	ammoname = 'ammo-9',},     
+		
 		['WEAPON_M110'] 		           	 = { label = 'M110', 			weight = 1000,	durability = 0.0,	ammoname = 'ammo-sniper',},
-		['WEAPON_HK416'] 		           	 = { label = 'HK-416', 			weight = 1000,	durability = 0.0,	ammoname = 'ammo-rifle',}, 
+		
 		['WEAPON_AK74'] 		 	= { label = 'AK-74', 		    weight = 1000,	durability = 0.0,	ammoname = 'ammo-rifle',}, 
 		['WEAPON_AKS74'] 		 	= { label = 'AK-S74', 		    weight = 1000,	durability = 0.0,	ammoname = 'ammo-rifle',}, 
-		['WEAPON_GLOCK18C'] 	= { label = 'Glock 18C', 	    weight = 1000,	durability = 0.0,	ammoname = 'ammo-45',},    
+		
 		['WEAPON_GLOCK22'] 			  = { label = 'Glock 22',         weight = 1000,	durability = 0.0,	ammoname = 'ammo-45',},    
-		['WEAPON_MP5'] 				 	= { label = 'H&K MP5', 		    weight = 1000,	durability = 0.0,	ammoname = 'ammo-9',},     
+		
 		['WEAPON_COLBATON'] 			= { label = 'PD Baton',         weight = 1000,	durability = 0.0},
 	
 		--CUSTOM knifes
@@ -187,12 +182,12 @@ return {
             ammoname = 'ammo-9'
         },
 
-		['WEAPON_GLOCK18C'] = {
+		--[[ ['WEAPON_GLOCK18C'] = {
             label = 'GLOCK 18C',
             weight = 2500,
             durability = 0.1,
             ammoname = 'ammo-9'
-        },
+        }, ]]
 
 		['WEAPON_GLOCK19S'] = {
             label = 'GLOCK 19 SWITCH',
@@ -838,7 +833,7 @@ return {
 		['WEAPON_SMG'] = {
 			label = 'PD SMG',
 			weight = 3084,
-			durability = 0.8,
+			durability = 0.05,
 			ammoname = 'ammo-9'
 		},
 
@@ -1167,7 +1162,7 @@ return {
 			ammoname = 'ammo-45-pd',
 		},
 		['WEAPON_GLOCK18C'] = {
-			label = 'PD G18C',
+			label = 'PD GLOCK 18C',
 			weight = 7000,
 			durability = 0.010,
 			ammoname = 'ammo-45-pd',
