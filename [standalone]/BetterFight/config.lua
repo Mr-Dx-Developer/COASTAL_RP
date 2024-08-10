@@ -44,7 +44,7 @@ Config.UseCustomWeaponDamages = true -- Disable/Enable custom weapon damages.
 
 
 --RECOIL
-Config.UseRecoil = true -- Turn on/off recoil.
+Config.UseRecoil = false -- Turn on/off recoil.
 Config.RightLeftRecoil = true -- Turn on/off right left movement recoil.
 Config.RightLeftRecoilRandomiser = true --If this is set to true then the recoil inside a vehicle will not trigger all the time. The value below will set the chance if true.
 Config.RightLeftRecoilRandomiserChance = 50 --This is a percentage out of 100. The higher it is, the higher the chance of recoil kicking inside a vehicle.
