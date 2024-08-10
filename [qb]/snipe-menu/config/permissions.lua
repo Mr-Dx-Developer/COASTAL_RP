@@ -37,17 +37,17 @@ Config.Permissions = {
     ["discord:839029240028201020"] = "god",   --  Bug x
   
   
-    ["YJR13040"] = "admin",   --- tutulahmed  --- discord:721696179754238004
-    ["MUP67229"] = "admin",   --- sketch_01   --- discord:1012310576975843380
-    ["DJH35594"] = "admin",   --- ayan_ahmed_naim   --- discord:1064398406061150329 
-    ["SBB68358"] = "admin",   --- anirban   --- discord:727766435203514470 
+  --  ["YJR13040"] = "admin",   --- tutulahmed  --- discord:721696179754238004
+  --  ["MUP67229"] = "admin",   --- sketch_01   --- discord:1012310576975843380
+  --  ["DJH35594"] = "admin",   --- ayan_ahmed_naim   --- discord:1064398406061150329 
+  --  ["SBB68358"] = "admin",   --- anirban   --- discord:727766435203514470 
 
 
     
-    ["steam:1234"] = "god",
-    ["124584938326312"] = "god", -- discord roles (copy the role id and paste it here) (If you want to use the discord roles, you need to add the bot token and server id in sv_perms.lua at the top)
-    ["XY123456"] = "god", -- citizenid for qbcore
-    ["char1:12334"] = "god", -- charid for ESX
+ --   ["steam:1234"] = "god",
+ --   ["124584938326312"] = "god", -- discord roles (copy the role id and paste it here) (If you want to use the discord roles, you need to add the bot token and server id in sv_perms.lua at the top)
+ --   ["XY123456"] = "god", -- citizenid for qbcore
+ --   ["char1:12334"] = "god", -- charid for ESX
 
     -- ["license:6d3b6254a50416697dcaa91878e2eb03d9112302"] = {"mod", "admin"}, -- the role god, admin or mod should be the key from Config.GodRoles which means the values that are added in square brackets.
     -- ["license:1234"] = "admin",
