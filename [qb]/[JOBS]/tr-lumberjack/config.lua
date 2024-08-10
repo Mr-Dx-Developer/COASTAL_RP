@@ -78,7 +78,7 @@ Config.Sell = {
 }
 
 Config.Axe = {
-    [``] = {}
+    [`weapon_battleaxe`] = {}
 }
 
 Config.TreeLocations = {
