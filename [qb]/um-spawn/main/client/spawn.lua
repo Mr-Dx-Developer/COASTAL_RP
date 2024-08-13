@@ -41,7 +41,7 @@ local function setPlace(data)
     elseif placeType == 'rentApartment' then
         OnPlayerLoaded()
         TriggerServerEvent("ps-housing:server:createNewApartment", data.label)
-        TriggerServerEvent("apartments:server:CreateApartment", data.type, data.label)
+        TriggerServerEvent("apartments:server:CreateApartment", data.type, data.label, true)
         TriggerServerEvent('qbx_properties:server:apartmentSelect', tonumber(data.type))
         TriggerServerEvent("Housing:server:CreateApartment", data.type)
         Debug('Rent Apartment: ' .. data.type)
