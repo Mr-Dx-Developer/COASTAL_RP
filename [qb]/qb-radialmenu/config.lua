@@ -11,14 +11,15 @@ Config.MenuItems = {
         title = 'Citizen',
         icon = 'user',
         items = {
-            {
+            --[[ {
                 id = 'givenum',
                 title = 'Give Contact Details',
                 icon = 'address-book',
                 type = 'client',
                 event = 'lb-phone:client:GiveContactDetails',
                 shouldClose = true
-            }, {
+            }, ]] 
+            {
             id = 'getintrunk',
             title = 'Get In Trunk',
             icon = 'car',
