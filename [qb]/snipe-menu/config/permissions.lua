@@ -35,6 +35,8 @@ Config.Permissions = {
     ["discord:849340844178669628"] = "god",   --  lord8byte#0
 
     ["discord:839029240028201020"] = "god",   --  Bug x
+
+     ["discord:731739994091159572"] = "god",   --  Bug x
   
   
   --  ["YJR13040"] = "admin",   --- tutulahmed  --- discord:721696179754238004

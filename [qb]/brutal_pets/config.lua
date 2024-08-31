@@ -12,7 +12,7 @@ More informations about the script:   https://docs.brutalscripts.com
 Config = {
     Core = 'QBCORE',  -- ESX / QBCORE | Other core setting on the 'core' folder and the client and server utils.lua
     BrutalNotify = false, -- Buy here: (4€+VAT) https://store.brutalscripts.com | Or set up your own notify >> cl_utils.lua
-    Target = '3dtext', -- '3dtext' / 'oxtarget' / 'qb-target'
+    Target = 'oxtarget', -- '3dtext' / 'oxtarget' / 'qb-target'
     LocallyInvisible = true, -- true or false | If your ANTICHEAT ban the player with 'Invisible' reason, set to false!
     AfkZoomDisabled = true,  -- true or false
     BallProp = 'w_am_baseball',
