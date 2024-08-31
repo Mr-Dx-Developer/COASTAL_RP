@@ -15,7 +15,7 @@ um.property = {
     },
     houses = {
         status = true, -- If you want to show the house system, set it to true.
-        script = 'qb', -- qb, qbx , ps , qs , nolag, bcs
+        script = 'ps', -- qb, qbx , ps , qs , nolag, bcs
     }
 }
 
@@ -40,7 +40,7 @@ um.main = {
         cutScene = true,     -- If you want to show the cutscene, set it to true.
     },
     ped = {
-        status = false, -- Make it true if you want your character to see and walk the path
+        status = true, -- Make it true if you want your character to see and walk the path
     },
     bookmark = {
         status = true,    -- If you want to show the bookmark system, set it to true.
@@ -85,7 +85,7 @@ um.coords = {
         text = 'Hospital Ave'
     },
     ['police'] = {
-        coords = vector4(400.46, -979.54, 29.39, 270.35),
+        coords = vector4(411.44, -965.05, 29.47, 60.03),
         street = 'Sinner St Atlee St',
         text = 'Police Station'
     },
